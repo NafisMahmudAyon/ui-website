@@ -6825,7 +6825,7 @@ console.log(AccordionCodeContent);
 				</AccordionDetails>
 			</Accordion>
 
-			<Block>
+			<Block style="mt-6">
 				<Code languages="jsx">
 					<CodeHeader></CodeHeader>
 					<CodeBody>{AccordionCodeContent}</CodeBody>

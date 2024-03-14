@@ -91,10 +91,10 @@ const LeftSideBar = () => {
 				<Accordion key={category} active={true} style="mb-2">
 					<AccordionHeader
 						iconLibrary="bootstrap-icons"
-						icon='<i class="bi bi-caret-right-fill"></i>'
+						icon='bi-caret-right-fill'
 						iconStyle=""
 						toggleIconStyle={``}
-						toggleIcon='<i class="bi bi-caret-down"></i>'
+						toggleIcon='bi-caret-down'
 						iconPosition="before"
 						style="hover:bg-hoverBgColor p-1 rounded-md font-mono"
 						activeStyle="">
