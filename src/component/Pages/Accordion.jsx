@@ -103,7 +103,7 @@ Content for Section 2
 					list={accordionFeatures}
 					style=""
 					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='<i class="fa-solid fa-circle-dot"></i>'
+					icon='fa-circle-dot'
 					iconLibrary={"font-awesome"}
 					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
 				/>
@@ -125,7 +125,7 @@ Content for Section 2
 				list={accordionProps}
 				style=""
 				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='<i class="fa-solid fa-circle-dot"></i>'
+				icon='fa-circle-dot'
 				iconLibrary={"font-awesome"}
 				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
 			/>
@@ -153,7 +153,7 @@ Content for Section 2
 					list={accordionDetailsFeatures}
 					style=""
 					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='<i class="fa-solid fa-circle-dot"></i>'
+					icon='fa-circle-dot'
 					iconLibrary={"font-awesome"}
 					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
 				/>
@@ -169,7 +169,7 @@ Content for Section 2
 				list={accordionHeaderProps}
 				style=""
 				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='<i class="fa-solid fa-circle-dot"></i>'
+				icon='fa-circle-dot'
 				iconLibrary={"font-awesome"}
 				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
 			/>
@@ -197,7 +197,7 @@ Content for Section 2
 					list={accordionHeaderFeatures}
 					style=""
 					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='<i class="fa-solid fa-circle-dot"></i>'
+					icon='fa-circle-dot'
 					iconLibrary={"font-awesome"}
 					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
 				/>
@@ -213,7 +213,7 @@ Content for Section 2
 				list={accordionDetailsProps}
 				style=""
 				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='<i class="fa-solid fa-circle-dot"></i>'
+				icon='fa-circle-dot'
 				iconLibrary={"font-awesome"}
 				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
 			/>
