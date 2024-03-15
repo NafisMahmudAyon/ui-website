@@ -24,7 +24,7 @@ import ImageGallery from "./component/Pages/ImageGallery";
 import Grid from "./component/Pages/Grid";
 import Flex from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
-import PlayGround from "./component/Pages/PlayGround";
+import PlayGround from "./component/PlayGround/PlayGround";
 
 function App() {
 	return (
