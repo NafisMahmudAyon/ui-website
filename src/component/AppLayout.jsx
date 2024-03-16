@@ -29,7 +29,7 @@ const AppLayout = ({ children }) => {
 				} `}></div>
 			<div className="flex pt-[73px] flex-nowrap flex-col md:flex-row lg:flex-row relative h-screen overflow-y-scroll">
 				<div
-					className={`fixed top-[73px] -left-[300px] w-[300px] transition-all duration-300 ease-in-out  pl-3 pr-5  border-r bg-darkBgColor text-darkTextColor z-10 overflow-y-scroll h-[calc(100vh_-_73px)] ${
+					className={`fixed top-[73px] -left-[300px] w-[300px] transition-all duration-300 ease-in-out  pl-3 pr-5  border-r bg-darkBgColor text-darkTextColor z-50 overflow-y-scroll h-[calc(100vh_-_73px)] ${
 						isSidebarOpen ? "left-0" : ""
 					} `}>
 					<LeftSideBar />

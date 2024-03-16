@@ -6,7 +6,7 @@ import {
 	Text,
 	
 } from "landing-page-ui";
-import { TabsNav, Tabs, Tab, TabPanel } from "ui";
+import { TabsNav, Tabs, Tab, TabPanel } from "landing-page-ui";
 import React, { useState } from "react";
 import {
 	bootstrapIcons,
@@ -142,61 +142,87 @@ const PlayTabs = () => {
 
 	
 
-	const accordionStyle = {
-		accordionStyle: "p-4 rounded-lg border border-gray-300 dark:bg-gray-800 ",
-		accordionHeaderStyle:
-			"bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-t-lg dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer ",
-		accordionHeaderDeactivateStyle: "opacity-50 cursor-not-allowed ",
-		accordionHeaderLabelStyle: "text-textColor dark:text-darkTextColor ",
-		accordionHeaderActiveStyle: "!bg-blue-200 dark:bg-slate-800 ",
-		accordionHeaderIconStyle: "text-red-500 dark:text-yellow-500 mr-2 ",
-		accordionHeaderTextStyle: "text-textColor dark:text-darkTextColor ",
-		accordionDetailsStyle:
-			"bg-gray-100 px-4 py-2 rounded-b-lg dark:bg-gray-900 border-x border-b ",
-		accordionDetailsTextStyle: "text-textColor dark:text-darkTextColor ",
+	const tabsStyle = {
+		tabsStyle: "w-full ",
+		tabsNavWrapStyle: "text-sm ",
+		tabsPanelWrapStyle:
+			"px-4 py-2 bg-gray-200 text-gray-800 mt-2 shadow-md rounded-md  ",
+		tabsNavStyle: "bg-gray-300 flex justify-between text-gray-800 py-1 px-1",
+		tabsNavIconButtonStyle: "mx-1 ",
+		tabsNavButtonStyle: "px-2 rounded-sm bg-blue-200 text-gray-800 py-1 ",
+		tabsNavPrevButtonStyle: "text-red-900 whitespace-nowrap",
+		tabsNavNextButtonStyle: "text-blue-900 whitespace-nowrap",
+		tabsNavActiveTabStyle: "bg-white rounded-sm shadow-md",
+		tabsNavDisabledStyle: "!text-white !bg-red-500",
+		tabsTabStyle: "px-4 py-1",
+		tabsTabPanelStyle:
+			"",
 	};
 
-// 	const AccordionCodeContent = `
-// <Accordion
-//   tagName="${tabsOrientationSelect}"
-//   ${accordionActiveStatus ? "active={true}" : ""}
-//   ${!accordionActiveStatus ? "deactivate={false}" : ""}
-//   style="${accordionStyle.accordionStyle}"
-// >
-//   <AccordionHeader
-//     tagName="${accordionHeaderSelectTagName}"
-//     icon="${accordionHeaderIconSelect}"
-//     iconLibrary="${accordionHeaderIconLibrarySelect}"
-//     iconPosition="${accordionHeaderIconPositionSelect}"
-//     toggleIcon="${accordionHeaderToggleIconSelect}"
-//     toggleIconLibrary="${accordionHeaderToggleIconLibrarySelect}"
-//     style="${accordionStyle.accordionHeaderStyle}"
-//     ${
-// 			accordionActiveStatus
-// 				? ""
-// 				: `deactivateStyle="${accordionStyle.accordionHeaderDeactivateStyle}"`
-// 		}
-//     labelStyle="${accordionStyle.accordionHeaderLabelStyle}"
-//     ${
-// 			accordionActiveStatus
-// 				? `activeStyle="${accordionStyle.accordionHeaderActiveStyle}"`
-// 				: ""
-// 		}
-//     iconStyle="${accordionStyle.accordionHeaderIconStyle}"
-//   >
-//     <Text tagName="span" style="${accordionStyle.accordionHeaderTextStyle}">
-//       ${accordionHeaderLabelSelect}
-//     </Text>
-//   </AccordionHeader>
-//   <AccordionDetails
-//     tagName="${accordionDetailsSelectTagName}"
-//     style="${accordionStyle.accordionDetailsStyle}"
-//   >
-//     <Text style="${accordionStyle.accordionDetailsTextStyle}">
-//       ${accordionDetailsLabelSelect}
-//     </Text>
-//   </AccordionDetails>
-// </Accordion>`;
+	const TabsCodeContent = `
+<Tabs
+	active="${tabsActiveTabSelect}"
+	orientation="${tabsOrientationSelect}"
+	style="${tabsStyle.tabsStyle}"
+	navWrapStyle="${tabsStyle.tabsNavWrapStyle}"
+	panelWrapStyle="${tabsStyle.tabsPanelWrapStyle}">
+	<TabsNav
+		style="${tabsStyle.tabsNavStyle}"
+		showButton=${tabsShowButtonSelect}
+		${
+			tabsShowButtonSelect
+				? `iconLibrary="${tabsIconLibrarySelect}"
+		prevIcon="${tabsPrevIconSelect}"
+		nextIcon="${tabsNextIconSelect}"
+		buttonTextEnabled=${tabsButtonTextEnabledSelect}`
+				: ""}
+		${
+			tabsButtonTextEnabledSelect
+				? `prevButtonText="${tabsPrevButtonTextSelect}"
+		nextButtonText="${tabsNextButtonTextSelect}"
+		prevIconPosition="${tabsPrevButtonPositionSelect}"
+		nextIconPosition="${tabsNextButtonPositionSelect}"`
+				: ""}iconButtonStyle="${tabsStyle.tabsNavIconButtonStyle}"
+		buttonStyle="${tabsStyle.tabsNavButtonStyle}"
+		prevButtonStyle="${tabsStyle.tabsNavPrevButtonStyle}"
+		nextButtonStyle="${tabsStyle.tabsNavNextButtonStyle}"
+		disabledStyle="${tabsStyle.tabsNavDisabledStyle}"
+		activeTabStyle="${tabsStyle.tabsNavActiveTabStyle}">
+		<Tab
+			value="1"
+			style="${tabsStyle.tabsTabStyle}">
+			${tabs1HeaderTextSelect}
+		</Tab>
+		<Tab
+			value="2"
+			style="${tabsStyle.tabsTabStyle}">
+			${tabs2HeaderTextSelect}
+		</Tab>
+		<Tab
+			value="3"
+			style="${tabsStyle.tabsTabStyle}">
+			${tabs3HeaderTextSelect}
+		</Tab>
+		<Tab
+			value="4"
+			style="${tabsStyle.tabsTabStyle}">
+			${tabs4HeaderTextSelect}
+		</Tab>
+	</TabsNav>
+	<TabPanel value="1" style="${tabsStyle.tabsTabPanelStyle}">
+		${tabs1PanelContentSelect}
+	</TabPanel>
+	<TabPanel value="2" style="${tabsStyle.tabsTabPanelStyle}">
+		${tabs2PanelContentSelect}
+	</TabPanel>
+	<TabPanel value="3" style="${tabsStyle.tabsTabPanelStyle}">
+		${tabs3PanelContentSelect}
+	</TabPanel>
+	<TabPanel value="4" style="${tabsStyle.tabsTabPanelStyle}">
+		${tabs4PanelContentSelect}
+	</TabPanel>
+</Tabs>`;
+
 
 
 	return (
@@ -445,14 +471,14 @@ const PlayTabs = () => {
 													onChange={handleTabsPrevButtonPosition}
 													value={tabsPrevButtonPositionSelect}>
 													<option
-														value="before"
+														value="left"
 														className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-														before
+														left
 													</option>
 													<option
-														value="after"
+														value="right"
 														className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-														after
+														right
 													</option>
 												</select>
 											</Block>
@@ -464,14 +490,14 @@ const PlayTabs = () => {
 													onChange={handleTabsNextButtonPosition}
 													value={tabsNextButtonPositionSelect}>
 													<option
-														value="before"
+														value="left"
 														className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-														before
+														left
 													</option>
 													<option
-														value="after"
+														value="right"
 														className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-														after
+														right
 													</option>
 												</select>
 											</Block>
@@ -768,60 +794,61 @@ const PlayTabs = () => {
 				<Tabs
 					active={tabsActiveTabSelect}
 					orientation={tabsOrientationSelect}
-					style="w-full"
-					navWrapStyle="bg-blue-200 text-lg"
-					panelWrapStyle="bg-blue-200 text-lg px-4 py-2">
+					style="w-full "
+					navWrapStyle="text-sm"
+					panelWrapStyle="px-4 py-2 bg-gray-200 text-gray-800 mt-2 shadow-md rounded-md ">
 					<TabsNav
-						style="bg-gray-400 w-full justify-between"
+						style="bg-gray-300 flex justify-between text-gray-800 py-1 px-1"
 						showButton={tabsShowButtonSelect}
 						prevButtonText={tabsPrevButtonTextSelect}
 						nextButtonText={tabsNextButtonTextSelect}
-						iconButtonStyle="px-4 bg-red-500 border py-1"
 						iconLibrary={tabsIconLibrarySelect}
 						prevIcon={tabsPrevIconSelect}
 						nextIcon={tabsNextIconSelect}
 						prevIconPosition={tabsPrevButtonPositionSelect}
 						nextIconPosition={tabsNextButtonPositionSelect}
 						buttonTextEnabled={tabsButtonTextEnabledSelect}
-						buttonStyle="px-4 border py-1"
+						iconButtonStyle="mx-1"
+						buttonStyle="px-2 rounded-sm bg-blue-200 text-gray-800 py-1"
 						prevButtonStyle="text-red-900 whitespace-nowrap"
 						nextButtonStyle="text-blue-900 whitespace-nowrap"
-						activeTabStyle="!border-b-red-900 !border-b "
-						disabledStyle="!text-white">
-						<Tab
-							value="1"
-							style="bg-blue-500 transition-all px-4 py-1 duration-500 ease-in-out">
+						activeTabStyle="bg-white rounded-sm shadow-md "
+						disabledStyle="!text-white !bg-red-500">
+						<Tab value="1" style=" px-4 py-1 ">
 							{tabs1HeaderTextSelect}
 						</Tab>
-						<Tab
-							value="2"
-							style="bg-blue-600 transition-all px-4 py-1 border-b-red-900 duration-500 ease-in-out">
+						<Tab value="2" style=" px-4 py-1 ">
 							{tabs2HeaderTextSelect}
 						</Tab>
-						<Tab
-							value="3"
-							style="bg-blue-700 transition-all px-4 py-1 border-b-red-900 duration-500 ease-in-out">
+						<Tab value="3" style=" px-4 py-1 ">
 							{tabs3HeaderTextSelect}
 						</Tab>
-						<Tab
-							value="4"
-							style="bg-blue-700 transition-all px-4 py-1 border-b-red-900 duration-500 ease-in-out">
+						<Tab value="4" style=" px-4 py-1  ">
 							{tabs4HeaderTextSelect}
 						</Tab>
 					</TabsNav>
 					<TabPanel value="1" style="">
 						{tabs1PanelContentSelect}
 					</TabPanel>
-					<TabPanel value="2" style="text-blue-600">
+					<TabPanel value="2" style="">
 						{tabs2PanelContentSelect}
 					</TabPanel>
-					<TabPanel value="3" style="text-blue-700">
+					<TabPanel value="3" style="">
 						{tabs3PanelContentSelect}
 					</TabPanel>
-					<TabPanel value="4" style="text-blue-700">
+					<TabPanel value="4" style="">
 						{tabs4PanelContentSelect}
 					</TabPanel>
 				</Tabs>
+			</Block>
+			<Block style="mt-6">
+				<CodeSnippet
+					lang="jsx"
+					content={TabsCodeContent}
+					onClick={() => {
+						handleCopyClick(TabsCodeContent);
+					}}
+				/>
 			</Block>
 		</div>
 	);

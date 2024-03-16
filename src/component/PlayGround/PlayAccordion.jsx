@@ -536,10 +536,10 @@ const PlayAccordion = () => {
 						iconPosition={accordionHeaderIconPositionSelect}
 						toggleIcon={accordionHeaderToggleIconSelect}
 						toggleIconLibrary={accordionHeaderToggleIconLibrarySelect}
-						style="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-t-lg dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer"
+						style="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-t-lg dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer transition-all duration-300 ease-in-out "
 						deactivateStyle="opacity-50 cursor-not-allowed"
 						labelStyle="text-textColor dark:text-darkTextColor"
-						activeStyle="!bg-blue-200 dark:!bg-gray-600 border border-b-0 transition-all ease duration-300"
+						activeStyle="!bg-blue-200 dark:!bg-gray-600 border border-b-0 "
 						iconStyle="text-red-500 dark:text-yellow-500 mr-2">
 						<Text
 							tagName={"span"}
@@ -563,7 +563,7 @@ const PlayAccordion = () => {
 						lang="jsx"
 						content={AccordionCodeContent}
 						onClick={() => {
-							handleCopyClick(accordionCodeDemo);
+							handleCopyClick(AccordionCodeContent);
 						}}
 					/>
 				</Block>
