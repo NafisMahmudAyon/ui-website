@@ -4,7 +4,7 @@ import {
 	AccordionDetails,
 	Block,
 	Text,
-	
+	Icon,
 } from "landing-page-ui";
 import { TabsNav, Tabs, Tab, TabPanel } from "landing-page-ui";
 import React, { useState } from "react";
@@ -59,13 +59,27 @@ const PlayTabs = () => {
 	const handleTabsIconLibrarySelectChange = (event) => {
 		settabsIconLibrarySelect(event.target.value);
 	};
-	const [tabsPrevIconSelect, settabsPrevIconSelect] = useState("fa-caret-left");
+	const [tabsPrevIconSelect, settabsPrevIconSelect] = useState(
+		"fa-caret-left"
+	);
 	const handleTabsPrevIconSelectChange = (event) => {
 		settabsPrevIconSelect(event.target.value);
 	};
-	const [tabsNextIconSelect, settabsNextIconSelect] = useState("fa-caret-right");
+	const [tabsNextIconSelect, settabsNextIconSelect] =
+		useState("fa-caret-right");
 	const handleTabsNextIconSelectChange = (event) => {
 		settabsNextIconSelect(event.target.value);
+	};
+	const [tabsPrevIconVerticalSelect, settabsPrevIconVerticalSelect] = useState(
+		"fa-sort-up"
+	);
+	const handleTabsPrevIconVerticalSelectChange = (event) => {
+		settabsPrevIconVerticalSelect(event.target.value);
+	};
+	const [tabsNextIconVerticalSelect, settabsNextIconVerticalSelect] =
+		useState("fa-sort-down");
+	const handleTabsNextIconVerticalSelectChange = (event) => {
+		settabsNextIconVerticalSelect(event.target.value);
 	};
 	const [tabsPrevButtonTextSelect, settabsPrevButtonTextSelect] =
 		useState("Prev");
@@ -88,32 +102,22 @@ const PlayTabs = () => {
 		settabsNextButtonPositionSelect(event.target.value);
 	};
 
-	const [tabs1HeaderTextSelect, settabs1HeaderTextSelect] = useState(
-		"Tab 1"
-	);
+	const [tabs1HeaderTextSelect, settabs1HeaderTextSelect] = useState("Tab 1");
 	const handleTabs1HeaderTextSelectChange = (event) => {
 		settabs1HeaderTextSelect(event.target.value);
 	};
-	const [tabs2HeaderTextSelect, settabs2HeaderTextSelect] = useState(
-		"Tab 2"
-	);
+	const [tabs2HeaderTextSelect, settabs2HeaderTextSelect] = useState("Tab 2");
 	const handleTabs2HeaderTextSelectChange = (event) => {
 		settabs2HeaderTextSelect(event.target.value);
 	};
-	const [tabs3HeaderTextSelect, settabs3HeaderTextSelect] = useState(
-		"Tab 3"
-	);
+	const [tabs3HeaderTextSelect, settabs3HeaderTextSelect] = useState("Tab 3");
 	const handleTabs3HeaderTextSelectChange = (event) => {
 		settabs3HeaderTextSelect(event.target.value);
 	};
-	const [tabs4HeaderTextSelect, settabs4HeaderTextSelect] = useState(
-		"Tab 4"
-	);
+	const [tabs4HeaderTextSelect, settabs4HeaderTextSelect] = useState("Tab 4");
 	const handleTabs4HeaderTextSelectChange = (event) => {
 		settabs4HeaderTextSelect(event.target.value);
 	};
-
-	
 
 	const [tabs1PanelContentSelect, settabs1PanelContentSelect] = useState(
 		"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, consequuntur, illo animi aliquid itaque culpa recusandae optio porro nobis dolores laudantium dolore perferendis esse eius modi voluptates non quibusdam eos."
@@ -140,90 +144,175 @@ const PlayTabs = () => {
 		settabs4PanelContentSelect(event.target.value);
 	};
 
-	
-
-	const tabsStyle = {
-		tabsStyle: "w-full ",
-		tabsNavWrapStyle: "text-sm ",
+	const tabsStyleHorizontal = {
+		tabsStyle: "w-full",
+		tabsNavWrapStyle: "text-sm",
 		tabsPanelWrapStyle:
 			"px-4 py-2 bg-gray-200 text-gray-800 mt-2 shadow-md rounded-md  ",
 		tabsNavStyle: "bg-gray-300 flex justify-between text-gray-800 py-1 px-1",
-		tabsNavIconButtonStyle: "mx-1 ",
-		tabsNavButtonStyle: "px-2 rounded-sm bg-blue-200 text-gray-800 py-1 ",
-		tabsNavPrevButtonStyle: "text-red-900 whitespace-nowrap",
+		tabsNavIconButtonStyle: "mx-1",
+		tabsNavButtonStyle:
+			"px-2 rounded-sm bg-blue-400 shadow-md text-gray-800 py-1",
+		tabsNavPrevButtonStyle: "text-blue-900 whitespace-nowrap",
 		tabsNavNextButtonStyle: "text-blue-900 whitespace-nowrap",
 		tabsNavActiveTabStyle: "bg-white rounded-sm shadow-md",
-		tabsNavDisabledStyle: "!text-white !bg-red-500",
+		tabsNavDisabledStyle: "!text-white !bg-red-500 !shadow-none",
 		tabsTabStyle: "px-4 py-1",
-		tabsTabPanelStyle:
-			"",
+		tabsTabPanelStyle: "",
+	};
+	const tabsStyleVertical = {
+		tabsStyle: "w-full rounded-l-md overflow-hidden",
+		tabsNavWrapStyle: "text-sm w-1/4",
+		tabsPanelWrapStyle:
+			"px-4 py-2 bg-gray-200 text-gray-800 shadow-md rounded-r-md w-3/4",
+		tabsNavStyle:
+			"bg-gray-300 flex gap-2 h-full justify-center items-center text-gray-800 p-1",
+		tabsNavAreaStyle: "flex flex-col gap-2 w-full",
+		tabsNavIconButtonStyle: "mx-1",
+		tabsNavButtonStyle:
+			"w-full rounded-sm bg-blue-400 shadow-md text-gray-800 py-1",
+		tabsNavPrevButtonStyle: "text-blue-900 whitespace-nowrap",
+		tabsNavNextButtonStyle: "text-blue-900 whitespace-nowrap",
+		tabsNavActiveTabStyle: "bg-white rounded-sm shadow-md",
+		tabsNavDisabledStyle: "!text-white !bg-red-500 !shadow-none",
+		tabsTabStyle: "px-4 py-1",
+		tabsTabPanelStyle: "",
 	};
 
-	const TabsCodeContent = `
+	const TabsCodeContentHorizontal = `
 <Tabs
 	active="${tabsActiveTabSelect}"
 	orientation="${tabsOrientationSelect}"
-	style="${tabsStyle.tabsStyle}"
-	navWrapStyle="${tabsStyle.tabsNavWrapStyle}"
-	panelWrapStyle="${tabsStyle.tabsPanelWrapStyle}">
+	navWrapStyle="${tabsStyleHorizontal.tabsNavWrapStyle}"
+	panelWrapStyle="${tabsStyleHorizontal.tabsPanelWrapStyle}">
+	style="${tabsStyleHorizontal.tabsStyle}"
 	<TabsNav
-		style="${tabsStyle.tabsNavStyle}"
-		showButton=${tabsShowButtonSelect}
-		${
-			tabsShowButtonSelect
-				? `iconLibrary="${tabsIconLibrarySelect}"
+		showButton=${tabsShowButtonSelect}${
+		tabsShowButtonSelect
+			? `iconLibrary="${tabsIconLibrarySelect}"
 		prevIcon="${tabsPrevIconSelect}"
 		nextIcon="${tabsNextIconSelect}"
 		buttonTextEnabled=${tabsButtonTextEnabledSelect}`
-				: ""}
-		${
-			tabsButtonTextEnabledSelect
-				? `prevButtonText="${tabsPrevButtonTextSelect}"
+			: ""
+	}${
+		tabsButtonTextEnabledSelect
+			? `prevButtonText="${tabsPrevButtonTextSelect}"
 		nextButtonText="${tabsNextButtonTextSelect}"
 		prevIconPosition="${tabsPrevButtonPositionSelect}"
 		nextIconPosition="${tabsNextButtonPositionSelect}"`
-				: ""}iconButtonStyle="${tabsStyle.tabsNavIconButtonStyle}"
-		buttonStyle="${tabsStyle.tabsNavButtonStyle}"
-		prevButtonStyle="${tabsStyle.tabsNavPrevButtonStyle}"
-		nextButtonStyle="${tabsStyle.tabsNavNextButtonStyle}"
-		disabledStyle="${tabsStyle.tabsNavDisabledStyle}"
-		activeTabStyle="${tabsStyle.tabsNavActiveTabStyle}">
+			: ""
+	}
+		style="${tabsStyleHorizontal.tabsNavStyle}"
+		${
+			tabsShowButtonSelect
+				? `iconButtonStyle="${tabsStyleHorizontal.tabsNavIconButtonStyle}"
+		buttonStyle="${tabsStyleHorizontal.tabsNavButtonStyle}"
+		prevButtonStyle="${tabsStyleHorizontal.tabsNavPrevButtonStyle}"
+		nextButtonStyle="${tabsStyleHorizontal.tabsNavNextButtonStyle}"
+		disabledStyle="${tabsStyleHorizontal.tabsNavDisabledStyle}"`
+				: ""
+		}activeTabStyle="${tabsStyleHorizontal.tabsNavActiveTabStyle}">
 		<Tab
 			value="1"
-			style="${tabsStyle.tabsTabStyle}">
+			style="${tabsStyleHorizontal.tabsTabStyle}">
 			${tabs1HeaderTextSelect}
 		</Tab>
 		<Tab
 			value="2"
-			style="${tabsStyle.tabsTabStyle}">
+			style="${tabsStyleHorizontal.tabsTabStyle}">
 			${tabs2HeaderTextSelect}
 		</Tab>
 		<Tab
 			value="3"
-			style="${tabsStyle.tabsTabStyle}">
+			style="${tabsStyleHorizontal.tabsTabStyle}">
 			${tabs3HeaderTextSelect}
 		</Tab>
 		<Tab
 			value="4"
-			style="${tabsStyle.tabsTabStyle}">
+			style="${tabsStyleHorizontal.tabsTabStyle}">
 			${tabs4HeaderTextSelect}
 		</Tab>
 	</TabsNav>
-	<TabPanel value="1" style="${tabsStyle.tabsTabPanelStyle}">
+	<TabPanel value="1" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
 		${tabs1PanelContentSelect}
 	</TabPanel>
-	<TabPanel value="2" style="${tabsStyle.tabsTabPanelStyle}">
+	<TabPanel value="2" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
 		${tabs2PanelContentSelect}
 	</TabPanel>
-	<TabPanel value="3" style="${tabsStyle.tabsTabPanelStyle}">
+	<TabPanel value="3" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
 		${tabs3PanelContentSelect}
 	</TabPanel>
-	<TabPanel value="4" style="${tabsStyle.tabsTabPanelStyle}">
+	<TabPanel value="4" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
 		${tabs4PanelContentSelect}
 	</TabPanel>
 </Tabs>`;
-
-
+	const TabsCodeContentVertical = `
+<Tabs
+	active="${tabsActiveTabSelect}"
+	orientation="${tabsOrientationSelect}"
+	navWrapStyle="${tabsStyleVertical.tabsNavWrapStyle}"
+	panelWrapStyle="${tabsStyleVertical.tabsPanelWrapStyle}">
+	style="${tabsStyleVertical.tabsStyle}"
+	<TabsNav
+		showButton=${tabsShowButtonSelect}${
+		tabsShowButtonSelect
+			? `iconLibrary="${tabsIconLibrarySelect}"
+		prevIcon="${tabsPrevIconVerticalSelect}"
+		nextIcon="${tabsNextIconVerticalSelect}"
+		buttonTextEnabled=${tabsButtonTextEnabledSelect}`
+			: ""
+	}${
+		tabsButtonTextEnabledSelect
+			? `prevButtonText="${tabsPrevButtonTextSelect}"
+		nextButtonText="${tabsNextButtonTextSelect}"
+		prevIconPosition="${tabsPrevButtonPositionSelect}"
+		nextIconPosition="${tabsNextButtonPositionSelect}"`
+			: ""
+	}
+		style="${tabsStyleVertical.tabsNavStyle}"
+		${
+			tabsShowButtonSelect
+				? `iconButtonStyle="${tabsStyleVertical.tabsNavIconButtonStyle}"
+		buttonStyle="${tabsStyleVertical.tabsNavButtonStyle}"
+		prevButtonStyle="${tabsStyleVertical.tabsNavPrevButtonStyle}"
+		nextButtonStyle="${tabsStyleVertical.tabsNavNextButtonStyle}"
+		disabledStyle="${tabsStyleVertical.tabsNavDisabledStyle}"`
+				: ""
+		}activeTabStyle="${tabsStyleVertical.tabsNavActiveTabStyle}">
+		<Tab
+			value="1"
+			style="${tabsStyleVertical.tabsTabStyle}">
+			${tabs1HeaderTextSelect}
+		</Tab>
+		<Tab
+			value="2"
+			style="${tabsStyleVertical.tabsTabStyle}">
+			${tabs2HeaderTextSelect}
+		</Tab>
+		<Tab
+			value="3"
+			style="${tabsStyleVertical.tabsTabStyle}">
+			${tabs3HeaderTextSelect}
+		</Tab>
+		<Tab
+			value="4"
+			style="${tabsStyleVertical.tabsTabStyle}">
+			${tabs4HeaderTextSelect}
+		</Tab>
+	</TabsNav>
+	<TabPanel value="1" style="${tabsStyleVertical.tabsTabPanelStyle}">
+		${tabs1PanelContentSelect}
+	</TabPanel>
+	<TabPanel value="2" style="${tabsStyleVertical.tabsTabPanelStyle}">
+		${tabs2PanelContentSelect}
+	</TabPanel>
+	<TabPanel value="3" style="${tabsStyleVertical.tabsTabPanelStyle}">
+		${tabs3PanelContentSelect}
+	</TabPanel>
+	<TabPanel value="4" style="${tabsStyleVertical.tabsTabPanelStyle}">
+		${tabs4PanelContentSelect}
+	</TabPanel>
+</Tabs>`;
 
 	return (
 		<div>
@@ -329,7 +418,7 @@ const PlayTabs = () => {
 											))}
 										</select>
 									</Block>
-									<Block style="">
+									{tabsOrientationSelect == "horizontal" && (<><Block style="">
 										<label for="">prevIcon: </label>
 										<select
 											name=""
@@ -436,7 +525,115 @@ const PlayTabs = () => {
 												</>
 											)}
 										</select>
+									</Block></>)}
+									{tabsOrientationSelect == "vertical" && (<><Block style="">
+										<label for="">prevIcon: </label>
+										<select
+											name=""
+											className=" bg-inherit text-inherit border-b"
+											onChange={handleTabsPrevIconVerticalSelectChange}
+											value={tabsPrevIconVerticalSelect}>
+											{tabsIconLibrarySelect == "font-awesome" && (
+												<>
+													{fontawesomeClasses.map((component, i) => {
+														const iconHtml = `<i class="fa-solid ${component}"></i>`;
+														return (
+															<option
+																value={component}
+																key={i}
+																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																{component}
+															</option>
+														);
+													})}
+												</>
+											)}
+											{tabsIconLibrarySelect == "bootstrap-icons" && (
+												<>
+													{bootstrapIcons.map((component, i) => {
+														const iconHtml = `<i class="${component}"></i>`;
+														return (
+															<option
+																value={component}
+																key={i}
+																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																{component}
+															</option>
+														);
+													})}
+												</>
+											)}
+											{tabsIconLibrarySelect == "icon-font" && (
+												<>
+													{iconfontClasses.map((component, i) => {
+														const iconHtml = `<i class="${component}"></i>`;
+														return (
+															<option
+																value={component}
+																key={i}
+																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																{component}
+															</option>
+														);
+													})}
+												</>
+											)}
+										</select>
 									</Block>
+									<Block style="">
+										<label for="">nextIcon: </label>
+										<select
+											name=""
+											className=" bg-inherit text-inherit border-b"
+											onChange={handleTabsNextIconVerticalSelectChange}
+											value={tabsNextIconVerticalSelect}>
+											{tabsIconLibrarySelect == "font-awesome" && (
+												<>
+													{fontawesomeClasses.map((component, i) => {
+														const iconHtml = `<i class="fa-solid ${component}"></i>`;
+														return (
+															<option
+																value={component}
+																key={i}
+																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																{component}
+															</option>
+														);
+													})}
+												</>
+											)}
+											{tabsIconLibrarySelect == "bootstrap-icons" && (
+												<>
+													{bootstrapIcons.map((component, i) => {
+														const iconHtml = `<i class="${component}"></i>`;
+														return (
+															<option
+																value={component}
+																key={i}
+																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																{component}
+															</option>
+														);
+													})}
+												</>
+											)}
+											{tabsIconLibrarySelect == "icon-font" && (
+												<>
+													{iconfontClasses.map((component, i) => {
+														const iconHtml = `<i class="${component}"></i>`;
+														return (
+															<option
+																value={component}
+																key={i}
+																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																{component}
+															</option>
+														);
+													})}
+												</>
+											)}
+										</select>
+									</Block></>)}
 									{tabsButtonTextEnabledSelect && (
 										<>
 											<Block style="flex gap-3 w-full">
@@ -791,64 +988,131 @@ const PlayTabs = () => {
 					</Block>
 				</Block>
 
-				<Tabs
-					active={tabsActiveTabSelect}
-					orientation={tabsOrientationSelect}
-					style="w-full "
-					navWrapStyle="text-sm"
-					panelWrapStyle="px-4 py-2 bg-gray-200 text-gray-800 mt-2 shadow-md rounded-md ">
-					<TabsNav
-						style="bg-gray-300 flex justify-between text-gray-800 py-1 px-1"
-						showButton={tabsShowButtonSelect}
-						prevButtonText={tabsPrevButtonTextSelect}
-						nextButtonText={tabsNextButtonTextSelect}
-						iconLibrary={tabsIconLibrarySelect}
-						prevIcon={tabsPrevIconSelect}
-						nextIcon={tabsNextIconSelect}
-						prevIconPosition={tabsPrevButtonPositionSelect}
-						nextIconPosition={tabsNextButtonPositionSelect}
-						buttonTextEnabled={tabsButtonTextEnabledSelect}
-						iconButtonStyle="mx-1"
-						buttonStyle="px-2 rounded-sm bg-blue-200 text-gray-800 py-1"
-						prevButtonStyle="text-red-900 whitespace-nowrap"
-						nextButtonStyle="text-blue-900 whitespace-nowrap"
-						activeTabStyle="bg-white rounded-sm shadow-md "
-						disabledStyle="!text-white !bg-red-500">
-						<Tab value="1" style=" px-4 py-1 ">
-							{tabs1HeaderTextSelect}
-						</Tab>
-						<Tab value="2" style=" px-4 py-1 ">
-							{tabs2HeaderTextSelect}
-						</Tab>
-						<Tab value="3" style=" px-4 py-1 ">
-							{tabs3HeaderTextSelect}
-						</Tab>
-						<Tab value="4" style=" px-4 py-1  ">
-							{tabs4HeaderTextSelect}
-						</Tab>
-					</TabsNav>
-					<TabPanel value="1" style="">
-						{tabs1PanelContentSelect}
-					</TabPanel>
-					<TabPanel value="2" style="">
-						{tabs2PanelContentSelect}
-					</TabPanel>
-					<TabPanel value="3" style="">
-						{tabs3PanelContentSelect}
-					</TabPanel>
-					<TabPanel value="4" style="">
-						{tabs4PanelContentSelect}
-					</TabPanel>
-				</Tabs>
+				<Block style="mt-8 p-3 pt-6 text-sm border border-solid border-darkBgColor dark:border-bgColor relative after:absolute after:content-['Output'] after:-top-3 after:left-1/2 after:-translate-x-1/2 after:border after:h-6 after:w-max after:flex after:items-center after:bg-bgColor dark:after:bg-darkBgColor after:px-2 rounded-md after:z-10 ">
+					{tabsOrientationSelect == "vertical" && (
+						<Tabs
+							active={tabsActiveTabSelect}
+							orientation={tabsOrientationSelect}
+							style="w-full rounded-l-md overflow-hidden"
+							navWrapStyle="text-sm w-1/4 "
+							panelWrapStyle="px-4 py-2 bg-gray-200 text-gray-800 shadow-md rounded-r-md w-3/4 ">
+							<TabsNav
+								showButton={tabsShowButtonSelect}
+								prevButtonText={tabsPrevButtonTextSelect}
+								nextButtonText={tabsNextButtonTextSelect}
+								iconLibrary={tabsIconLibrarySelect}
+								prevIcon={tabsPrevIconVerticalSelect}
+								nextIcon={tabsNextIconVerticalSelect}
+								prevIconPosition={tabsPrevButtonPositionSelect}
+								nextIconPosition={tabsNextButtonPositionSelect}
+								buttonTextEnabled={tabsButtonTextEnabledSelect}
+								style="bg-gray-300 flex gap-2 h-full justify-center items-center text-gray-800 p-1 "
+								tabAreaStyle="flex flex-col gap-2 w-full"
+								iconButtonStyle="mx-1"
+								buttonStyle="w-full rounded-sm bg-blue-400 shadow-md text-gray-800 py-1"
+								prevButtonStyle="text-blue-900 whitespace-nowrap"
+								nextButtonStyle="text-blue-900 whitespace-nowrap"
+								activeTabStyle="bg-white rounded-sm shadow-md "
+								disabledStyle="!text-white !bg-blue-300 !shadow-none ">
+								<Tab value="1" style=" px-4 py-1 ">
+									{tabs1HeaderTextSelect}
+								</Tab>
+								<Tab value="2" style=" px-4 py-1 ">
+									{tabs2HeaderTextSelect}
+								</Tab>
+								<Tab value="3" style=" px-4 py-1 ">
+									{tabs3HeaderTextSelect}
+								</Tab>
+								<Tab value="4" style=" px-4 py-1  ">
+									{tabs4HeaderTextSelect}
+								</Tab>
+							</TabsNav>
+							<TabPanel value="1" style="">
+								{tabs1PanelContentSelect}
+							</TabPanel>
+							<TabPanel value="2" style="">
+								{tabs2PanelContentSelect}
+							</TabPanel>
+							<TabPanel value="3" style="">
+								{tabs3PanelContentSelect}
+							</TabPanel>
+							<TabPanel value="4" style="">
+								{tabs4PanelContentSelect}
+							</TabPanel>
+						</Tabs>
+					)}
+					{tabsOrientationSelect == "horizontal" && (
+						<Tabs
+							active={tabsActiveTabSelect}
+							orientation={tabsOrientationSelect}
+							style="w-full "
+							navWrapStyle="text-sm"
+							panelWrapStyle="px-4 py-2 bg-gray-200 text-gray-800 mt-2 shadow-md rounded-md ">
+							<TabsNav
+								showButton={tabsShowButtonSelect}
+								prevButtonText={tabsPrevButtonTextSelect}
+								nextButtonText={tabsNextButtonTextSelect}
+								iconLibrary={tabsIconLibrarySelect}
+								prevIcon={tabsPrevIconSelect}
+								nextIcon={tabsNextIconSelect}
+								prevIconPosition={tabsPrevButtonPositionSelect}
+								nextIconPosition={tabsNextButtonPositionSelect}
+								buttonTextEnabled={tabsButtonTextEnabledSelect}
+								style="bg-gray-300 flex justify-between text-gray-800 py-1 px-1"
+								iconButtonStyle="mx-1"
+								buttonStyle="px-2 rounded-sm bg-blue-400 shadow-md text-gray-800 py-1"
+								prevButtonStyle="text-blue-900 whitespace-nowrap"
+								nextButtonStyle="text-blue-900 whitespace-nowrap"
+								activeTabStyle="bg-white rounded-sm shadow-md "
+								disabledStyle="!text-white !bg-blue-300 !shadow-none ">
+								<Tab value="1" style=" px-4 py-1 ">
+									{tabs1HeaderTextSelect}
+								</Tab>
+								<Tab value="2" style=" px-4 py-1 ">
+									{tabs2HeaderTextSelect}
+								</Tab>
+								<Tab value="3" style=" px-4 py-1 ">
+									{tabs3HeaderTextSelect}
+								</Tab>
+								<Tab value="4" style=" px-4 py-1  ">
+									{tabs4HeaderTextSelect}
+								</Tab>
+							</TabsNav>
+							<TabPanel value="1" style="">
+								{tabs1PanelContentSelect}
+							</TabPanel>
+							<TabPanel value="2" style="">
+								{tabs2PanelContentSelect}
+							</TabPanel>
+							<TabPanel value="3" style="">
+								{tabs3PanelContentSelect}
+							</TabPanel>
+							<TabPanel value="4" style="">
+								{tabs4PanelContentSelect}
+							</TabPanel>
+						</Tabs>
+					)}
+				</Block>
 			</Block>
 			<Block style="mt-6">
-				<CodeSnippet
-					lang="jsx"
-					content={TabsCodeContent}
-					onClick={() => {
-						handleCopyClick(TabsCodeContent);
-					}}
-				/>
+				{tabsOrientationSelect == "vertical" && (
+					<CodeSnippet
+						lang="jsx"
+						content={TabsCodeContentVertical}
+						onClick={() => {
+							handleCopyClick(TabsCodeContentVertical);
+						}}
+					/>
+				)}
+				{tabsOrientationSelect == "horizontal" && (
+					<CodeSnippet
+						lang="jsx"
+						content={TabsCodeContentHorizontal}
+						onClick={() => {
+							handleCopyClick(TabsCodeContentHorizontal);
+						}}
+					/>
+				)}
 			</Block>
 		</div>
 	);
