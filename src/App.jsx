@@ -25,6 +25,7 @@ import Grid from "./component/Pages/Grid";
 import Flex from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
 import PlayGround from "./component/PlayGround/PlayGround";
+import TestPage from "./component/Pages/Test";
 
 function App() {
 	return (
@@ -189,6 +190,14 @@ function App() {
 					element={
 						<AppLayout>
 							<PlayGround />
+						</AppLayout>
+					}
+				/>
+				<Route
+					path="/test"
+					element={
+						<AppLayout>
+							<TestPage />
 						</AppLayout>
 					}
 				/>

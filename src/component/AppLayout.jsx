@@ -9,6 +9,7 @@ import MiddleContent from "./Layout/MiddleContent";
 const AppLayout = ({ children }) => {
 	const location = useLocation();
 	const isPlaygroundPage = location.pathname === "/playground";
+	const isTestPage = location.pathname === "/test";
 
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -39,10 +40,7 @@ const AppLayout = ({ children }) => {
 				</div>
 				<div className="w-full pl-5 pr-5 pt-2  grid md:grid-cols-[70%_30%] lg:!grid-cols-[80%_20%] ">
 					<MiddleContent>{children}</MiddleContent>
-					{!isPlaygroundPage && (
-
-					<RightSideBar />
-					) }
+					{!isPlaygroundPage && !isTestPage && <RightSideBar />}
 				</div>
 				{/* <div className="w-full md:w-[10%] md:border-l md:border-slate-950 pl-3 pr-5 ">
 				<RightSideBar />

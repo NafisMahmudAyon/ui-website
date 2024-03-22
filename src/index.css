@@ -20,6 +20,16 @@
 }
 
 
+.accordion-details {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease; /* Adjust duration and timing function as needed */
+}
+
+.accordion-details.active {
+	max-height: 1000px; /* Adjust to a reasonable max height */
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
