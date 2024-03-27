@@ -1,223 +1,357 @@
-import { Block, Icon, List, Text, Code, CodeBody, CodeHeader, IconButton } from "landing-page-ui";
+import {
+	Block,
+	Icon,
+	List,
+	Text,
+	Code,
+	CodeBody,
+	CodeHeader,
+	IconButton,
+	// Accordion,
+	// AccordionHeader,
+	// AccordionDetails,
+	Tabs,
+	TabsNav,
+	Tab,
+	TabPanel,
+	CodeSnippet,
+} from "landing-page-ui";
 import React, { useState } from "react";
-import CodeSnippet from "../components/CodeSnippet";
+// import CodeSnippet from "../components/CodeSnippet";
+import RightSideBar from "../Layout/RightSideBar";
+import { Accordion, AccordionHeader, AccordionDetails } from "../test/Test";
 
 const AccordionPage = () => {
-	
-	const accordionCodeDemo = `<Accordion tagName="div" style="accordion-style">
-  <AccordionHeader tagName="div" style="header-style" icon="chevron-down">
-Section 1
-  </AccordionHeader>
-  <AccordionDetails tagName="div" style="details-style">
-Content for Section 1
-  </AccordionDetails>
-  <AccordionHeader tagName="div" style="header-style" icon="chevron-down">
-Section 2
-  </AccordionHeader>
-  <AccordionDetails tagName="div" style="details-style">
-Content for Section 2
-  </AccordionDetails>
-</Accordion>
-  `;
-	const accordionHeaderCodeDemo = `<AccordionHeader
-	tagName="div"
-	style="header-style"
-	icon="chevron-down"
-	iconPosition="before">
-	Section Title
-</AccordionHeader>
-`;
-	const accordionDetailsCodeDemo = `<AccordionDetails tagName="div" style="details-style">
-	Accordion Section Content
-</AccordionDetails>
-`;
-	const accordionFeatures = [
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">Dynamic Expansion:</span> <span>Users can expand or collapse individual accordion sections by clicking on the header. This dynamic behavior improves user interaction and reduces clutter by displaying only the relevant content.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">Customization:</span> <span>The Accordion component supports customization through various props, allowing developers to control the appearance and behavior of each accordion section. Custom CSS classes can be applied to style the accordion as needed.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">Accessibility:</span> <span>Accessibility features are built into the Accordion component, ensuring that it complies with web accessibility standards. Users can navigate and interact with the accordion using keyboard shortcuts or assistive technologies.</span>`,
-	];
-	const accordionHeaderFeatures = [
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">Icon Support:</span> <span>Icons can be displayed before or after the header text, providing visual cues to users about the accordion section's expansion state.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">Event Handling:</span> <span>Clicking on the header toggles the expansion state of the associated details, allowing users to expand or collapse accordion sections with ease.</span>`,
-	];
-	const accordionDetailsFeatures = [
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Conditional Display:</span> <span>The content area is initially hidden and becomes visible when its associated header is clicked, providing a clean and organized user interface.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Accessibility:</span> <span>The AccordionDetails component ensures accessibility by maintaining a focusable and navigable structure that complies with web accessibility standards.</span>`,
-	];
-	const accordionProps = [
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">tagName:</span> <span>The HTML tag name to use for rendering the accordion.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">style:</span> <span>Custom CSS classes to apply to the accordion.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">children:</span> <span>The child components representing accordion headers and details.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">active:</span> <span>The index of the initially active accordion section (optional).</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">deactivate:</span> <span>Boolean flag to disable accordion interaction (optional).</span>`,
-	];
-	const accordionHeaderProps = [
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">tagName:</span> <span>The HTML tag name to use for rendering the accordion.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">style:</span> <span>Custom CSS classes to apply to the accordion.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">activeStyle:</span> <span>Custom CSS classes to apply when the section is active (optional).</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">children:</span> <span>The child components representing accordion headers and details.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">iconLibrary:</span> <span>The library containing the icon (e.g., "font-awesome").</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">icon:</span> <span>The name or content of the icon.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">toggleIcon:</span> <span>The icon to display when the section is active (optional).</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">toggleIconLibrary:</span> <span>The library containing the toggle icon (optional).</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">toggleIconStyle:</span> <span>Custom CSS classes to apply to the toggle icon (optional).</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">iconPosition:</span> <span>The position of the icon relative to the header text ("before" or "after").</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">iconStyle:</span> <span>Custom CSS classes to apply to the icon.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">id:</span> <span>The unique identifier of the accordion section.</span>`,
-	];
-	const accordionDetailsProps = [
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">tagName:</span> <span>The HTML tag name to use for rendering the details.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">style:</span> <span>Custom CSS classes to apply to the details.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">children:</span> <span>The content to be displayed within the details.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">id:</span> <span>The unique identifier of the accordion section.</span>`,
-	];
+	const defaultAccordionContent = `
+import { Accordion, AccordionHeader, AccordionDetails, Text, Block } from "landing-page-ui"
 
-
+const App = () => {
 	return (
-		<Block tagName={"div"} style=" ">
-			<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
-				Accordion
-			</Text>
-			<Text tagName={"p"} style="">
-				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
-					Accordion
-				</Text>{" "}
-				component creates an accordion-style UI element that allows users to
-				expand or collapse sections of content. It is composed of{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
-					AccordionHeader
-				</Text>{" "}
-				and{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
-					AccordionDetails
-				</Text>{" "}
-				components, providing a flexible and accessible way to organize and
-				present information.
-			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
-					Features{" "}
-				</Text>
-				<List
-					list={accordionFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='fa-circle-dot'
-					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-				/>
-			</Block>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
-				Usage{" "}
-			</Text>
-			<CodeSnippet
-				lang="jsx"
-				content={accordionCodeDemo}
-				onClick={() => {
-					handleCopyClick(accordionCodeDemo);
-				}}
-			/>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
-				Props{" "}
-			</Text>
-			<List
-				list={accordionProps}
-				style=""
-				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='fa-circle-dot'
-				iconLibrary={"font-awesome"}
-				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-			/>
+		<Block tagName="div">
+			<Accordion active={true} variant="1">
+				<AccordionHeader>
+					<Text
+						tagName="h3"
+						style=" text-xl font-medium !text-gray-200 ">
+						Accordion 1
+					</Text>
+				</AccordionHeader>
+				<AccordionDetails>
+					<Text style=" ">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+						Minima deserunt sapiente nostrum iure excepturi vel debitis,
+						quae quibusdam officiis. Atque nesciunt pariatur praesentium
+						optio, at vel harum aliquam illo labore?
+					</Text>
+				</AccordionDetails>
+			</Accordion>
+			<Accordion variant="1">
+				<AccordionHeader>
+					<Text
+						tagName="h3"
+						style=" text-xl font-medium !text-gray-200 ">
+						Accordion 2
+					</Text>
+				</AccordionHeader>
+				<AccordionDetails>
+					<Text style="">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+						Minima deserunt sapiente nostrum iure excepturi vel debitis,
+						quae quibusdam officiis. Atque nesciunt pariatur praesentium
+						optio, at vel harum aliquam illo labore?
+					</Text>
+				</AccordionDetails>
+			</Accordion>
+			<Accordion variant="1">
+				<AccordionHeader>
+					<Text
+						tagName="h3"
+						style=" text-xl font-medium !text-gray-200 ">
+						Accordion 3
+					</Text>
+				</AccordionHeader>
+				<AccordionDetails>
+					<Text style="">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+						Minima deserunt sapiente nostrum iure excepturi vel debitis,
+						quae quibusdam officiis. Atque nesciunt pariatur praesentium
+						optio, at vel harum aliquam illo labore?
+					</Text>
+				</AccordionDetails>
+			</Accordion>
+		</Block>
+	);
+}
 
-			<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
-				AccordionHeader Component
-			</Text>
-			<Text tagName={"p"} style="">
-				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
-					AccordionHeader
-				</Text>{" "}
-				component represents the header of an accordion section within the{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+export default App;
+	`;
+	return (
+		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
+			<Block>
+				<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
 					Accordion
-				</Text>{" "}
-				component. It displays a clickable title and an optional icon to
-				indicate the expansion state of the associated details.
-			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
-					Features{" "}
 				</Text>
-				<List
-					list={accordionDetailsFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='fa-circle-dot'
-					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-				/>
-			</Block>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
-				Usage{" "}
-			</Text>
-			<CodeSnippet lang="jsx" content={accordionHeaderCodeDemo} />
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
-				Props{" "}
-			</Text>
-			<List
-				list={accordionHeaderProps}
-				style=""
-				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='fa-circle-dot'
-				iconLibrary={"font-awesome"}
-				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-			/>
-
-			<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
-				AccordionDetails Component
-			</Text>
-			<Text tagName={"p"} style="">
-				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
-					AccordionDetails
-				</Text>{" "}
-				component represents the content area of an accordion section within the{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
-					Accordion
-				</Text>{" "}
-				component. It displays the content associated with a header and can be
-				expanded or collapsed based on user interaction.
-			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
-					Features{" "}
+				<Text tagName={"p"} style="">
+					The{" "}
+					<Text
+						tagName={"span"}
+						style="font-thin font-code px-2 py-1 bg-gray-200 rounded-md dark:bg-gray-800 ">
+						Accordion
+					</Text>{" "}
+					component lets users create a collapsible sections of related content
+					on a page.
 				</Text>
-				<List
-					list={accordionHeaderFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='fa-circle-dot'
-					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-				/>
+				<Block>
+					<Text
+						tagName={"h3"}
+						id="introduction"
+						style="text-2xl mt-6 !font-medium group flex items-center ">
+						Introduction
+						<Icon
+							icon="fa-link"
+							iconLibrary="font-awesome"
+							isLink={true}
+							linkTo="#introduction"
+							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+						/>
+					</Text>
+					<List
+						tagName={"ul"}
+						style="mb-4"
+						listStyle="text-justify my-1 "
+						list={[
+							`<span class="font-bold">Accordion:</span> Seamlessly group related content with the Accordion component.`,
+							`<span class="font-bold">AccordionHeader:</span> Customize header styles and interactions for intuitive user experience."`,
+							`<span class="font-bold">AccordionDetails:</span> Effortlessly reveal or hide detailed content within the Accordion."`,
+						]}
+					/>
+					<Tabs
+						active="1"
+						orientation="horizontal"
+						navWrapStyle="text-sm"
+						panelWrapStyle=" mt-2 shadow-md rounded-md  "
+						style="w-full">
+						<TabsNav
+							showButton="false"
+							style=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
+							tabAreaStyle="flex gap-3"
+							activeTabStyle="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
+							<Tab
+								value="1"
+								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
+								Preview
+							</Tab>
+							<Tab
+								value="2"
+								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
+								Code
+							</Tab>
+						</TabsNav>
+						<TabPanel
+							value="1"
+							style="px-4 py-2 bg-gray-200 dark:bg-transparent border-[1px] border-white/50 rounded-lg">
+							<Accordion active={true} variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										style=" text-xl font-medium !text-gray-200 ">
+										Accordion 1
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text style=" ">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										style=" text-xl font-medium !text-gray-200 ">
+										Accordion 2
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text style="">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										style=" text-xl font-medium !text-gray-200 ">
+										Accordion 3
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text style="">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+						</TabPanel>
+						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+							<CodeSnippet
+								lang="jsx"
+								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+								bodyStyle=" !font-code max-h-[300px] !my-0 "
+								content={defaultAccordionContent}
+							/>
+						</TabPanel>
+					</Tabs>
+				</Block>
+				<Block>
+					<Text
+						tagName={"h3"}
+						id="import"
+						style="text-2xl mt-6 !font-medium group flex items-center ">
+						Import component
+						<Icon
+							icon="fa-link"
+							iconLibrary="font-awesome"
+							isLink={true}
+							linkTo="#import"
+							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+						/>
+					</Text>
+					<CodeSnippet
+						lang="jsx"
+						headerStyle="mt-2 bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+						bodyStyle=" !font-code max-h-[300px] !my-0 rounded-b-lg "
+						content={`import { Accordion, AccordionHeader, AccordionDetails, Text, Block } from "landing-page-ui"`}
+					/>
+				</Block>
+				<Block>
+					<Text
+						tagName={"h3"}
+						id="with-icon"
+						style="text-2xl mt-6 !font-medium group flex items-center ">
+						Accordion With Icon
+						<Icon
+							icon="fa-link"
+							iconLibrary="font-awesome"
+							isLink={true}
+							linkTo="#with-icon"
+							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+						/>
+					</Text>
+					<Tabs
+						active="1"
+						orientation="horizontal"
+						navWrapStyle="text-sm"
+						panelWrapStyle=" mt-2 shadow-md rounded-md  "
+						style="w-full">
+						<TabsNav
+							showButton="false"
+							style=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
+							tabAreaStyle="flex gap-3"
+							activeTabStyle="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
+							<Tab
+								value="1"
+								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
+								Preview
+							</Tab>
+							<Tab
+								value="2"
+								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
+								Code
+							</Tab>
+						</TabsNav>
+						<TabPanel
+							value="1"
+							style="px-4 py-2 bg-gray-200 dark:bg-transparent border-[1px] border-white/50 rounded-lg">
+							<Accordion active={true} variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										style=" text-xl font-medium !text-gray-200 ">
+										Accordion 1
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text style=" ">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										style=" text-xl font-medium !text-gray-200 ">
+										Accordion 2
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text style="">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										style=" text-xl font-medium !text-gray-200 ">
+										Accordion 3
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text style="">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+						</TabPanel>
+						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+							<CodeSnippet
+								lang="jsx"
+								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+								bodyStyle=" !font-code max-h-[300px] !my-0 "
+								content={defaultAccordionContent}
+							/>
+						</TabPanel>
+					</Tabs>
+				</Block>
 			</Block>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
-				Usage{" "}
-			</Text>
-			<CodeSnippet lang="jsx" content={accordionDetailsCodeDemo} />
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
-				Props{" "}
-			</Text>
-			<List
-				list={accordionDetailsProps}
-				style=""
-				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='fa-circle-dot'
-				iconLibrary={"font-awesome"}
-				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-			/>
-			<div className="mb-10"></div>
+			<RightSideBar>
+				<Text style="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
+				<Block style="">
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#introduction">
+						Introduction
+					</Text>
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#introduction">
+						Import Component
+					</Text>
+				</Block>
+			</RightSideBar>
 		</Block>
 	);
 };

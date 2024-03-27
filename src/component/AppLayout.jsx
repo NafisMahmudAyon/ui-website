@@ -6,7 +6,7 @@ import LeftSideBar from "./Layout/LeftSideBar";
 import RightSideBar from "./Layout/RightSideBar";
 import MiddleContent from "./Layout/MiddleContent";
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children, RightSideBarContent }) => {
 	const location = useLocation();
 	const isPlaygroundPage = location.pathname === "/playground";
 	const isTestPage = location.pathname === "/test";
@@ -35,12 +35,12 @@ const AppLayout = ({ children }) => {
 					} `}>
 					<LeftSideBar />
 				</div>
-				<div className="hidden lg:w-[16%] lg:block border-r lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 pr-5  ">
+				<div className="hidden lg:w-[20%]  lg:block border-r lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 pr-5  ">
 					<LeftSideBar />
 				</div>
-				<div className="w-full pl-5 pr-5 pt-2  grid md:grid-cols-[70%_30%] lg:!grid-cols-[80%_20%] ">
+				<div className="w-full lg:w-[80%] flex-1 pl-5 pr-5 ">
 					<MiddleContent>{children}</MiddleContent>
-					{!isPlaygroundPage && !isTestPage && <RightSideBar />}
+					{/* {!isPlaygroundPage && !isTestPage && <RightSideBar />} */}
 				</div>
 				{/* <div className="w-full md:w-[10%] md:border-l md:border-slate-950 pl-3 pr-5 ">
 				<RightSideBar />

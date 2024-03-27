@@ -196,7 +196,7 @@ function App() {
 				<Route
 					path="/test"
 					element={
-						<AppLayout>
+						<AppLayout RightSideBarContent={<About/>}>
 							<TestPage />
 						</AppLayout>
 					}
@@ -207,4 +207,5 @@ function App() {
 }
 
 export default App;
+
 

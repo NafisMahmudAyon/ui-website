@@ -12,6 +12,7 @@
 }
 ::-webkit-scrollbar {
   display: none;
+  
 }
 
 
@@ -28,6 +29,70 @@
 
 .accordion-details.active {
 	max-height: 1000px; /* Adjust to a reasonable max height */
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.slide-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.slide-content p {
+  font-size: 18px;
+}
+
+
+
+/* pre > code{
+    width: 80ch;
+    font-family: monospace;
+    font-size: 30px;
+    line-height: 30px;
+    background: linear-gradient(to right, white 0ch, #78dce8 0ch, #78dce8 3ch, white 3ch, white 18ch, #FFD658 18ch, #FFD658 31ch, white 31ch, white 80ch), linear-gradient(to right, white 0ch, #a6e22e 0ch, #a6e22e 3ch, white 3ch, white 12ch, #f92672 12ch, #f92672 15ch,  #A7C 15ch,  #A7C 17ch, white 17ch, white 80ch), linear-gradient(to right, white 0ch, white 0ch, white 4ch, #fd971f 4ch, #fd971f 11ch, white 11ch, white 12ch, #a6e22e 12ch, #a6e22e 15ch, white 15ch, white 16ch, #FFD658 16ch, #FFD658 34ch, #f92672 34ch, #f92672 37ch, white 37ch, white 80ch), linear-gradient(to right, white 0ch, white 0ch, white 80ch), linear-gradient(to right, white 0ch, white 0ch, white 80ch); background-repeat: no-repeat; background-size: 80ch 30px, 80ch 60px, 80ch 90px, 80ch 120px, 80ch 150px; 
+    background-clip: text; -webkit-background-clip: text; color: transparent;
+} */
+
+
+.keyword {
+    color: blue;
+}
+
+.string {
+    color: green;
+}
+
+.comment {
+    color: gray;
+    font-style: italic;
 }
 
 /* :root {

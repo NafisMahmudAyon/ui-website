@@ -184,8 +184,8 @@ const PlayTabs = () => {
 	active="${tabsActiveTabSelect}"
 	orientation="${tabsOrientationSelect}"
 	navWrapStyle="${tabsStyleHorizontal.tabsNavWrapStyle}"
-	panelWrapStyle="${tabsStyleHorizontal.tabsPanelWrapStyle}">
-	style="${tabsStyleHorizontal.tabsStyle}"
+	panelWrapStyle="${tabsStyleHorizontal.tabsPanelWrapStyle}"
+	style="${tabsStyleHorizontal.tabsStyle}">
 	<TabsNav
 		showButton=${tabsShowButtonSelect}${
 		tabsShowButtonSelect
@@ -251,8 +251,8 @@ const PlayTabs = () => {
 	active="${tabsActiveTabSelect}"
 	orientation="${tabsOrientationSelect}"
 	navWrapStyle="${tabsStyleVertical.tabsNavWrapStyle}"
-	panelWrapStyle="${tabsStyleVertical.tabsPanelWrapStyle}">
-	style="${tabsStyleVertical.tabsStyle}"
+	panelWrapStyle="${tabsStyleVertical.tabsPanelWrapStyle}"
+	style="${tabsStyleVertical.tabsStyle}">
 	<TabsNav
 		showButton=${tabsShowButtonSelect}${
 		tabsShowButtonSelect

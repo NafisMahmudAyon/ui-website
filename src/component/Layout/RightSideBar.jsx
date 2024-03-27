@@ -1,12 +1,10 @@
+import { Text } from 'landing-page-ui';
 import React from 'react'
 
-const RightSideBar = () => {
+const RightSideBar = ({children}) => {
   return (
-		<div className="md:border-l md:border-slate-950 lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 pr-5 ">
-			RightSideBar Lorem ipsum dolor sit amet consectetur adipisicing elit.
-			Nostrum vitae ipsum officiis aut quos commodi molestias porro illum amet
-			temporibus, molestiae odit, tenetur modi totam, asperiores iure ipsam
-			quaerat? Aperiam?
+		<div className=" hidden absolute right-0 top-[73px] md:w-[30%] lg:w-[22%] pt-2 md:block  lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60  pr-5 ">
+			{children}
 		</div>
 	);
 }

@@ -6,8 +6,8 @@ import React, { useEffect, useState, useRef, Children } from "react";
 // import imagesLoaded from "imagesloaded";
 
 // * package for code snippets
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 ///////
 // import Text from "./Text";
@@ -4989,10 +4989,12 @@ const Text = ({
 	tagName,
 	isLink,
 	linkTo,
+	id,
 	target = "_self",
 	children,
 	variant,
 	onClick,
+	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const [variantValue, setVariantValue] = useState("");
@@ -5017,8 +5019,10 @@ const Text = ({
 
 	return (
 		<CustomTag
+		{...rest}
 			onClick={onClick}
-			className={` ${style} ${variantValue}  text-inherit font-normal `}
+			id={id}
+			className={` ${style} ${variantValue} `}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5038,6 +5042,7 @@ const Block = ({
 	isLink,
 	linkTo,
 	target = "_self",
+	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div"); // *Use prop value or default to "div"
 
@@ -5052,6 +5057,7 @@ const Block = ({
 	const CustomTag = customTag.toLowerCase();
 	return (
 		<CustomTag
+		{...rest}
 			className={` ${style} `}
 			{...(isLink && {
 				href: linkTo,
@@ -5070,6 +5076,7 @@ const Tabs = ({
 	orientation,
 	navWrapStyle = "",
 	panelWrapStyle = "",
+	...rest
 }) => {
 	const [activeTab, setActiveTab] = useState(active || null);
 
@@ -5078,7 +5085,7 @@ const Tabs = ({
 	};
 
 	return (
-		<div className={`${style} ${orientation === "vertical" ? "flex" : ""}`}>
+		<div {...rest} className={`${style} ${orientation === "vertical" ? "flex" : ""}`}>
 			<div
 				className={` ${navWrapStyle} ${
 					orientation === "vertical" ? "flex-col" : ""
@@ -5129,6 +5136,7 @@ const TabsNav = ({
 	nextIconPosition = "right",
 	prevIconPosition = "left",
 	buttonTextEnabled = false,
+	...rest
 }) => {
 	const tabsRef = useRef(null);
 	console.log("showButton : ", showButton);
@@ -5158,13 +5166,14 @@ const TabsNav = ({
 			nextTab.scrollIntoView({ behavior: "smooth", block: "nearest" });
 		}
 	};
-
+	//  console.log(children[0])
 	const isFirstTabActive = activeTab === children[0].props.value;
 	const isLastTabActive =
 		activeTab === children[children.length - 1].props.value;
 
 	return (
 		<div
+			{...rest}
 			className={`${style} ${
 				orientation === "vertical" ? "flex-col" : "flex"
 			}`}>
@@ -5241,9 +5250,11 @@ const Tab = ({
 	onClick,
 	children,
 	orientation,
+	...rest
 }) => {
 	return (
 		<button
+			{...rest}
 			className={`${style} ${isActive ? activeTabStyle : ""} ${
 				orientation === "vertical" ? "block" : "inline-block"
 			}`}
@@ -5255,8 +5266,12 @@ const Tab = ({
 };
 
 // * TabPanel
-const TabPanel = ({ style = "", value, children }) => {
-	return <div className={` ${style} `}>{children}</div>;
+const TabPanel = ({ style = "", value, children, ...rest }) => {
+	return (
+		<div {...rest} className={` ${style} `}>
+			{children}
+		</div>
+	);
 };
 
 // * MasonryGrid
@@ -5390,11 +5405,12 @@ const List = ({
 	icon,
 	iconStyle = "",
 	iconPosition = "before",
+	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "ol");
 	const CustomTag = customTag.toLowerCase();
 	return (
-		<CustomTag className={` ${style ? style : ""} `}>
+		<CustomTag {...rest} className={` ${style ? style : ""} `}>
 			{list.map((item, index) => {
 				return (
 					<li key={index} className={` ${listStyle ? listStyle : ""} `}>
@@ -5759,7 +5775,7 @@ const Icon = ({
 	iconStyle,
 	iconLibrary = "material-icons",
 	isLink,
-	linkTo = "#",
+	linkTo = "",
 	target = "_self",
 	onClick,
 }) => {
@@ -5804,11 +5820,24 @@ const Icon = ({
 			: `<i class="${icon}"></i>`;
 
 	return (
-		<span
-			className={` ${iconStyle ? iconStyle : ""} `}
-			onClick={onClick}
-			dangerouslySetInnerHTML={{ __html: iconHtml }}
-		/>
+		<>
+			{(isLink || linkTo) && (
+				<a
+					href={linkTo || "#"}
+					target={target}
+					className={` ${iconStyle ? iconStyle : ""} `}
+					onClick={onClick}
+					dangerouslySetInnerHTML={{ __html: iconHtml }}
+				/>
+			)}
+			{(!isLink || !linkTo) && (
+				<span
+					className={` ${iconStyle ? iconStyle : ""} `}
+					onClick={onClick}
+					dangerouslySetInnerHTML={{ __html: iconHtml }}
+				/>
+			)}
+		</>
 	);
 };
 
@@ -5955,13 +5984,37 @@ const Accordion = ({
 	children,
 	active,
 	deactivate,
-	HeaderStyle = "",
+	headerStyle = "",
 	activeHeaderStyle = "",
 	deactivateHeaderStyle = "",
-	DetailsStyle = "",
+	detailsStyle = "",
+	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
+
+	const [variantValue, setVariantValue] = useState({
+		style: "",
+		headerStyle: "",
+		activeHeaderStyle: "",
+		deactivateHeaderStyle: "",
+		detailsStyle: "",
+	});
+
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				style: "my-2",
+				headerStyle:
+					"flex gap-2 bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
+				activeHeaderStyle: "!rounded-t-lg rounded-b-none",
+				deactivateHeaderStyle:
+					"!bg-neutral-700 hover:!bg-neutral-700 !cursor-default",
+				detailsStyle: "",
+			});
+		}
+	}, [variant]);
 
 	function generateUniqueId() {
 		const randomPart = Math.random().toString(36).substr(2, 9);
@@ -5974,9 +6027,6 @@ const Accordion = ({
 
 	const [isActive, setIsActive] = useState(false);
 
-	console.log(isActive);
-	console.log(active);
-
 	useEffect(() => {
 		if (active == true) {
 			setIsActive(true);
@@ -5987,11 +6037,15 @@ const Accordion = ({
 	var min = `max-h-[${max}]`;
 
 	return (
-		<CustomTag className={` ${style} `}>
+		<CustomTag className={` ${style} ${variant ? variantValue.style : ""} `}>
 			<div
 				className={` select-none ${isActive ? activeHeaderStyle : ""} ${
 					deactivate ? deactivateHeaderStyle : ""
-				} ${HeaderStyle}`}
+				} ${headerStyle} ${
+					variant ? (isActive ? variantValue.activeHeaderStyle : "") : ""
+				}  ${
+					variant ? (deactivate ? variantValue.deactivateHeaderStyle : "") : ""
+				} ${variant ? variantValue.headerStyle : ""}`}
 				onClick={() => {
 					if (!deactivate) {
 						setIsActive(!isActive);
@@ -6004,6 +6058,7 @@ const Accordion = ({
 							active: active,
 							isActive: isActive,
 							deactivate: deactivate,
+							variant: variant,
 						});
 					}
 					return null;
@@ -6012,13 +6067,16 @@ const Accordion = ({
 			<div
 				className={`  ${
 					isActive ? min : "max-h-0 overflow-hidden"
-				} transition-all duration-300 ${DetailsStyle} `}>
+				} transition-all duration-300 ${detailsStyle} ${
+					variant ? variantValue.detailsStyle : ""
+				} `}>
 				{React.Children.map(children, (child) => {
 					if (child.type === AccordionDetails) {
 						return React.cloneElement(child, {
 							id: id,
 							active: active,
 							deactivate: deactivate,
+							variant: variant,
 						});
 					}
 					return null;
@@ -6047,9 +6105,35 @@ const AccordionHeader = ({
 	deactivate,
 	deactivateStyle = "",
 	labelStyle = "",
+	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
+
+	const [iconStyleX, setIconStyleX] = useState(iconStyle)
+	const [toggleIconStyleX, setToggleIconStyleX] = useState(toggleIconStyle)
+
+
+
+	const [variantValue, setVariantValue] = useState({
+		iconStyle: "",
+		labelStyle: "",
+		toggleIconStyle: "",
+	});
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				iconStyle: "",
+				labelStyle: "",
+				toggleIconStyle: "",
+			});
+		}
+		if (variant == true) {
+			setIconStyleX(iconStyle + " " + variantValue.iconStyle);
+			setToggleIconStyleX(toggleIconStyle + " " + variantValue.toggleIconStyle);
+
+		}
+	}, [variant]);
 	// const [isActive, setIsActive] = useState(false);
 	// console.log(isActive);
 	var ids = `#${id}`;
@@ -6082,29 +6166,40 @@ const AccordionHeader = ({
 			{iconPosition === "before" && icon && (
 				<>
 					{!isActive && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyleX}
+						/>
 					)}
 					{isActive && toggleIcon && (
 						<Icon
 							iconLibrary={toggleIconLibrary ? toggleIconLibrary : iconLibrary}
 							icon={toggleIcon ? toggleIcon : icon}
-							iconStyle={toggleIconStyle ? toggleIconStyle : iconStyle}
+							iconStyle={toggleIconStyle ? toggleIconStyleX : iconStyleX}
 						/>
 					)}
 				</>
 			)}
-			<span className={` ${labelStyle} `}>{children}</span>
+			<span
+				className={` ${labelStyle} ${variant ? variantValue.labelStyle : ""} `}>
+				{children}
+			</span>
 
 			{iconPosition === "after" && icon && (
 				<>
 					{!isActive && (
-						<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+						<Icon
+							iconLibrary={iconLibrary}
+							icon={icon}
+							iconStyle={iconStyleX}
+						/>
 					)}
 					{isActive && toggleIcon && (
 						<Icon
 							iconLibrary={toggleIconLibrary}
 							icon={toggleIcon}
-							iconStyle={toggleIconStyle}
+							iconStyle={toggleIconStyle ? toggleIconStyleX : iconStyleX}
 						/>
 					)}
 				</>
@@ -6122,12 +6217,27 @@ const AccordionDetails = ({
 	id,
 	active,
 	deactivate,
+	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
+	const [variantValue, setVariantValue] = useState({
+		style: "",
+	});
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				style:
+					"bg-neutral-900 px-4 py-4 rounded-b-lg dark:bg-gray-900 border-x border-b !text-gray-200",
+			});
+		}
+	}, [variant]);
+
+
 	return (
-		<CustomTag id={id} className={` ${style}  `}>
+		<CustomTag id={id} className={` ${style} ${variantValue.style} `}>
 			{children}
 		</CustomTag>
 	);
@@ -6168,7 +6278,7 @@ const Avatar = ({
 	return (
 		<div
 			className={` ${style} flex justify-center items-center w-12 h-12 bg-gray-500  rounded-full text-[1.25rem] leading-none overflow-hidden `}
-			{...(name && { title: name})}
+			{...(name && { title: name })}
 			onClick={onClick}>
 			{/* {!children && (
 				<> */}
@@ -6248,6 +6358,57 @@ const Badge = ({
 	);
 };
 
+// * CodeSnippet
+const CodeSnippet = ({
+	content,
+	lang = "html",
+	style = "",
+	headerStyle = "",
+	bodyStyle = "",
+}) => {
+	const [copySuccess, setCopySuccess] = useState(null);
+
+	const handleCopyClick = () => {
+		navigator.clipboard
+			.writeText(content.trim())
+			.then(() => setCopySuccess(true))
+			.catch(() => setCopySuccess(false));
+
+		// Reset copy success message after 2 seconds
+		setTimeout(() => {
+			setCopySuccess(null);
+		}, 2000);
+	};
+	return (
+		<Code style={` ${style}  rounded-t-lg rounded-b-lg relative`}>
+			<CodeHeader
+				style={` ${headerStyle} flex items-center justify-between   p-2 w-full bg-[#b4b4b4] text-white rounded-t-lg pl-4 `}>
+				<Text style="">{lang}</Text>
+				<IconButton
+					tagName="button"
+					textOnClick={handleCopyClick}
+					icon="fa-copy"
+					iconLibrary="font-awesome"
+					iconStyle="mr-2"
+					text={
+						copySuccess === null
+							? "Copy code"
+							: copySuccess === true
+							? "Code copied"
+							: "Failed to copy"
+					}
+					style="absolute top-0 right-0 p-2 text-inherit z-10 pr-4 cursor-pointer "
+				/>
+			</CodeHeader>
+			<CodeBody
+				content={content}
+				language={lang}
+				style={` ${bodyStyle} pt-1 px-4 pb-1 text-sm overflow-y-scroll block  `}
+			/>
+		</Code>
+	);
+};
+
 // * Code
 const Code = ({
 	style,
@@ -6278,10 +6439,19 @@ const CodeHeader = ({ tagName, style, children }) => {
 };
 
 // * CodeBody
-const CodeBody = ({ tagName, style, content }) => {
+const CodeBody = ({ tagName, style, language, content }) => {
 	const [customTag, setCustomTag] = useState(tagName || "code");
 	const CustomTag = customTag.toLowerCase();
-	return <CustomTag className={` ${style} `}>{content}</CustomTag>;
+	return (
+		<SyntaxHighlighter
+			className={` ${style} `}
+			language={language}
+			style={vscDarkPlus}
+			
+			>
+			{content}
+		</SyntaxHighlighter>
+	);
 };
 
 // * Divider
@@ -6563,7 +6733,6 @@ const Input = ({
 	);
 };
 
-
 // * TextArea
 
 const TextArea = ({
@@ -6580,7 +6749,7 @@ const TextArea = ({
 	title,
 	disabled = false,
 	disabledStyle = "",
-	required=false,
+	required = false,
 }) => {
 	const [value, setValue] = useState(propValue || "");
 	const [showPassword, setShowPassword] = useState(false);
@@ -6609,7 +6778,7 @@ const TextArea = ({
 					value={value}
 					disabled={disabled}
 					onChange={handleChange}
-					{...(required && {required: required})}
+					{...(required && { required: required })}
 				/>
 			</fieldset>
 			{error && <p className={` ${errorStyle} text-red-500`}>{helperText}</p>}{" "}
@@ -6632,7 +6801,7 @@ const ProgressBar = ({
 	duration = 10,
 	animateOnLoad = true,
 	animateOnVisible = false,
-	children
+	children,
 }) => {
 	// Ensure value is within min and max range
 	const clampedValue = Math.min(Math.max(value, min), max);
@@ -6641,7 +6810,7 @@ const ProgressBar = ({
 		((clampedValue - min) / (max - min)) * 100
 	);
 
-	console.log(percentage)
+	console.log(percentage);
 
 	// Ref for the progress bar
 	const progressBarRef = useRef(null);
@@ -6723,10 +6892,6 @@ const ProgressBar = ({
 		</div>
 	);
 };
-
-
-
-
 
 const CircularProgressBar = ({
 	value,
@@ -6821,6 +6986,445 @@ const CircularProgressBar = ({
 	);
 };
 
+const ScrollTop = () => {
+	const [isVisible, setIsVisible] = useState(false);
+	console.log(isVisible);
+
+	const handleScroll = () => {
+		console.log("first");
+		const scrollTop = window.scrollY;
+		if (scrollTop > 300) {
+			setIsVisible(true);
+		} else {
+			setIsVisible(false);
+		}
+	};
+
+	let scrolling = false;
+	console.log(scrolling);
+
+	window.scroll = () => {
+		scrolling = true;
+	};
+
+	setInterval(() => {
+		if (scrolling) {
+			scrolling = false;
+			// place the scroll handling logic here
+		}
+	}, 300);
+
+	const scrollToTop = () => {
+		console.log("first");
+		window.scrollTo(0, 0);
+	};
+	window.onscroll = function (e) {
+		console.log("firstsdsds");
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", (event) => {
+			console.log("Scrolling...");
+		});
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	return (
+		<div
+			className={`fixed flex items-center justify-center p-4 bg-red-500 bottom-5 right-5 cursor-pointer transition-all duration-300 ease-in-out ${
+				isVisible ? "opacity-100 visible" : "opacity-1 visible"
+			}`}
+			onClick={scrollToTop}>
+			^
+		</div>
+	);
+};
+
+// * Carousel
+
+// const Carousel = ({ slides }) => {
+// 	const [currentSlide, setCurrentSlide] = useState(0);
+
+// 	const nextSlide = () => {
+// 		setCurrentSlide((prevSlide) =>
+// 			prevSlide === slides.length - 1 ? 0 : prevSlide + 1
+// 		);
+// 	};
+
+// 	const prevSlide = () => {
+// 		setCurrentSlide((prevSlide) =>
+// 			prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+// 		);
+// 	};
+
+// 	return (
+// 		<div className="relative">
+// 			<div className="carousel-container flex overflow-x-hidden">
+// 				{slides.map((slide, index) => (
+// 					<div
+// 						key={index}
+// 						className={`slide ${
+// 							index === currentSlide ? "block" : "hidden"
+// 						} w-full`}>
+// 						<img
+// 							src={slide.image}
+// 							alt={`Slide ${index}`}
+// 							className="w-full"
+// 						/>
+// 						<div className="slide-content absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+// 							<h2 className="text-3xl font-bold">{slide.title}</h2>
+// 							<p className="text-lg">{slide.description}</p>
+// 						</div>
+// 					</div>
+// 				))}
+// 			</div>
+// 			<button
+// 				className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl focus:outline-none"
+// 				onClick={prevSlide}>
+// 				&#8249;
+// 			</button>
+// 			<button
+// 				className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl focus:outline-none"
+// 				onClick={nextSlide}>
+// 				&#8250;
+// 			</button>
+// 		</div>
+// 	);
+// };
+
+// * tessst
+
+// const Carousel = ({ children }) => {
+// 	const [currentIndex, setCurrentIndex] = useState(0);
+// 	const carouselRef = useRef(null);
+
+// 	const handlePrev = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	const handleNext = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	const handleSlide = (index) => {
+// 		setCurrentIndex(index);
+// 	};
+
+// 	return (
+// 		<div className="relative overflow-hidden">
+// 			<div	className="flex transition-transform duration-300 ease-in-out"
+// 				style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+// 				ref={carouselRef}>
+// 				{React.Children.map(children, (child, index) => (
+
+// 					<div className="w-full bg-black mx-3 ">{index}{child}</div>
+
+// 				))}
+// 			</div>
+// 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handlePrev}>
+// 					&#8249;
+// 				</button>
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handleNext}>
+// 					&#8250;
+// 				</button>
+// 			</div>
+// 			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+// 				<div className="flex mt-2">
+// 					{React.Children.map(children, (child, index) => (
+// 						<button
+// 							key={index}
+// 							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+// 								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+// 							}`}
+// 							onClick={() => handleSlide(index)}></button>
+// 					))}
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+// const Carousel = () => {
+// 	// Define your static data
+// 	const slides = [
+// 		{
+// 			id: 1,
+// 			title: "Slide 1",
+// 			description: "Description for Slide 1",
+// 			imageUrl: "https://via.placeholder.com/400x200",
+// 		},
+// 		{
+// 			id: 2,
+// 			title: "Slide 2",
+// 			description: "Description for Slide 2",
+// 			imageUrl: "https://via.placeholder.com/400x200",
+// 		},
+// 		{
+// 			id: 3,
+// 			title: "Slide 3",
+// 			description: "Description for Slide 3",
+// 			imageUrl: "https://via.placeholder.com/400x200",
+// 		},
+// 	];
+
+// 	// State to track current slide index
+// 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+// 	// Function to handle next slide
+// 	const handleNext = () => {
+// 		setCurrentSlideIndex((prevIndex) =>
+// 			prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	// Function to handle previous slide
+// 	const handlePrev = () => {
+// 		setCurrentSlideIndex((prevIndex) =>
+// 			prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	return (
+// 		<div className="carousel">
+// 			{/* Display current slide */}
+// 			<div className="slide">
+// 				<img
+// 					src={slides[currentSlideIndex].imageUrl}
+// 					alt={slides[currentSlideIndex].title}
+// 				/>
+// 				<h2>{slides[currentSlideIndex].title}</h2>
+// 				<p>{slides[currentSlideIndex].description}</p>
+// 			</div>
+
+// 			{/* Navigation buttons */}
+// 			<button onClick={handlePrev}>Previous</button>
+// 			<button onClick={handleNext}>Next</button>
+// 		</div>
+// 	);
+// };
+
+// const Carousel = ({ children }) => {
+// 	const [currentIndex, setCurrentIndex] = useState(0);
+// 	console.log(currentIndex)
+// 	const carouselRef = useRef(null);
+
+// 	const handlePrev = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	const handleNext = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	return (
+// 		<div className="relative overflow-hidden">
+// 				<div
+// 					className="flex transition-transform duration-300 ease-in-out"
+// 					style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+// 					>
+// 					{children[currentIndex]}
+
+// 				</div>
+// 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handlePrev}>
+// 					&#8249;
+// 				</button>
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handleNext}>
+// 					&#8250;
+// 				</button>
+// 			</div>
+// 			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+// 				<div className="flex mt-2">
+// 					{React.Children.map(children, (_, index) => (
+// 						<button
+// 							key={index}
+// 							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+// 								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+// 							}`}
+// 							onClick={() => setCurrentIndex(index)}></button>
+// 					))}
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+// const Carousel = ({ children }) => {
+// 	const [currentIndex, setCurrentIndex] = useState(0);
+// 	const [transitionEnabled, setTransitionEnabled] = useState(true); // State to manage transition
+// 	const carouselRef = useRef(null);
+
+// 	const handlePrev = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+// 		);
+// 	};
+
+// 	const handleNext = () => {
+// 		setCurrentIndex((prevIndex) =>
+// 			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+// 		);
+// 	};
+
+// 	const handleSlideChange = (index) => {
+// 		setCurrentIndex(index);
+// 		setTransitionEnabled(true); // Enable transition
+// 	};
+
+// 	const handleTransitionEnd = () => {
+// 		setTransitionEnabled(false); // Disable transition after it ends
+// 	};
+
+// 	return (
+// 		<div className="relative overflow-hidden">
+// 			<div
+// 				className={
+// 					`flex transition-transform duration-300 ease-in-out ${
+// 						transitionEnabled ? "transition-all" : ""
+// 					}` /* Add a CSS class to enable/disable transition */
+// 				}
+// 				// style={{ transform: `translateX(-${0}%)` }}
+// 				// ref={carouselRef}
+// 				onTransitionEnd={handleTransitionEnd} // Handle transition end event
+// 			>
+// 				{/* {children[currentIndex]} */}
+// 				{React.Children.map(children, (child, index) => (
+
+// 					<div className={` ${index === currentIndex ? "block" : "hidden"} w-full bg-black mx-3  `}>{index}{child}</div>
+
+// 				))}
+// 			</div>
+// 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handlePrev}>
+// 					&#8249;
+// 				</button>
+// 				<button
+// 					className="text-2xl text-gray-500 focus:outline-none"
+// 					onClick={handleNext}>
+// 					&#8250;
+// 				</button>
+// 			</div>
+// 			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+// 				<div className="flex mt-2">
+// 					{React.Children.map(children, (_, index) => (
+// 						<button
+// 							key={index}
+// 							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+// 								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+// 							}`}
+// 							onClick={() => handleSlideChange(index)} // Handle slide change
+// 						></button>
+// 					))}
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+const Carousel = ({ children }) => {
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const [transitionEnabled, setTransitionEnabled] = useState(true);
+
+	const handlePrev = () => {
+		setCurrentIndex((prevIndex) =>
+			prevIndex === 0 ? children.length - 1 : prevIndex - 1
+		);
+	};
+
+	const handleNext = () => {
+		setCurrentIndex((prevIndex) =>
+			prevIndex === children.length - 1 ? 0 : prevIndex + 1
+		);
+	};
+
+	const handleSlideChange = (index) => {
+		setCurrentIndex(index);
+		setTransitionEnabled(true);
+	};
+
+	const handleTransitionEnd = () => {
+		setTransitionEnabled(false);
+	};
+
+	return (
+		<div className="relative overflow-hidden">
+			<div
+				className={`flex flex-row overflow-hidden `}
+				onTransitionEnd={handleTransitionEnd}>
+				{React.Children.map(children, (child, index) => (
+					<div
+						className={` overflow-hidden duration-1000 ease-in-out bg-black  ${
+							transitionEnabled ? "transition-[width]" : ""
+						} ${index === currentIndex ? "w-full h-auto " : "w-0 h-0"}`}
+						key={index}>
+						{child}
+					</div>
+				))}
+			</div>
+			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+				<button
+					className="text-2xl text-gray-500 focus:outline-none"
+					onClick={handlePrev}>
+					&#8249;
+				</button>
+				<button
+					className="text-2xl text-gray-500 focus:outline-none"
+					onClick={handleNext}>
+					&#8250;
+				</button>
+			</div>
+			<div className="absolute bottom-0 left-0 w-full flex justify-center">
+				<div className="flex mt-2">
+					{React.Children.map(children, (_, index) => (
+						<button
+							key={index}
+							className={`h-2 w-2 mx-1 rounded-full focus:outline-none ${
+								index === currentIndex ? "bg-blue-500" : "bg-gray-400"
+							}`}
+							onClick={() => handleSlideChange(index)}></button>
+					))}
+				</div>
+			</div>
+		</div>
+	);
+};
+
+const XXX = ({ children }) => {
+	return (
+		<div>
+			{children}
+			{React.Children.map(children, (child, index) => (
+				<div key={index}>
+					hello{index}
+					{child}
+				</div>
+			))}
+		</div>
+	);
+};
+
 // * HOOK
 
 const useThemeSwitcher = () => {
@@ -6873,6 +7477,9 @@ const useThemeSwitcher = () => {
 };
 
 export {
+	XXX,
+	Carousel,
+	// Slide,
 	Text,
 	Block,
 	Tabs,
@@ -6896,6 +7503,7 @@ export {
 	AvatarGroup,
 	Avatar,
 	Badge,
+	CodeSnippet,
 	Code,
 	CodeHeader,
 	CodeBody,
@@ -6909,5 +7517,6 @@ export {
 	TextArea,
 	ProgressBar,
 	CircularProgressBar,
+	// ScrollTop,
 	useThemeSwitcher,
 };

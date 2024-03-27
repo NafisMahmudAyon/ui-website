@@ -37,7 +37,10 @@ import {
 	Input,
 	ProgressBar,
 	CircularProgressBar,
-	TextArea,
+	TextArea,CodeSnippet,
+	Carousel,
+	XXX,
+	// Slide
 } from "../test/Test";
 
 const TestPage = () => {
@@ -56,8 +59,43 @@ const TestPage = () => {
 	const decreaseProgress = () => {
 		setProgress((prevProgress) => Math.max(prevProgress - 10, 0));
 	};
+
+	const slides = [
+		{
+			imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+			title: "Slide 1",
+			description: "This is the first slide.",
+		},
+		{
+			imageUrl: "https://images.unsplash.com/photo-1554151228-14d9def656e4",
+			title: "Slide 2",
+			description: "This is the second slide.",
+		},
+		{
+			imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+			title: "Slide 3",
+			description: "This is the third slide.",
+		},
+	];
 	return (
 		<div>
+			<Carousel>
+				<div>
+					<h2>Slide 1</h2>
+					<p>Description for Slide 1</p>
+					{/* Add any HTML or React components here */}
+				</div>
+				<div>
+					<h2>Slide 2</h2>
+					<p>Description for Slide 2</p>
+					{/* Add any HTML or React components here */}
+				</div>
+				<div>
+					<h2>Slide 3</h2>
+					<p>Description for Slide 3</p>
+					{/* Add any HTML or React components here */}
+				</div>
+			</Carousel>
 			<Text
 				tagName="h1"
 				style=" text-2xl text-green-800 dark:text-green-600 !font-bold underline underline-offset-4 text-center transition-all duration-300">
@@ -173,8 +211,8 @@ const TestPage = () => {
 					consequatur impedit veniam modi amet.
 				</Block>
 			</Block>
-			
-			
+			<CodeSnippet content={`hello`}></CodeSnippet>
+			hhh
 			<Card>
 				<CardAction link="/components/accordion">
 					<CardMedia
