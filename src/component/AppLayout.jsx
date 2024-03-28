@@ -38,7 +38,7 @@ const AppLayout = ({ children, RightSideBarContent }) => {
 				<div className="hidden lg:w-[20%]  lg:block border-r lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 pr-5  ">
 					<LeftSideBar />
 				</div>
-				<div className="w-full lg:w-[80%] flex-1 pl-5 pr-5 ">
+				<div className="w-full lg:w-[80%] flex-1 md:pl-5 md:pr-5 ">
 					<MiddleContent>{children}</MiddleContent>
 					{/* {!isPlaygroundPage && !isTestPage && <RightSideBar />} */}
 				</div>
