@@ -37,9 +37,17 @@ import {
 	Input,
 	ProgressBar,
 	CircularProgressBar,
-	TextArea,CodeSnippet,
+	TextArea,
+	CodeSnippet,
 	Carousel,
-	XXX,
+	Table,
+	TableCaption,
+	TableHead,
+	TableBody,
+	TableFooter,
+	TableRow,
+	TableCell,
+	// XXX,
 	// Slide
 } from "../test/Test";
 
@@ -79,6 +87,58 @@ const TestPage = () => {
 	];
 	return (
 		<div>
+			<div className="relative overflow-x-auto">
+				<Table style="w-full text-sm text-left rtl:text-right text-gray-500 " variant="1">
+					<TableCaption style="text-slate-500 dark:text-slate-400 py-4 text-xs">
+						Table Caption
+					</TableCaption>
+					<TableHead style="text-xs text-gray-200 uppercase bg-gray-500">
+						<TableRow>
+							<TableCell header={true} scope="cell" style="px-6 py-3">
+								#
+							</TableCell>
+							<TableCell header={true} style="px-6 py-3">
+								First Name
+							</TableCell>
+							<TableCell header={true} style="px-6 py-3">
+								Last Name
+							</TableCell>
+							<TableCell header={true} style="px-6 py-3">
+								Username
+							</TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						<TableRow style="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
+							<TableCell
+								thStyle="font-medium text-gray-200 whitespace-nowrap"
+								style="px-6 py-4 ">
+								1
+							</TableCell>
+							<TableCell style="px-6 py-4 ">Mark</TableCell>
+							<TableCell style="px-6 py-4 ">Otto</TableCell>
+							<TableCell style="px-6 py-4 ">@mdo</TableCell>
+						</TableRow>
+						<TableRow style="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
+							<TableCell style="px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
+								2
+							</TableCell>
+							<TableCell style="px-6 py-4 ">Jacob</TableCell>
+							<TableCell style="px-6 py-4 ">Thornton</TableCell>
+							<TableCell style="px-6 py-4 ">@fat</TableCell>
+						</TableRow>
+						<TableRow style="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
+							<TableCell style="px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
+								3
+							</TableCell>
+							<TableCell style="px-6 py-4 ">Larry</TableCell>
+							<TableCell style="px-6 py-4 ">the Bird</TableCell>
+							<TableCell style="px-6 py-4 ">@twitter</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
+			</div>
+			<div className="h-[300px] "></div>
 			<Carousel>
 				<div>
 					<h2>Slide 1</h2>

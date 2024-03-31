@@ -774,7 +774,7 @@ export default App;
 					<Text
 						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
 						isLink={true}
-						linkTo="#introduction">
+						linkTo="#import">
 						Import Component
 					</Text>
 					<Text
