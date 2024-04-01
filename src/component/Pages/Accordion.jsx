@@ -15,6 +15,18 @@ import {
 	Tab,
 	TabPanel,
 	CodeSnippet,
+	// Table,
+	// TableCaption,
+	// TableHead,
+	// TableBody,
+	// TableFooter,
+	// TableRow,
+	// TableCell,
+} from "landing-page-ui";
+import React, { useState } from "react";
+// import CodeSnippet from "../components/CodeSnippet";
+import RightSideBar from "../Layout/RightSideBar";
+import {
 	Table,
 	TableCaption,
 	TableHead,
@@ -22,19 +34,7 @@ import {
 	TableFooter,
 	TableRow,
 	TableCell,
-} from "landing-page-ui";
-import React, { useState } from "react";
-// import CodeSnippet from "../components/CodeSnippet";
-import RightSideBar from "../Layout/RightSideBar";
-// import {
-// 	Table,
-// 	TableCaption,
-// 	TableHead,
-// 	TableBody,
-// 	TableFooter,
-// 	TableRow,
-// 	TableCell,
-// } from "../test/Test";
+} from "../test/Test";
 
 const AccordionPage = () => {
 	const defaultAccordionContent = `
@@ -961,38 +961,64 @@ export default App;
 							Explore the available props for the{" "}
 							<span className="code">Accordion</span> component
 						</Text>
-						<Table variant={"1"}>
-							<TableHead variant={"1"}>
-								<TableRow style="bg-gray-800" variant={false}>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Prop
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Type
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Default
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Description
-									</TableCell>
-								</TableRow>
-							</TableHead>
-							<TableBody variant={"1"}>
-								{accordionProps.map((props, index) => {
-									return (
-										<TableRow key={index} variant={"1"} style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
-											<TableCell variant={"1"} header={true} style="dark:!text-gray-200">
-												{props.name}
-											</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">{props.type}</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">{props.defaultValue}</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">{props.description}</TableCell>
-										</TableRow>
-									);
-								})}
-							</TableBody>
-						</Table>
+						<Block style="overflow-x-auto">
+							<Table variant={"1"}>
+								<TableHead variant={"1"}>
+									<TableRow style="bg-gray-800" variant={false}>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Prop
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Type
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Default
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Description
+										</TableCell>
+									</TableRow>
+								</TableHead>
+								<TableBody variant={"1"}>
+									{accordionProps.map((props, index) => {
+										return (
+											<TableRow
+												key={index}
+												variant={"1"}
+												style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
+												<TableCell
+													variant={"1"}
+													header={true}
+													style="dark:!text-gray-200">
+													{props.name}
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{props.type}
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{props.defaultValue}
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{props.description}
+												</TableCell>
+											</TableRow>
+										);
+									})}
+								</TableBody>
+							</Table>
+						</Block>
 					</Block>
 
 					<Block style="my-6">
@@ -1000,118 +1026,148 @@ export default App;
 							Explore the available props for the{" "}
 							<span className="code">AccordionHeader</span> component
 						</Text>
-						<Table variant={"1"}>
-							<TableHead variant={"1"}>
-								<TableRow style="bg-gray-800" variant={false}>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Prop
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Type
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Default
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Description
-									</TableCell>
-								</TableRow>
-							</TableHead>
-							<TableBody variant={"1"}>
-								{accordionHeaderProps.map((props, index) => {
-									return (
-										<TableRow
-											key={index}
+						<Block style="overflow-x-auto">
+							<Table variant={"1"}>
+								<TableHead variant={"1"}>
+									<TableRow style="bg-gray-800" variant={false}>
+										<TableCell
+											header={true}
 											variant={"1"}
-											style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
-											<TableCell
+											style="dark:text-gray-200">
+											Prop
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Type
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Default
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Description
+										</TableCell>
+									</TableRow>
+								</TableHead>
+								<TableBody variant={"1"}>
+									{accordionHeaderProps.map((props, index) => {
+										return (
+											<TableRow
+												key={index}
 												variant={"1"}
-												header={true}
-												style="dark:!text-gray-200">
-												{props.name}
-											</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">{props.type}</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">
-												{/* {props.defaultValue} */}
-												<span
-													dangerouslySetInnerHTML={{
-														__html: props.defaultValue,
-													}}
-												/>
-											</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">
-												{/* {props.description} */}
-												<span
-													dangerouslySetInnerHTML={{
-														__html: props.description,
-													}}
-												/>
-											</TableCell>
-										</TableRow>
-									);
-								})}
-							</TableBody>
-						</Table>
+												style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
+												<TableCell
+													variant={"1"}
+													header={true}
+													style="dark:!text-gray-200">
+													{props.name}
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{props.type}
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{/* {props.defaultValue} */}
+													<span
+														dangerouslySetInnerHTML={{
+															__html: props.defaultValue,
+														}}
+													/>
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{/* {props.description} */}
+													<span
+														dangerouslySetInnerHTML={{
+															__html: props.description,
+														}}
+													/>
+												</TableCell>
+											</TableRow>
+										);
+									})}
+								</TableBody>
+							</Table>
+						</Block>
 					</Block>
 					<Block style="my-6">
 						<Text tagName="p" style="mb-5">
 							Explore the available props for the{" "}
 							<span className="code">AccordionDetails</span> component
 						</Text>
-						<Table variant={"1"}>
-							<TableHead variant={"1"}>
-								<TableRow style="bg-gray-800" variant={false}>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Prop
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Type
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Default
-									</TableCell>
-									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
-										Description
-									</TableCell>
-								</TableRow>
-							</TableHead>
-							<TableBody variant={"1"}>
-								{accordionDetailsProps.map((props, index) => {
-									return (
-										<TableRow
-											key={index}
+						<Block style="overflow-x-auto">
+							<Table variant={"1"}>
+								<TableHead variant={"1"}>
+									<TableRow style="bg-gray-800" variant={false}>
+										<TableCell
+											header={true}
 											variant={"1"}
-											style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
-											<TableCell
+											style="dark:text-gray-200">
+											Prop
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Type
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Default
+										</TableCell>
+										<TableCell
+											header={true}
+											variant={"1"}
+											style="dark:text-gray-200">
+											Description
+										</TableCell>
+									</TableRow>
+								</TableHead>
+								<TableBody variant={"1"}>
+									{accordionDetailsProps.map((props, index) => {
+										return (
+											<TableRow
+												key={index}
 												variant={"1"}
-												header={true}
-												style="dark:!text-gray-200">
-												{props.name}
-											</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">
-												{props.type}
-											</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">
-												{/* {props.defaultValue} */}
-												<span
-													dangerouslySetInnerHTML={{
-														__html: props.defaultValue,
-													}}
-												/>
-											</TableCell>
-											<TableCell variant={"1"} style="dark:text-gray-200">
-												{/* {props.description} */}
-												<span
-													dangerouslySetInnerHTML={{
-														__html: props.description,
-													}}
-												/>
-											</TableCell>
-										</TableRow>
-									);
-								})}
-							</TableBody>
-						</Table>
+												style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
+												<TableCell
+													variant={"1"}
+													header={true}
+													style="dark:!text-gray-200">
+													{props.name}
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{props.type}
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{/* {props.defaultValue} */}
+													<span
+														dangerouslySetInnerHTML={{
+															__html: props.defaultValue,
+														}}
+													/>
+												</TableCell>
+												<TableCell variant={"1"} style="dark:text-gray-200">
+													{/* {props.description} */}
+													<span
+														dangerouslySetInnerHTML={{
+															__html: props.description,
+														}}
+													/>
+												</TableCell>
+											</TableRow>
+										);
+									})}
+								</TableBody>
+							</Table>
+						</Block>
 					</Block>
 				</Block>
 			</Block>
