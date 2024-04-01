@@ -5019,7 +5019,7 @@ const Text = ({
 
 	return (
 		<CustomTag
-		{...rest}
+			{...rest}
 			onClick={onClick}
 			id={id}
 			className={` ${style} ${variantValue} `}
@@ -5057,7 +5057,7 @@ const Block = ({
 	const CustomTag = customTag.toLowerCase();
 	return (
 		<CustomTag
-		{...rest}
+			{...rest}
 			className={` ${style} `}
 			{...(isLink && {
 				href: linkTo,
@@ -5085,7 +5085,9 @@ const Tabs = ({
 	};
 
 	return (
-		<div {...rest} className={`${style} ${orientation === "vertical" ? "flex" : ""}`}>
+		<div
+			{...rest}
+			className={`${style} ${orientation === "vertical" ? "flex" : ""}`}>
 			<div
 				className={` ${navWrapStyle} ${
 					orientation === "vertical" ? "flex-col" : ""
@@ -6001,7 +6003,6 @@ const Accordion = ({
 		detailsStyle: "",
 	});
 
-
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue({
@@ -6027,7 +6028,8 @@ const Accordion = ({
 		}
 		if (variant == "3") {
 			setVariantValue({
-				style: "my-3 drop-shadow-[5px_5px_0px_#0A0A0A] hover:drop-shadow-[5px_5px_4px_#0A0A0A] ",
+				style:
+					"my-3 drop-shadow-[5px_5px_0px_#0A0A0A] hover:drop-shadow-[5px_5px_4px_#0A0A0A] ",
 				headerStyle:
 					"flex gap-2 items-center bg-zinc-800 px-4 py-2 !text-amber-400 text-xl !font-medium cursor-pointer",
 				activeHeaderStyle: "",
@@ -6119,7 +6121,7 @@ const AccordionHeader = ({
 	toggleIcon,
 	toggleIconLibrary,
 	toggleIconStyle,
-	iconPosition="before",
+	iconPosition = "before",
 	iconStyle,
 	id,
 	active,
@@ -6132,12 +6134,8 @@ const AccordionHeader = ({
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
-	const [iconStyleX, setIconStyleX] = useState(iconStyle)
-	const [toggleIconStyleX, setToggleIconStyleX] = useState(toggleIconStyle)
-
-	
-
-
+	const [iconStyleX, setIconStyleX] = useState(iconStyle);
+	const [toggleIconStyleX, setToggleIconStyleX] = useState(toggleIconStyle);
 
 	const [variantValue, setVariantValue] = useState({
 		iconStyle: "",
@@ -6155,7 +6153,6 @@ const AccordionHeader = ({
 		if (variant == true) {
 			setIconStyleX(iconStyle + " " + variantValue.iconStyle);
 			setToggleIconStyleX(toggleIconStyle + " " + variantValue.toggleIconStyle);
-
 		}
 	}, [variant]);
 	// const [isActive, setIsActive] = useState(false);
@@ -6196,7 +6193,7 @@ const AccordionHeader = ({
 							iconStyle={iconStyleX}
 						/>
 					)}
-					{isActive && ( icon || toggleIcon) && (
+					{isActive && (icon || toggleIcon) && (
 						<Icon
 							iconLibrary={toggleIconLibrary ? toggleIconLibrary : iconLibrary}
 							icon={toggleIcon ? toggleIcon : icon}
@@ -6268,7 +6265,6 @@ const AccordionDetails = ({
 			});
 		}
 	}, [variant]);
-
 
 	return (
 		<CustomTag id={id} className={` ${style} ${variantValue.style} `}>
@@ -6480,9 +6476,7 @@ const CodeBody = ({ tagName, style, language, content }) => {
 		<SyntaxHighlighter
 			className={` ${style} `}
 			language={language}
-			style={vscDarkPlus}
-			
-			>
+			style={vscDarkPlus}>
 			{content}
 		</SyntaxHighlighter>
 	);
@@ -7447,31 +7441,28 @@ const Carousel = ({ children }) => {
 
 // * Table
 
-const Table = ({children, style="", variant, ...rest}) => {
-	const [variantValue, setVariantValue] = useState("")
-	useEffect(() => {
-		if(variant == "1"){
-
-			setVariantValue("w-full text-sm text-left text-gray-500");
-		}
-  }, [variant])
-	return (
-		<table className={`${variantValue} ${style}`} {...rest}>
-			{React.Children.map(children, (child) => {
-				
-					return React.cloneElement(child, {
-						
-						variant: variant,
-					});
-			})}
-		</table>
-	);
-}
-const TableCaption = ({children, style="", position, variant, ...rest}) => {
+const Table = ({ children, style = "", variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
-			setVariantValue("text-slate-500 dark:text-slate-400 py-4 text-xs");
+			setVariantValue("w-full text-sm text-left text-gray-500");
+		}
+	}, [variant]);
+	return (
+		<table className={`${variantValue} ${style}`} {...rest}>
+			{React.Children.map(children, (child) => {
+				return React.cloneElement(child, {
+					variant: variant,
+				});
+			})}
+		</table>
+	);
+};
+const TableCaption = ({ children, style = "", position, variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("text-slate-500 py-4 text-xs");
 		}
 	}, [variant]);
 	return (
@@ -7483,50 +7474,105 @@ const TableCaption = ({children, style="", position, variant, ...rest}) => {
 			{children}
 		</caption>
 	);
-}
-const TableHead = ({children, style="", ...rest}) => {
+};
+const TableHead = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("text-gray-200 uppercase bg-gray-500");
+		}
+	}, [variant]);
 	return (
-		<thead className={`${style}`} {...rest}>
+		<thead className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</thead>
 	);
-}
-const TableBody = ({children, style="", ...rest}) => {
+};
+const TableBody = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("");
+		}
+	}, [variant]);
 	return (
-		<tbody className={`${style}`} {...rest}>
+		<tbody className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</tbody>
 	);
-}
-const TableFooter = ({children, style="", ...rest}) => {
+};
+const TableFooter = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue("");
+		}
+	}, [variant]);
 	return (
-		<tfoot className={`${style}`} {...rest}>
+		<tfoot className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</tfoot>
 	);
-}
-const TableRow = ({children, style="", ...rest}) => {
+};
+const TableRow = ({ children, style = "", variant, ...rest }) => {
+	const [variantValue, setVariantValue] = useState("");
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue(
+				"border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700"
+			);
+		}
+	}, [variant]);
 	return (
-		<tr className={`${style}`} {...rest}>
+		<tr className={` ${variantValue} ${style}`} {...rest}>
 			{children}
 		</tr>
 	);
-}
-const TableCell = ({ children, tagName, header,thStyle="", tdStyle="", style="", scope, ...rest }) => {
+};
+const TableCell = ({
+	children,
+	tagName,
+	header,
+	thStyle = "",
+	tdStyle = "",
+	variant,
+	style = "",
+	scope,
+	...rest
+}) => {
+	const [variantValue, setVariantValue] = useState({
+		style: "",
+		thStyle: "",
+		tdStyle: "",
+	});
 	const [customTag, setCustomTag] = useState(tagName || (header ? "th" : "td"));
 	const CustomTag = customTag.toLowerCase();
 
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				style: "px-6 py-4",
+				thStyle: "font-medium text-gray-200 whitespace-nowrap",
+				tdStyle: "",
+			});
+		}
+	}, [variant]);
+
+	// console.log(variantValue);
+
 	return (
 		<CustomTag
-			className={` ${thStyle} ${tdStyle} ${style}`}
+			className={` ${
+				header
+					? thStyle + " " + variantValue.thStyle
+					: tdStyle + " " + variantValue.tdStyle
+			} ${variantValue.style} ${style}`}
 			{...(scope && { scope: scope })}
 			{...rest}>
 			{children}
 		</CustomTag>
 	);
 };
-
-
 
 // * HOOK
 
@@ -7622,11 +7668,11 @@ export {
 	CircularProgressBar,
 	Table,
 	TableCaption,
-  TableHead,
-  TableBody,
-  TableFooter,
+	TableHead,
+	TableBody,
+	TableFooter,
 	TableRow,
-  TableCell,
+	TableCell,
 	// ScrollTop,
 	useThemeSwitcher,
 };

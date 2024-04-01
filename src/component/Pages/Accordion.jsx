@@ -15,11 +15,26 @@ import {
 	Tab,
 	TabPanel,
 	CodeSnippet,
+	Table,
+	TableCaption,
+	TableHead,
+	TableBody,
+	TableFooter,
+	TableRow,
+	TableCell,
 } from "landing-page-ui";
 import React, { useState } from "react";
 // import CodeSnippet from "../components/CodeSnippet";
 import RightSideBar from "../Layout/RightSideBar";
-// import { Accordion, AccordionHeader, AccordionDetails } from "../test/Test";
+// import {
+// 	Table,
+// 	TableCaption,
+// 	TableHead,
+// 	TableBody,
+// 	TableFooter,
+// 	TableRow,
+// 	TableCell,
+// } from "../test/Test";
 
 const AccordionPage = () => {
 	const defaultAccordionContent = `
@@ -267,6 +282,65 @@ const App = () => {
 
 export default App;
 	`;
+
+	const accordionProps = [
+		{
+			name: "active",
+			type: "boolean",
+			description: "Active state of the accordion.",
+			defaultValue: "false",
+		},
+		{
+			name: "deactivate",
+			type: "boolean",
+			description: "Deactivate state of the accordion.",
+			defaultValue: "false",
+		},
+		{
+			name: "children",
+			type: "node",
+			description:
+				"Child components and content to be placed within the table.",
+			defaultValue: "-",
+		},
+		{
+			name: "style",
+			type: "string",
+			description: "Any CSS className to style the Accordion.",
+			defaultValue: "-",
+		},
+		{
+			name: "headerStyle",
+			type: "string",
+			description: "Any CSS className to style the Accordion Header.",
+			defaultValue: "-",
+		},
+		{
+			name: "detailsStyle",
+			type: "string",
+			description: "Any CSS className to style the Accordion Details.",
+			defaultValue: "-",
+		},
+		{
+			name: "activeHeaderStyle",
+			type: "string",
+			description: "Any CSS className to style the Accordion Active Header.",
+			defaultValue: "-",
+		},
+		{
+			name: "deactivateHeaderStyle",
+			type: "string",
+			description:
+				"Any CSS className to style the Accordion Deactivate Header.",
+			defaultValue: "-",
+		},
+		{
+			name: "variant",
+			type: "number",
+			description: "Variant of the accordion",
+			defaultValue: '"1"',
+		},
+	];
 	return (
 		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
 			<Block>
@@ -760,6 +834,44 @@ export default App;
 							iconStyle="mx-3 hidden group-hover:inline-block text-sm "
 						/>
 					</Text>
+				</Block>
+				<Block style="my-10">
+					<Text
+						tagName={"h3"}
+						id="props"
+						style="text-2xl mt-6 !font-medium group flex items-center ">
+						Props
+						<Icon
+							icon="fa-link"
+							iconLibrary="font-awesome"
+							isLink={true}
+							linkTo="#props"
+							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+						/>
+					</Text>
+					<Text tagName="p" style="mb-5">
+						Explore the available props for the table component
+					</Text>
+					<Table variant={"1"}>
+						<TableHead variant={"1"}>
+							<TableRow variant={"1"}>
+								<TableCell header={true} variant={"1"}>Prop</TableCell>
+								<TableCell header={true} variant={"1"}>Type</TableCell>
+								<TableCell header={true} variant={"1"}>Default</TableCell>
+								<TableCell header={true} variant={"1"}>Description</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody variant={"1"}>{accordionProps.map((props, index) => {
+							return (
+                <TableRow key={index} variant={"1"}>
+                  <TableCell variant={"1"} header={true}>{props.name}</TableCell>
+                  <TableCell variant={"1"}>{props.type}</TableCell>
+                  <TableCell variant={"1"}>{props.defaultValue}</TableCell>
+                  <TableCell variant={"1"}>{props.description}</TableCell>
+                </TableRow>
+              );
+						})}</TableBody>
+					</Table>
 				</Block>
 			</Block>
 			<RightSideBar>

@@ -87,12 +87,61 @@ const TestPage = () => {
 	];
 	return (
 		<div>
+			<Block tagName="div">
+				<Accordion active={true} variant="1">
+					<AccordionHeader>
+						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+							Accordion 1
+						</Text>
+					</AccordionHeader>
+					<AccordionDetails>
+						<Text style=" ">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+							deserunt sapiente nostrum iure excepturi vel debitis, quae
+							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
+							vel harum aliquam illo labore?
+						</Text>
+					</AccordionDetails>
+				</Accordion>
+				<Accordion variant="1">
+					<AccordionHeader>
+						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+							Accordion 2
+						</Text>
+					</AccordionHeader>
+					<AccordionDetails>
+						<Text style="">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+							deserunt sapiente nostrum iure excepturi vel debitis, quae
+							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
+							vel harum aliquam illo labore?
+						</Text>
+					</AccordionDetails>
+				</Accordion>
+				<Accordion variant="1">
+					<AccordionHeader>
+						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+							Accordion 3
+						</Text>
+					</AccordionHeader>
+					<AccordionDetails>
+						<Text style="">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+							deserunt sapiente nostrum iure excepturi vel debitis, quae
+							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
+							vel harum aliquam illo labore?
+						</Text>
+					</AccordionDetails>
+				</Accordion>
+			</Block>
 			<div className="relative overflow-x-auto">
-				<Table style="w-full text-sm text-left rtl:text-right text-gray-500 " variant="1">
+				<Table
+					style="w-full text-sm text-left rtl:text-right text-gray-500 "
+					variant="1">
 					<TableCaption style="text-slate-500 dark:text-slate-400 py-4 text-xs">
 						Table Caption
 					</TableCaption>
-					<TableHead style="text-xs text-gray-200 uppercase bg-gray-500">
+					<TableHead style=" text-gray-200 uppercase bg-gray-500">
 						<TableRow>
 							<TableCell header={true} scope="cell" style="px-6 py-3">
 								#
