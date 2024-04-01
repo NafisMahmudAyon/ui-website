@@ -6203,7 +6203,9 @@ const AccordionHeader = ({
 				</>
 			)}
 			<span
-				className={` ${labelStyle} ${variant ? variantValue.labelStyle : ""} `}>
+				className={` ${variant ? variantValue.labelStyle : ""} ${labelStyle} ${
+					isActive ? activeStyle : deactivateStyle
+				} ${style}  `}>
 				{children}
 			</span>
 
@@ -7479,7 +7481,7 @@ const TableHead = ({ children, style = "", variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
-			setVariantValue("text-gray-200 uppercase bg-gray-500");
+			setVariantValue("text-gray-500 uppercase bg-gray-400");
 		}
 	}, [variant]);
 	return (
@@ -7519,7 +7521,7 @@ const TableRow = ({ children, style = "", variant, ...rest }) => {
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue(
-				"border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700"
+				"border-b border-gray-500 last:border-b-0 odd:bg-gray-200 even:bg-gray-300"
 			);
 		}
 	}, [variant]);
@@ -7552,7 +7554,7 @@ const TableCell = ({
 		if (variant == "1") {
 			setVariantValue({
 				style: "px-6 py-4",
-				thStyle: "font-medium text-gray-200 whitespace-nowrap",
+				thStyle: "font-bold text-gray-500 whitespace-nowrap",
 				tdStyle: "",
 			});
 		}
@@ -7568,7 +7570,7 @@ const TableCell = ({
 					: tdStyle + " " + variantValue.tdStyle
 			} ${variantValue.style} ${style}`}
 			{...(scope && { scope: scope })}
-			{...rest}>
+			{...rest} >
 			{children}
 		</CustomTag>
 	);

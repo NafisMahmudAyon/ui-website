@@ -20,6 +20,21 @@
   min-height: 100%;
 }
 
+.code {
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 100;
+  background-color: rgb(229 231 235);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.375rem;
+  padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    display: inline-block;
+}
+:is(.dark .code){
+  background-color: rgb(31 41 55);
+}
+
 
 .accordion-details {
 	max-height: 0;

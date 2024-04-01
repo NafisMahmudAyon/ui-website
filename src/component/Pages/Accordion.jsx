@@ -341,6 +341,113 @@ export default App;
 			defaultValue: '"1"',
 		},
 	];
+
+	const accordionHeaderProps = [
+		{
+			name: "icon",
+			type: "string",
+			description: "Icon name for accordion",
+			defaultValue: "false",
+		},
+		{
+			name: "toggleIcon",
+			type: "string",
+			description: "Toggle icon for accordion.",
+			defaultValue: "false",
+		},
+
+		{
+			name: "iconLibrary",
+			type: "string",
+			description: `Icon library name.</br> <span class="code my-1">font-awesome</span> <span class="code my-1">bootstrap-icons</span> <span class="code my-1">icon-font</span> `,
+			defaultValue: "-",
+		},
+		{
+			name: "toggleIconLibrary",
+			type: "string",
+			description: `Icon library name.</br> <span class="code my-1">font-awesome</span> <span class="code my-1">bootstrap-icons</span> <span class="code my-1">icon-font</span> `,
+			defaultValue: "-",
+		},
+		{
+			name: "iconStyle",
+			type: "string",
+			description: "Any CSS className to style the Accordion Header Icon.",
+			defaultValue: "-",
+		},
+		{
+			name: "toggleIconStyle",
+			type: "string",
+			description:
+				"Any CSS className to style the Accordion Header Toggle Icon.",
+			defaultValue: "-",
+		},
+		{
+			name: "iconPosition",
+			type: "string",
+			description: `Icon position value.</br> <span class="code my-1">before</span> <span class="code my-1">after</span> `,
+			defaultValue: `<span class="code my-1">before</span>`,
+		},
+		{
+			name: "children",
+			type: "node",
+			description:
+				"Child components and content to be placed within the table.",
+			defaultValue: "-",
+		},
+		{
+			name: "style",
+			type: "string",
+			description: "Any CSS className to style the Accordion Header Label.",
+			defaultValue: "-",
+		},
+		{
+			name: "activeStyle",
+			type: "string",
+			description: "Any CSS className to style the Accordion Active Header.",
+			defaultValue: "-",
+		},
+		{
+			name: "deactivateStyle",
+			type: "string",
+			description:
+				"Any CSS className to style the Accordion Deactivate Header.",
+			defaultValue: "-",
+		},
+		{
+			name: "variant",
+			type: "number",
+			description: "Variant of the accordion",
+			defaultValue: '"1"',
+		},
+	];
+
+	const accordionDetailsProps = [
+		{
+			name: "tagName",
+			type: "string",
+			description: "HTML Tag name.",
+			defaultValue: "div",
+		},
+		{
+			name: "children",
+			type: "node",
+			description:
+				"Child components and content to be placed within the table.",
+			defaultValue: "-",
+		},
+		{
+			name: "style",
+			type: "string",
+			description: "Any CSS className to style the Accordion Header Label.",
+			defaultValue: "-",
+		},
+		{
+			name: "variant",
+			type: "number",
+			description: "Variant of the accordion",
+			defaultValue: '"1"',
+		},
+	];
 	return (
 		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
 			<Block>
@@ -849,29 +956,163 @@ export default App;
 							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
 						/>
 					</Text>
-					<Text tagName="p" style="mb-5">
-						Explore the available props for the table component
-					</Text>
-					<Table variant={"1"}>
-						<TableHead variant={"1"}>
-							<TableRow variant={"1"}>
-								<TableCell header={true} variant={"1"}>Prop</TableCell>
-								<TableCell header={true} variant={"1"}>Type</TableCell>
-								<TableCell header={true} variant={"1"}>Default</TableCell>
-								<TableCell header={true} variant={"1"}>Description</TableCell>
-							</TableRow>
-						</TableHead>
-						<TableBody variant={"1"}>{accordionProps.map((props, index) => {
-							return (
-                <TableRow key={index} variant={"1"}>
-                  <TableCell variant={"1"} header={true}>{props.name}</TableCell>
-                  <TableCell variant={"1"}>{props.type}</TableCell>
-                  <TableCell variant={"1"}>{props.defaultValue}</TableCell>
-                  <TableCell variant={"1"}>{props.description}</TableCell>
-                </TableRow>
-              );
-						})}</TableBody>
-					</Table>
+					<Block style="my-6">
+						<Text tagName="p" style="mb-5">
+							Explore the available props for the{" "}
+							<span className="code">Accordion</span> component
+						</Text>
+						<Table variant={"1"}>
+							<TableHead variant={"1"}>
+								<TableRow style="bg-gray-800" variant={false}>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Prop
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Type
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Default
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Description
+									</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody variant={"1"}>
+								{accordionProps.map((props, index) => {
+									return (
+										<TableRow key={index} variant={"1"} style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
+											<TableCell variant={"1"} header={true} style="dark:!text-gray-200">
+												{props.name}
+											</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">{props.type}</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">{props.defaultValue}</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">{props.description}</TableCell>
+										</TableRow>
+									);
+								})}
+							</TableBody>
+						</Table>
+					</Block>
+
+					<Block style="my-6">
+						<Text tagName="p" style="mb-5">
+							Explore the available props for the{" "}
+							<span className="code">AccordionHeader</span> component
+						</Text>
+						<Table variant={"1"}>
+							<TableHead variant={"1"}>
+								<TableRow style="bg-gray-800" variant={false}>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Prop
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Type
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Default
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Description
+									</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody variant={"1"}>
+								{accordionHeaderProps.map((props, index) => {
+									return (
+										<TableRow
+											key={index}
+											variant={"1"}
+											style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
+											<TableCell
+												variant={"1"}
+												header={true}
+												style="dark:!text-gray-200">
+												{props.name}
+											</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">{props.type}</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">
+												{/* {props.defaultValue} */}
+												<span
+													dangerouslySetInnerHTML={{
+														__html: props.defaultValue,
+													}}
+												/>
+											</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">
+												{/* {props.description} */}
+												<span
+													dangerouslySetInnerHTML={{
+														__html: props.description,
+													}}
+												/>
+											</TableCell>
+										</TableRow>
+									);
+								})}
+							</TableBody>
+						</Table>
+					</Block>
+					<Block style="my-6">
+						<Text tagName="p" style="mb-5">
+							Explore the available props for the{" "}
+							<span className="code">AccordionDetails</span> component
+						</Text>
+						<Table variant={"1"}>
+							<TableHead variant={"1"}>
+								<TableRow style="bg-gray-800" variant={false}>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Prop
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Type
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Default
+									</TableCell>
+									<TableCell header={true} variant={"1"} style="dark:text-gray-200">
+										Description
+									</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody variant={"1"}>
+								{accordionDetailsProps.map((props, index) => {
+									return (
+										<TableRow
+											key={index}
+											variant={"1"}
+											style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
+											<TableCell
+												variant={"1"}
+												header={true}
+												style="dark:!text-gray-200">
+												{props.name}
+											</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">
+												{props.type}
+											</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">
+												{/* {props.defaultValue} */}
+												<span
+													dangerouslySetInnerHTML={{
+														__html: props.defaultValue,
+													}}
+												/>
+											</TableCell>
+											<TableCell variant={"1"} style="dark:text-gray-200">
+												{/* {props.description} */}
+												<span
+													dangerouslySetInnerHTML={{
+														__html: props.description,
+													}}
+												/>
+											</TableCell>
+										</TableRow>
+									);
+								})}
+							</TableBody>
+						</Table>
+					</Block>
 				</Block>
 			</Block>
 			<RightSideBar>
