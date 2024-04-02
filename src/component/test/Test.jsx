@@ -6298,6 +6298,7 @@ const Avatar = ({
 	src,
 	altText,
 	imageStyle = "",
+	variant,
 	onClick,
 }) => {
 	if (name !== undefined) {
@@ -7570,7 +7571,7 @@ const TableCell = ({
 					: tdStyle + " " + variantValue.tdStyle
 			} ${variantValue.style} ${style}`}
 			{...(scope && { scope: scope })}
-			{...rest} >
+			{...rest}>
 			{children}
 		</CustomTag>
 	);

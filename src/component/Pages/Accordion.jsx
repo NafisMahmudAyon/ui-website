@@ -15,18 +15,6 @@ import {
 	Tab,
 	TabPanel,
 	CodeSnippet,
-	// Table,
-	// TableCaption,
-	// TableHead,
-	// TableBody,
-	// TableFooter,
-	// TableRow,
-	// TableCell,
-} from "landing-page-ui";
-import React, { useState } from "react";
-// import CodeSnippet from "../components/CodeSnippet";
-import RightSideBar from "../Layout/RightSideBar";
-import {
 	Table,
 	TableCaption,
 	TableHead,
@@ -34,7 +22,19 @@ import {
 	TableFooter,
 	TableRow,
 	TableCell,
-} from "../test/Test";
+} from "landing-page-ui";
+import React, { useState } from "react";
+// import CodeSnippet from "../components/CodeSnippet";
+import RightSideBar from "../Layout/RightSideBar";
+// import {
+// 	Table,
+// 	TableCaption,
+// 	TableHead,
+// 	TableBody,
+// 	TableFooter,
+// 	TableRow,
+// 	TableCell,
+// } from "../test/Test";
 
 const AccordionPage = () => {
 	const defaultAccordionContent = `
@@ -1154,7 +1154,9 @@ export default App;
 														}}
 													/>
 												</TableCell>
-												<TableCell variant={"1"} style="dark:text-gray-200">
+												<TableCell
+													variant={"1"}
+													style="dark:text-gray-200">
 													{/* {props.description} */}
 													<span
 														dangerouslySetInnerHTML={{
@@ -1203,6 +1205,12 @@ export default App;
 						isLink={true}
 						linkTo="#with-variation">
 						Accordion Style With Variation
+					</Text>
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#props">
+						Props
 					</Text>
 				</Block>
 			</RightSideBar>

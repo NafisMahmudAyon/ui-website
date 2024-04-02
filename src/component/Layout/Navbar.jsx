@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import useThemeSwitcher from "../Hooks/useThemeSwitcher";
+// import useThemeSwitcher from "../Hooks/useThemeSwitcher";
 import { Logo, MoonIcon, SunIcon } from "../Icons";
 import { useNavigate } from "react-router-dom";
+import { useThemeSwitcher } from "landing-page-ui";
 
 const Navbar = ({ toggleSidebar, className }) => {
 	const [mode, setMode] = useThemeSwitcher();

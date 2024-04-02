@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Block = () => {
+const BlockPage = () => {
   return (
     <div>Block</div>
   )
 }
 
-export default Block
+export default BlockPage
