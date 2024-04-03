@@ -12,7 +12,7 @@ import Installation from "./component/Pages/Installation";
 import Usage from "./component/Pages/Usage";
 import Accordion from "./component/Pages/Accordion";
 import Components from "./component/Pages/Components";
-import Badge from "./component/Pages/Badge";
+import BadgePage from "./component/Pages/Badge";
 import IconButton from "./component/Pages/IconButton";
 import List from "./component/Pages/List";
 import Tabs from "./component/Pages/Tabs";
@@ -103,7 +103,7 @@ function App() {
 						path="/components/badge"
 						element={
 							<AppLayout>
-								<Badge />
+								<BadgePage />
 							</AppLayout>
 						}
 					/>
@@ -210,6 +210,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
