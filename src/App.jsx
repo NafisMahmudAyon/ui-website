@@ -13,8 +13,7 @@ import Usage from "./component/Pages/Usage";
 import Accordion from "./component/Pages/Accordion";
 import Components from "./component/Pages/Components";
 import BadgePage from "./component/Pages/Badge";
-import IconButton from "./component/Pages/IconButton";
-import List from "./component/Pages/List";
+import IconButtonPage from "./component/Pages/IconButton";
 import Tabs from "./component/Pages/Tabs";
 import Text from "./component/Pages/Text";
 import Image from "./component/Pages/Image";
@@ -27,6 +26,17 @@ import TestPage from "./component/Pages/Test";
 import AvatarPage from "./component/Pages/Avatar";
 import { Block } from "landing-page-ui";
 import BlockPage from "./component/Pages/Block";
+import CarouselPage from "./component/Pages/Carousel";
+import CodeSnippetPage from "./component/Pages/CodeSnippet";
+import DividerPage from "./component/Pages/Divider";
+import CardPage from "./component/Pages/Card";
+import LabelPage from "./component/Pages/Label";
+import InputPage from "./component/Pages/Input";
+import TextAreaPage from "./component/Pages/TextArea";
+import ProgressBarPage from "./component/Pages/ProgressBar";
+import CircularProgressBarPage from "./component/Pages/CircularProgressBar";
+import TablePage from "./component/Pages/Table";
+import ListPage from "./component/Pages/List";
 
 function App() {
 	return (
@@ -111,7 +121,7 @@ function App() {
 						path="/components/icon-button"
 						element={
 							<AppLayout>
-								<IconButton />
+								<IconButtonPage />
 							</AppLayout>
 						}
 					/>
@@ -119,7 +129,7 @@ function App() {
 						path="/components/list"
 						element={
 							<AppLayout>
-								<List />
+								<ListPage />
 							</AppLayout>
 						}
 					/>
@@ -188,6 +198,86 @@ function App() {
 						}
 					/>
 					<Route
+						path="/components/carousel"
+						element={
+							<AppLayout>
+								<CarouselPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/code-snippet"
+						element={
+							<AppLayout>
+								<CodeSnippetPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/divider"
+						element={
+							<AppLayout>
+								<DividerPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/card"
+						element={
+							<AppLayout>
+								<CardPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/label"
+						element={
+							<AppLayout>
+								<LabelPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/input"
+						element={
+							<AppLayout>
+								<InputPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/textarea"
+						element={
+							<AppLayout>
+								<TextAreaPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/progress-bar"
+						element={
+							<AppLayout>
+								<ProgressBarPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/circular-progress-bar"
+						element={
+							<AppLayout>
+								<CircularProgressBarPage />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/components/table"
+						element={
+							<AppLayout>
+								<TablePage />
+							</AppLayout>
+						}
+					/>
+					<Route
 						path="/playground"
 						element={
 							<AppLayout>
@@ -210,6 +300,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 

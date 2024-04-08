@@ -347,20 +347,20 @@ export default App;
 			name: "icon",
 			type: "string",
 			description: "Icon name for accordion",
-			defaultValue: "false",
+			defaultValue: "fa-caret-right",
 		},
 		{
 			name: "toggleIcon",
 			type: "string",
 			description: "Toggle icon for accordion.",
-			defaultValue: "false",
+			defaultValue: "fa-caret-down",
 		},
 
 		{
 			name: "iconLibrary",
 			type: "string",
 			description: `Icon library name.</br> <span class="code my-1">font-awesome</span> <span class="code my-1">bootstrap-icons</span> <span class="code my-1">icon-font</span> `,
-			defaultValue: "-",
+			defaultValue: "font-awesome",
 		},
 		{
 			name: "toggleIconLibrary",
@@ -456,9 +456,7 @@ export default App;
 				</Text>
 				<Text tagName={"p"} style="">
 					The{" "}
-					<Text
-						tagName={"span"}
-						style="font-thin font-code px-2 py-1 bg-gray-200 rounded-md dark:bg-gray-800 ">
+					<Text tagName={"span"} style="code  ">
 						Accordion
 					</Text>{" "}
 					component lets users create a collapsible sections of related content
@@ -1154,9 +1152,7 @@ export default App;
 														}}
 													/>
 												</TableCell>
-												<TableCell
-													variant={"1"}
-													style="dark:text-gray-200">
+												<TableCell variant={"1"} style="dark:text-gray-200">
 													{/* {props.description} */}
 													<span
 														dangerouslySetInnerHTML={{

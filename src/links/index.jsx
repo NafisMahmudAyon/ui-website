@@ -80,14 +80,46 @@ const Links = {
 			title: "Grid",
 			path: "/components/grid",
 		},
-		// {
-		//   title: "Card",
-		//   path: "/components/card",
-		// },
-		// {
-		//   title: "Progress Bar",
-		//   path: "/components/progress-bar",
-		// },
+		{
+		  title: "Card",
+		  path: "/components/card",
+		},
+		{
+		  title: "Progress Bar",
+		  path: "/components/progress-bar",
+		},
+		{
+		  title: "Circular Progress Bar",
+		  path: "/components/circular-progress-bar",
+		},
+		{
+		  title: "Carousel",
+		  path: "/components/carousel",
+		},
+		{
+		  title: "Code Snippet",
+		  path: "/components/code-snippet",
+		},
+		{
+		  title: "Divider",
+		  path: "/components/divider",
+		},
+		{
+		  title: "Label",
+		  path: "/components/label",
+		},
+		{
+		  title: "Input",
+		  path: "/components/input",
+		},
+		{
+		  title: "TextArea",
+		  path: "/components/textarea",
+		},
+		{
+		  title: "Table",
+		  path: "/components/table",
+		},
 		{
 			title: "Flex",
 			path: "/components/flex",

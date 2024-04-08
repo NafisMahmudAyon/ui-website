@@ -1,137 +1,240 @@
 import React from "react";
-import { Block, Text, List } from "landing-page-ui"; 
+import { Block, Text, List, Tabs, TabsNav, Tab, TabPanel, Icon, CodeSnippet } from "landing-page-ui";
 
-import CodeSnippet from "../components/CodeSnippet";
+// import CodeSnippet from "../components/CodeSnippet";
+import RightSideBar from "../Layout/RightSideBar";
 
 const TabsPage = () => {
-  const tabsFeatures = [
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 text-justify ">Dynamic Content Rendering:</span> <span> The <span class="font-thin font-code">Tabs</span> component renders tab navigation and content panels dynamically based on the provided children elements.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">Custom Styling:</span> <span>Custom CSS classes or inline styles can be applied to the <span class="font-thin font-code">Tabs</span> component and its sub-elements using the <span class="font-thin font-code">style</span>, <span class="font-thin font-code">navWrapStyle</span>, and <span class="font-thin font-code">panelWrapStyle</span> props.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">Tab Selection and Activation:</span> <span>Users can click on individual tabs to activate them, causing the corresponding content panel to be displayed. The currently active tab is managed internally using state.</span>`,
-	];
-  const tabsNavFeatures = [
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Dynamic Tab Creation:</span> <span>Tab buttons are created dynamically based on the provided children elements. Each tab button corresponds to a <span class="font-thin font-code">Tab</span> component.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Tab Scrolling:</span> <span>If the number of tabs exceeds the available space, users can scroll horizontally or vertically between tabs using navigation buttons.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Customization Options:</span> <span>Various customization options are available, such as styling for tab buttons, navigation buttons, and icons.</span>`,
-	];
-  const tabFeatures = [
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Activation State:</span> <span>The activation state of the tab is managed internally by the <span class="font-thin font-code">Tab</span> component. When activated, the tab button can apply custom styling to indicate its active state.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Dynamic Rendering:</span> <span>The <span class="font-thin font-code">Tab</span> component receives its content and other properties dynamically as children of the <span class="font-thin font-code">Tabs</span> component.</span>`,
-	];
-  const tabPanelFeatures = [
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Dynamic Content Rendering:</span> <span>Like other components within the <span class="font-thin font-code">Tabs</span> component, the <span class="font-thin font-code">TabPanel</span> renders its content dynamically based on the currently active tab.</span>`,
-	];
+	const tabsContent = `
+import { Tabs, TabsNav, Tab, TabPanel, Text } from "landing-page-ui"
+
+const App = () => {
+  return (
+	<Tabs
+		active="1"
+		style="relative"
+		navWrapStyle="flex items-end text-sm"
+		panelWrapStyle="border border-gray-500 p-2 h-24 overflow-y-auto rounded-b-xl rounded-tr-xl">
+		<TabsNav activeTabStyle="!font-semibold">
+			<Tab
+				value="1"
+				style=" border border-gray-500 border-b-0 px-3 py-1 font-thin focus:outline-none rounded-tl-md ">
+				Description
+			</Tab>
+			<Tab
+				value="2"
+				style=" border border-gray-500 border-b-0 px-3 py-1 font-thin focus:outline-none">
+				Terms
+			</Tab>
+			<Tab
+				value="3"
+				style=" border border-gray-500 border-b-0 px-3 py-1 font-thin focus:outline-none rounded-tr-md">
+				Contact
+			</Tab>
+		</TabsNav>
+		<TabPanel value="1">
+			<Text style="text-xs text-gray-500 line-clamp-3">
+				This is the text for Tab1. Lorem ipsum dolor sit amet,
+				consectetur adipiscing elit, sed do eiusmod tempor
+				incididunt ut labore et dolore magna aliqua. Ut enim ad
+				minim veniam, quis nostrud exercitation ullamco laboris
+				nisi ut aliquip ex ea commodo consequat. Duis aute irure
+				dolor in reprehenderit in voluptate velit esse cillum
+				dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt
+				mollit anim id est laborum.
+			</Text>
+		</TabPanel>
+		<TabPanel value="2">
+			<Text style="text-xs text-gray-500 line-clamp-3">
+				This is the text for Tab2. Lorem ipsum dolor sit amet,
+				consectetur adipiscing elit, sed do eiusmod tempor
+				incididunt ut labore et dolore magna aliqua. Ut enim ad
+				minim veniam, quis nostrud exercitation ullamco laboris
+				nisi ut aliquip ex ea commodo consequat. Duis aute irure
+				dolor in reprehenderit in voluptate velit esse cillum
+				dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt
+				mollit anim id est laborum.
+			</Text>
+		</TabPanel>
+		<TabPanel value="3">
+			<Text style="text-xs text-gray-500 line-clamp-3">
+				This is the text for Tab3. Lorem ipsum dolor sit amet,
+				consectetur adipiscing elit, sed do eiusmod tempor
+				incididunt ut labore et dolore magna aliqua. Ut enim ad
+				minim veniam, quis nostrud exercitation ullamco laboris
+				nisi ut aliquip ex ea commodo consequat. Duis aute irure
+				dolor in reprehenderit in voluptate velit esse cillum
+				dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt
+				mollit anim id est laborum.
+			</Text>
+		</TabPanel>
+	</Tabs>
+	);
+}
+
+export default App;
+	`;
 	return (
-		<Block tagName={"div"} style="mb-32 ">
-			<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
-				Tabs
-			</Text>
-			<Text tagName={"p"} style="">
-				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
-					Tabs
-				</Text>{" "}
-				component provides a tabbed interface for organizing content into
-				multiple sections, allowing users to switch between different views or
-				categories. It consists of tab navigation and corresponding content
-				panels.
-			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
-					Features{" "}
-				</Text>
-				<List
-					list={tabsFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon="fa-circle-dot"
-					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-				/>
-			</Block>
+		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
 			<Block>
-				<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
-					TabsNav Component
+				<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
+					Tabs
 				</Text>
 				<Text tagName={"p"} style="">
 					The{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
-						TabsNav
-					</Text>{" "}
-					component represents the tab navigation area within the{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
+					<Text tagName={"span"} style="code  ">
 						Tabs
 					</Text>{" "}
-					component. It includes buttons for scrolling between tabs, as well as
-					individual tab buttons.
+					simplify content organization and navigation by presenting multiple
+					sections or categories in a user-friendly interface.
 				</Text>
-				<Block tagName="div" style="">
-					<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
-						Features{" "}
+				<Block style="my-10">
+					<Text
+						tagName={"h3"}
+						id="image-avatar"
+						style="text-2xl mt-6 mb-2 !font-medium group flex items-center ">
+						Tabs Example
+						<Icon
+							icon="fa-link"
+							iconLibrary="font-awesome"
+							isLink={true}
+							linkTo="#image-avatar"
+							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+						/>
 					</Text>
-					<List
-						list={tabsNavFeatures}
-						style=""
-						listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-						icon="fa-circle-dot"
-						iconLibrary={"font-awesome"}
-						iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-					/>
+					<Tabs
+						active="1"
+						orientation="horizontal"
+						navWrapStyle="text-sm"
+						panelWrapStyle=" mt-2 shadow-md rounded-md  "
+						style="w-full">
+						<TabsNav
+							showButton="false"
+							style=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
+							tabAreaStyle="flex gap-3"
+							activeTabStyle="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
+							<Tab
+								value="1"
+								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
+								Preview
+							</Tab>
+							<Tab
+								value="2"
+								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
+								Code
+							</Tab>
+						</TabsNav>
+						<TabPanel
+							value="1"
+							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
+							<Block style="flex gap-4 my-4">
+								<Tabs
+								active="1"
+									style="relative"
+									navWrapStyle="flex items-end text-sm"
+									panelWrapStyle="border border-gray-500 p-2 h-24 overflow-y-auto rounded-b-xl rounded-tr-xl">
+									<TabsNav activeTabStyle="!font-semibold">
+										<Tab
+											value="1"
+											style=" border border-gray-500 border-b-0 px-3 py-1 font-thin focus:outline-none rounded-tl-md ">
+											Description
+										</Tab>
+										<Tab
+											value="2"
+											style=" border border-gray-500 border-b-0 px-3 py-1 font-thin focus:outline-none">
+											Terms
+										</Tab>
+										<Tab
+											value="3"
+											style=" border border-gray-500 border-b-0 px-3 py-1 font-thin focus:outline-none rounded-tr-md">
+											Contact
+										</Tab>
+									</TabsNav>
+									<TabPanel value="1">
+										<Text style="text-xs text-gray-500 line-clamp-3">
+											This is the text for Tab1. Lorem ipsum dolor sit amet,
+											consectetur adipiscing elit, sed do eiusmod tempor
+											incididunt ut labore et dolore magna aliqua. Ut enim ad
+											minim veniam, quis nostrud exercitation ullamco laboris
+											nisi ut aliquip ex ea commodo consequat. Duis aute irure
+											dolor in reprehenderit in voluptate velit esse cillum
+											dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia deserunt
+											mollit anim id est laborum.
+										</Text>
+									</TabPanel>
+									<TabPanel value="2">
+										<Text style="text-xs text-gray-500 line-clamp-3">
+											This is the text for Tab2. Lorem ipsum dolor sit amet,
+											consectetur adipiscing elit, sed do eiusmod tempor
+											incididunt ut labore et dolore magna aliqua. Ut enim ad
+											minim veniam, quis nostrud exercitation ullamco laboris
+											nisi ut aliquip ex ea commodo consequat. Duis aute irure
+											dolor in reprehenderit in voluptate velit esse cillum
+											dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia deserunt
+											mollit anim id est laborum.
+										</Text>
+									</TabPanel>
+									<TabPanel value="3">
+										<Text style="text-xs text-gray-500 line-clamp-3">
+											This is the text for Tab3. Lorem ipsum dolor sit amet,
+											consectetur adipiscing elit, sed do eiusmod tempor
+											incididunt ut labore et dolore magna aliqua. Ut enim ad
+											minim veniam, quis nostrud exercitation ullamco laboris
+											nisi ut aliquip ex ea commodo consequat. Duis aute irure
+											dolor in reprehenderit in voluptate velit esse cillum
+											dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia deserunt
+											mollit anim id est laborum.
+										</Text>
+									</TabPanel>
+								</Tabs>
+							</Block>
+						</TabPanel>
+						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+							<CodeSnippet
+								lang="jsx"
+								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+								bodyStyle=" !font-code max-h-[300px] !my-0 "
+								content={tabsContent}
+							/>
+						</TabPanel>
+					</Tabs>
 				</Block>
 			</Block>
-			<Block>
-				<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
-					Tab Component
-				</Text>
-				<Text tagName={"p"} style="">
-					The{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
-						Tab
-					</Text>{" "}
-					component represents an individual tab within the tab navigation area.
-					It is rendered as a clickable button that, when clicked, activates the
-					corresponding content panel.
-				</Text>
-				<Block tagName="div" style="">
-					<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
-						Features{" "}
+			<RightSideBar>
+				<Text style="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
+				<Block style="">
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#image-avatar">
+						Image Avatar
 					</Text>
-					<List
-						list={tabFeatures}
-						style=""
-						listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-						icon="fa-circle-dot"
-						iconLibrary={"font-awesome"}
-						iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-					/>
-				</Block>
-			</Block>
-			<Block>
-				<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
-					TabPanel Component
-				</Text>
-				<Text tagName={"p"} style="">
-					The{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
-						TabPanel
-					</Text>{" "}
-					component represents the content panel associated with each tab. It
-					displays the content specific to the activated tab.
-				</Text>
-				<Block tagName="div" style="">
-					<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
-						Features{" "}
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#name-avatar">
+						Name Avatar
 					</Text>
-					<List
-						list={tabPanelFeatures}
-						style=""
-						listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-						icon="fa-circle-dot"
-						iconLibrary={"font-awesome"}
-						iconStyle="mr-2 text-xs group-hover:text-teal-400  "
-					/>
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#group-avatar">
+						Group Avatar
+					</Text>
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#props">
+						Props
+					</Text>
 				</Block>
-			</Block>
+			</RightSideBar>
 		</Block>
 	);
 };

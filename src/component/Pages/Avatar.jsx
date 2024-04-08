@@ -19,8 +19,7 @@ import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 
 const AvatarPage = () => {
-
-  const imageAvatarContent = `
+	const imageAvatarContent = `
 import { Avatar, Block } from "landing-page-ui"
 
 const App = () => {
@@ -35,7 +34,7 @@ const App = () => {
 
 export default App;
 	`;
-  const nameAvatarContent = `
+	const nameAvatarContent = `
 import { Avatar, Block } from "landing-page-ui"
 
 const App = () => {
@@ -50,7 +49,7 @@ const App = () => {
 
 export default App;
 	`;
-  const groupAvatarContent = `
+	const groupAvatarContent = `
 import { Avatar, AvatarGroup } from "landing-page-ui"
 
 const App = () => {
@@ -106,7 +105,7 @@ export default App;
 			name: "onClick",
 			type: "javascript Event",
 			description: "onClick event for the Avatar",
-			defaultValue: '-',
+			defaultValue: "-",
 		},
 	];
 	const avatarGroupProps = [
@@ -117,7 +116,7 @@ export default App;
 				"Child components and content to be placed within the table.",
 			defaultValue: "-",
 		},
-		
+
 		{
 			name: "style",
 			type: "string",
@@ -133,9 +132,7 @@ export default App;
 				</Text>
 				<Text tagName={"p"} style="">
 					The{" "}
-					<Text
-						tagName={"span"}
-						style="font-thin font-code px-2 py-1 bg-gray-200 rounded-md dark:bg-gray-800 ">
+					<Text tagName={"span"} style="code  ">
 						Avatar
 					</Text>{" "}
 					allows you to display user avatars or profile images in a consistent
