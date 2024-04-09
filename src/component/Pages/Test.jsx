@@ -28,7 +28,7 @@ import {
 	CodeHeader,
 	CodeBody,
 	Divider,
-	useThemeSwitcher,
+	UseThemeSwitcher,
 	Card,
 	CardContent,
 	CardMedia,
@@ -89,29 +89,75 @@ const TestPage = () => {
 		<div>
 			<Text style="text-4xl my-6">Component List</Text>
 			<Block style="flex gap-4 flex-wrap p-4">
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Block</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Text</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Accordion</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Tabs</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Image</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Image Gallery</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Icon</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Icon Button</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Grid</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Flex</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">List</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Avatar</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Badge</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">CodeSnippet</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Card</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Divider</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Table</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Carousel</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Progress Bar</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Circular Progress Bar</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Label</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">Input</h3>
-				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">TextArea</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Block
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Text
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Accordion
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Tabs
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Image
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Image Gallery
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Icon
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Icon Button
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Grid
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Flex
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					List
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Avatar
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Badge
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					CodeSnippet
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Card
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Divider
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Table
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Carousel
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Progress Bar
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Circular Progress Bar
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Label
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					Input
+				</h3>
+				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
+					TextArea
+				</h3>
 			</Block>
 			<Block>
 				<Text style="my-3 text-5xl">Accordion</Text>

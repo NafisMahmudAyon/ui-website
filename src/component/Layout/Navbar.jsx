@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-// import useThemeSwitcher from "../Hooks/useThemeSwitcher";
+// import UseThemeSwitcher from "../Hooks/UseThemeSwitcher";
 import { Logo, MoonIcon, SunIcon } from "../Icons";
 import { useNavigate } from "react-router-dom";
-import { useThemeSwitcher } from "landing-page-ui";
+import { UseThemeSwitcher } from "landing-page-ui";
 
 const Navbar = ({ toggleSidebar, className }) => {
-	const [mode, setMode] = useThemeSwitcher();
+	const [mode, setMode] = UseThemeSwitcher();
 	const [isOpen, setIsOpen] = useState(false);
 
 	const navigate = useNavigate();
