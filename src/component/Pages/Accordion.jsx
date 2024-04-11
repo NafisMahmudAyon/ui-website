@@ -13,7 +13,7 @@ import {
 	Tabs,
 	TabsNav,
 	Tab,
-	TabPanel,
+	TabsPanel,
 	CodeSnippet,
 	Table,
 	TableCaption,
@@ -299,8 +299,7 @@ export default App;
 		{
 			name: "children",
 			type: "node",
-			description:
-				"Child components and content to be placed within the table.",
+			description: "Child components and content to be placed within it.",
 			defaultValue: "-",
 		},
 		{
@@ -390,8 +389,7 @@ export default App;
 		{
 			name: "children",
 			type: "node",
-			description:
-				"Child components and content to be placed within the table.",
+			description: "Child components and content to be placed within it.",
 			defaultValue: "-",
 		},
 		{
@@ -431,8 +429,7 @@ export default App;
 		{
 			name: "children",
 			type: "node",
-			description:
-				"Child components and content to be placed within the table.",
+			description: "Child components and content to be placed within it.",
 			defaultValue: "-",
 		},
 		{
@@ -508,7 +505,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Accordion active={true} variant="1">
@@ -562,15 +559,15 @@ export default App;
 									</Text>
 								</AccordionDetails>
 							</Accordion>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={defaultAccordionContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">
@@ -630,7 +627,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Accordion active={true} variant="1">
@@ -693,15 +690,15 @@ export default App;
 									</Text>
 								</AccordionDetails>
 							</Accordion>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={accordionWithIconContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">
@@ -740,7 +737,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Accordion active={true} variant="1">
@@ -806,15 +803,15 @@ export default App;
 									</Text>
 								</AccordionDetails>
 							</Accordion>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={accordionWithToggleIconContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">
@@ -853,7 +850,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800  border-[1px] border-white/50 rounded-lg">
 							<Accordion active={true} variant="1">
@@ -915,15 +912,15 @@ export default App;
 									</Text>
 								</AccordionDetails>
 							</Accordion>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={accordionWithVariationContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 					<Text
 						tagName="p"

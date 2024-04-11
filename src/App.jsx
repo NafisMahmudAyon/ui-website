@@ -15,7 +15,7 @@ import Components from "./component/Pages/Components";
 import BadgePage from "./component/Pages/Badge";
 import IconButtonPage from "./component/Pages/IconButton";
 import Tabs from "./component/Pages/Tabs";
-import Text from "./component/Pages/Text";
+import TextPage from "./component/Pages/Text";
 import Image from "./component/Pages/Image";
 import ImageGallery from "./component/Pages/ImageGallery";
 import Grid from "./component/Pages/Grid";
@@ -145,7 +145,7 @@ function App() {
 						path="/components/text"
 						element={
 							<AppLayout>
-								<Text />
+								<TextPage />
 							</AppLayout>
 						}
 					/>

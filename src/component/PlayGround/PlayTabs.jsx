@@ -6,7 +6,7 @@ import {
 	Text,
 	Icon,
 } from "landing-page-ui";
-import { TabsNav, Tabs, Tab, TabPanel } from "landing-page-ui";
+import { TabsNav, Tabs, Tab, TabsPanel } from "landing-page-ui";
 import React, { useState } from "react";
 import {
 	bootstrapIcons,
@@ -59,9 +59,7 @@ const PlayTabs = () => {
 	const handleTabsIconLibrarySelectChange = (event) => {
 		settabsIconLibrarySelect(event.target.value);
 	};
-	const [tabsPrevIconSelect, settabsPrevIconSelect] = useState(
-		"fa-caret-left"
-	);
+	const [tabsPrevIconSelect, settabsPrevIconSelect] = useState("fa-caret-left");
 	const handleTabsPrevIconSelectChange = (event) => {
 		settabsPrevIconSelect(event.target.value);
 	};
@@ -70,9 +68,8 @@ const PlayTabs = () => {
 	const handleTabsNextIconSelectChange = (event) => {
 		settabsNextIconSelect(event.target.value);
 	};
-	const [tabsPrevIconVerticalSelect, settabsPrevIconVerticalSelect] = useState(
-		"fa-sort-up"
-	);
+	const [tabsPrevIconVerticalSelect, settabsPrevIconVerticalSelect] =
+		useState("fa-sort-up");
 	const handleTabsPrevIconVerticalSelectChange = (event) => {
 		settabsPrevIconVerticalSelect(event.target.value);
 	};
@@ -158,7 +155,7 @@ const PlayTabs = () => {
 		tabsNavActiveTabStyle: "bg-white rounded-sm shadow-md",
 		tabsNavDisabledStyle: "!text-white !bg-red-500 !shadow-none",
 		tabsTabStyle: "px-4 py-1",
-		tabsTabPanelStyle: "",
+		tabsTabsPanelStyle: "",
 	};
 	const tabsStyleVertical = {
 		tabsStyle: "w-full rounded-l-md overflow-hidden",
@@ -176,7 +173,7 @@ const PlayTabs = () => {
 		tabsNavActiveTabStyle: "bg-white rounded-sm shadow-md",
 		tabsNavDisabledStyle: "!text-white !bg-red-500 !shadow-none",
 		tabsTabStyle: "px-4 py-1",
-		tabsTabPanelStyle: "",
+		tabsTabsPanelStyle: "",
 	};
 
 	const TabsCodeContentHorizontal = `
@@ -233,18 +230,18 @@ const PlayTabs = () => {
 			${tabs4HeaderTextSelect}
 		</Tab>
 	</TabsNav>
-	<TabPanel value="1" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
+	<TabsPanel value="1" style="${tabsStyleHorizontal.tabsTabsPanelStyle}">
 		${tabs1PanelContentSelect}
-	</TabPanel>
-	<TabPanel value="2" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
+	</TabsPanel>
+	<TabsPanel value="2" style="${tabsStyleHorizontal.tabsTabsPanelStyle}">
 		${tabs2PanelContentSelect}
-	</TabPanel>
-	<TabPanel value="3" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
+	</TabsPanel>
+	<TabsPanel value="3" style="${tabsStyleHorizontal.tabsTabsPanelStyle}">
 		${tabs3PanelContentSelect}
-	</TabPanel>
-	<TabPanel value="4" style="${tabsStyleHorizontal.tabsTabPanelStyle}">
+	</TabsPanel>
+	<TabsPanel value="4" style="${tabsStyleHorizontal.tabsTabsPanelStyle}">
 		${tabs4PanelContentSelect}
-	</TabPanel>
+	</TabsPanel>
 </Tabs>`;
 	const TabsCodeContentVertical = `
 <Tabs
@@ -300,18 +297,18 @@ const PlayTabs = () => {
 			${tabs4HeaderTextSelect}
 		</Tab>
 	</TabsNav>
-	<TabPanel value="1" style="${tabsStyleVertical.tabsTabPanelStyle}">
+	<TabsPanel value="1" style="${tabsStyleVertical.tabsTabsPanelStyle}">
 		${tabs1PanelContentSelect}
-	</TabPanel>
-	<TabPanel value="2" style="${tabsStyleVertical.tabsTabPanelStyle}">
+	</TabsPanel>
+	<TabsPanel value="2" style="${tabsStyleVertical.tabsTabsPanelStyle}">
 		${tabs2PanelContentSelect}
-	</TabPanel>
-	<TabPanel value="3" style="${tabsStyleVertical.tabsTabPanelStyle}">
+	</TabsPanel>
+	<TabsPanel value="3" style="${tabsStyleVertical.tabsTabsPanelStyle}">
 		${tabs3PanelContentSelect}
-	</TabPanel>
-	<TabPanel value="4" style="${tabsStyleVertical.tabsTabPanelStyle}">
+	</TabsPanel>
+	<TabsPanel value="4" style="${tabsStyleVertical.tabsTabsPanelStyle}">
 		${tabs4PanelContentSelect}
-	</TabPanel>
+	</TabsPanel>
 </Tabs>`;
 
 	return (
@@ -418,222 +415,230 @@ const PlayTabs = () => {
 											))}
 										</select>
 									</Block>
-									{tabsOrientationSelect == "horizontal" && (<><Block style="">
-										<label for="">prevIcon: </label>
-										<select
-											name=""
-											className=" bg-inherit text-inherit border-b"
-											onChange={handleTabsPrevIconSelectChange}
-											value={tabsPrevIconSelect}>
-											{tabsIconLibrarySelect == "font-awesome" && (
-												<>
-													{fontawesomeClasses.map((component, i) => {
-														const iconHtml = `<i class="fa-solid ${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "bootstrap-icons" && (
-												<>
-													{bootstrapIcons.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "icon-font" && (
-												<>
-													{iconfontClasses.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-										</select>
-									</Block>
-									<Block style="">
-										<label for="">nextIcon: </label>
-										<select
-											name=""
-											className=" bg-inherit text-inherit border-b"
-											onChange={handleTabsNextIconSelectChange}
-											value={tabsNextIconSelect}>
-											{tabsIconLibrarySelect == "font-awesome" && (
-												<>
-													{fontawesomeClasses.map((component, i) => {
-														const iconHtml = `<i class="fa-solid ${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "bootstrap-icons" && (
-												<>
-													{bootstrapIcons.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "icon-font" && (
-												<>
-													{iconfontClasses.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-										</select>
-									</Block></>)}
-									{tabsOrientationSelect == "vertical" && (<><Block style="">
-										<label for="">prevIcon: </label>
-										<select
-											name=""
-											className=" bg-inherit text-inherit border-b"
-											onChange={handleTabsPrevIconVerticalSelectChange}
-											value={tabsPrevIconVerticalSelect}>
-											{tabsIconLibrarySelect == "font-awesome" && (
-												<>
-													{fontawesomeClasses.map((component, i) => {
-														const iconHtml = `<i class="fa-solid ${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "bootstrap-icons" && (
-												<>
-													{bootstrapIcons.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "icon-font" && (
-												<>
-													{iconfontClasses.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-										</select>
-									</Block>
-									<Block style="">
-										<label for="">nextIcon: </label>
-										<select
-											name=""
-											className=" bg-inherit text-inherit border-b"
-											onChange={handleTabsNextIconVerticalSelectChange}
-											value={tabsNextIconVerticalSelect}>
-											{tabsIconLibrarySelect == "font-awesome" && (
-												<>
-													{fontawesomeClasses.map((component, i) => {
-														const iconHtml = `<i class="fa-solid ${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "bootstrap-icons" && (
-												<>
-													{bootstrapIcons.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-											{tabsIconLibrarySelect == "icon-font" && (
-												<>
-													{iconfontClasses.map((component, i) => {
-														const iconHtml = `<i class="${component}"></i>`;
-														return (
-															<option
-																value={component}
-																key={i}
-																className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
-																{component}
-															</option>
-														);
-													})}
-												</>
-											)}
-										</select>
-									</Block></>)}
+									{tabsOrientationSelect == "horizontal" && (
+										<>
+											<Block style="">
+												<label for="">prevIcon: </label>
+												<select
+													name=""
+													className=" bg-inherit text-inherit border-b"
+													onChange={handleTabsPrevIconSelectChange}
+													value={tabsPrevIconSelect}>
+													{tabsIconLibrarySelect == "font-awesome" && (
+														<>
+															{fontawesomeClasses.map((component, i) => {
+																const iconHtml = `<i class="fa-solid ${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "bootstrap-icons" && (
+														<>
+															{bootstrapIcons.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "icon-font" && (
+														<>
+															{iconfontClasses.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+												</select>
+											</Block>
+											<Block style="">
+												<label for="">nextIcon: </label>
+												<select
+													name=""
+													className=" bg-inherit text-inherit border-b"
+													onChange={handleTabsNextIconSelectChange}
+													value={tabsNextIconSelect}>
+													{tabsIconLibrarySelect == "font-awesome" && (
+														<>
+															{fontawesomeClasses.map((component, i) => {
+																const iconHtml = `<i class="fa-solid ${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "bootstrap-icons" && (
+														<>
+															{bootstrapIcons.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "icon-font" && (
+														<>
+															{iconfontClasses.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+												</select>
+											</Block>
+										</>
+									)}
+									{tabsOrientationSelect == "vertical" && (
+										<>
+											<Block style="">
+												<label for="">prevIcon: </label>
+												<select
+													name=""
+													className=" bg-inherit text-inherit border-b"
+													onChange={handleTabsPrevIconVerticalSelectChange}
+													value={tabsPrevIconVerticalSelect}>
+													{tabsIconLibrarySelect == "font-awesome" && (
+														<>
+															{fontawesomeClasses.map((component, i) => {
+																const iconHtml = `<i class="fa-solid ${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "bootstrap-icons" && (
+														<>
+															{bootstrapIcons.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "icon-font" && (
+														<>
+															{iconfontClasses.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+												</select>
+											</Block>
+											<Block style="">
+												<label for="">nextIcon: </label>
+												<select
+													name=""
+													className=" bg-inherit text-inherit border-b"
+													onChange={handleTabsNextIconVerticalSelectChange}
+													value={tabsNextIconVerticalSelect}>
+													{tabsIconLibrarySelect == "font-awesome" && (
+														<>
+															{fontawesomeClasses.map((component, i) => {
+																const iconHtml = `<i class="fa-solid ${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "bootstrap-icons" && (
+														<>
+															{bootstrapIcons.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+													{tabsIconLibrarySelect == "icon-font" && (
+														<>
+															{iconfontClasses.map((component, i) => {
+																const iconHtml = `<i class="${component}"></i>`;
+																return (
+																	<option
+																		value={component}
+																		key={i}
+																		className="capitalize bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor px-2">
+																		{component}
+																	</option>
+																);
+															})}
+														</>
+													)}
+												</select>
+											</Block>
+										</>
+									)}
 									{tabsButtonTextEnabledSelect && (
 										<>
 											<Block style="flex gap-3 w-full">
@@ -1027,18 +1032,18 @@ const PlayTabs = () => {
 									{tabs4HeaderTextSelect}
 								</Tab>
 							</TabsNav>
-							<TabPanel value="1" style="">
+							<TabsPanel value="1" style="">
 								{tabs1PanelContentSelect}
-							</TabPanel>
-							<TabPanel value="2" style="">
+							</TabsPanel>
+							<TabsPanel value="2" style="">
 								{tabs2PanelContentSelect}
-							</TabPanel>
-							<TabPanel value="3" style="">
+							</TabsPanel>
+							<TabsPanel value="3" style="">
 								{tabs3PanelContentSelect}
-							</TabPanel>
-							<TabPanel value="4" style="">
+							</TabsPanel>
+							<TabsPanel value="4" style="">
 								{tabs4PanelContentSelect}
-							</TabPanel>
+							</TabsPanel>
 						</Tabs>
 					)}
 					{tabsOrientationSelect == "horizontal" && (
@@ -1078,18 +1083,18 @@ const PlayTabs = () => {
 									{tabs4HeaderTextSelect}
 								</Tab>
 							</TabsNav>
-							<TabPanel value="1" style="">
+							<TabsPanel value="1" style="">
 								{tabs1PanelContentSelect}
-							</TabPanel>
-							<TabPanel value="2" style="">
+							</TabsPanel>
+							<TabsPanel value="2" style="">
 								{tabs2PanelContentSelect}
-							</TabPanel>
-							<TabPanel value="3" style="">
+							</TabsPanel>
+							<TabsPanel value="3" style="">
 								{tabs3PanelContentSelect}
-							</TabPanel>
-							<TabPanel value="4" style="">
+							</TabsPanel>
+							<TabsPanel value="4" style="">
 								{tabs4PanelContentSelect}
-							</TabPanel>
+							</TabsPanel>
 						</Tabs>
 					)}
 				</Block>

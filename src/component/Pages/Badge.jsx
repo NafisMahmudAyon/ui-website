@@ -8,7 +8,7 @@ import {
 	TableCell,
 	TableHead,
 	TableRow,
-	TabPanel,
+	TabsPanel,
 	Tabs,
 	TabsNav,
 	Text,
@@ -109,8 +109,7 @@ export default App;
 		{
 			name: "children",
 			type: "node",
-			description:
-				"Child components and content to be placed within the table.",
+			description: "Child components and content to be placed within it.",
 			defaultValue: "-",
 		},
 		{
@@ -175,21 +174,21 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block style="flex gap-4 my-4">
 								<Badge />
 							</Block>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={defaultBadgeContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">
@@ -228,7 +227,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block style="flex gap-4 my-4">
@@ -240,15 +239,15 @@ export default App;
 									/>
 								</Badge>
 							</Block>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={badgeWithMaxContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">
@@ -287,7 +286,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block style="flex gap-4 my-4">
@@ -322,15 +321,15 @@ export default App;
 									</Badge>
 								</Block>
 							</Block>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={badgeInDifferentPosition}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">

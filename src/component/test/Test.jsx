@@ -5105,7 +5105,7 @@ const Tabs = ({
 			</div>
 			<div className={` ${panelWrapStyle} `}>
 				{React.Children.map(children, (child) => {
-					if (child.type === TabPanel && child.props.value === activeTab) {
+					if (child.type === TabsPanel && child.props.value === activeTab) {
 						return child;
 					}
 					return null;
@@ -5117,27 +5117,27 @@ const Tabs = ({
 
 // * TabsNav
 const TabsNav = ({
-	style = "",
-	children,
-	activeTab,
-	onTabClick,
-	orientation,
-	tabAreaStyle = "",
-	buttonStyle = "",
-	nextButtonStyle = "",
-	prevButtonStyle = "",
-	disabledStyle = "",
 	showButton = false,
-	prevButtonText,
-	nextButtonText,
-	activeTabStyle = "",
 	iconStyle = "",
 	iconLibrary = "font-awesome",
 	nextIcon = "fa-caret-right",
 	prevIcon = "fa-caret-left",
 	nextIconPosition = "right",
 	prevIconPosition = "left",
+	buttonStyle = "",
+	nextButtonStyle = "",
+	prevButtonStyle = "",
+	disabledStyle = "",
+	prevButtonText,
+	nextButtonText,
+	tabAreaStyle = "",
+	activeTabStyle = "",
+	style = "",
+	children,
 	buttonTextEnabled = false,
+	activeTab,
+	onTabClick,
+	orientation,
 	...rest
 }) => {
 	const tabsRef = useRef(null);
@@ -5190,7 +5190,7 @@ const TabsNav = ({
 							iconStyle={iconStyle}
 						/>
 					)}
-					{buttonTextEnabled && <>{prevButtonText}</>}
+					{(buttonTextEnabled || prevButtonText) && <>{prevButtonText}</>}
 					{prevIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
@@ -5226,7 +5226,7 @@ const TabsNav = ({
 							iconStyle={iconStyle}
 						/>
 					)}
-					{buttonTextEnabled && <>{nextButtonText}</>}
+					{(buttonTextEnabled || nextButtonText) && <>{nextButtonText}</>}
 					{nextIconPosition == "right" && (
 						<Icon
 							iconLibrary={iconLibrary}
@@ -5264,8 +5264,8 @@ const Tab = ({
 	);
 };
 
-// * TabPanel
-const TabPanel = ({ style = "", value, children, ...rest }) => {
+// * TabsPanel
+const TabsPanel = ({ style = "", value, children, ...rest }) => {
 	return (
 		<div {...rest} className={` ${style} `}>
 			{children}
@@ -5547,7 +5547,7 @@ const Image = ({
 
 	return (
 		<CustomTag
-			className={` ${style} `}
+			className={` ${style} relative `}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5578,11 +5578,11 @@ const Image = ({
 					className={` ${
 						lightBoxStyle ? lightBoxStyle : ""
 					} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-20 overflow-auto `}>
-					<div className="flex flex-col items-center">
+					<div className="relative p-3 flex flex-col items-center">
 						<button
 							className={` ${
 								closeButtonStyle ? closeButtonStyle : ""
-							} absolute top-0 right-0 m-2 h-8 w-8 flex items-center justify-center bg-red-500 rounded-full text-black hover:bg-gray-200  text-base `}
+							} absolute top-0 right-5 h-8 w-8 flex items-center justify-center bg-red-500 rounded-full text-black hover:bg-gray-200  text-base `}
 							onClick={closeLightbox}>
 							&times;
 						</button>
@@ -7718,7 +7718,7 @@ export {
 	Tabs,
 	TabsNav,
 	Tab,
-	TabPanel,
+	TabsPanel,
 	List,
 	ImageGallery,
 	Image,

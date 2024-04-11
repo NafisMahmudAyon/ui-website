@@ -10,7 +10,7 @@ import {
 	TableCell,
 	TableHead,
 	TableRow,
-	TabPanel,
+	TabsPanel,
 	Tabs,
 	TabsNav,
 	Text,
@@ -112,8 +112,7 @@ export default App;
 		{
 			name: "children",
 			type: "node",
-			description:
-				"Child components and content to be placed within the table.",
+			description: "Child components and content to be placed within it.",
 			defaultValue: "-",
 		},
 
@@ -174,7 +173,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block style="flex gap-4 my-4">
@@ -182,15 +181,15 @@ export default App;
 								<Avatar src="/avatar-2.jpg" altText="Avatar 2" style="border" />
 								<Avatar src="/avatar-3.jpg" altText="Avatar 3" style="border" />
 							</Block>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={imageAvatarContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">
@@ -229,7 +228,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block style="flex gap-4 my-4">
@@ -237,15 +236,15 @@ export default App;
 								<Avatar name="Emily Johnson" />
 								<Avatar name="John" />
 							</Block>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={nameAvatarContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">
@@ -284,7 +283,7 @@ export default App;
 								Code
 							</Tab>
 						</TabsNav>
-						<TabPanel
+						<TabsPanel
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<AvatarGroup>
@@ -292,15 +291,15 @@ export default App;
 								<Avatar src="/avatar-2.jpg" altText="Avatar 2" style="border" />
 								<Avatar src="/avatar-3.jpg" altText="Avatar 3" style="border" />
 							</AvatarGroup>
-						</TabPanel>
-						<TabPanel value="2" style="rounded-lg !overflow-hidden ">
+						</TabsPanel>
+						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
 								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
 								bodyStyle=" !font-code max-h-[300px] !my-0 "
 								content={groupAvatarContent}
 							/>
-						</TabPanel>
+						</TabsPanel>
 					</Tabs>
 				</Block>
 				<Block style="my-10">

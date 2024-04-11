@@ -6,7 +6,7 @@ import {
 	Tabs,
 	TabsNav,
 	Tab,
-	TabPanel,
+	TabsPanel,
 	List,
 	ImageGallery,
 	Image,
