@@ -14,12 +14,17 @@ body{
 }
 
 .scroller {
-  scrollbar-width: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 ::-webkit-scrollbar {
   display: none;
   
 }
+
+
+
+
+
 
 
 .height{

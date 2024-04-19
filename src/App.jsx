@@ -17,7 +17,7 @@ import IconButtonPage from "./component/Pages/IconButton";
 import Tabs from "./component/Pages/Tabs";
 import TextPage from "./component/Pages/Text";
 import Image from "./component/Pages/Image";
-import ImageGallery from "./component/Pages/ImageGallery";
+import ImageGalleryPage from "./component/Pages/ImageGallery";
 import Grid from "./component/Pages/Grid";
 import Flex from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
@@ -169,7 +169,7 @@ function App() {
 						path="/components/image-gallery"
 						element={
 							<AppLayout>
-								<ImageGallery />
+								<ImageGalleryPage />
 							</AppLayout>
 						}
 					/>
