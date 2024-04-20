@@ -777,7 +777,7 @@ const TestPage = () => {
 				duration={10}
 			/>
 			<Text style="text-3xl my-6">Progress Bar</Text>
-			<ProgressBar value={progress} animateOnVisible duration="12" />
+			<ProgressBar value={progress} animateOnVisible duration="1000" />
 			<div className="h-60 bg-red-100 mt-6 "></div>
 		</div>
 	);

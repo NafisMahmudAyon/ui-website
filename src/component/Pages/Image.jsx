@@ -90,7 +90,7 @@ export default App;
 			name: "lightBox",
 			type: "boolean",
 			description: "Is lightBox enable?",
-			defaultValue: "",
+			defaultValue: "-",
 		},
 		{
 			name: "lightBoxImageSrc",
@@ -102,18 +102,12 @@ export default App;
 			name: "lightBoxCaptionEnabled",
 			type: "boolean",
 			description: "Is lightBox caption enable?",
-			defaultValue: "",
+			defaultValue: "-",
 		},
 		{
 			name: "lightBoxCaption",
 			type: "string",
 			description: "Caption for lightbox image.",
-			defaultValue: "",
-		},
-		{
-			name: "style",
-			type: "string",
-			description: "Any CSS className to style the imageStyle.",
 			defaultValue: "-",
 		},
 		{

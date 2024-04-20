@@ -4,6 +4,8 @@ import { Accordion, AccordionDetails, AccordionHeader } from "landing-page-ui";
 import Links from "../../links";
 
 const LeftSideBar = () => {
+	const pathName = window.location.pathname;
+	console.log(pathName)
 	return (
 		<div className="pt-2">
 			{/* <Accordion active={true} style="mb-2">
@@ -105,7 +107,7 @@ const LeftSideBar = () => {
 							<a
 								key={link.path}
 								href={link.path}
-								className="pl-[20px] block text-sm py-[2px] rounded-md hover:bg-hoverBgColor">
+								className={`pl-[20px] block text-sm py-[2px] rounded-md hover:bg-hoverBgColor ${pathName == link.path ? "bg-hoverBgColor dark:bg-darkHoverBgColor" : ""}`}>
 								{/* <LinkArrow /> */}
 								<span
 									className={`${

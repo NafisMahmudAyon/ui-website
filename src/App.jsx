@@ -18,7 +18,7 @@ import Tabs from "./component/Pages/Tabs";
 import TextPage from "./component/Pages/Text";
 import Image from "./component/Pages/Image";
 import ImageGalleryPage from "./component/Pages/ImageGallery";
-import Grid from "./component/Pages/Grid";
+import GridPage from "./component/Pages/Grid";
 import Flex from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
 import PlayGround from "./component/PlayGround/PlayGround";
@@ -177,7 +177,7 @@ function App() {
 						path="/components/grid"
 						element={
 							<AppLayout>
-								<Grid />
+								<GridPage />
 							</AppLayout>
 						}
 					/>
