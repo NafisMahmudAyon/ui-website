@@ -3,23 +3,27 @@
 const Links = {
 	"Getting Started": [
 		{
-			title: "Overview",
-			path: "/overview",
-		},
-		{
 			title: "Installation",
-			path: "/installation",
+			path: "/",
 		},
-		{
-			title: "Usage",
-			path: "/usage",
-		},
+		// {
+		// 	title: "Overview",
+		// 	path: "/overview",
+		// },
+		// {
+		// 	title: "Installation",
+		// 	path: "/installation",
+		// },
+		// {
+		// 	title: "Usage",
+		// 	path: "/usage",
+		// },
 	],
 	Components: [
-		{
-			title: "All Components",
-			path: "/components",
-		},
+		// {
+		// 	title: "All Components",
+		// 	path: "/components",
+		// },
 		{
 			title: "Accordion",
 			path: "/components/accordion",

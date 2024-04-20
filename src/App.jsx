@@ -47,7 +47,7 @@ function App() {
 						path="/"
 						element={
 							<AppLayout>
-								<Home />
+								<Installation />
 							</AppLayout>
 						}
 					/>
@@ -300,6 +300,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

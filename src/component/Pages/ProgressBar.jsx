@@ -2,7 +2,7 @@ import {
 	Block,
 	CodeSnippet,
 	Icon,
-	// ProgressBar,
+	ProgressBar,
 	Tab,
 	Table,
 	TableBody,
@@ -15,7 +15,8 @@ import {
 	Text,
 } from "landing-page-ui";
 import React from "react";
-import { ProgressBar } from "../test/Test";
+// import { ProgressBar } from "../test/Test";
+import RightSideBar from "../Layout/RightSideBar";
 
 const ProgressBarPage = () => {
 	const defaultProgressBarContent = `
@@ -23,7 +24,7 @@ import { ProgressBar } from "landing-page-ui"
 
 const App = () => {
   return (
-    <ProgressBar value="60" duration="10" />
+    <ProgressBar value="60" duration="3" />
   );
 }
 
@@ -37,7 +38,7 @@ const App = () => {
     <ProgressBar
       value="85"
       animateOnVisible
-      duration="10"
+      duration="3"
     />
   );
 }
@@ -53,41 +54,65 @@ export default App;
 			defaultValue: "-",
 		},
 		{
-			name: "altText",
+			name: "contentPosition",
 			type: "string",
-			description: "Alternative text for Avatar.",
-			defaultValue: "-",
+			description: `Content position of the progress bar. <br> <span class="code">right</span> <span class="code">left</span>`,
+			defaultValue: `<span class="code">right</span>`,
 		},
 		{
-			name: "name",
-			type: "string",
-			description: "Name of the profile or avatar.",
-			defaultValue: "-",
+			name: "duration",
+			type: "number",
+			description: "Animation duration in second.",
+			defaultValue: "2",
+		},
+		{
+			name: "animateOnLoad",
+			type: "boolean",
+			description: "Animate progress-bar onLoad.",
+			defaultValue: "true",
+		},
+		{
+			name: "animateOnVisible",
+			type: "boolean",
+			description: "Animate progress-bar onVisible.",
+			defaultValue: "false",
 		},
 		{
 			name: "style",
 			type: "string",
-			description: "Any CSS className to style the Avatar.",
+			description: "Any CSS className to style the ProgressBar.",
 			defaultValue: "-",
 		},
 		{
-			name: "imageStyle",
+			name: "containerStyle",
 			type: "string",
-			description: "Any CSS className to style the image.",
+			description: "Any CSS className to style the ProgressBar container.",
 			defaultValue: "-",
 		},
 		{
-			name: "variant",
-			type: "number",
-			description: "Variant of the accordion",
-			defaultValue: '"1"',
-		},
-		{
-			name: "onClick",
-			type: "javascript Event",
-			description: "onClick event for the Avatar",
+			name: "fillStyle",
+			type: "string",
+			description: "Any CSS className to style the ProgressBar fillStyle.",
 			defaultValue: "-",
 		},
+		{
+			name: "contentStyle",
+			type: "string",
+			description: "Any CSS className to style the ProgressBar content.",
+			defaultValue: "-",
+		},
+		{
+			name: "children",
+			type: "node",
+			description: "Child components and content to be placed within it.",
+			defaultValue: "-",
+		},
+		// {
+		// 	name: "variant",
+		// 	type: "number",
+		// 	description: "Variant of the accordion",
+		// 	defaultValue: '"1"',
+		// },
 	];
 	return (
 		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
@@ -142,7 +167,7 @@ export default App;
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block style="flex w-full gap-4 my-4">
-								<ProgressBar value="60" duration="10" />
+								<ProgressBar value="60" duration="3" />
 							</Block>
 						</TabsPanel>
 						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
@@ -158,14 +183,14 @@ export default App;
 				<Block style="my-10">
 					<Text
 						tagName={"h3"}
-						id="default-progress-bar"
+						id="progress-bar-on-visible"
 						style="text-2xl mt-6 mb-2 !font-medium group flex items-center capitalize ">
 						progressBar on visible
 						<Icon
 							icon="fa-link"
 							iconLibrary="font-awesome"
 							isLink={true}
-							linkTo="#default-progress-bar"
+							linkTo="#progress-bar-on-visible"
 							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
 						/>
 					</Text>
@@ -195,7 +220,7 @@ export default App;
 							value="1"
 							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block style="flex w-full gap-4 my-4">
-								<ProgressBar value="85" animateOnVisible duration="10" />
+								<ProgressBar value="85" animateOnVisible duration="3" />
 							</Block>
 						</TabsPanel>
 						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
@@ -274,10 +299,18 @@ export default App;
 													{props.type}
 												</TableCell>
 												<TableCell variant={"1"} style="dark:text-gray-200">
-													{props.defaultValue}
+													<span
+														dangerouslySetInnerHTML={{
+															__html: props.defaultValue,
+														}}
+													/>
 												</TableCell>
 												<TableCell variant={"1"} style="dark:text-gray-200">
-													{props.description}
+													<span
+														dangerouslySetInnerHTML={{
+															__html: props.description,
+														}}
+													/>
 												</TableCell>
 											</TableRow>
 										);
@@ -288,6 +321,29 @@ export default App;
 					</Block>
 				</Block>
 			</Block>
+			<RightSideBar>
+				<Text style="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
+				<Block style="">
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#default-progress-bar">
+						Default ProgressBar
+					</Text>
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#progress-bar-on-visible">
+						ProgressBar On Visible
+					</Text>
+					<Text
+						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						isLink={true}
+						linkTo="#props">
+						Props
+					</Text>
+				</Block>
+			</RightSideBar>
 		</Block>
 	);
 };
