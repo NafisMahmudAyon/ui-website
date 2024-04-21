@@ -6672,7 +6672,13 @@ const CardMedia = ({
 };
 
 // * CardAction
-const CardAction = ({ children, style = "", link = "#", target = "_self", ...rest }) => {
+const CardAction = ({
+	children,
+	style = "",
+	link = "#",
+	target = "_self",
+	...rest
+}) => {
 	const handleClick = (e) => {
 		e.preventDefault();
 		// window.location.href = link;
@@ -6688,13 +6694,15 @@ const CardAction = ({ children, style = "", link = "#", target = "_self", ...res
 };
 
 // * Label
-const Label = ({ children, style = "", htmlFor = "" }) => {
+const Label = ({ children, style = "", htmlFor = "", required }) => {
 	return (
 		<>
 			<label
 				className={` ${style} block text-sm font-medium text-gray-500 `}
-				htmlFor={htmlFor}>
+				htmlFor={htmlFor}
+				required={required}>
 				{children}
+				{required && <span className="text-red-500">*</span>}
 			</label>
 		</>
 	);
@@ -6718,8 +6726,13 @@ const Input = ({
 	errorStyle = "",
 	helperText = "Incorrect Value",
 	autoComplete = "on",
+	disabled,
+	disabledStyle = "",
+	required,
+	requiredStyle = "",
 	id,
 	title,
+	...rest
 }) => {
 	const [value, setValue] = useState(propValue || "");
 	const [showPassword, setShowPassword] = useState(false);
@@ -6755,26 +6768,33 @@ const Input = ({
 	return (
 		<>
 			{iconEnable && (
-				<fieldset className={` ${style} relative  `}>
+				<fieldset
+					className={` ${style} relative h-fit group  `}
+					disabled={disabled}>
 					<Icon
 						icon={icon}
 						iconLibrary={iconLibrary}
-						iconStyle={` ${iconStyle} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 peer-disabled:pointer-events-none peer-disabled:opacity-50 `}
+						iconStyle={` ${iconStyle} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
 					/>
 					<input
 						id={id}
 						title={title}
 						type={type === "password" && showPassword ? "text" : type}
 						placeholder={placeholder}
-						className={` ${inputStyle} border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
-						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent ps-11 pe-11 `}
+						disabled={disabled}
+						required={required}
+						className={` ${inputStyle} ${disabled ? disabledStyle : ""} ${
+							required ? requiredStyle : ""
+						} border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
+						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent ps-11 pe-11 required:border-2 `}
 						autoComplete={autoComplete}
 						value={value}
 						onChange={handleChange}
+						{...rest}
 					/>
 					{type === "password" && (
 						<span
-							className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-600  peer-disabled:opacity-50 cursor-pointer"
+							className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-600  group-disabled:opacity-50 cursor-pointer"
 							onClick={toggleShowPassword}>
 							{showPassword && (
 								<svg
@@ -6805,17 +6825,24 @@ const Input = ({
 			{!iconEnable && (
 				<fieldset className={` ${style} relative  `}>
 					<input
+						id={id}
+						title={title}
 						type={type === "password" && showPassword ? "text" : type}
 						placeholder={placeholder}
-						className={` ${style} ${inputStyle} border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
-						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent pe-11 `}
+						disabled={disabled}
+						required={required}
+						className={` ${inputStyle} ${disabled ? disabledStyle : ""} ${
+							required ? requiredStyle : ""
+						} border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
+						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent ps-11 pe-11 required:border-2 `}
 						autoComplete={autoComplete}
 						value={value}
 						onChange={handleChange}
+						{...rest}
 					/>
 					{type === "password" && (
 						<span
-							className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-600  peer-disabled:opacity-50 cursor-pointer"
+							className="absolute inset-y-0 end-0 flex items-center pe-4 text-gray-600  group-disabled:opacity-50 cursor-pointer"
 							onClick={toggleShowPassword}>
 							{showPassword && (
 								<svg
@@ -6925,9 +6952,7 @@ const ProgressBar = ({
 		((clampedValue - min) / (max - min)) * 100
 	);
 
-
-
-	const durationValue = duration * 1000 / value;
+	const durationValue = (duration * 1000) / value;
 
 	// Ref for the progress bar
 	const progressBarRef = useRef(null);
@@ -7076,7 +7101,10 @@ const CircularProgressBar = ({
 	// console.log((percentage * 100) / max);
 
 	return (
-		<div className={`${style} relative h-24 w-24 `} onClick={onClick} role="progressbar">
+		<div
+			className={`${style} relative h-24 w-24 `}
+			onClick={onClick}
+			role="progressbar">
 			<div className="absolute top-0 left-0 w-full h-full transform -rotate-90 origin-center">
 				<svg
 					className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full text-red-400"
