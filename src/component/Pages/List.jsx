@@ -253,7 +253,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}

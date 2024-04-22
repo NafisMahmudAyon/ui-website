@@ -66,8 +66,7 @@ export default App;
 		{
 			name: "contentStyle",
 			type: "string",
-			description:
-				"Any CSS className to style the Divider content.",
+			description: "Any CSS className to style the Divider content.",
 			defaultValue: "-",
 		},
 		{
@@ -238,7 +237,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}

@@ -90,13 +90,16 @@ const LeftSideBar = () => {
 			</Accordion> */}
 
 			{Object.entries(Links).map(([category, links]) => (
-				<Accordion key={category} active={true} style="mb-2">
+				<Accordion
+					key={category}
+					active={category == "Variations" ? false : true}
+					style="mb-2">
 					<AccordionHeader
 						iconLibrary="bootstrap-icons"
-						icon='bi-caret-right-fill'
+						icon="bi-caret-right-fill"
 						iconStyle=""
 						toggleIconStyle={``}
-						toggleIcon='bi-caret-down'
+						toggleIcon="bi-caret-down"
 						iconPosition="before"
 						style="hover:bg-hoverBgColor p-1 rounded-md font-mono"
 						activeStyle="">
@@ -107,7 +110,11 @@ const LeftSideBar = () => {
 							<a
 								key={link.path}
 								href={link.path}
-								className={`pl-[20px] block text-sm py-[2px] rounded-md hover:bg-hoverBgColor ${pathName == link.path ? "bg-hoverBgColor dark:bg-darkHoverBgColor" : ""}`}>
+								className={`pl-[20px] block text-sm py-[2px] rounded-md hover:bg-hoverBgColor ${
+									pathName == link.path
+										? "bg-hoverBgColor dark:bg-darkHoverBgColor"
+										: ""
+								}`}>
 								{/* <LinkArrow /> */}
 								<span
 									className={`${

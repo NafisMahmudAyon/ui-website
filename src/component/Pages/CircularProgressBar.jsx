@@ -98,13 +98,13 @@ export default App;
 			description: "Any CSS className to style the Circular ProgressBar.",
 			defaultValue: "-",
 		},
-    {
-      name: "contentStyle",
-      type: "string",
-      description:
-        "Any CSS className to style the Circular ProgressBar content.",
-      defaultValue: "-",
-    },
+		{
+			name: "contentStyle",
+			type: "string",
+			description:
+				"Any CSS className to style the Circular ProgressBar content.",
+			defaultValue: "-",
+		},
 		{
 			name: "children",
 			type: "node",
@@ -260,7 +260,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}

@@ -19,7 +19,7 @@ import TextPage from "./component/Pages/Text";
 import Image from "./component/Pages/Image";
 import ImageGalleryPage from "./component/Pages/ImageGallery";
 import GridPage from "./component/Pages/Grid";
-import Flex from "./component/Pages/Flex";
+import FlexPage from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
 import PlayGround from "./component/PlayGround/PlayGround";
 import TestPage from "./component/Pages/Test";
@@ -37,6 +37,7 @@ import ProgressBarPage from "./component/Pages/ProgressBar";
 import CircularProgressBarPage from "./component/Pages/CircularProgressBar";
 import TablePage from "./component/Pages/Table";
 import ListPage from "./component/Pages/List";
+import AccordionVariations from "./component/Variations/Accordion";
 
 function App() {
 	return (
@@ -185,7 +186,7 @@ function App() {
 						path="/components/flex"
 						element={
 							<AppLayout>
-								<Flex />
+								<FlexPage />
 							</AppLayout>
 						}
 					/>
@@ -293,6 +294,15 @@ function App() {
 							</AppLayout>
 						}
 					/>
+					{/* //*variations routing */}
+					<Route
+						path="/variations/accordion"
+						element={
+							<AppLayout>
+								<AccordionVariations />
+							</AppLayout>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</Block>
@@ -300,6 +310,9 @@ function App() {
 }
 
 export default App;
+
+
+
 
 
 

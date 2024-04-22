@@ -29,9 +29,9 @@ const GridPage = () => {
 	// 	return color;
 	// };
 	const gridContent = Array.from({ length: 9 }, (_, index) => ({
-		id: `${index+1}`,
+		id: `${index + 1}`,
 	}));
-  const defaultGridContent = `
+	const defaultGridContent = `
 import { Grid, GridItem } from "landing-page-ui"
 
 const App = () => {
@@ -53,7 +53,7 @@ const App = () => {
 
 export default App;
 	`;
-  const defaultGridWithLinkContent = `
+	const defaultGridWithLinkContent = `
 import { Grid, GridItem } from "landing-page-ui"
 
 const App = () => {
@@ -78,7 +78,7 @@ const App = () => {
 
 export default App;
 	`;
-  const gridProps = [
+	const gridProps = [
 		{
 			name: "tagName",
 			type: "string",
@@ -104,7 +104,7 @@ export default App;
 		// 	defaultValue: '"1"',
 		// },
 	];
-  const gridItemProps = [
+	const gridItemProps = [
 		{
 			name: "tagName",
 			type: "string",
@@ -309,7 +309,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}
@@ -371,7 +371,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}

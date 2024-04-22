@@ -18,7 +18,6 @@ import {
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 
-
 const ImageGalleryPage = () => {
 	const gallery = Array.from({ length: 9 }, (_, index) => ({
 		src: `https://source.unsplash.com/random/800x600?nature=${index}`,
@@ -397,7 +396,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}

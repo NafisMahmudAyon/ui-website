@@ -99,7 +99,6 @@ export default App;
 		// 	description: "Variant of the accordion",
 		// 	defaultValue: '"1"',
 		// },
-		
 	];
 	return (
 		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
@@ -262,7 +261,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}

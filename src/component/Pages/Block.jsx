@@ -17,7 +17,7 @@ import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 
 const BlockPage = () => {
-  const defaultBlockContent = `
+	const defaultBlockContent = `
 import { Block } from "landing-page-ui"
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
 
 export default App;
 	`;
-	
+
 	const blockProps = [
 		{
 			name: "tagName",
@@ -138,7 +138,7 @@ export default App;
 						</TabsPanel>
 					</Tabs>
 				</Block>
-				
+
 				<Block style="my-10">
 					<Text
 						tagName={"h3"}
@@ -161,7 +161,7 @@ export default App;
 						<Block style="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="bg-gray-800" variant={false}>
+									<TableRow style="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}
