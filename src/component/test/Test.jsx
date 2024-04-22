@@ -6711,24 +6711,24 @@ const Label = ({ children, style = "", htmlFor = "", required }) => {
 // * Input
 
 const Input = ({
-	placeholder,
-	style = "",
 	type = "text",
+	value: propValue,
+	placeholder,
+	iconEnable,
 	icon = "fa-envelope",
 	iconLibrary = "font-awesome",
 	iconPosition = "left",
-	iconEnable,
-	iconStyle = "",
-	inputStyle = "",
-	onChange,
-	value: propValue,
-	error = false,
-	errorStyle = "",
+	error = true,
 	helperText = "Incorrect Value",
-	autoComplete = "on",
+	onChange,
 	disabled,
-	disabledStyle = "",
 	required,
+	style = "",
+	inputStyle = "",
+	iconStyle = "",
+	errorStyle = "",
+	autoComplete = "on",
+	disabledStyle = "",
 	requiredStyle = "",
 	id,
 	title,
@@ -6823,7 +6823,7 @@ const Input = ({
 				</fieldset>
 			)}
 			{!iconEnable && (
-				<fieldset className={` ${style} relative  `}>
+				<fieldset className={` ${style} relative h-fit group `}>
 					<input
 						id={id}
 						title={title}
@@ -6870,7 +6870,7 @@ const Input = ({
 					)}
 				</fieldset>
 			)}
-			{error && <p className={` ${errorStyle} text-red-500`}>{helperText}</p>}{" "}
+			{!error && <p className={` ${errorStyle} text-red-500`}>{helperText}</p>}{" "}
 			{/* Display error message */}
 		</>
 	);
@@ -6879,20 +6879,22 @@ const Input = ({
 // * TextArea
 
 const TextArea = ({
+	value: propValue,
 	placeholder,
+	error = true,
+	helperText = "Incorrect Value",
+	disabled,
+	required,
+	autoComplete = "on",
 	style = "",
 	inputStyle = "",
 	onChange,
-	value: propValue,
-	error = false,
 	errorStyle = "",
-	helperText = "Incorrect Value",
-	autoComplete = "on",
 	id,
 	title,
-	disabled = false,
 	disabledStyle = "",
-	required = false,
+	requiredStyle = "",
+	...rest
 }) => {
 	const [value, setValue] = useState(propValue || "");
 	const [showPassword, setShowPassword] = useState(false);
@@ -6910,21 +6912,25 @@ const TextArea = ({
 
 	return (
 		<>
-			<fieldset className={` ${style} relative  `}>
+			<fieldset className={` ${style} relative w-full `}>
 				<textarea
 					id={id}
 					title={title}
 					placeholder={placeholder}
-					className={` ${inputStyle} ${disabledStyle} min-h-16 border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
+					className={` ${inputStyle}  ${disabled ? disabledStyle : ""} ${
+						required ? requiredStyle : ""
+					} min-h-16 border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
 						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent  `}
 					autoComplete={autoComplete}
 					value={value}
 					disabled={disabled}
 					onChange={handleChange}
-					{...(required && { required: required })}
+					required={required}
+					// {...(required && { required: required })}
+					{...rest}
 				/>
 			</fieldset>
-			{error && <p className={` ${errorStyle} text-red-500`}>{helperText}</p>}{" "}
+			{!error && <p className={` ${errorStyle} text-red-500`}>{helperText}</p>}{" "}
 			{/* Display error message */}
 		</>
 	);
@@ -7593,6 +7599,9 @@ const Table = ({ children, style = "", variant, ...rest }) => {
 		if (variant == "1") {
 			setVariantValue("w-full text-sm text-left text-gray-500");
 		}
+		if (variant == "2") {
+			setVariantValue("border-collapse w-full");
+		}
 	}, [variant]);
 	return (
 		<table className={`${variantValue} ${style}`} {...rest}>
@@ -7627,10 +7636,18 @@ const TableHead = ({ children, style = "", variant, ...rest }) => {
 		if (variant == "1") {
 			setVariantValue("text-gray-500 uppercase bg-gray-400");
 		}
+		if (variant == "2") {
+			setVariantValue("font-semibold");
+		}
 	}, [variant]);
+	console.log(variant)
 	return (
 		<thead className={` ${variantValue} ${style}`} {...rest}>
-			{children}
+			{React.Children.map(children, (child) => {
+				return React.cloneElement(child, {
+					variant: variant,
+				});
+			})}
 		</thead>
 	);
 };
@@ -7640,10 +7657,18 @@ const TableBody = ({ children, style = "", variant, ...rest }) => {
 		if (variant == "1") {
 			setVariantValue("");
 		}
+		if (variant == "2") {
+			setVariantValue("");
+		}
 	}, [variant]);
+	console.log(variant);
 	return (
 		<tbody className={` ${variantValue} ${style}`} {...rest}>
-			{children}
+			{React.Children.map(children, (child) => {
+				return React.cloneElement(child, {
+					variant: variant,
+				});
+			})}
 		</tbody>
 	);
 };
@@ -7668,10 +7693,20 @@ const TableRow = ({ children, style = "", variant, ...rest }) => {
 				"border-b border-gray-500 last:border-b-0 odd:bg-gray-200 even:bg-gray-300"
 			);
 		}
+		if (variant == "2") {
+			setVariantValue(
+				""
+			);
+		}
 	}, [variant]);
+	console.log(variant);
 	return (
 		<tr className={` ${variantValue} ${style}`} {...rest}>
-			{children}
+			{React.Children.map(children, (child) => {
+				return React.cloneElement(child, {
+					variant: variant,
+				});
+			})}
 		</tr>
 	);
 };
@@ -7702,9 +7737,16 @@ const TableCell = ({
 				tdStyle: "",
 			});
 		}
+		if (variant == "2") {
+			setVariantValue({
+				style: "p-2 text-left border-0 border-b border-b-gray-500",
+				thStyle: "",
+				tdStyle: "",
+			});
+		}
 	}, [variant]);
 
-	// console.log(variantValue);
+	console.log(variant);
 
 	return (
 		<CustomTag
