@@ -2,38 +2,37 @@ import { Block, Divider, Text, CodeSnippet, Icon } from "landing-page-ui";
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 
-
 const Installation = () => {
 	return (
-		<Block style="scroll-smooth md:w[65%] lg:w-[73%]">
-			<Block style="relative">
-				<Block style="my-2">
-					<Text tagName="h1" style="text-2xl !font-medium">
+		<Block styles="scroll-smooth md:w-[65%] lg:w-[73%]">
+			<Block styles="relative">
+				<Block styles="my-2">
+					<Text tagName="h1" styles="text-2xl !font-medium">
 						Introduction - Landing Page UI
 					</Text>
-					<Text tagName="p" style="text-base">
+					<Text tagName="p" styles="text-base">
 						Landing Page UI is a React component library that provides a set of
 						React components for building landing pages. Discover our Landing
 						Page UI Kit, a seamless blend of React and Tailwind CSS components,
 						perfect for effortlessly creating captivating landing pages.
 					</Text>
 				</Block>
-				<Block style="my-2 mt-6 ">
+				<Block styles="my-2 mt-6 ">
 					<Text
 						tagName="h2"
 						id="vite-install"
-						style="text-xl  !font-medium group flex items-center ">
+						styles="text-xl  !font-medium group flex items-center ">
 						Vite Installation
 						<Icon
 							icon="fa-link"
 							iconLibrary="font-awesome"
 							isLink={true}
 							linkTo="#vite-install"
-							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+							iconStyles="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
 						/>
 					</Text>
 					<Divider />
-					<Text tagName="p" style="text-base my-2 mt-6">
+					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 1:
 						</code>{" "}
@@ -41,11 +40,11 @@ const Installation = () => {
 					</Text>
 					<CodeSnippet
 						lang="bash"
-						bodyStyle="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`npm create vite@latest my-project -- --template react 
 cd my-project`}
 					/>
-					<Text tagName="p" style="text-base my-2 mt-6">
+					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 2:
 						</code>{" "}
@@ -53,11 +52,11 @@ cd my-project`}
 					</Text>
 					<CodeSnippet
 						lang="bash"
-						bodyStyle="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`npm i autoprefixer postcss tailwindcss
 npx tailwindcss init -p`}
 					/>
-					<Text tagName="p" style="text-base my-2 mt-6">
+					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 3:
 						</code>{" "}
@@ -65,10 +64,10 @@ npx tailwindcss init -p`}
 					</Text>
 					<CodeSnippet
 						lang="bash"
-						bodyStyle="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`npm i landing-page-ui `}
 					/>
-					<Text tagName="p" style="text-base my-2 mt-6">
+					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 4:
 						</code>{" "}
@@ -76,7 +75,7 @@ npx tailwindcss init -p`}
 					</Text>
 					<CodeSnippet
 						lang="js"
-						bodyStyle="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`/** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -89,7 +88,7 @@ export default {
   plugins: [],
 } `}
 					/>
-					<Text tagName="p" style="text-base my-2 mt-6">
+					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 5:
 						</code>{" "}
@@ -97,12 +96,12 @@ export default {
 					</Text>
 					<CodeSnippet
 						lang="css"
-						bodyStyle="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`@tailwind base;
 @tailwind components;
 @tailwind utilities; `}
 					/>
-					<Text tagName="p" style="text-base my-2 mt-6">
+					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 6:
 						</code>{" "}
@@ -110,10 +109,10 @@ export default {
 					</Text>
 					<CodeSnippet
 						lang="bash"
-						bodyStyle="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`npm run dev `}
 					/>
-					<Text tagName="p" style="text-base my-2 mt-6">
+					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 7:
 						</code>{" "}
@@ -121,13 +120,13 @@ export default {
 					</Text>
 					<CodeSnippet
 						lang="jsx"
-						bodyStyle="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`import { Text } from "landing-page-ui";
   const App=()=>{
     return (
       <Text 
       tagName="h2"
-      style="text-3xl !font-bold text-blue-500">
+      styles="text-3xl !font-bold text-blue-500">
         Hello From Landing Page UI
       </Text>
     )
@@ -137,10 +136,10 @@ export default App; `}
 				</Block>
 			</Block>
 			<RightSideBar>
-				<Text style="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
+				<Text styles="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
 				<Text
-					style="text-sm  px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
-					// style="text-sm hover:text-darkTextColor hover:bg-gray-500 dark:hover:bg-darkHoverBgColor dark:hover:text-darkTextHoverColor px-2 pl-4 border-l py-1 rounded-md transition-all duration-300 "
+					styles="text-sm  px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+					// styles="text-sm hover:text-darkTextColor hover:bg-gray-500 dark:hover:bg-darkHoverBgColor dark:hover:text-darkTextHoverColor px-2 pl-4 border-l py-1 rounded-md transition-all duration-300 "
 					isLink={true}
 					linkTo="#vite-install">
 					Vite React Application

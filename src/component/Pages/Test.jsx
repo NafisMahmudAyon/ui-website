@@ -87,8 +87,8 @@ const TestPage = () => {
 	];
 	return (
 		<div>
-			<Text style="text-4xl my-6">Component List</Text>
-			<Block style="flex gap-4 flex-wrap p-4">
+			<Text styles="text-4xl my-6">Component List</Text>
+			<Block styles="flex gap-4 flex-wrap p-4">
 				<h3 className="px-5 py-2 text-xl font-semibold border rounded-md shadow-md">
 					Block
 				</h3>
@@ -160,19 +160,19 @@ const TestPage = () => {
 				</h3>
 			</Block>
 			<Block>
-				<Text style="my-3 text-5xl">Accordion</Text>
-				<Text style="my-3 text-2xl">Accordion With Icon</Text>
+				<Text styles="my-3 text-5xl">Accordion</Text>
+				<Text styles="my-3 text-2xl">Accordion With Icon</Text>
 				<Accordion active={true} variant="1">
 					<AccordionHeader
 						icon="fa-caret-down"
 						iconLibrary="font-awesome"
 						iconPosition="before">
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 1
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style=" ">
+						<Text styles=" ">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -185,12 +185,12 @@ const TestPage = () => {
 						icon="fa-caret-down"
 						iconLibrary="font-awesome"
 						iconPosition="before">
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 2
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -203,12 +203,12 @@ const TestPage = () => {
 						icon="fa-caret-down"
 						iconLibrary="font-awesome"
 						iconPosition="before">
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 3
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -217,19 +217,19 @@ const TestPage = () => {
 					</AccordionDetails>
 				</Accordion>
 				{/* //* Accordion With Icon */}
-				<Text style="my-3 text-2xl">Accordion With Toggle Icon</Text>
+				<Text styles="my-3 text-2xl">Accordion With Toggle Icon</Text>
 				<Accordion active={true} variant="1">
 					<AccordionHeader
 						icon="fa-caret-right"
 						iconLibrary="font-awesome"
 						iconPosition="before"
 						toggleIcon="fa-caret-down">
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 1
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style=" ">
+						<Text styles=" ">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -243,12 +243,12 @@ const TestPage = () => {
 						iconLibrary="font-awesome"
 						iconPosition="before"
 						toggleIcon="fa-caret-down">
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 2
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -262,12 +262,12 @@ const TestPage = () => {
 						iconLibrary="font-awesome"
 						iconPosition="before"
 						toggleIcon="fa-caret-down">
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 3
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -275,7 +275,7 @@ const TestPage = () => {
 						</Text>
 					</AccordionDetails>
 				</Accordion>
-				<Text style="my-3 text-2xl">
+				<Text styles="my-3 text-2xl">
 					Accordion Style with Predefined Variations
 				</Text>
 				<Accordion active={true} variant="1">
@@ -284,12 +284,12 @@ const TestPage = () => {
 						iconLibrary="font-awesome"
 						iconPosition="before"
 						toggleIcon="fa-caret-down">
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 1
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style=" ">
+						<Text styles=" ">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -303,12 +303,12 @@ const TestPage = () => {
 						iconLibrary="font-awesome"
 						iconPosition="before"
 						toggleIcon="fa-caret-down">
-						<Text tagName="h3" style="  ">
+						<Text tagName="h3" styles="  ">
 							Accordion 2
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -322,12 +322,12 @@ const TestPage = () => {
 						iconLibrary="font-awesome"
 						iconPosition="before"
 						toggleIcon="fa-caret-down">
-						<Text tagName="h3" style="  ">
+						<Text tagName="h3" styles="  ">
 							Accordion 3
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -338,119 +338,119 @@ const TestPage = () => {
 				{/* //* Accordion Style with Predefined Variations */}
 			</Block>
 			<Block>
-				<Text style="my-3 text-5xl">Avatar</Text>
-				<Text style="my-3 text-2xl">Image Avatar</Text>
-				<Block style="flex gap-4">
-					<Avatar src="/avatar-1.jpg" altText="Avatar 1" style="border" />
-					<Avatar src="/avatar-2.jpg" altText="Avatar 2" style="border" />
-					<Avatar src="/avatar-3.jpg" altText="Avatar 3" style="border" />
+				<Text styles="my-3 text-5xl">Avatar</Text>
+				<Text styles="my-3 text-2xl">Image Avatar</Text>
+				<Block styles="flex gap-4">
+					<Avatar src="/avatar-1.jpg" altText="Avatar 1" styles="border" />
+					<Avatar src="/avatar-2.jpg" altText="Avatar 2" styles="border" />
+					<Avatar src="/avatar-3.jpg" altText="Avatar 3" styles="border" />
 				</Block>
 				{/* //* Image Avatar */}
-				<Text style="my-3 text-2xl">Name Avatar</Text>
-				<Block style="flex gap-4 my-4">
+				<Text styles="my-3 text-2xl">Name Avatar</Text>
+				<Block styles="flex gap-4 my-4">
 					<Avatar name="Michael Brown" />
 					<Avatar name="Emily Johnson" />
 					<Avatar name="John" />
 				</Block>
 				{/* //* Name  Avatar */}
-				<Text style="my-3 text-2xl">Group Avatar</Text>
+				<Text styles="my-3 text-2xl">Group Avatar</Text>
 				<AvatarGroup>
-					<Avatar src="/avatar-1.jpg" altText="Avatar 1" style="border" />
-					<Avatar src="/avatar-2.jpg" altText="Avatar 2" style="border" />
-					<Avatar src="/avatar-3.jpg" altText="Avatar 3" style="border" />
+					<Avatar src="/avatar-1.jpg" altText="Avatar 1" styles="border" />
+					<Avatar src="/avatar-2.jpg" altText="Avatar 2" styles="border" />
+					<Avatar src="/avatar-3.jpg" altText="Avatar 3" styles="border" />
 				</AvatarGroup>
 				{/* //* Group   Avatar */}
 			</Block>
 			<Block>
-				<Text style="my-3 text-5xl">Badge</Text>
-				<Text style="my-3 text-2xl">Default Badge</Text>
-				<Badge content="7" badgeStyle="">
+				<Text styles="my-3 text-5xl">Badge</Text>
+				<Text styles="my-3 text-2xl">Default Badge</Text>
+				<Badge content="7" badgeStyles="">
 					<Icon
 						icon="fa-envelope"
 						iconLibrary="font-awesome"
-						iconStyle="text-lg"
+						iconStyles="text-lg"
 					/>
 				</Badge>
-				<Text style="my-3 text-2xl">Badge with Max Count</Text>
-				<Badge content="30" maxContent="25" badgeStyle="">
+				<Text styles="my-3 text-2xl">Badge with Max Count</Text>
+				<Badge content="30" maxContent="25" badgeStyles="">
 					<Icon
 						icon="fa-envelope"
 						iconLibrary="font-awesome"
-						iconStyle="text-xl"
+						iconStyles="text-xl"
 					/>
 				</Badge>
-				<Text style="my-3 text-2xl">Badge in Different Position</Text>
-				<Block style="flex gap-10 my-6">
-					<Badge content="7" position="top right" badgeStyle="">
+				<Text styles="my-3 text-2xl">Badge in Different Position</Text>
+				<Block styles="flex gap-10 my-6">
+					<Badge content="7" position="top right" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
-					<Badge content="7" position="top left" badgeStyle="">
+					<Badge content="7" position="top left" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
-					<Badge content="7" position="bottom left" badgeStyle="">
+					<Badge content="7" position="bottom left" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
-					<Badge content="7" position="bottom right" badgeStyle="">
+					<Badge content="7" position="bottom right" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
 				</Block>
 			</Block>
 			<Block>
-				<Text style="my-3 text-5xl">Icon Button</Text>
-				<Text style="my-3 text-2xl">Default Icon</Text>
-				<IconButton text="Default Icon Button" textStyle="mx-3" />
-				<Text style="my-3 text-2xl">Badge with Max Count</Text>
-				<Badge content="30" maxContent="25" badgeStyle="">
+				<Text styles="my-3 text-5xl">Icon Button</Text>
+				<Text styles="my-3 text-2xl">Default Icon</Text>
+				<IconButton text="Default Icon Button" textStyles="mx-3" />
+				<Text styles="my-3 text-2xl">Badge with Max Count</Text>
+				<Badge content="30" maxContent="25" badgeStyles="">
 					<Icon
 						icon="fa-envelope"
 						iconLibrary="font-awesome"
-						iconStyle="text-xl"
+						iconStyles="text-xl"
 					/>
 				</Badge>
-				<Text style="my-3 text-2xl">Badge in Different Position</Text>
-				<Block style="flex gap-10 my-6">
-					<Badge content="7" position="top right" badgeStyle="">
+				<Text styles="my-3 text-2xl">Badge in Different Position</Text>
+				<Block styles="flex gap-10 my-6">
+					<Badge content="7" position="top right" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
-					<Badge content="7" position="top left" badgeStyle="">
+					<Badge content="7" position="top left" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
-					<Badge content="7" position="bottom left" badgeStyle="">
+					<Badge content="7" position="bottom left" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
-					<Badge content="7" position="bottom right" badgeStyle="">
+					<Badge content="7" position="bottom right" badgeStyles="">
 						<Icon
 							icon="fa-envelope"
 							iconLibrary="font-awesome"
-							iconStyle="text-xl"
+							iconStyles="text-xl"
 						/>
 					</Badge>
 				</Block>
@@ -459,12 +459,12 @@ const TestPage = () => {
 			<Block tagName="div">
 				<Accordion active={true} variant="1">
 					<AccordionHeader>
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 1
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style=" ">
+						<Text styles=" ">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -474,12 +474,12 @@ const TestPage = () => {
 				</Accordion>
 				<Accordion variant="1">
 					<AccordionHeader>
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 2
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -489,12 +489,12 @@ const TestPage = () => {
 				</Accordion>
 				<Accordion variant="1">
 					<AccordionHeader>
-						<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
 							Accordion 3
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails>
-						<Text style="">
+						<Text styles="">
 							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 							deserunt sapiente nostrum iure excepturi vel debitis, quae
 							quibusdam officiis. Atque nesciunt pariatur praesentium optio, at
@@ -505,53 +505,53 @@ const TestPage = () => {
 			</Block>
 			<div className="relative overflow-x-auto">
 				<Table
-					style="w-full text-sm text-left rtl:text-right text-gray-500 "
+					styles="w-full text-sm text-left rtl:text-right text-gray-500 "
 					variant="1">
-					<TableCaption style="text-slate-500 dark:text-slate-400 py-4 text-xs">
+					<TableCaption styles="text-slate-500 dark:text-slate-400 py-4 text-xs">
 						Table Caption
 					</TableCaption>
-					<TableHead style=" text-gray-200 uppercase bg-gray-500">
+					<TableHead styles=" text-gray-200 uppercase bg-gray-500">
 						<TableRow>
-							<TableCell header={true} scope="cell" style="px-6 py-3">
+							<TableCell header={true} scope="cell" styles="px-6 py-3">
 								#
 							</TableCell>
-							<TableCell header={true} style="px-6 py-3">
+							<TableCell header={true} styles="px-6 py-3">
 								First Name
 							</TableCell>
-							<TableCell header={true} style="px-6 py-3">
+							<TableCell header={true} styles="px-6 py-3">
 								Last Name
 							</TableCell>
-							<TableCell header={true} style="px-6 py-3">
+							<TableCell header={true} styles="px-6 py-3">
 								Username
 							</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						<TableRow style="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
+						<TableRow styles="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
 							<TableCell
-								thStyle="font-medium text-gray-200 whitespace-nowrap"
-								style="px-6 py-4 ">
+								thStyles="font-medium text-gray-200 whitespace-nowrap"
+								styles="px-6 py-4 ">
 								1
 							</TableCell>
-							<TableCell style="px-6 py-4 ">Mark</TableCell>
-							<TableCell style="px-6 py-4 ">Otto</TableCell>
-							<TableCell style="px-6 py-4 ">@mdo</TableCell>
+							<TableCell styles="px-6 py-4 ">Mark</TableCell>
+							<TableCell styles="px-6 py-4 ">Otto</TableCell>
+							<TableCell styles="px-6 py-4 ">@mdo</TableCell>
 						</TableRow>
-						<TableRow style="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
-							<TableCell style="px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
+						<TableRow styles="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
+							<TableCell styles="px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
 								2
 							</TableCell>
-							<TableCell style="px-6 py-4 ">Jacob</TableCell>
-							<TableCell style="px-6 py-4 ">Thornton</TableCell>
-							<TableCell style="px-6 py-4 ">@fat</TableCell>
+							<TableCell styles="px-6 py-4 ">Jacob</TableCell>
+							<TableCell styles="px-6 py-4 ">Thornton</TableCell>
+							<TableCell styles="px-6 py-4 ">@fat</TableCell>
 						</TableRow>
-						<TableRow style="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
-							<TableCell style="px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
+						<TableRow styles="border-b border-gray-700 odd:bg-gray-800 even:bg-gray-700">
+							<TableCell styles="px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
 								3
 							</TableCell>
-							<TableCell style="px-6 py-4 ">Larry</TableCell>
-							<TableCell style="px-6 py-4 ">the Bird</TableCell>
-							<TableCell style="px-6 py-4 ">@twitter</TableCell>
+							<TableCell styles="px-6 py-4 ">Larry</TableCell>
+							<TableCell styles="px-6 py-4 ">the Bird</TableCell>
+							<TableCell styles="px-6 py-4 ">@twitter</TableCell>
 						</TableRow>
 					</TableBody>
 				</Table>
@@ -579,75 +579,75 @@ const TestPage = () => {
 			</Carousel>
 			<Text
 				tagName="h1"
-				style=" text-2xl text-green-800 dark:text-green-600 !font-bold underline underline-offset-4 text-center transition-all duration-300">
+				styles=" text-2xl text-green-800 dark:text-green-600 !font-bold underline underline-offset-4 text-center transition-all duration-300">
 				Test Page
 			</Text>
 			{/* // * TextArea */}
-			<Block style=" my-4 ">
-				<Text tagName="h2" style=" text-lg mb-2 underline underline-offset-2 ">
+			<Block styles=" my-4 ">
+				<Text tagName="h2" styles=" text-lg mb-2 underline underline-offset-2 ">
 					TextArea Component:
 				</Text>
-				<Label style="my-2 text-base text-gray-400 ">
-					Textarea Default Style:{" "}
+				<Label styles="my-2 text-base text-gray-400 ">
+					Textarea Default Styles:{" "}
 				</Label>
 				<TextArea disabled={false} placeholder="This is placeholder." />
-				<Label style="my-2 text-base text-gray-400 ">
+				<Label styles="my-2 text-base text-gray-400 ">
 					Textarea Required:*{" "}
 				</Label>
 				<TextArea placeholder="This is placeholder." required />
 
-				<Label style="my-2 text-base text-gray-400 ">
+				<Label styles="my-2 text-base text-gray-400 ">
 					Textarea With Error:{" "}
 				</Label>
 				<TextArea
 					placeholder="This is placeholder."
 					required
 					error
-					errorStyle="text-xs "
+					errorStyles="text-xs "
 				/>
 			</Block>
 			{/* // * Avatar */}
-			<Block style=" my-4 ">
-				<Text tagName="h2" style=" text-lg mb-2 underline underline-offset-2 ">
+			<Block styles=" my-4 ">
+				<Text tagName="h2" styles=" text-lg mb-2 underline underline-offset-2 ">
 					Avatar Component:
 				</Text>
-				<Text style="my-2 text-base text-gray-400 ">
-					Avatar Default Style:{" "}
+				<Text styles="my-2 text-base text-gray-400 ">
+					Avatar Default Styles:{" "}
 				</Text>
 				<Avatar />
-				<Text style="my-2 text-base text-gray-400 ">Avatar With Image: </Text>
+				<Text styles="my-2 text-base text-gray-400 ">Avatar With Image: </Text>
 				<Avatar src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" />
-				<Text style="my-2 text-base text-gray-400 ">Avatar With Name: </Text>
+				<Text styles="my-2 text-base text-gray-400 ">Avatar With Name: </Text>
 				<Avatar name="Nafis Mahmud Ayon" />
-				<Text style="my-2 text-base text-gray-400 ">
+				<Text styles="my-2 text-base text-gray-400 ">
 					AvatarGroup With Different Type of Avatar:{" "}
 				</Text>
-				<AvatarGroup style="mt-3 ">
+				<AvatarGroup styles="mt-3 ">
 					<Avatar
 						src="https://images.unsplash.com/photo-1554151228-14d9def656e4"
-						style="border-2 border-white  "
+						styles="border-2 border-white  "
 					/>
 					<Avatar
 						src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-						style="border-2 border-white  "
+						styles="border-2 border-white  "
 					/>
-					<Avatar name="Nafis Mahmud Ayon" style="border-2 border-white  " />
+					<Avatar name="Nafis Mahmud Ayon" styles="border-2 border-white  " />
 					<Avatar
 						src="https://plus.unsplash.com/premium_photo-1664536392896-cd1743f9c02c"
-						style="border-2 border-white  "
+						styles="border-2 border-white  "
 					/>
 					<Avatar />
 				</AvatarGroup>
 			</Block>
 			{/* // * Divider */}
-			<Block style=" my-4 ">
-				<Text tagName="h2" style=" text-lg mb-2 underline underline-offset-2 ">
+			<Block styles=" my-4 ">
+				<Text tagName="h2" styles=" text-lg mb-2 underline underline-offset-2 ">
 					Divider Component:
 				</Text>
-				<Text style="my-2 text-base text-gray-400 ">
-					Divider Default Style:{" "}
+				<Text styles="my-2 text-base text-gray-400 ">
+					Divider Default Styles:{" "}
 				</Text>
-				<Block style="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
+				<Block styles="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
 					mollitia rerum nesciunt ipsum deserunt in illo similique eius
 					veritatis ex, natus sint voluptas sunt placeat officia laboriosam,
@@ -657,8 +657,8 @@ const TestPage = () => {
 					consequatur impedit veniam modi amet.
 				</Block>
 
-				<Text style="my-2 text-base text-gray-400 ">Divider With Text: </Text>
-				<Block style="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
+				<Text styles="my-2 text-base text-gray-400 ">Divider With Text: </Text>
+				<Block styles="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
 					mollitia rerum nesciunt ipsum deserunt in illo similique eius
 					veritatis ex, natus sint voluptas sunt placeat officia laboriosam,
@@ -667,10 +667,10 @@ const TestPage = () => {
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
 					consequatur impedit veniam modi amet.
 				</Block>
-				<Text style="my-2 text-base text-gray-400 ">
+				<Text styles="my-2 text-base text-gray-400 ">
 					Divider With Right Align:{" "}
 				</Text>
-				<Block style="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
+				<Block styles="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
 					mollitia rerum nesciunt ipsum deserunt in illo similique eius
 					veritatis ex, natus sint voluptas sunt placeat officia laboriosam,
@@ -679,10 +679,10 @@ const TestPage = () => {
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis
 					consequatur impedit veniam modi amet.
 				</Block>
-				<Text style="my-2 text-base text-gray-400 ">
+				<Text styles="my-2 text-base text-gray-400 ">
 					Divider With Text Left Align:{" "}
 				</Text>
-				<Block style="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
+				<Block styles="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg  shadow-sm ">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
 					mollitia rerum nesciunt ipsum deserunt in illo similique eius
 					veritatis ex, natus sint voluptas sunt placeat officia laboriosam,
@@ -694,24 +694,24 @@ const TestPage = () => {
 			</Block>
 			<CodeSnippet
 				lang="jsx"
-				headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
-				bodyStyle=" !font-code max-h-[300px] !my-0 "
+				headerStyles="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+				bodyStyles=" !font-code max-h-[300px] !my-0 "
 				content={`import {Avatar} from "landing-page-ui";`}
 			/>
-			<Block style="my-3 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+			<Block styles="my-3 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 				<Card>
 					<CardAction link="/components/accordion">
 						<CardMedia
-							mediaStyle="h-40 w-full "
+							mediaStyles="h-40 w-full "
 							badge="Hello"
 							src="https://images.unsplash.com/photo-1501854140801-50d01698950b"
 							badgePosition="bottom left"
 						/>
 						<CardContent>
-							<Text tagName="h3" style="text-2xl  ">
+							<Text tagName="h3" styles="text-2xl  ">
 								Lizard
 							</Text>
-							<Text tagName="p" style="text-sm text-pretty  ">
+							<Text tagName="p" styles="text-sm text-pretty  ">
 								Lizards are a widespread group of squamate reptiles, with over
 								6,000 species, ranging across all continents except Antarctica
 							</Text>
@@ -721,16 +721,16 @@ const TestPage = () => {
 				<Card>
 					<CardAction link="/components/accordion">
 						<CardMedia
-							mediaStyle="h-40 w-full "
+							mediaStyles="h-40 w-full "
 							badge="Hello"
 							src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d"
 							badgePosition="bottom left"
 						/>
 						<CardContent>
-							<Text tagName="h3" style="text-2xl  ">
+							<Text tagName="h3" styles="text-2xl  ">
 								Lizard
 							</Text>
-							<Text tagName="p" style="text-sm text-pretty  ">
+							<Text tagName="p" styles="text-sm text-pretty  ">
 								Lizards are a widespread group of squamate reptiles, with over
 								6,000 species, ranging across all continents except Antarctica
 							</Text>
@@ -740,14 +740,14 @@ const TestPage = () => {
 				<Card>
 					<CardAction link="/components/accordion">
 						<CardMedia
-							mediaStyle="h-40 w-full "
+							mediaStyles="h-40 w-full "
 							src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e"
 						/>
 						<CardContent>
-							<Text tagName="h3" style="text-2xl  ">
+							<Text tagName="h3" styles="text-2xl  ">
 								Lizard
 							</Text>
-							<Text tagName="p" style="text-sm text-pretty  ">
+							<Text tagName="p" styles="text-sm text-pretty  ">
 								Lizards are a widespread group of squamate reptiles, with over
 								6,000 species, ranging across all continents except Antarctica
 							</Text>
@@ -759,7 +759,7 @@ const TestPage = () => {
 			<Input
 				placeholder="Data"
 				// id="data"
-				iconStyle=""
+				iconStyles=""
 				// value={inputValue}
 				type="password"
 				iconEnable={true}
@@ -769,14 +769,14 @@ const TestPage = () => {
 			/>
 			<p>You entered: {inputValue}</p>
 			<div className="h-60 bg-red-100 mt-6 "></div>
-			<Text style="text-3xl my-6">Circular Progress Bar</Text>
+			<Text styles="text-3xl my-6">Circular Progress Bar</Text>
 			<CircularProgressBar
 				value={progress}
 				onVisible
 				max="1500"
 				duration={10}
 			/>
-			<Text style="text-3xl my-6">Progress Bar</Text>
+			<Text styles="text-3xl my-6">Progress Bar</Text>
 			<ProgressBar value={progress} animateOnVisible duration="1000" />
 			<div className="h-60 bg-red-100 mt-6 "></div>
 		</div>

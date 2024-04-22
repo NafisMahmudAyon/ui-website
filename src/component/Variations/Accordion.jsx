@@ -4,7 +4,7 @@ import {
 	Accordion,
 	AccordionHeader,
 	AccordionDetails,
-} from "landing-page-ui";
+} from "../test/Test";
 import React from "react";
 
 const AccordionVariations = () => {
@@ -19,57 +19,105 @@ const AccordionVariations = () => {
 			"#2667ff",
 			"#f3f3f3",
 		],
+		color: [
+			"#28303d",
+			"#00c39a",
+			"#5d5d5d",
+			"#ffffff",
+			"#000000",
+			"#abd6f573",
+			"#2667ff",
+			"#f3f3f3",
+		],
 		variations: "4",
 		accordions: [
 			{
-				"title": "What is web hosting, and why do I need it?",
-				"content":
+				title: "What is web hosting, and why do I need it?",
+				content:
 					"Web hosting is a service that provides the infrastructure to make your website accessible on the internet. It stores your website’s files on a server, allowing users to access your site at any time.",
 			},
 			{
-				"title": "How do I know which hosting plan is right for me?",
-				"content":
+				title: "How do I know which hosting plan is right for me?",
+				content:
 					"Choosing the ideal hosting plan depends on factors like your website’s size, anticipated traffic, and specific needs. Our team can assist in assessing your requirements.",
 			},
 			{
-				"title": "What security measures are in place to protect my website?",
-				"content":
+				title: "What security measures are in place to protect my website?",
+				content:
 					"We prioritize your website’s security. Our hosting services include robust security protocols, such as firewalls, malware detection, regular backups, and SSL certificates.",
 			},
 			{
-				"title": "Can I transfer an existing domain to your hosting service?",
-				"content":
+				title: "Can I transfer an existing domain to your hosting service?",
+				content:
 					"Absolutely! You can transfer your existing domain to our hosting platform seamlessly. Our team can guide you through the process, ensuring a smooth transition while consolidating your domain and hosting management in one place.",
 			},
 		],
 	};
 	const variationsX = parseInt(data.variations); // Convert variations to an integer
 
+	
 	const loopContent = Array.from({ length: variationsX }, (_, index) => {
-		console.log(index);
-    const dynamicBgColor = `bg-[${data.background[index]}]`;
+		
 		return (
-      <Block style={`bg-[${data.background[index]}]`}>
-			<Accordion active={true} variant="1">
-				<AccordionHeader>
-					<Text tagName="h3" style=" text-xl font-medium !text-gray-200 ">
-						{data.accordions[index]?.title}
-					</Text>
-				</AccordionHeader>
-				<AccordionDetails>
-					<Text style=" ">{data.accordions[index]?.content}</Text>
-				</AccordionDetails>
-			</Accordion>
-      </Block>
+			<Block styles="md:w-[65%] lg:w-[73%]" key={index}>
+				<Accordion
+					active={index == "0" ? true : false}
+					deactivate={index == "3" ? true : false}
+					variant="1">
+					<AccordionHeader>
+						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
+							{data.accordions[index]?.title}
+						</Text>
+					</AccordionHeader>
+					<AccordionDetails>
+						<Text styles=" ">{data.accordions[index]?.content}</Text>
+					</AccordionDetails>
+				</Accordion>
+			</Block>
 		);
 	});
+
+  const loopContentX = Array.from({ length: variationsX }, (_, index) => {
+  return (
+    <Block
+      styles="py-16 grid place-items-center"
+      style={{ backgroundColor: data.background[index] }}
+      key={index}>
+      <Text
+        tagName="h4"
+        styles="text-center text-lg font-semibold mb-6"
+        style={{ color: data.color[index] }}>
+        Variation - {index + 1}
+      </Text>
+      {/* Include loopContent directly inside loopContentX */}
+      {Array.from({ length: variationsX }, (_, loopIndex) => (
+        <Block styles="md:w-[65%] lg:w-[73%]" key={loopIndex}>
+          <Accordion
+            active={loopIndex === 0} 
+            deactivate={loopIndex === 3}
+            variant={index+1}>
+            <AccordionHeader>
+              
+                {data.accordions[loopIndex]?.title}
+              
+            </AccordionHeader>
+            <AccordionDetails>
+              <Text styles="">{data.accordions[loopIndex]?.content}</Text>
+            </AccordionDetails>
+          </Accordion>
+        </Block>
+      ))}
+    </Block>
+  );
+});
 	return (
-		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
+		<Block tagName={"div"} styles="scroll-smooth flex w-full">
 			<Block>
-				<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
+				<Text tagName={"h2"} styles="text-center px-5 text-3xl mb-2 font-medium ">
 					Accordion
 				</Text>
-				<Block>{loopContent}</Block>
+        <Text tagName="p" styles="text-center mb-10">Variations for Accordion Component</Text>
+				<Block styles="">{loopContentX}</Block>
 			</Block>
 		</Block>
 	);

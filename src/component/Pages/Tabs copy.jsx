@@ -22,13 +22,13 @@ const TabsPage = () => {
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">Dynamic Content Rendering:</span> <span>Like other components within the <span class="font-thin font-code">Tabs</span> component, the <span class="font-thin font-code">TabsPanel</span> renders its content dynamically based on the currently active tab.</span>`,
 	];
 	return (
-		<Block tagName={"div"} style="mb-32 ">
-			<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
+		<Block tagName={"div"} styles="mb-32 ">
+			<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 				Tabs
 			</Text>
-			<Text tagName={"p"} style="">
+			<Text tagName={"p"} styles="">
 				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					Tabs
 				</Text>{" "}
 				component provides a tabbed interface for organizing content into
@@ -36,99 +36,99 @@ const TabsPage = () => {
 				categories. It consists of tab navigation and corresponding content
 				panels.
 			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
+			<Block tagName="div" styles="">
+				<Text tagName={"h3"} styles="mt-6 mb-2 text-xl font-semibold ">
 					Features{" "}
 				</Text>
 				<List
 					list={tabsFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+					styles=""
+					listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
 					icon="fa-circle-dot"
 					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+					iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 				/>
 			</Block>
 			<Block>
-				<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
+				<Text tagName={"h2"} styles="pt-8 text-3xl mb-2 font-medium ">
 					TabsNav Component
 				</Text>
-				<Text tagName={"p"} style="">
+				<Text tagName={"p"} styles="">
 					The{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
+					<Text tagName={"span"} styles="font-thin font-code ">
 						TabsNav
 					</Text>{" "}
 					component represents the tab navigation area within the{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
+					<Text tagName={"span"} styles="font-thin font-code ">
 						Tabs
 					</Text>{" "}
 					component. It includes buttons for scrolling between tabs, as well as
 					individual tab buttons.
 				</Text>
-				<Block tagName="div" style="">
-					<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
+				<Block tagName="div" styles="">
+					<Text tagName={"h3"} styles="mt-6 mb-2 text-xl font-semibold ">
 						Features{" "}
 					</Text>
 					<List
 						list={tabsNavFeatures}
-						style=""
-						listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+						styles=""
+						listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
 						icon="fa-circle-dot"
 						iconLibrary={"font-awesome"}
-						iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+						iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 					/>
 				</Block>
 			</Block>
 			<Block>
-				<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
+				<Text tagName={"h2"} styles="pt-8 text-3xl mb-2 font-medium ">
 					Tab Component
 				</Text>
-				<Text tagName={"p"} style="">
+				<Text tagName={"p"} styles="">
 					The{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
+					<Text tagName={"span"} styles="font-thin font-code ">
 						Tab
 					</Text>{" "}
 					component represents an individual tab within the tab navigation area.
 					It is rendered as a clickable button that, when clicked, activates the
 					corresponding content panel.
 				</Text>
-				<Block tagName="div" style="">
-					<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
+				<Block tagName="div" styles="">
+					<Text tagName={"h3"} styles="mt-6 mb-2 text-xl font-semibold ">
 						Features{" "}
 					</Text>
 					<List
 						list={tabFeatures}
-						style=""
-						listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+						styles=""
+						listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
 						icon="fa-circle-dot"
 						iconLibrary={"font-awesome"}
-						iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+						iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 					/>
 				</Block>
 			</Block>
 			<Block>
-				<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
+				<Text tagName={"h2"} styles="pt-8 text-3xl mb-2 font-medium ">
 					TabsPanel Component
 				</Text>
-				<Text tagName={"p"} style="">
+				<Text tagName={"p"} styles="">
 					The{" "}
-					<Text tagName={"span"} style="font-thin font-code ">
+					<Text tagName={"span"} styles="font-thin font-code ">
 						TabsPanel
 					</Text>{" "}
 					component represents the content panel associated with each tab. It
 					displays the content specific to the activated tab.
 				</Text>
-				<Block tagName="div" style="">
-					<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
+				<Block tagName="div" styles="">
+					<Text tagName={"h3"} styles="mt-6 mb-2 text-xl font-semibold ">
 						Features{" "}
 					</Text>
 					<List
 						list={TabsPanelFeatures}
-						style=""
-						listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+						styles=""
+						listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
 						icon="fa-circle-dot"
 						iconLibrary={"font-awesome"}
-						iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+						iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 					/>
 				</Block>
 			</Block>

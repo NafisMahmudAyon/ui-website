@@ -41,7 +41,7 @@ import AccordionVariations from "./component/Variations/Accordion";
 
 function App() {
 	return (
-		<Block style="bg-slate-100 dark:bg-darkBgColor">
+		<Block styles="bg-slate-100 dark:bg-darkBgColor">
 			<BrowserRouter>
 				<Routes>
 					<Route
@@ -310,13 +310,4 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
 

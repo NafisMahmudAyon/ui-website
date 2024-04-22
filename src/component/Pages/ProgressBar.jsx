@@ -115,169 +115,169 @@ export default App;
 		// },
 	];
 	return (
-		<Block tagName={"div"} style="scroll-smooth md:w[65%] lg:w-[73%]">
+		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
 			<Block>
-				<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
+				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Progress Bar
 				</Text>
-				<Text tagName={"p"} style="">
+				<Text tagName={"p"} styles="">
 					The{" "}
-					<Text tagName={"span"} style="code  ">
+					<Text tagName={"span"} styles="code  ">
 						ProgressBar
 					</Text>{" "}
 					visually indicates the completion status of a task or process.
 				</Text>
-				<Block style="my-10">
+				<Block styles="my-10">
 					<Text
 						tagName={"h3"}
 						id="default-progress-bar"
-						style="text-2xl mt-6 mb-2 !font-medium group flex items-center capitalize ">
+						styles="text-2xl mt-6 mb-2 !font-medium group flex items-center capitalize ">
 						default progressBar
 						<Icon
 							icon="fa-link"
 							iconLibrary="font-awesome"
 							isLink={true}
 							linkTo="#default-progress-bar"
-							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+							iconStyles="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
 						/>
 					</Text>
 					<Tabs
 						active="1"
 						orientation="horizontal"
-						navWrapStyle="text-sm"
-						panelWrapStyle=" mt-2 shadow-md rounded-md  "
-						style="w-full">
+						navWrapStyles="text-sm"
+						panelWrapStyles=" mt-2 shadow-md rounded-md  "
+						styles="w-full">
 						<TabsNav
 							showButton="false"
-							style=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
-							tabAreaStyle="flex gap-3"
-							activeTabStyle="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
+							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
+							tabAreaStyles="flex gap-3"
+							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
 							<Tab
 								value="1"
-								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
+								styles=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
 								Preview
 							</Tab>
 							<Tab
 								value="2"
-								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
+								styles=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
 								Code
 							</Tab>
 						</TabsNav>
 						<TabsPanel
 							value="1"
-							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
-							<Block style="flex w-full gap-4 my-4">
+							styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
+							<Block styles="flex w-full gap-4 my-4">
 								<ProgressBar value="60" duration="3" />
 							</Block>
 						</TabsPanel>
-						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
+						<TabsPanel value="2" styles="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
-								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
-								bodyStyle=" !font-code max-h-[300px] !my-0 "
+								headerStyles="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+								bodyStyles=" !font-code max-h-[300px] !my-0 "
 								content={defaultProgressBarContent}
 							/>
 						</TabsPanel>
 					</Tabs>
 				</Block>
-				<Block style="my-10">
+				<Block styles="my-10">
 					<Text
 						tagName={"h3"}
 						id="progress-bar-on-visible"
-						style="text-2xl mt-6 mb-2 !font-medium group flex items-center capitalize ">
+						styles="text-2xl mt-6 mb-2 !font-medium group flex items-center capitalize ">
 						progressBar on visible
 						<Icon
 							icon="fa-link"
 							iconLibrary="font-awesome"
 							isLink={true}
 							linkTo="#progress-bar-on-visible"
-							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+							iconStyles="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
 						/>
 					</Text>
 					<Tabs
 						active="1"
 						orientation="horizontal"
-						navWrapStyle="text-sm"
-						panelWrapStyle=" mt-2 shadow-md rounded-md  "
-						style="w-full">
+						navWrapStyles="text-sm"
+						panelWrapStyles=" mt-2 shadow-md rounded-md  "
+						styles="w-full">
 						<TabsNav
 							showButton="false"
-							style=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
-							tabAreaStyle="flex gap-3"
-							activeTabStyle="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
+							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
+							tabAreaStyles="flex gap-3"
+							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
 							<Tab
 								value="1"
-								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
+								styles=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
 								Preview
 							</Tab>
 							<Tab
 								value="2"
-								style=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
+								styles=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
 								Code
 							</Tab>
 						</TabsNav>
 						<TabsPanel
 							value="1"
-							style="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
-							<Block style="flex w-full gap-4 my-4">
+							styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
+							<Block styles="flex w-full gap-4 my-4">
 								<ProgressBar value="85" animateOnVisible duration="3" />
 							</Block>
 						</TabsPanel>
-						<TabsPanel value="2" style="rounded-lg !overflow-hidden ">
+						<TabsPanel value="2" styles="rounded-lg !overflow-hidden ">
 							<CodeSnippet
 								lang="jsx"
-								headerStyle="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
-								bodyStyle=" !font-code max-h-[300px] !my-0 "
+								headerStyles="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+								bodyStyles=" !font-code max-h-[300px] !my-0 "
 								content={progressBarOnVisibleContent}
 							/>
 						</TabsPanel>
 					</Tabs>
 				</Block>
-				<Block style="my-10">
+				<Block styles="my-10">
 					<Text
 						tagName={"h3"}
 						id="props"
-						style="text-2xl mt-6 !font-medium group flex items-center ">
+						styles="text-2xl mt-6 !font-medium group flex items-center ">
 						Props
 						<Icon
 							icon="fa-link"
 							iconLibrary="font-awesome"
 							isLink={true}
 							linkTo="#props"
-							iconStyle="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+							iconStyles="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
 						/>
 					</Text>
-					<Block style="my-6">
-						<Text tagName="p" style="mb-5">
+					<Block styles="my-6">
+						<Text tagName="p" styles="mb-5">
 							Explore the available props for the{" "}
 							<span className="code">ProgressBar</span> component
 						</Text>
-						<Block style="overflow-x-auto">
+						<Block styles="overflow-x-auto">
 							<Table variant={"1"}>
 								<TableHead variant={"1"}>
-									<TableRow style="!bg-gray-800" variant={false}>
+									<TableRow styles="!bg-gray-800" variant={false}>
 										<TableCell
 											header={true}
 											variant={"1"}
-											style="dark:text-gray-200">
+											styles="dark:text-gray-200">
 											Prop
 										</TableCell>
 										<TableCell
 											header={true}
 											variant={"1"}
-											style="dark:text-gray-200">
+											styles="dark:text-gray-200">
 											Type
 										</TableCell>
 										<TableCell
 											header={true}
 											variant={"1"}
-											style="dark:text-gray-200">
+											styles="dark:text-gray-200">
 											Default
 										</TableCell>
 										<TableCell
 											header={true}
 											variant={"1"}
-											style="dark:text-gray-200">
+											styles="dark:text-gray-200">
 											Description
 										</TableCell>
 									</TableRow>
@@ -288,24 +288,24 @@ export default App;
 											<TableRow
 												key={index}
 												variant={"1"}
-												style="odd:dark:bg-gray-700 even:dark:bg-gray-800">
+												styles="odd:dark:bg-gray-700 even:dark:bg-gray-800">
 												<TableCell
 													variant={"1"}
 													header={true}
-													style="dark:!text-gray-200">
+													styles="dark:!text-gray-200">
 													{props.name}
 												</TableCell>
-												<TableCell variant={"1"} style="dark:text-gray-200">
+												<TableCell variant={"1"} styles="dark:text-gray-200">
 													{props.type}
 												</TableCell>
-												<TableCell variant={"1"} style="dark:text-gray-200">
+												<TableCell variant={"1"} styles="dark:text-gray-200">
 													<span
 														dangerouslySetInnerHTML={{
 															__html: props.defaultValue,
 														}}
 													/>
 												</TableCell>
-												<TableCell variant={"1"} style="dark:text-gray-200">
+												<TableCell variant={"1"} styles="dark:text-gray-200">
 													<span
 														dangerouslySetInnerHTML={{
 															__html: props.description,
@@ -322,22 +322,22 @@ export default App;
 				</Block>
 			</Block>
 			<RightSideBar>
-				<Text style="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
-				<Block style="">
+				<Text styles="text-lg !font-bold pt-3 pl-3 pb-4 ">ON THIS PAGE</Text>
+				<Block styles="">
 					<Text
-						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						styles="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
 						isLink={true}
 						linkTo="#default-progress-bar">
 						Default ProgressBar
 					</Text>
 					<Text
-						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						styles="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
 						isLink={true}
 						linkTo="#progress-bar-on-visible">
 						ProgressBar On Visible
 					</Text>
 					<Text
-						style="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
+						styles="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
 						isLink={true}
 						linkTo="#props">
 						Props

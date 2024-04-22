@@ -1,10 +1,19 @@
-import { Accordion, AccordionHeader, AccordionDetails, Block, Text } from '../test/Test';
-import React, { useState } from 'react'
-import { bootstrapIcons, fontawesomeClasses, iconfontClasses } from '../components/Icons';
-import CodeSnippet from '../components/CodeSnippet';
+import {
+	Accordion,
+	AccordionHeader,
+	AccordionDetails,
+	Block,
+	Text,
+} from "../test/Test";
+import React, { useState } from "react";
+import {
+	bootstrapIcons,
+	fontawesomeClasses,
+	iconfontClasses,
+} from "../components/Icons";
+import CodeSnippet from "../components/CodeSnippet";
 
 const PlayAccordion = () => {
-  
 	const tagName = [
 		"div",
 		"section",
@@ -164,17 +173,17 @@ const PlayAccordion = () => {
 	};
 
 	const accordionStyle = {
-		accordionStyle: "p-4 rounded-lg border border-gray-300 dark:bg-gray-800 ",
-		accordionHeaderStyle:
+		accordionStyles: "p-4 rounded-lg border border-gray-300 dark:bg-gray-800 ",
+		accordionHeaderStyles:
 			"bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-t-lg dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer ",
-		accordionHeaderDeactivateStyle: "opacity-50 cursor-not-allowed ",
-		accordionHeaderLabelStyle: "text-textColor dark:text-darkTextColor ",
-		accordionHeaderActiveStyle: "!bg-blue-200 dark:bg-slate-800 ",
-		accordionHeaderIconStyle: "text-red-500 dark:text-yellow-500 mr-2 ",
-		accordionHeaderTextStyle: "text-textColor dark:text-darkTextColor ",
-		accordionDetailsStyle:
+		accordionHeaderDeactivateStyles: "opacity-50 cursor-not-allowed ",
+		accordionHeaderLabelStyles: "text-textColor dark:text-darkTextColor ",
+		accordionHeaderActiveStyles: "!bg-blue-200 dark:bg-slate-800 ",
+		accordionHeaderIconStyles: "text-red-500 dark:text-yellow-500 mr-2 ",
+		accordionHeaderTextStyles: "text-textColor dark:text-darkTextColor ",
+		accordionDetailsStyles:
 			"bg-gray-100 px-4 py-2 rounded-b-lg dark:bg-gray-900 border-x border-b ",
-		accordionDetailsTextStyle: "text-textColor dark:text-darkTextColor ",
+		accordionDetailsTextStyles: "text-textColor dark:text-darkTextColor ",
 	};
 
 	const AccordionCodeContent = `
@@ -182,7 +191,7 @@ const PlayAccordion = () => {
   tagName="${accordionSelectTagName}"
   ${accordionActiveStatus ? "active={true}" : ""}
   ${!accordionActiveStatus ? "deactivate={false}" : ""}
-  style="${accordionStyle.accordionStyle}"
+  styles="${accordionStyle.accordionStyles}"
 >
   <AccordionHeader
     tagName="${accordionHeaderSelectTagName}"
@@ -191,29 +200,29 @@ const PlayAccordion = () => {
     iconPosition="${accordionHeaderIconPositionSelect}"
     toggleIcon="${accordionHeaderToggleIconSelect}"
     toggleIconLibrary="${accordionHeaderToggleIconLibrarySelect}"
-    style="${accordionStyle.accordionHeaderStyle}"
+    styles="${accordionStyle.accordionHeaderStyles}"
     ${
 			accordionActiveStatus
 				? ""
-				: `deactivateStyle="${accordionStyle.accordionHeaderDeactivateStyle}"`
+				: `deactivateStyles="${accordionStyle.accordionHeaderDeactivateStyles}"`
 		}
-    labelStyle="${accordionStyle.accordionHeaderLabelStyle}"
+    labelStyles="${accordionStyle.accordionHeaderLabelStyles}"
     ${
 			accordionActiveStatus
-				? `activeStyle="${accordionStyle.accordionHeaderActiveStyle}"`
+				? `activeStyles="${accordionStyle.accordionHeaderActiveStyles}"`
 				: ""
 		}
-    iconStyle="${accordionStyle.accordionHeaderIconStyle}"
+    iconStyles="${accordionStyle.accordionHeaderIconStyles}"
   >
-    <Text tagName="span" style="${accordionStyle.accordionHeaderTextStyle}">
+    <Text tagName="span" styles="${accordionStyle.accordionHeaderTextStyles}">
       ${accordionHeaderLabelSelect}
     </Text>
   </AccordionHeader>
   <AccordionDetails
     tagName="${accordionDetailsSelectTagName}"
-    style="${accordionStyle.accordionDetailsStyle}"
+    styles="${accordionStyle.accordionDetailsStyles}"
   >
-    <Text style="${accordionStyle.accordionDetailsTextStyle}">
+    <Text styles="${accordionStyle.accordionDetailsTextStyles}">
       ${accordionDetailsLabelSelect}
     </Text>
   </AccordionDetails>
@@ -221,14 +230,13 @@ const PlayAccordion = () => {
 
 	console.log(AccordionCodeContent);
 
-	
-  return (
+	return (
 		<div>
-			<Block style="mb-6">
+			<Block styles="mb-6">
 				<Block>
 					{/*  Accordion Props  */}
-					<Block style="mt-8 p-3 pt-4 text-sm border border-solid border-darkBgColor dark:border-bgColor relative after:absolute after:content-['Accordion_Props'] after:-top-3 after:left-1/2 after:-translate-x-1/2  after:border after:h-6 after:w-max after:flex after:items-center after:bg-bgColor dark:after:bg-darkBgColor after:px-2 rounded-md after:z-10 ">
-						<Block style="">
+					<Block styles="mt-8 p-3 pt-4 text-sm border border-solid border-darkBgColor dark:border-bgColor relative after:absolute after:content-['Accordion_Props'] after:-top-3 after:left-1/2 after:-translate-x-1/2  after:border after:h-6 after:w-max after:flex after:items-center after:bg-bgColor dark:after:bg-darkBgColor after:px-2 rounded-md after:z-10 ">
+						<Block styles="">
 							<label for="">tagName: </label>
 							<select
 								name=""
@@ -245,7 +253,7 @@ const PlayAccordion = () => {
 								))}
 							</select>
 						</Block>
-						<Block style="flex gap-6 pt-4">
+						<Block styles="flex gap-6 pt-4">
 							<Block>
 								<input
 									type="checkbox"
@@ -271,8 +279,8 @@ const PlayAccordion = () => {
 						</Block>
 					</Block>
 					{/* Accordion Header Props  */}
-					<Block style="mt-8 p-3 pt-4 text-sm border border-solid border-darkBgColor dark:border-bgColor relative after:absolute after:content-['Accordion_Header_Props'] after:-top-3 after:left-1/2 after:-translate-x-1/2 after:border after:h-6 after:w-max after:flex after:items-center after:bg-bgColor dark:after:bg-darkBgColor after:px-2 rounded-md after:z-10 ">
-						<Block style="">
+					<Block styles="mt-8 p-3 pt-4 text-sm border border-solid border-darkBgColor dark:border-bgColor relative after:absolute after:content-['Accordion_Header_Props'] after:-top-3 after:left-1/2 after:-translate-x-1/2 after:border after:h-6 after:w-max after:flex after:items-center after:bg-bgColor dark:after:bg-darkBgColor after:px-2 rounded-md after:z-10 ">
+						<Block styles="">
 							<label for="">tagName: </label>
 							<select
 								name=""
@@ -289,7 +297,7 @@ const PlayAccordion = () => {
 								))}
 							</select>
 						</Block>
-						<Block style="">
+						<Block styles="">
 							<label for="">iconLibrary: </label>
 							<select
 								name=""
@@ -306,7 +314,7 @@ const PlayAccordion = () => {
 								))}
 							</select>
 						</Block>
-						<Block style="">
+						<Block styles="">
 							<label for="">icon: </label>
 							<select
 								name=""
@@ -374,7 +382,7 @@ const PlayAccordion = () => {
 								)}
 							</select>
 						</Block>
-						<Block style="">
+						<Block styles="">
 							<label for="">toggleIconLibrary: </label>
 							<select
 								name=""
@@ -391,7 +399,7 @@ const PlayAccordion = () => {
 								))}
 							</select>
 						</Block>
-						<Block style="">
+						<Block styles="">
 							<label for="">toggleIcon: </label>
 							<select
 								name=""
@@ -460,7 +468,7 @@ const PlayAccordion = () => {
 								)}
 							</select>
 						</Block>
-						<Block style="">
+						<Block styles="">
 							<label for="">iconPosition: </label>
 							<select
 								name=""
@@ -493,8 +501,8 @@ const PlayAccordion = () => {
 						</Block>
 					</Block>
 					{/*  Accordion Details Props  */}
-					<Block style="mt-8 p-3 pt-4 text-sm border border-solid border-darkBgColor dark:border-bgColor relative after:absolute after:content-['Accordion_Details_Props'] after:-top-3 after:left-1/2 after:-translate-x-1/2 after:border after:h-6 after:w-max after:flex after:items-center after:bg-bgColor dark:after:bg-darkBgColor after:px-2 rounded-md after:z-10 ">
-						<Block style="">
+					<Block styles="mt-8 p-3 pt-4 text-sm border border-solid border-darkBgColor dark:border-bgColor relative after:absolute after:content-['Accordion_Details_Props'] after:-top-3 after:left-1/2 after:-translate-x-1/2 after:border after:h-6 after:w-max after:flex after:items-center after:bg-bgColor dark:after:bg-darkBgColor after:px-2 rounded-md after:z-10 ">
+						<Block styles="">
 							<label for="">tagName: </label>
 							<select
 								name=""
@@ -529,11 +537,11 @@ const PlayAccordion = () => {
 					tagName={accordionSelectTagName}
 					active={accordionActiveStatus === true}
 					deactivate={accordionActiveStatus === false}
-					style=""
-					HeaderStyle="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer border transition-all duration-200 "
-					deactivateHeaderStyle="opacity-50 cursor-not-allowed"
-					activeHeaderStyle="!bg-blue-200 dark:!bg-gray-600 border border-b-transparent !rounded-b-none "
-					DetailsStyle="">
+					styles=""
+					HeaderStyles="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer border transition-all duration-200 "
+					deactivateHeaderStyles="opacity-50 cursor-not-allowed"
+					activeHeaderStyles="!bg-blue-200 dark:!bg-gray-600 border border-b-transparent !rounded-b-none "
+					DetailsStyles="">
 					<AccordionHeader
 						tagName={accordionHeaderSelectTagName}
 						icon={accordionHeaderIconSelect}
@@ -541,25 +549,25 @@ const PlayAccordion = () => {
 						iconPosition={accordionHeaderIconPositionSelect}
 						toggleIcon={accordionHeaderToggleIconSelect}
 						toggleIconLibrary={accordionHeaderToggleIconLibrarySelect}
-						labelStyle="text-textColor dark:text-darkTextColor"
-						iconStyle="text-red-500 dark:text-yellow-500 mr-2">
+						labelStyles="text-textColor dark:text-darkTextColor"
+						iconStyles="text-red-500 dark:text-yellow-500 mr-2">
 						<Text
 							tagName={"span"}
-							style="text-textColor dark:text-darkTextColor">
+							styles="text-textColor dark:text-darkTextColor">
 							{accordionHeaderLabelSelect}
 						</Text>
 					</AccordionHeader>
 					<AccordionDetails
 						tagName={accordionDetailsSelectTagName}
 						active={accordionActiveStatus === true}
-						style=" bg-gray-100 px-4 py-2 rounded-b-lg dark:bg-gray-900 border-x border-b">
-						<Text style="text-textColor dark:text-darkTextColor">
+						styles=" bg-gray-100 px-4 py-2 rounded-b-lg dark:bg-gray-900 border-x border-b">
+						<Text styles="text-textColor dark:text-darkTextColor">
 							{accordionDetailsLabelSelect}
 						</Text>
 					</AccordionDetails>
 				</Accordion>
 
-				<Block style="mt-6">
+				<Block styles="mt-6">
 					<CodeSnippet
 						lang="jsx"
 						content={AccordionCodeContent}
@@ -571,6 +579,6 @@ const PlayAccordion = () => {
 			</Block>
 		</div>
 	);
-}
+};
 
-export default PlayAccordion
+export default PlayAccordion;

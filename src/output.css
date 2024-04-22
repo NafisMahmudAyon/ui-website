@@ -1212,6 +1212,10 @@ video {
   place-content: center;
 }
 
+.place-items-center{
+  place-items: center;
+}
+
 .items-end{
   align-items: flex-end;
 }
@@ -1821,6 +1825,11 @@ video {
 .py-\[2px\]{
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .pb-0{
@@ -2436,7 +2445,7 @@ body{
 
 .comment {
   color: gray;
-  font-style: italic;
+  font-styles: italic;
 }
 
 /* :root {
@@ -3048,6 +3057,10 @@ button:focus-visible {
     width: 30%;
   }
 
+  .md\:w-\[65\%\]{
+    width: 65%;
+  }
+
   .md\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3063,6 +3076,11 @@ button:focus-visible {
   .md\:border-slate-950{
     --tw-border-opacity: 1;
     border-color: rgb(2 6 23 / var(--tw-border-opacity));
+  }
+
+  .md\:px-5{
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .md\:pl-5{

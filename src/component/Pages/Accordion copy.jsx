@@ -1,33 +1,41 @@
-import { Block, Icon, List, Text, Code, CodeBody, CodeHeader, IconButton } from "landing-page-ui";
+import {
+	Block,
+	Icon,
+	List,
+	Text,
+	Code,
+	CodeBody,
+	CodeHeader,
+	IconButton,
+} from "landing-page-ui";
 import React, { useState } from "react";
 import CodeSnippet from "../components/CodeSnippet";
 
 const AccordionPage = () => {
-	
-	const accordionCodeDemo = `<Accordion tagName="div" style="accordion-style">
-  <AccordionHeader tagName="div" style="header-style" icon="chevron-down">
+	const accordionCodeDemo = `<Accordion tagName="div" styles="accordion-style">
+  <AccordionHeader tagName="div" styles="header-style" icon="chevron-down">
 Section 1
   </AccordionHeader>
-  <AccordionDetails tagName="div" style="details-style">
+  <AccordionDetails tagName="div" styles="details-style">
 Content for Section 1
   </AccordionDetails>
-  <AccordionHeader tagName="div" style="header-style" icon="chevron-down">
+  <AccordionHeader tagName="div" styles="header-style" icon="chevron-down">
 Section 2
   </AccordionHeader>
-  <AccordionDetails tagName="div" style="details-style">
+  <AccordionDetails tagName="div" styles="details-style">
 Content for Section 2
   </AccordionDetails>
 </Accordion>
   `;
 	const accordionHeaderCodeDemo = `<AccordionHeader
 	tagName="div"
-	style="header-style"
+	styles="header-style"
 	icon="chevron-down"
 	iconPosition="before">
 	Section Title
 </AccordionHeader>
 `;
-	const accordionDetailsCodeDemo = `<AccordionDetails tagName="div" style="details-style">
+	const accordionDetailsCodeDemo = `<AccordionDetails tagName="div" styles="details-style">
 	Accordion Section Content
 </AccordionDetails>
 `;
@@ -46,69 +54,68 @@ Content for Section 2
 	];
 	const accordionProps = [
 		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">tagName:</span> <span>The HTML tag name to use for rendering the accordion.</span>`,
-		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">style:</span> <span>Custom CSS classes to apply to the accordion.</span>`,
+		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">styles:</span> <span>Custom CSS classes to apply to the accordion.</span>`,
 		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">children:</span> <span>The child components representing accordion headers and details.</span>`,
 		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">active:</span> <span>The index of the initially active accordion section (optional).</span>`,
 		`<span class=" inline-block font-semibold group-hover:underline group-hover:underline-offset-2 ">deactivate:</span> <span>Boolean flag to disable accordion interaction (optional).</span>`,
 	];
 	const accordionHeaderProps = [
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">tagName:</span> <span>The HTML tag name to use for rendering the accordion.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">style:</span> <span>Custom CSS classes to apply to the accordion.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">activeStyle:</span> <span>Custom CSS classes to apply when the section is active (optional).</span>`,
+		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">styles:</span> <span>Custom CSS classes to apply to the accordion.</span>`,
+		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">activeStyles:</span> <span>Custom CSS classes to apply when the section is active (optional).</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">children:</span> <span>The child components representing accordion headers and details.</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">iconLibrary:</span> <span>The library containing the icon (e.g., "font-awesome").</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">icon:</span> <span>The name or content of the icon.</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">toggleIcon:</span> <span>The icon to display when the section is active (optional).</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">toggleIconLibrary:</span> <span>The library containing the toggle icon (optional).</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">toggleIconStyle:</span> <span>Custom CSS classes to apply to the toggle icon (optional).</span>`,
+		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">toggleIconStyles:</span> <span>Custom CSS classes to apply to the toggle icon (optional).</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">iconPosition:</span> <span>The position of the icon relative to the header text ("before" or "after").</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">iconStyle:</span> <span>Custom CSS classes to apply to the icon.</span>`,
+		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">iconStyles:</span> <span>Custom CSS classes to apply to the icon.</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">id:</span> <span>The unique identifier of the accordion section.</span>`,
 	];
 	const accordionDetailsProps = [
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">tagName:</span> <span>The HTML tag name to use for rendering the details.</span>`,
-		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">style:</span> <span>Custom CSS classes to apply to the details.</span>`,
+		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">styles:</span> <span>Custom CSS classes to apply to the details.</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">children:</span> <span>The content to be displayed within the details.</span>`,
 		`<span class="inline-block font-semibold group-hover:underline group-hover:underline-offset-2">id:</span> <span>The unique identifier of the accordion section.</span>`,
 	];
 
-
 	return (
-		<Block tagName={"div"} style=" ">
-			<Text tagName={"h2"} style=" text-3xl mb-2 font-medium ">
+		<Block tagName={"div"} styles=" ">
+			<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 				Accordion
 			</Text>
-			<Text tagName={"p"} style="">
+			<Text tagName={"p"} styles="">
 				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					Accordion
 				</Text>{" "}
 				component creates an accordion-style UI element that allows users to
 				expand or collapse sections of content. It is composed of{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					AccordionHeader
 				</Text>{" "}
 				and{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					AccordionDetails
 				</Text>{" "}
 				components, providing a flexible and accessible way to organize and
 				present information.
 			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
+			<Block tagName="div" styles="">
+				<Text tagName={"h3"} styles="mt-6 mb-2 text-xl font-semibold ">
 					Features{" "}
 				</Text>
 				<List
 					list={accordionFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='fa-circle-dot'
+					styles=""
+					listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+					icon="fa-circle-dot"
 					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+					iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 				/>
 			</Block>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
+			<Text tagName={"h3"} styles="mt-3 mb-2 text-xl font-semibold ">
 				Usage{" "}
 			</Text>
 			<CodeSnippet
@@ -118,104 +125,104 @@ Content for Section 2
 					handleCopyClick(accordionCodeDemo);
 				}}
 			/>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
+			<Text tagName={"h3"} styles="mt-3 mb-2 text-xl font-semibold ">
 				Props{" "}
 			</Text>
 			<List
 				list={accordionProps}
-				style=""
-				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='fa-circle-dot'
+				styles=""
+				listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+				icon="fa-circle-dot"
 				iconLibrary={"font-awesome"}
-				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+				iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 			/>
 
-			<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
+			<Text tagName={"h2"} styles="pt-8 text-3xl mb-2 font-medium ">
 				AccordionHeader Component
 			</Text>
-			<Text tagName={"p"} style="">
+			<Text tagName={"p"} styles="">
 				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					AccordionHeader
 				</Text>{" "}
 				component represents the header of an accordion section within the{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					Accordion
 				</Text>{" "}
 				component. It displays a clickable title and an optional icon to
 				indicate the expansion state of the associated details.
 			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
+			<Block tagName="div" styles="">
+				<Text tagName={"h3"} styles="mt-6 mb-2 text-xl font-semibold ">
 					Features{" "}
 				</Text>
 				<List
 					list={accordionDetailsFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='fa-circle-dot'
+					styles=""
+					listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+					icon="fa-circle-dot"
 					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+					iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 				/>
 			</Block>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
+			<Text tagName={"h3"} styles="mt-3 mb-2 text-xl font-semibold ">
 				Usage{" "}
 			</Text>
 			<CodeSnippet lang="jsx" content={accordionHeaderCodeDemo} />
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
+			<Text tagName={"h3"} styles="mt-3 mb-2 text-xl font-semibold ">
 				Props{" "}
 			</Text>
 			<List
 				list={accordionHeaderProps}
-				style=""
-				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='fa-circle-dot'
+				styles=""
+				listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+				icon="fa-circle-dot"
 				iconLibrary={"font-awesome"}
-				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+				iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 			/>
 
-			<Text tagName={"h2"} style="pt-8 text-3xl mb-2 font-medium ">
+			<Text tagName={"h2"} styles="pt-8 text-3xl mb-2 font-medium ">
 				AccordionDetails Component
 			</Text>
-			<Text tagName={"p"} style="">
+			<Text tagName={"p"} styles="">
 				The{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					AccordionDetails
 				</Text>{" "}
 				component represents the content area of an accordion section within the{" "}
-				<Text tagName={"span"} style="font-thin font-code ">
+				<Text tagName={"span"} styles="font-thin font-code ">
 					Accordion
 				</Text>{" "}
 				component. It displays the content associated with a header and can be
 				expanded or collapsed based on user interaction.
 			</Text>
-			<Block tagName="div" style="">
-				<Text tagName={"h3"} style="mt-6 mb-2 text-xl font-semibold ">
+			<Block tagName="div" styles="">
+				<Text tagName={"h3"} styles="mt-6 mb-2 text-xl font-semibold ">
 					Features{" "}
 				</Text>
 				<List
 					list={accordionHeaderFeatures}
-					style=""
-					listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-					icon='fa-circle-dot'
+					styles=""
+					listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+					icon="fa-circle-dot"
 					iconLibrary={"font-awesome"}
-					iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+					iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 				/>
 			</Block>
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
+			<Text tagName={"h3"} styles="mt-3 mb-2 text-xl font-semibold ">
 				Usage{" "}
 			</Text>
 			<CodeSnippet lang="jsx" content={accordionDetailsCodeDemo} />
-			<Text tagName={"h3"} style="mt-3 mb-2 text-xl font-semibold ">
+			<Text tagName={"h3"} styles="mt-3 mb-2 text-xl font-semibold ">
 				Props{" "}
 			</Text>
 			<List
 				list={accordionDetailsProps}
-				style=""
-				listStyle="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
-				icon='fa-circle-dot'
+				styles=""
+				listStyles="mt-2 group hover:bg-hoverBgColor hover:dark:bg-darkHoverBgColor p-2 rounded-md  "
+				icon="fa-circle-dot"
 				iconLibrary={"font-awesome"}
-				iconStyle="mr-2 text-xs group-hover:text-teal-400  "
+				iconStyles="mr-2 text-xs group-hover:text-teal-400  "
 			/>
 			<div className="mb-10"></div>
 		</Block>

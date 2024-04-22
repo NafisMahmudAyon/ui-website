@@ -4985,7 +4985,7 @@ const iconfontClasses = [
 
 // * Text
 const Text = ({
-	style = "",
+	styles = "",
 	tagName,
 	isLink,
 	linkTo,
@@ -5022,7 +5022,7 @@ const Text = ({
 			{...rest}
 			onClick={onClick}
 			id={id}
-			className={` ${style} ${variantValue} `}
+			className={` ${styles} ${variantValue} `}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5037,7 +5037,7 @@ const Text = ({
 // * Block
 const Block = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	isLink,
 	linkTo,
@@ -5058,7 +5058,7 @@ const Block = ({
 	return (
 		<CustomTag
 			{...rest}
-			className={` ${style} `}
+			className={` ${styles} `}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5070,12 +5070,12 @@ const Block = ({
 
 // * Tabs
 const Tabs = ({
-	style = "",
+	styles = "",
 	children,
 	active = "1",
 	orientation = "horizontal",
-	navWrapStyle = "",
-	panelWrapStyle = "",
+	navWrapStyles = "",
+	panelWrapStyles = "",
 	...rest
 }) => {
 	const [activeTab, setActiveTab] = useState(active || null);
@@ -5087,9 +5087,9 @@ const Tabs = ({
 	return (
 		<div
 			{...rest}
-			className={`${style} ${orientation === "vertical" ? "flex" : ""}`}>
+			className={`${styles} ${orientation === "vertical" ? "flex" : ""}`}>
 			<div
-				className={` ${navWrapStyle} ${
+				className={` ${navWrapStyles} ${
 					orientation === "vertical" ? "flex-col" : ""
 				}`}>
 				{React.Children.map(children, (child) => {
@@ -5103,7 +5103,7 @@ const Tabs = ({
 					return null;
 				})}
 			</div>
-			<div className={` ${panelWrapStyle} `}>
+			<div className={` ${panelWrapStyles} `}>
 				{React.Children.map(children, (child) => {
 					if (child.type === TabsPanel && child.props.value === activeTab) {
 						return child;
@@ -5118,21 +5118,21 @@ const Tabs = ({
 // * TabsNav
 const TabsNav = ({
 	showButton = false,
-	iconStyle = "",
+	iconStyles = "",
 	iconLibrary = "font-awesome",
 	nextIcon = "fa-caret-right",
 	prevIcon = "fa-caret-left",
 	nextIconPosition = "right",
 	prevIconPosition = "left",
-	buttonStyle = "",
-	nextButtonStyle = "",
-	prevButtonStyle = "",
-	disabledStyle = "",
+	buttonStyles = "",
+	nextButtonStyles = "",
+	prevButtonStyles = "",
+	disabledStyles = "",
 	prevButtonText,
 	nextButtonText,
-	tabAreaStyle = "",
-	activeTabStyle = "",
-	style = "",
+	tabAreaStyles = "",
+	activeTabStyles = "",
+	styles = "",
 	children,
 	buttonTextEnabled = false,
 	activeTab,
@@ -5173,21 +5173,21 @@ const TabsNav = ({
 	return (
 		<div
 			{...rest}
-			className={`${style} ${
+			className={`${styles} ${
 				orientation === "vertical" ? "flex-col" : "flex"
 			}`}>
 			{showButton == true && (
 				<button
-					className={` ${buttonStyle} ${prevButtonStyle} ${
+					className={` ${buttonStyles} ${prevButtonStyles} ${
 						showButton ? "" : "hidden"
-					} ${isFirstTabActive ? "disabled " + disabledStyle : ""}`}
+					} ${isFirstTabActive ? "disabled " + disabledStyles : ""}`}
 					onClick={scrollPrev}
 					disabled={isFirstTabActive}>
 					{prevIconPosition == "left" && (
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={prevIcon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 						/>
 					)}
 					{(buttonTextEnabled || prevButtonText) && <>{prevButtonText}</>}
@@ -5195,18 +5195,18 @@ const TabsNav = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={prevIcon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 						/>
 					)}
 				</button>
 			)}
-			<div ref={tabsRef} className={` ${tabAreaStyle}`} style={{}}>
+			<div ref={tabsRef} className={` ${tabAreaStyles}`} styles={{}}>
 				{React.Children.map(children, (child) => {
 					return React.cloneElement(child, {
 						isActive: child.props.value === activeTab,
-						activeTabStyle: child.props.activeTabStyle
-							? child.props.activeTabStyle
-							: activeTabStyle,
+						activeTabStyles: child.props.activeTabStyles
+							? child.props.activeTabStyles
+							: activeTabStyles,
 						onClick: () => onTabClick(child.props.value),
 						orientation,
 					});
@@ -5214,16 +5214,16 @@ const TabsNav = ({
 			</div>
 			{showButton == true && (
 				<button
-					className={` ${buttonStyle} ${nextButtonStyle} ${
+					className={` ${buttonStyles} ${nextButtonStyles} ${
 						showButton ? "" : "hidden"
-					}  ${isLastTabActive ? "disabled " + disabledStyle : ""}`}
+					}  ${isLastTabActive ? "disabled " + disabledStyles : ""}`}
 					onClick={scrollNext}
 					disabled={isLastTabActive}>
 					{nextIconPosition == "left" && (
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={nextIcon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 						/>
 					)}
 					{(buttonTextEnabled || nextButtonText) && <>{nextButtonText}</>}
@@ -5231,7 +5231,7 @@ const TabsNav = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={nextIcon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 						/>
 					)}
 				</button>
@@ -5242,8 +5242,8 @@ const TabsNav = ({
 
 // * Tab
 const Tab = ({
-	style = "",
-	activeTabStyle = "",
+	styles = "",
+	activeTabStyles = "",
 	value,
 	isActive,
 	onClick,
@@ -5254,7 +5254,7 @@ const Tab = ({
 	return (
 		<button
 			{...rest}
-			className={`${style} ${isActive ? activeTabStyle : ""} ${
+			className={`${styles} ${isActive ? activeTabStyles : ""} ${
 				orientation === "vertical" ? "block" : "inline-block"
 			}`}
 			onClick={onClick}
@@ -5265,9 +5265,9 @@ const Tab = ({
 };
 
 // * TabsPanel
-const TabsPanel = ({ style = "", value, children, ...rest }) => {
+const TabsPanel = ({ styles = "", value, children, ...rest }) => {
 	return (
-		<div {...rest} className={` ${style} `}>
+		<div {...rest} className={` ${styles} `}>
 			{children}
 		</div>
 	);
@@ -5277,7 +5277,7 @@ const TabsPanel = ({ style = "", value, children, ...rest }) => {
 
 const MasonryGrid = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	itemSelector = ".combo-masonry-item",
 	columnWidth,
@@ -5357,14 +5357,14 @@ const MasonryGrid = ({
 	}, [masonryOptions]);
 
 	return (
-		<CustomTag className={` ${style} combo-masonry `}>
+		<CustomTag className={` ${styles} combo-masonry `}>
 			{React.Children.map(children, (child) => {
 				return React.cloneElement(child, {
 					gutter: child.props.gutter ? child.props.gutter : gutter,
 					columnWidth: child.props.columnWidth
 						? child.props.columnWidth
 						: columnWidth,
-					// iconStyle: child.props.iconStyle ? child.props.iconStyle : iconStyle,
+					// iconStyles: child.props.iconStyles ? child.props.iconStyles : iconStyles,
 					// icon: child.props.icon ? child.props.icon : icon,
 				});
 			})}
@@ -5375,7 +5375,7 @@ const MasonryGrid = ({
 // * MasonryGridItem
 const MasonryGridItem = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	gutter,
 	columnWidth,
@@ -5388,7 +5388,7 @@ const MasonryGridItem = ({
 	};
 
 	return (
-		<CustomTag className={` ${style} combo-masonry-item `} style={gutterX}>
+		<CustomTag className={` ${styles} combo-masonry-item `} styles={gutterX}>
 			{children}
 		</CustomTag>
 	);
@@ -5398,26 +5398,26 @@ const MasonryGridItem = ({
 const List = ({
 	list = [],
 	tagName,
-	style = "",
-	listStyle = "",
+	styles = "",
+	listStyles = "",
 	iconLibrary,
 	icon,
-	iconStyle = "",
+	iconStyles = "",
 	iconPosition = "before",
 	...rest
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "ol");
 	const CustomTag = customTag.toLowerCase();
 	return (
-		<CustomTag {...rest} className={` ${style ? style : ""} `}>
+		<CustomTag {...rest} className={` ${styles} `}>
 			{list.map((item, index) => {
 				return (
-					<li key={index} className={` ${listStyle ? listStyle : ""} `}>
+					<li key={index} className={` ${listStyles} `}>
 						{icon && iconPosition == "before" && (
 							<Icon
 								iconLibrary={iconLibrary}
 								icon={icon}
-								iconStyle={iconStyle}
+								iconStyles={iconStyles}
 							/>
 						)}
 
@@ -5426,7 +5426,7 @@ const List = ({
 							<Icon
 								iconLibrary={iconLibrary}
 								icon={icon}
-								iconStyle={iconStyle}
+								iconStyles={iconStyles}
 							/>
 						)}
 					</li>
@@ -5444,13 +5444,13 @@ const ImageGallery = ({
 	lightBox,
 	lightBoxCaptionEnabled,
 	children,
-	style = "",
-	imageStyle,
-	captionStyle,
-	lightBoxStyle,
-	lightBoxImageStyle,
-	lightBoxCaptionStyle,
-	closeButtonStyle,
+	styles = "",
+	imageStyles="",
+	captionStyles="",
+	lightBoxStyles="",
+	lightBoxImageStyles="",
+	lightBoxCaptionStyles="",
+	closeButtonStyles="",
 	lightBoxCaption,
 	lightBoxImageSrc,
 	tagName,
@@ -5458,7 +5458,7 @@ const ImageGallery = ({
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	return (
-		<CustomTag className={` ${style} `}>
+		<CustomTag className={` ${styles} `}>
 			{React.Children.map(children, (child) => {
 				return React.cloneElement(child, {
 					imageCaption: child.props.imageCaption
@@ -5467,19 +5467,19 @@ const ImageGallery = ({
 					captionEnabled: child.props.captionEnabled
 						? child.props.captionEnabled
 						: captionEnabled,
-					captionStyle: child.props.captionStyle
-						? child.props.captionStyle
-						: captionStyle,
+					captionStyles: child.props.captionStyles
+						? child.props.captionStyles
+						: captionStyles,
 					lightBox: child.props.lightBox ? child.props.lightBox : lightBox,
-					imageStyle: child.props.imageStyle
-						? child.props.imageStyle
-						: imageStyle,
-					lightBoxStyle: child.props.lightBoxStyle
-						? child.props.lightBoxStyle
-						: lightBoxStyle,
-					lightBoxImageStyle: child.props.lightBoxImageStyle
-						? child.props.lightBoxImageStyle
-						: lightBoxImageStyle,
+					imageStyles: child.props.imageStyles
+						? child.props.imageStyles
+						: imageStyles,
+					lightBoxStyles: child.props.lightBoxStyles
+						? child.props.lightBoxStyles
+						: lightBoxStyles,
+					lightBoxImageStyles: child.props.lightBoxImageStyles
+						? child.props.lightBoxImageStyles
+						: lightBoxImageStyles,
 					lightBoxImageSrc: child.props.lightBoxImageSrc
 						? child.props.lightBoxImageSrc
 						: lightBoxImageSrc,
@@ -5489,12 +5489,12 @@ const ImageGallery = ({
 					lightBoxCaptionEnabled: child.props.lightBoxCaptionEnabled
 						? child.props.lightBoxCaptionEnabled
 						: lightBoxCaptionEnabled,
-					lightBoxCaptionStyle: child.props.lightBoxCaptionStyle
-						? child.props.lightBoxCaptionStyle
-						: lightBoxCaptionStyle,
-					closeButtonStyle: child.props.closeButtonStyle
-						? child.props.closeButtonStyle
-						: closeButtonStyle,
+					lightBoxCaptionStyles: child.props.lightBoxCaptionStyles
+						? child.props.lightBoxCaptionStyles
+						: lightBoxCaptionStyles,
+					closeButtonStyles: child.props.closeButtonStyles
+						? child.props.closeButtonStyles
+						: closeButtonStyles,
 				});
 			})}
 		</CustomTag>
@@ -5514,14 +5514,14 @@ const Image = ({
 	lightBoxImageSrc,
 	lightBoxCaptionEnabled,
 	lightBoxCaption,
-	imageStyle,
-	captionStyle,
-	lightBoxStyle,
-	lightBoxImageStyle,
-	lightBoxCaptionStyle,
-	closeButtonStyle,
+	imageStyles = "",
+	captionStyles = "",
+	lightBoxStyles = "",
+	lightBoxImageStyles = "",
+	lightBoxCaptionStyles = "",
+	closeButtonStyles = "",
 	tagName,
-	style = "",
+	styles = "",
 	lazyLoad,
 	...rest
 }) => {
@@ -5552,7 +5552,7 @@ const Image = ({
 
 	return (
 		<CustomTag
-			className={` ${style} relative `}
+			className={` ${styles} relative `}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5560,7 +5560,7 @@ const Image = ({
 			<figure className=" flex flex-col items-center">
 				<img
 					className={` ${
-						imageStyle ? imageStyle : ""
+						imageStyles
 					} max-w-full h-auto shadow-lg `}
 					src={
 						src ||
@@ -5572,8 +5572,7 @@ const Image = ({
 				/>
 				{captionEnabled && (
 					<figcaption
-						className={` ${
-							captionStyle ? captionStyle : ""
+						className={` ${captionStyles
 						} text-gray-600 text-sm mt-2 `}>
 						{imageCaption || altText || "This is the caption for the image."}
 					</figcaption>
@@ -5582,12 +5581,12 @@ const Image = ({
 			{isOpen && (
 				<div
 					className={` ${
-						lightBoxStyle ? lightBoxStyle : ""
+						lightBoxStyles
 					} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-[9999] overflow-auto  `}>
 					<div className="relative p-3 flex flex-col items-center">
 						<button
 							className={` ${
-								closeButtonStyle ? closeButtonStyle : ""
+								closeButtonStyles
 							} absolute top-0 right-5 h-8 w-8 flex items-center justify-center bg-red-500 rounded-full text-black hover:bg-gray-200  text-base `}
 							onClick={closeLightbox}>
 							&times;
@@ -5600,13 +5599,12 @@ const Image = ({
 							}
 							alt={altText || "lightbox"}
 							className={` ${
-								lightBoxImageStyle ? lightBoxImageStyle : ""
+								lightBoxImageStyles
 							} max-w-[95%] w-full rounded-md`}
 						/>
 						{lightBoxCaptionEnabled && (
 							<figcaption
-								className={` ${
-									lightBoxCaptionStyle ? lightBoxCaptionStyle : ""
+								className={` ${ lightBoxCaptionStyles
 								} text-gray-400 text-sm mt-2 text-center `}>
 								{lightBoxCaption ||
 									imageCaption ||
@@ -5632,17 +5630,17 @@ const IconButton = ({
 	isLink = false,
 	linkTo,
 	target = "_self",
-	style = "",
-	textStyle = "",
-	iconStyle = "",
+	styles = "",
+	textStyles = "",
+	iconStyles = "",
 	variant,
 	onClick,
 	children,
-	linkStyle = "",
+	linkStyles = "",
 	prefix,
-	prefixStyle = "",
+	prefixStyles = "",
 	postfix,
-	postfixStyle = "",
+	postfixStyles = "",
 	textOnClick,
 	iconOnClick,
 	...rest
@@ -5658,7 +5656,7 @@ const IconButton = ({
 
 	return (
 		<CustomTag
-			className={` ${style} `}
+			className={` ${styles} `}
 			{...(isLink && {
 				href: linkTo || "#",
 				target: target,
@@ -5669,7 +5667,7 @@ const IconButton = ({
 				<Icon
 					iconLibrary={iconLibrary}
 					icon={icon}
-					iconStyle={iconStyle}
+					iconStyles={iconStyles}
 					onClick={iconOnClick}
 				/>
 			)}
@@ -5677,13 +5675,13 @@ const IconButton = ({
 				<Icon
 					iconLibrary={iconLibrary}
 					icon={icon}
-					iconStyle={iconStyle}
+					iconStyles={iconStyles}
 					onClick={iconOnClick}
 				/>
 			)}
 			{prefix && (
 				<span
-					className={` ${prefixStyle} `}
+					className={` ${prefixStyles} `}
 					dangerouslySetInnerHTML={{ __html: prefix }}
 				/>
 			)}
@@ -5691,18 +5689,18 @@ const IconButton = ({
 				<Icon
 					iconLibrary={iconLibrary}
 					icon={icon}
-					iconStyle={iconStyle}
+					iconStyles={iconStyles}
 					onClick={iconOnClick}
 				/>
 			)}
 			{children && (
-				<sapn className={` ${textStyle} `} onClick={textOnClick}>
+				<sapn className={` ${textStyles} `} onClick={textOnClick}>
 					{children}
 				</sapn>
 			)}
 			{!children && text && (
 				<span
-					className={` ${textStyle} `}
+					className={` ${textStyles} `}
 					onClick={textOnClick}
 					dangerouslySetInnerHTML={{ __html: text }}
 				/>
@@ -5713,13 +5711,13 @@ const IconButton = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={icon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 							onClick={iconOnClick}
 						/>
 					)}
 					{children && (
 						<a
-							className={` ${textStyle} `}
+							className={` ${textStyles} `}
 							{...(isLink && {
 								href: linkTo || "#",
 								target: target,
@@ -5728,7 +5726,7 @@ const IconButton = ({
 								<Icon
 									iconLibrary={iconLibrary}
 									icon={icon}
-									iconStyle={iconStyle}
+									iconStyles={iconStyles}
 								/>
 							)}
 							{children}
@@ -5736,14 +5734,14 @@ const IconButton = ({
 								<Icon
 									iconLibrary={iconLibrary}
 									icon={icon}
-									iconStyle={iconStyle}
+									iconStyles={iconStyles}
 								/>
 							)}
 						</a>
 					)}
 					{!children && (
 						<a
-							className={` ${textStyle} `}
+							className={` ${textStyles} `}
 							{...(isLink && {
 								href: linkTo,
 								target: target,
@@ -5752,11 +5750,11 @@ const IconButton = ({
 								<Icon
 									iconLibrary={iconLibrary}
 									icon={icon}
-									iconStyle={iconStyle}
+									iconStyles={iconStyles}
 								/>
 							)}
 							<span
-								className={` ${textStyle} `}
+								className={` ${textStyles} `}
 								onClick={textOnClick}
 								dangerouslySetInnerHTML={{ __html: text }}
 							/>
@@ -5764,7 +5762,7 @@ const IconButton = ({
 								<Icon
 									iconLibrary={iconLibrary}
 									icon={icon}
-									iconStyle={iconStyle}
+									iconStyles={iconStyles}
 								/>
 							)}
 						</a>
@@ -5774,7 +5772,7 @@ const IconButton = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={icon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 							onClick={iconOnClick}
 						/>
 					)}
@@ -5787,14 +5785,14 @@ const IconButton = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={icon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 							onClick={iconOnClick}
 						/>
 					)}
 					{children && <>{children}</>}
 					{!children && (
 						<span
-							className={` ${textStyle} `}
+							className={` ${textStyles} `}
 							onClick={textOnClick}
 							dangerouslySetInnerHTML={{ __html: text }}
 						/>
@@ -5803,7 +5801,7 @@ const IconButton = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={icon}
-							iconStyle={iconStyle}
+							iconStyles={iconStyles}
 							onClick={iconOnClick}
 						/>
 					)}
@@ -5814,13 +5812,13 @@ const IconButton = ({
 				<Icon
 					iconLibrary={iconLibrary}
 					icon={icon}
-					iconStyle={iconStyle}
+					iconStyles={iconStyles}
 					onClick={iconOnClick}
 				/>
 			)}
 			{prefix && (
 				<span
-					className={` ${postfixStyle} `}
+					className={` ${postfixStyles} `}
 					dangerouslySetInnerHTML={{ __html: postfix }}
 				/>
 			)}
@@ -5828,7 +5826,7 @@ const IconButton = ({
 				<Icon
 					iconLibrary={iconLibrary}
 					icon={icon}
-					iconStyle={iconStyle}
+					iconStyles={iconStyles}
 					onClick={iconOnClick}
 				/>
 			)}
@@ -5836,7 +5834,7 @@ const IconButton = ({
 				<Icon
 					iconLibrary={iconLibrary}
 					icon={icon}
-					iconStyle={iconStyle}
+					iconStyles={iconStyles}
 					onClick={iconOnClick}
 				/>
 			)}
@@ -5848,7 +5846,7 @@ const IconButton = ({
 const Icon = ({
 	// icon = '<span class="material-icons ">search</span>',
 	icon,
-	iconStyle,
+	iconStyles="",
 	iconLibrary = "material-icons",
 	isLink,
 	linkTo = "",
@@ -5901,14 +5899,14 @@ const Icon = ({
 				<a
 					href={linkTo || "#"}
 					target={target}
-					className={` ${iconStyle ? iconStyle : ""} `}
+					className={` ${iconStyles} `}
 					onClick={onClick}
 					dangerouslySetInnerHTML={{ __html: iconHtml }}
 				/>
 			)}
 			{(!isLink || !linkTo) && (
 				<span
-					className={` ${iconStyle ? iconStyle : ""} `}
+					className={` ${iconStyles} `}
 					onClick={onClick}
 					dangerouslySetInnerHTML={{ __html: iconHtml }}
 				/>
@@ -5918,19 +5916,26 @@ const Icon = ({
 };
 
 // * Grid
-const Grid = ({ tagName, style, children }) => {
+const Grid = ({ tagName, styles="", children }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag className={` ${style ? style : ""} grid grid-cols-3 gap-2 `}>
+		<CustomTag className={` ${styles} grid grid-cols-3 gap-2 `}>
 			{children}
 		</CustomTag>
 	);
 };
 
 // * GridItem
-const GridItem = ({ style, children, isLink, linkTo, target, tagName }) => {
+const GridItem = ({
+	styles = "",
+	children,
+	isLink,
+	linkTo,
+	target,
+	tagName,
+}) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 	useEffect(() => {
@@ -5943,7 +5948,7 @@ const GridItem = ({ style, children, isLink, linkTo, target, tagName }) => {
 
 	return (
 		<CustomTag
-			className={`itemstyle ${style}`}
+			className={`${styles}`}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5954,12 +5959,12 @@ const GridItem = ({ style, children, isLink, linkTo, target, tagName }) => {
 };
 
 // * Flex
-const Flex = ({ tagName, style, children }) => {
+const Flex = ({ tagName, styles = "", children }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag className={` ${style ? style : ""} flex gap-2 flex-wrap `}>
+		<CustomTag className={` ${styles} flex gap-2 flex-wrap `}>
 			{children}
 		</CustomTag>
 	);
@@ -5967,7 +5972,7 @@ const Flex = ({ tagName, style, children }) => {
 
 // * FlexItem
 const FlexItem = ({
-	style,
+	styles = "",
 	children,
 	isLink,
 	linkTo,
@@ -5986,7 +5991,7 @@ const FlexItem = ({
 
 	return (
 		<CustomTag
-			className={`itemstyle ${style}`}
+			className={`${styles}`}
 			{...(isLink && {
 				href: linkTo,
 				target: target,
@@ -5999,18 +6004,18 @@ const FlexItem = ({
 // *ComboList
 const ComboList = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	iconPosition,
 	icon,
 	iconLibrary,
-	iconStyle,
+	iconStyles="",
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "ol");
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag className={` ${style} `}>
+		<CustomTag className={` ${styles} `}>
 			{React.Children.map(children, (child) => {
 				return React.cloneElement(child, {
 					iconPosition: child.props.iconPosition
@@ -6019,7 +6024,9 @@ const ComboList = ({
 					iconLibrary: child.props.iconLibrary
 						? child.props.iconLibrary
 						: iconLibrary,
-					iconStyle: child.props.iconStyle ? child.props.iconStyle : iconStyle,
+					iconStyles: child.props.iconStyles
+						? child.props.iconStyles
+						: iconStyles,
 					icon: child.props.icon ? child.props.icon : icon,
 				});
 			})}
@@ -6030,24 +6037,24 @@ const ComboList = ({
 // * ComboListItem
 const ComboListItem = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	iconPosition,
 	icon,
 	iconLibrary,
-	iconStyle,
+	iconStyles="",
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "li");
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag className={` ${style} `}>
+		<CustomTag className={` ${styles} `}>
 			{iconPosition === "before" && icon && (
-				<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+				<Icon iconLibrary={iconLibrary} icon={icon} iconStyles={iconStyles} />
 			)}
 			{children}
 			{iconPosition === "after" && icon && (
-				<Icon iconLibrary={iconLibrary} icon={icon} iconStyle={iconStyle} />
+				<Icon iconLibrary={iconLibrary} icon={icon} iconStyles={iconStyles} />
 			)}
 		</CustomTag>
 	);
@@ -6056,60 +6063,61 @@ const ComboListItem = ({
 // * Accordion
 const Accordion = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	active,
 	deactivate,
-	headerStyle = "",
-	activeHeaderStyle = "",
-	deactivateHeaderStyle = "",
-	detailsStyle = "",
+	headerStyles = "",
+	activeHeaderStyles = "",
+	deactivateHeaderStyles = "",
+	detailsStyles = "",
 	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
 	const [variantValue, setVariantValue] = useState({
-		style: "",
-		headerStyle: "",
-		activeHeaderStyle: "",
-		deactivateHeaderStyle: "",
-		detailsStyle: "",
+		styles: "",
+		headerStyles: "",
+		activeHeaderStyles: "",
+		deactivateHeaderStyles: "",
+		detailsStyles: "",
 	});
 
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue({
-				style: "my-2",
-				headerStyle:
+				styles: "my-1",
+				headerStyles:
 					"flex gap-2 items-center bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-[1px] rounded-lg cursor-pointer",
-				activeHeaderStyle: "!rounded-t-lg rounded-b-none",
-				deactivateHeaderStyle:
+				activeHeaderStyles: "!rounded-t-lg rounded-b-none",
+				deactivateHeaderStyles:
 					"!bg-neutral-700 hover:!bg-neutral-700 !cursor-default",
-				detailsStyle: "",
+				detailsStyles: "",
 			});
 		}
 		if (variant == "2") {
 			setVariantValue({
-				style: "my-2",
-				headerStyle:
+				styles: "my-2",
+				headerStyles:
 					"flex gap-2 items-center bg-white border-2 border-transparent hover:border-2 hover:border-black px-4 py-2 rounded-lg !text-black text-xl !font-medium cursor-pointer",
-				activeHeaderStyle: "!rounded-t-lg rounded-b-none !bg-black !text-white",
-				deactivateHeaderStyle:
+				activeHeaderStyles:
+					"!rounded-t-lg rounded-b-none !bg-black !text-white",
+				deactivateHeaderStyles:
 					"!bg-neutral-700 hover:!bg-neutral-700 !text-white !cursor-default",
-				detailsStyle: "bg-black rounded-b-lg ",
+				detailsStyles: "bg-black rounded-b-lg ",
 			});
 		}
 		if (variant == "3") {
 			setVariantValue({
-				style:
+				styles:
 					"my-3 drop-shadow-[5px_5px_0px_#0A0A0A] hover:drop-shadow-[5px_5px_4px_#0A0A0A] ",
-				headerStyle:
+				headerStyles:
 					"flex gap-2 items-center bg-zinc-800 px-4 py-2 !text-amber-400 text-xl !font-medium cursor-pointer",
-				activeHeaderStyle: "",
-				deactivateHeaderStyle:
+				activeHeaderStyles: "",
+				deactivateHeaderStyles:
 					"!bg-neutral-700 !text-amber-200 !cursor-default",
-				detailsStyle: " ",
+				detailsStyles: " ",
 			});
 		}
 	}, [variant]);
@@ -6135,15 +6143,15 @@ const Accordion = ({
 	var min = `max-h-[${max}]`;
 
 	return (
-		<CustomTag className={` ${style} ${variant ? variantValue.style : ""} `}>
+		<CustomTag className={` ${styles} ${variant ? variantValue.styles : ""} `}>
 			<div
-				className={` select-none ${isActive ? activeHeaderStyle : ""} ${
-					deactivate ? deactivateHeaderStyle : ""
-				} ${headerStyle} ${
-					variant ? (isActive ? variantValue.activeHeaderStyle : "") : ""
+				className={` select-none ${isActive ? activeHeaderStyles : ""} ${
+					deactivate ? deactivateHeaderStyles : ""
+				} ${headerStyles} ${
+					variant ? (isActive ? variantValue.activeHeaderStyles : "") : ""
 				}  ${
-					variant ? (deactivate ? variantValue.deactivateHeaderStyle : "") : ""
-				} ${variant ? variantValue.headerStyle : ""}`}
+					variant ? (deactivate ? variantValue.deactivateHeaderStyles : "") : ""
+				} ${variant ? variantValue.headerStyles : ""}`}
 				onClick={() => {
 					if (!deactivate) {
 						setIsActive(!isActive);
@@ -6165,8 +6173,8 @@ const Accordion = ({
 			<div
 				className={`  ${
 					isActive ? min : "max-h-0 overflow-hidden"
-				} transition-all duration-300 ${detailsStyle} ${
-					variant ? variantValue.detailsStyle : ""
+				} transition-all duration-300 ${detailsStyles} ${
+					variant ? variantValue.detailsStyles : ""
 				} `}>
 				{React.Children.map(children, (child) => {
 					if (child.type === AccordionDetails) {
@@ -6187,46 +6195,53 @@ const Accordion = ({
 // * AccordionHeader
 const AccordionHeader = ({
 	tagName,
-	style = "",
-	activeStyle = "",
+	styles = "",
+	activeStyles = "",
 	children,
 	iconLibrary = "font-awesome",
 	icon = "fa-caret-right",
 	toggleIcon = "fa-caret-down",
 	toggleIconLibrary,
-	toggleIconStyle,
+	toggleIconStyles,
 	iconPosition = "before",
-	iconStyle,
+	iconStyles,
 	id,
 	active,
 	isActive,
 	deactivate,
-	deactivateStyle = "",
-	labelStyle = "",
+	deactivateStyles = "",
+	labelStyles = "",
 	variant,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
-	const [iconStyleX, setIconStyleX] = useState(iconStyle);
-	const [toggleIconStyleX, setToggleIconStyleX] = useState(toggleIconStyle);
+	const [iconStyleX, setIconStyleX] = useState(iconStyles);
+	const [toggleIconStyleX, setToggleIconStyleX] = useState(toggleIconStyles);
 
 	const [variantValue, setVariantValue] = useState({
-		iconStyle: "",
-		labelStyle: "",
-		toggleIconStyle: "",
+		iconStyles: "",
+		labelStyles: "",
+		toggleIconStyles: "",
 	});
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue({
-				iconStyle: "",
-				labelStyle: "",
-				toggleIconStyle: "",
+				iconStyles: "",
+				labelStyles: "text-gray-200",
+				toggleIconStyles: "",
+			});
+		}
+		if (variant == "2") {
+			setVariantValue({
+				iconStyles: "",
+				labelStyles: "",
+				toggleIconStyles: "",
 			});
 		}
 		if (variant == true) {
-			setIconStyleX(iconStyle + " " + variantValue.iconStyle);
-			setToggleIconStyleX(toggleIconStyle + " " + variantValue.toggleIconStyle);
+			setIconStyleX(iconStyles + " " + variantValue.iconStyles);
+			setToggleIconStyleX(toggleIconStyles + " " + variantValue.toggleIconStyles);
 		}
 	}, [variant]);
 	// const [isActive, setIsActive] = useState(false);
@@ -6253,9 +6268,9 @@ const AccordionHeader = ({
 	return (
 		<>
 			{/* <CustomTag
-			className={` ${isActive ? activeStyle : ""} ${
-				deactivate ? deactivateStyle : ""
-			} ${style}`}
+			className={` ${isActive ? activeStyles : ""} ${
+				deactivate ? deactivateStyles : ""
+			} ${styles}`}
 			// onClick={toggleExpansion}
 		> */}
 			{iconPosition === "before" && icon && (
@@ -6264,22 +6279,24 @@ const AccordionHeader = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={icon}
-							iconStyle={iconStyleX}
+							iconStyles={iconStyleX}
 						/>
 					)}
 					{isActive && (icon || toggleIcon) && (
 						<Icon
 							iconLibrary={toggleIconLibrary ? toggleIconLibrary : iconLibrary}
 							icon={toggleIcon ? toggleIcon : icon}
-							iconStyle={toggleIconStyle ? toggleIconStyleX : iconStyleX}
+							iconStyles={toggleIconStyles ? toggleIconStyleX : iconStyleX}
 						/>
 					)}
 				</>
 			)}
 			<span
-				className={` ${variant ? variantValue.labelStyle : ""} ${labelStyle} ${
-					isActive ? activeStyle : deactivateStyle
-				} ${style}  `}>
+				className={` ${
+					variant ? variantValue.labelStyles : ""
+				} ${labelStyles} ${
+					isActive ? activeStyles : deactivateStyles
+				} ${styles}  `}>
 				{children}
 			</span>
 
@@ -6289,14 +6306,14 @@ const AccordionHeader = ({
 						<Icon
 							iconLibrary={iconLibrary}
 							icon={icon}
-							iconStyle={iconStyleX}
+							iconStyles={iconStyleX}
 						/>
 					)}
 					{isActive && toggleIcon && (
 						<Icon
 							iconLibrary={toggleIconLibrary}
 							icon={toggleIcon}
-							iconStyle={toggleIconStyle ? toggleIconStyleX : iconStyleX}
+							iconStyles={toggleIconStyles ? toggleIconStyleX : iconStyleX}
 						/>
 					)}
 				</>
@@ -6309,7 +6326,7 @@ const AccordionHeader = ({
 // * AccordionDetails
 const AccordionDetails = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	id,
 	active,
@@ -6320,38 +6337,38 @@ const AccordionDetails = ({
 	const CustomTag = customTag.toLowerCase();
 
 	const [variantValue, setVariantValue] = useState({
-		style: "",
+		styles: "",
 	});
 
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue({
-				style:
+				styles:
 					"bg-neutral-900 px-4 py-4 rounded-b-lg dark:bg-gray-900 border-x border-b !text-gray-200",
 			});
 		}
 		if (variant == "2") {
 			setVariantValue({
-				style: "px-4 py-1 pb-3 !text-gray-200 ",
+				styles: "px-4 py-1 pb-3 !text-gray-200 ",
 			});
 		}
 		if (variant == "3") {
 			setVariantValue({
-				style: "px-4 py-1 pb-3 bg-zinc-800 !text-gray-200 ",
+				styles: "px-4 py-1 pb-3 bg-zinc-800 !text-gray-200 ",
 			});
 		}
 	}, [variant]);
 
 	return (
-		<CustomTag id={id} className={` ${style} ${variantValue.style} `}>
+		<CustomTag id={id} className={` ${styles} ${variantValue.styles} `}>
 			{children}
 		</CustomTag>
 	);
 };
 
-const AvatarGroup = ({ style = "", children }) => {
+const AvatarGroup = ({ styles = "", children }) => {
 	return (
-		<div className={` ${style} flex items-center -space-x-2 `}>
+		<div className={` ${styles} flex items-center -space-x-2 `}>
 			{!children ? (
 				<>
 					<Avatar />
@@ -6366,12 +6383,12 @@ const AvatarGroup = ({ style = "", children }) => {
 
 // * Avatar
 const Avatar = ({
-	style = "",
+	styles = "",
 	name,
 	// children,
 	src,
 	altText,
-	imageStyle = "",
+	imageStyles = "",
 	variant,
 	onClick,
 }) => {
@@ -6384,7 +6401,7 @@ const Avatar = ({
 	}
 	return (
 		<div
-			className={` ${style} flex justify-center items-center w-12 h-12 bg-gray-500  rounded-full text-[1.25rem] leading-none overflow-hidden `}
+			className={` ${styles} flex justify-center items-center w-12 h-12 bg-gray-500  rounded-full text-[1.25rem] leading-none overflow-hidden `}
 			{...(name && { title: name })}
 			onClick={onClick}>
 			{/* {!children && (
@@ -6393,7 +6410,7 @@ const Avatar = ({
 				<img
 					src={src}
 					alt={altText || "alt text"}
-					className={` ${imageStyle} max-w-full h-auto object-cover text-transparent text-center rounded-full `}
+					className={` ${imageStyles} max-w-full h-auto object-cover text-transparent text-center rounded-full `}
 				/>
 			)}
 
@@ -6408,8 +6425,8 @@ const Avatar = ({
 
 // * Badge
 const Badge = ({
-	style,
-	badgeStyle,
+	styles,
+	badgeStyles,
 	position = "top right",
 	tagName,
 	content = "0",
@@ -6447,21 +6464,21 @@ const Badge = ({
 		}
 	}
 	return (
-		<CustomTag className={` ${style} relative inline-flex align-middle `}>
+		<CustomTag className={` ${styles} relative inline-flex align-middle `}>
 			{children}
 			{!children ? (
 				<>
 					<Icon
 						icon="fa-envelope"
 						iconLibrary="font-awesome"
-						iconStyle="text-lg"
+						iconStyles="text-lg"
 					/>
 				</>
 			) : (
 				""
 			)}
 			<span
-				className={` ${badgeStyle} ${isTop ? "top-0" : ""} ${
+				className={` ${badgeStyles} ${isTop ? "top-0" : ""} ${
 					isLeft ? "left-0" : ""
 				} ${isRight ? "right-0" : ""} ${isBottom ? "bottom-0" : ""} ${
 					isTop && isRight ? "translate-x-1/2 -translate-y-1/2 " : ""
@@ -6480,9 +6497,9 @@ const Badge = ({
 const CodeSnippet = ({
 	content,
 	lang = "html",
-	style = "",
-	headerStyle = "",
-	bodyStyle = "",
+	styles = "",
+	headerStyles = "",
+	bodyStyles = "",
 }) => {
 	const [copySuccess, setCopySuccess] = useState(null);
 
@@ -6498,16 +6515,16 @@ const CodeSnippet = ({
 		}, 2000);
 	};
 	return (
-		<Code style={` ${style}  rounded-t-lg rounded-b-lg relative`}>
+		<Code styles={` ${styles}  rounded-t-lg rounded-b-lg relative`}>
 			<CodeHeader
-				style={` ${headerStyle} flex items-center justify-between   p-2 w-full bg-[#b4b4b4] text-white rounded-t-lg pl-4 `}>
-				<Text style="">{lang}</Text>
+				styles={` ${headerStyles} flex items-center justify-between   p-2 w-full bg-[#b4b4b4] text-white rounded-t-lg pl-4 `}>
+				<Text styles="">{lang}</Text>
 				<IconButton
 					tagName="button"
 					textOnClick={handleCopyClick}
 					icon="fa-copy"
 					iconLibrary="font-awesome"
-					iconStyle="mr-2"
+					iconStyles="mr-2"
 					text={
 						copySuccess === null
 							? "Copy code"
@@ -6515,13 +6532,13 @@ const CodeSnippet = ({
 							? "Code copied"
 							: "Failed to copy"
 					}
-					style="absolute top-0 right-0 p-2 text-inherit z-10 pr-4 cursor-pointer "
+					styles="absolute top-0 right-0 p-2 text-inherit z-10 pr-4 cursor-pointer "
 				/>
 			</CodeHeader>
 			<CodeBody
 				content={content}
 				language={lang}
-				style={` ${bodyStyle} pt-1 px-4 pb-1 text-sm overflow-y-scroll block  `}
+				styles={` ${bodyStyles} pt-1 px-4 pb-1 text-sm overflow-y-scroll block  `}
 			/>
 		</Code>
 	);
@@ -6529,19 +6546,19 @@ const CodeSnippet = ({
 
 // * Code
 const Code = ({
-	style,
+	// style,
 	content,
 	tagName = "pre",
 	languages = "css",
-	styles,
+	styles="",
 	children,
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "pre");
 	const CustomTag = customTag.toLowerCase();
 
 	return (
-		<CustomTag className={` ${style} `}>
-			{/* <SyntaxHighlighter language={languages} style={styles || "vscDarkPlus"}>
+		<CustomTag className={` ${styles} `}>
+			{/* <SyntaxHighlighter language={languages} styles={styles || "vscDarkPlus"}>
 				{content}
 			</SyntaxHighlighter> */}
 			{children}
@@ -6550,19 +6567,19 @@ const Code = ({
 };
 
 // * CodeHeader
-const CodeHeader = ({ tagName, style, children }) => {
+const CodeHeader = ({ tagName, styles = "", children }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
-	return <CustomTag className={` ${style} `}>{children}</CustomTag>;
+	return <CustomTag className={` ${styles} `}>{children}</CustomTag>;
 };
 
 // * CodeBody
-const CodeBody = ({ tagName, style, language, content }) => {
+const CodeBody = ({ tagName, styles = "", language, content }) => {
 	const [customTag, setCustomTag] = useState(tagName || "code");
 	const CustomTag = customTag.toLowerCase();
 	return (
 		<SyntaxHighlighter
-			className={` ${style} `}
+			className={` ${styles} `}
 			language={language}
 			style={vscDarkPlus}>
 			{content}
@@ -6573,16 +6590,16 @@ const CodeBody = ({ tagName, style, language, content }) => {
 // * Divider
 const Divider = ({
 	tagName,
-	style = "",
+	styles = "",
 	children,
 	position = "center",
-	contentStyle = "",
+	contentStyles = "",
 }) => {
 	return (
 		<>
 			{!children && (
 				<hr
-					className={` ${style} max-w-full border-b-0 border-t border-t-gray-500 my-1 `}
+					className={` ${styles} max-w-full border-b-0 border-t border-t-gray-500 my-1 `}
 				/>
 			)}
 			{children && (
@@ -6590,24 +6607,24 @@ const Divider = ({
 					{position == "center" && (
 						<div className="flex items-center ">
 							<span
-								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
-							<span className={` ${contentStyle} px-2 mx-2 `}>{children}</span>
+								className={` ${styles} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+							<span className={` ${contentStyles} px-2 mx-2 `}>{children}</span>
 							<span
-								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+								className={` ${styles} flex-1 border-b-0 border-t border-t-gray-500`}></span>
 						</div>
 					)}
 					{position == "left" && (
 						<div className="flex items-center ">
-							<span className={` ${contentStyle} pr-2 mr-2 `}>{children}</span>
+							<span className={` ${contentStyles} pr-2 mr-2 `}>{children}</span>
 							<span
-								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+								className={` ${styles} flex-1 border-b-0 border-t border-t-gray-500`}></span>
 						</div>
 					)}
 					{position == "right" && (
 						<div className="flex items-center ">
 							<span
-								className={` ${style} flex-1 border-b-0 border-t border-t-gray-500`}></span>
-							<span className={` ${contentStyle} pl-2 ml-2 `}>{children}</span>
+								className={` ${styles} flex-1 border-b-0 border-t border-t-gray-500`}></span>
+							<span className={` ${contentStyles} pl-2 ml-2 `}>{children}</span>
 						</div>
 					)}
 				</>
@@ -6617,17 +6634,17 @@ const Divider = ({
 };
 
 // * Card
-const Card = ({ children, style = "" }) => {
+const Card = ({ children, styles = "" }) => {
 	return (
 		<div
-			className={` ${style} bg-gray-500 rounded shadow text-white overflow-hidden w-full `}>
+			className={` ${styles} bg-gray-500 rounded shadow text-white overflow-hidden w-full `}>
 			{children}
 		</div>
 	);
 };
 
-const CardContent = ({ children, style = "" }) => {
-	return <div className={` ${style} p-3 text-left `}>{children}</div>;
+const CardContent = ({ children, styles = "" }) => {
+	return <div className={` ${styles} p-3 text-left `}>{children}</div>;
 };
 
 // * CardMedia
@@ -6635,9 +6652,9 @@ const CardMedia = ({
 	src = "https://source.unsplash.com/random/800x600?nature",
 	badge,
 	badgePosition = "bottom left",
-	style = "",
-	mediaStyle = "",
-	badgeStyle = "",
+	styles = "",
+	mediaStyles = "",
+	badgeStyles = "",
 	children,
 }) => {
 	const isTop = badgePosition.includes("top");
@@ -6645,16 +6662,16 @@ const CardMedia = ({
 	const isLeft = badgePosition.includes("left");
 	const isRight = badgePosition.includes("right");
 	return (
-		<span className={` ${style} block w-full relative`}>
+		<span className={` ${styles} block w-full relative`}>
 			{!children && (
 				<img
 					src={src}
-					className={` ${mediaStyle} object-cover w-full min-h-40 `}
+					className={` ${mediaStyles} object-cover w-full min-h-40 `}
 				/>
 			)}
 			{badge && (
 				<span
-					className={` ${badgeStyle} ${isTop ? "top-2" : ""} ${
+					className={` ${badgeStyles} ${isTop ? "top-2" : ""} ${
 						isLeft ? "left-2" : ""
 					} ${isRight ? "right-2" : ""} ${isBottom ? "bottom-2  " : ""} ${
 						isTop && isRight ? "top-2 right-2 " : ""
@@ -6674,7 +6691,7 @@ const CardMedia = ({
 // * CardAction
 const CardAction = ({
 	children,
-	style = "",
+	styles = "",
 	link = "#",
 	target = "_self",
 	...rest
@@ -6686,7 +6703,7 @@ const CardAction = ({
 	};
 	return (
 		<button
-			className={` ${style} bg-red-500 block bg-transparent outline-0 border-0 m-0 p-0 cursor-pointer select-none w-full text-inherit hover:opacity-85 transition-all duration-300 `}
+			className={` ${styles} bg-red-500 block bg-transparent outline-0 border-0 m-0 p-0 cursor-pointer select-none w-full text-inherit hover:opacity-85 transition-all duration-300 `}
 			onClick={handleClick}>
 			{children}
 		</button>
@@ -6694,11 +6711,11 @@ const CardAction = ({
 };
 
 // * Label
-const Label = ({ children, style = "", htmlFor = "", required }) => {
+const Label = ({ children, styles = "", htmlFor = "", required }) => {
 	return (
 		<>
 			<label
-				className={` ${style} block text-sm font-medium text-gray-500 `}
+				className={` ${styles} block text-sm font-medium text-gray-500 `}
 				htmlFor={htmlFor}
 				required={required}>
 				{children}
@@ -6723,13 +6740,13 @@ const Input = ({
 	onChange,
 	disabled,
 	required,
-	style = "",
-	inputStyle = "",
-	iconStyle = "",
-	errorStyle = "",
+	styles = "",
+	inputStyles = "",
+	iconStyles = "",
+	errorStyles = "",
 	autoComplete = "on",
-	disabledStyle = "",
-	requiredStyle = "",
+	disabledStyles = "",
+	requiredStyles = "",
 	id,
 	title,
 	...rest
@@ -6769,12 +6786,12 @@ const Input = ({
 		<>
 			{iconEnable && (
 				<fieldset
-					className={` ${style} relative h-fit group  `}
+					className={` ${styles} relative h-fit group  `}
 					disabled={disabled}>
 					<Icon
 						icon={icon}
 						iconLibrary={iconLibrary}
-						iconStyle={` ${iconStyle} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
+						iconStyles={` ${iconStyles} pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 group-disabled:pointer-events-none group-disabled:opacity-50 `}
 					/>
 					<input
 						id={id}
@@ -6783,8 +6800,8 @@ const Input = ({
 						placeholder={placeholder}
 						disabled={disabled}
 						required={required}
-						className={` ${inputStyle} ${disabled ? disabledStyle : ""} ${
-							required ? requiredStyle : ""
+						className={` ${inputStyles} ${disabled ? disabledStyles : ""} ${
+							required ? requiredStyles : ""
 						} border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
 						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent ps-11 pe-11 required:border-2 `}
 						autoComplete={autoComplete}
@@ -6823,7 +6840,7 @@ const Input = ({
 				</fieldset>
 			)}
 			{!iconEnable && (
-				<fieldset className={` ${style} relative h-fit group `}>
+				<fieldset className={` ${styles} relative h-fit group `}>
 					<input
 						id={id}
 						title={title}
@@ -6831,8 +6848,8 @@ const Input = ({
 						placeholder={placeholder}
 						disabled={disabled}
 						required={required}
-						className={` ${inputStyle} ${disabled ? disabledStyle : ""} ${
-							required ? requiredStyle : ""
+						className={` ${inputStyles} ${disabled ? disabledStyles : ""} ${
+							required ? requiredStyles : ""
 						} border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
 						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent ps-11 pe-11 required:border-2 `}
 						autoComplete={autoComplete}
@@ -6870,7 +6887,7 @@ const Input = ({
 					)}
 				</fieldset>
 			)}
-			{!error && <p className={` ${errorStyle} text-red-500`}>{helperText}</p>}{" "}
+			{!error && <p className={` ${errorStyles} text-red-500`}>{helperText}</p>}{" "}
 			{/* Display error message */}
 		</>
 	);
@@ -6886,14 +6903,14 @@ const TextArea = ({
 	disabled,
 	required,
 	autoComplete = "on",
-	style = "",
-	inputStyle = "",
+	styles = "",
+	inputStyles = "",
 	onChange,
-	errorStyle = "",
+	errorStyles = "",
 	id,
 	title,
-	disabledStyle = "",
-	requiredStyle = "",
+	disabledStyles = "",
+	requiredStyles = "",
 	...rest
 }) => {
 	const [value, setValue] = useState(propValue || "");
@@ -6912,13 +6929,13 @@ const TextArea = ({
 
 	return (
 		<>
-			<fieldset className={` ${style} relative w-full `}>
+			<fieldset className={` ${styles} relative w-full `}>
 				<textarea
 					id={id}
 					title={title}
 					placeholder={placeholder}
-					className={` ${inputStyle}  ${disabled ? disabledStyle : ""} ${
-						required ? requiredStyle : ""
+					className={` ${inputStyles}  ${disabled ? disabledStyles : ""} ${
+						required ? requiredStyles : ""
 					} min-h-16 border border-gray-400 w-full rounded-lg px-3 py-2 h-11 placeholder:font-normal placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-600 
 						focus-visible:shadow-md text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-transparent  `}
 					autoComplete={autoComplete}
@@ -6930,7 +6947,7 @@ const TextArea = ({
 					{...rest}
 				/>
 			</fieldset>
-			{!error && <p className={` ${errorStyle} text-red-500`}>{helperText}</p>}{" "}
+			{!error && <p className={` ${errorStyles} text-red-500`}>{helperText}</p>}{" "}
 			{/* Display error message */}
 		</>
 	);
@@ -6944,10 +6961,10 @@ const ProgressBar = ({
 	animateOnLoad = true,
 	animateOnVisible = false,
 	children,
-	style = "",
-	containerStyle = "",
-	fillStyle = "",
-	contentStyle = "",
+	styles = "",
+	containerStyles = "",
+	fillStyles = "",
+	contentStyles = "",
 	min = 0,
 	max = 100,
 }) => {
@@ -7013,26 +7030,26 @@ const ProgressBar = ({
 	}, [animateOnVisible, isVisible, value]);
 
 	return (
-		<div className={`${style} flex items-center gap-4 w-full my-2`}>
+		<div className={`${styles} flex items-center gap-4 w-full my-2`}>
 			{contentPosition === "left" && (
-				<span className={` ${contentStyle} min-w-8 `}>
+				<span className={` ${contentStyles} min-w-8 `}>
 					{!children && <>{`${percentage}%`}</>}
 					{children && children}
 				</span>
 			)}
 			<div
-				className={` ${containerStyle} flex-1 overflow-hidden rounded-full border p-1 `}>
+				className={` ${containerStyles} flex-1 overflow-hidden rounded-full border p-1 `}>
 				<div
-					className={` ${fillStyle} flex relative h-4 bg-blue-200 rounded-full `}
+					className={` ${fillStyles} flex relative h-4 bg-blue-200 rounded-full `}
 					role="progressbar"
 					aria-valuenow={clampedValue}
 					aria-valuemin={min}
 					aria-valuemax={max}
-					style={{ width: `${percentage}%` }} // Initial width for animation
+					styles={{ width: `${percentage}%` }} // Initial width for animation
 					ref={progressBarRef}></div>
 			</div>
 			{contentPosition === "right" && (
-				<span className={` ${contentStyle} min-w-8 `}>
+				<span className={` ${contentStyles} min-w-8 `}>
 					{!children && <>{`${percentage}%`}</>}
 					{children && children}
 				</span>
@@ -7045,13 +7062,13 @@ const CircularProgressBar = ({
 	value,
 	// min = 0,
 	// max = 100,
-	style = "",
+	styles = "",
 	onVisible,
 	duration = 2,
 	strokeColor = "#CCCCCC",
 	strokeFillColor = "#333333",
 	strokeWidth = 2,
-	contentStyle = "",
+	contentStyles = "",
 	children,
 	onClick,
 }) => {
@@ -7108,7 +7125,7 @@ const CircularProgressBar = ({
 
 	return (
 		<div
-			className={`${style} relative h-24 w-24 `}
+			className={`${styles} relative h-24 w-24 `}
 			onClick={onClick}
 			role="progressbar">
 			<div className="absolute top-0 left-0 w-full h-full transform -rotate-90 origin-center">
@@ -7127,7 +7144,7 @@ const CircularProgressBar = ({
 						strokeLinecap="round"
 						// strokeDasharray="62.83"
 						strokeWidth={strokeWidth}
-						// style={{
+						// styles={{
 						// 	strokeDashoffset: `${((100 - percentage) * 62.83) / 100}`,
 						// 	// strokeDashoffset: `${(percentage * 100) / max}`,
 						// }}
@@ -7155,7 +7172,7 @@ const CircularProgressBar = ({
 					/>
 				</svg>
 				<span
-					className={`${contentStyle} absolute inset-0 w-full h-full flex items-center justify-center text-gray-500 text-inherit rotate-90 `}>
+					className={`${contentStyles} absolute inset-0 w-full h-full flex items-center justify-center text-gray-500 text-inherit rotate-90 `}>
 					{!children && <>{percentage}%</>}
 					{children && <>{children}</>}
 				</span>
@@ -7298,7 +7315,7 @@ const ScrollTop = () => {
 // 	return (
 // 		<div className="relative overflow-hidden">
 // 			<div	className="flex transition-transform duration-300 ease-in-out"
-// 				style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+// 				styles={{ transform: `translateX(-${currentIndex * 100}%)` }}
 // 				ref={carouselRef}>
 // 				{React.Children.map(children, (child, index) => (
 
@@ -7414,7 +7431,7 @@ const ScrollTop = () => {
 // 		<div className="relative overflow-hidden">
 // 				<div
 // 					className="flex transition-transform duration-300 ease-in-out"
-// 					style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+// 					styles={{ transform: `translateX(-${currentIndex * 100}%)` }}
 // 					>
 // 					{children[currentIndex]}
 
@@ -7481,7 +7498,7 @@ const ScrollTop = () => {
 // 						transitionEnabled ? "transition-all" : ""
 // 					}` /* Add a CSS class to enable/disable transition */
 // 				}
-// 				// style={{ transform: `translateX(-${0}%)` }}
+// 				// styles={{ transform: `translateX(-${0}%)` }}
 // 				// ref={carouselRef}
 // 				onTransitionEnd={handleTransitionEnd} // Handle transition end event
 // 			>
@@ -7593,7 +7610,7 @@ const Carousel = ({ children }) => {
 
 // * Table
 
-const Table = ({ children, style = "", variant, ...rest }) => {
+const Table = ({ children, styles = "", variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
@@ -7604,7 +7621,7 @@ const Table = ({ children, style = "", variant, ...rest }) => {
 		}
 	}, [variant]);
 	return (
-		<table className={`${variantValue} ${style}`} {...rest}>
+		<table className={`${variantValue} ${styles}`} {...rest}>
 			{React.Children.map(children, (child) => {
 				return React.cloneElement(child, {
 					variant: variant,
@@ -7613,7 +7630,13 @@ const Table = ({ children, style = "", variant, ...rest }) => {
 		</table>
 	);
 };
-const TableCaption = ({ children, style = "", position, variant, ...rest }) => {
+const TableCaption = ({
+	children,
+	styles = "",
+	position,
+	variant,
+	...rest
+}) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
@@ -7624,13 +7647,13 @@ const TableCaption = ({ children, style = "", position, variant, ...rest }) => {
 		<caption
 			className={`${
 				position == "top" ? "caption-top" : "caption-bottom"
-			} ${variantValue} ${style}`}
+			} ${variantValue} ${styles}`}
 			{...rest}>
 			{children}
 		</caption>
 	);
 };
-const TableHead = ({ children, style = "", variant, ...rest }) => {
+const TableHead = ({ children, styles = "", variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
@@ -7640,9 +7663,9 @@ const TableHead = ({ children, style = "", variant, ...rest }) => {
 			setVariantValue("font-semibold");
 		}
 	}, [variant]);
-	console.log(variant)
+	console.log(variant);
 	return (
-		<thead className={` ${variantValue} ${style}`} {...rest}>
+		<thead className={` ${variantValue} ${styles}`} {...rest}>
 			{React.Children.map(children, (child) => {
 				return React.cloneElement(child, {
 					variant: variant,
@@ -7651,7 +7674,7 @@ const TableHead = ({ children, style = "", variant, ...rest }) => {
 		</thead>
 	);
 };
-const TableBody = ({ children, style = "", variant, ...rest }) => {
+const TableBody = ({ children, styles = "", variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
@@ -7663,7 +7686,7 @@ const TableBody = ({ children, style = "", variant, ...rest }) => {
 	}, [variant]);
 	console.log(variant);
 	return (
-		<tbody className={` ${variantValue} ${style}`} {...rest}>
+		<tbody className={` ${variantValue} ${styles}`} {...rest}>
 			{React.Children.map(children, (child) => {
 				return React.cloneElement(child, {
 					variant: variant,
@@ -7672,7 +7695,7 @@ const TableBody = ({ children, style = "", variant, ...rest }) => {
 		</tbody>
 	);
 };
-const TableFooter = ({ children, style = "", variant, ...rest }) => {
+const TableFooter = ({ children, styles = "", variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
@@ -7680,12 +7703,12 @@ const TableFooter = ({ children, style = "", variant, ...rest }) => {
 		}
 	}, [variant]);
 	return (
-		<tfoot className={` ${variantValue} ${style}`} {...rest}>
+		<tfoot className={` ${variantValue} ${styles}`} {...rest}>
 			{children}
 		</tfoot>
 	);
 };
-const TableRow = ({ children, style = "", variant, ...rest }) => {
+const TableRow = ({ children, styles = "", variant, ...rest }) => {
 	const [variantValue, setVariantValue] = useState("");
 	useEffect(() => {
 		if (variant == "1") {
@@ -7694,14 +7717,12 @@ const TableRow = ({ children, style = "", variant, ...rest }) => {
 			);
 		}
 		if (variant == "2") {
-			setVariantValue(
-				""
-			);
+			setVariantValue("");
 		}
 	}, [variant]);
 	console.log(variant);
 	return (
-		<tr className={` ${variantValue} ${style}`} {...rest}>
+		<tr className={` ${variantValue} ${styles}`} {...rest}>
 			{React.Children.map(children, (child) => {
 				return React.cloneElement(child, {
 					variant: variant,
@@ -7714,17 +7735,17 @@ const TableCell = ({
 	children,
 	tagName,
 	header,
-	thStyle = "",
-	tdStyle = "",
+	thStyles = "",
+	tdStyles = "",
 	variant,
-	style = "",
+	styles = "",
 	scope,
 	...rest
 }) => {
 	const [variantValue, setVariantValue] = useState({
-		style: "",
-		thStyle: "",
-		tdStyle: "",
+		styles: "",
+		thStyles: "",
+		tdStyles: "",
 	});
 	const [customTag, setCustomTag] = useState(tagName || (header ? "th" : "td"));
 	const CustomTag = customTag.toLowerCase();
@@ -7732,16 +7753,16 @@ const TableCell = ({
 	useEffect(() => {
 		if (variant == "1") {
 			setVariantValue({
-				style: "px-6 py-4",
-				thStyle: "font-bold text-gray-500 whitespace-nowrap",
-				tdStyle: "",
+				styles: "px-6 py-4",
+				thStyles: "font-bold text-gray-500 whitespace-nowrap",
+				tdStyles: "",
 			});
 		}
 		if (variant == "2") {
 			setVariantValue({
-				style: "p-2 text-left border-0 border-b border-b-gray-500",
-				thStyle: "",
-				tdStyle: "",
+				styles: "p-2 text-left border-0 border-b border-b-gray-500",
+				thStyles: "",
+				tdStyles: "",
 			});
 		}
 	}, [variant]);
@@ -7752,9 +7773,9 @@ const TableCell = ({
 		<CustomTag
 			className={` ${
 				header
-					? thStyle + " " + variantValue.thStyle
-					: tdStyle + " " + variantValue.tdStyle
-			} ${variantValue.style} ${style}`}
+					? thStyles + " " + variantValue.thStyles
+					: tdStyles + " " + variantValue.tdStyles
+			} ${variantValue.styles} ${styles}`}
 			{...(scope && { scope: scope })}
 			{...rest}>
 			{children}

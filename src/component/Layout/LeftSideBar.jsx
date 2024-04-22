@@ -5,22 +5,22 @@ import Links from "../../links";
 
 const LeftSideBar = () => {
 	const pathName = window.location.pathname;
-	console.log(pathName)
+	console.log(pathName);
 	return (
 		<div className="pt-2">
-			{/* <Accordion active={true} style="mb-2">
+			{/* <Accordion active={true} styles="mb-2">
 				<AccordionHeader
 					iconLibrary="bootstrap-icons"
 					icon='<i class="bi bi-caret-right-fill"></i>'
-					iconStyle=""
-					toggleIconStyle={``}
+					iconStyles=""
+					toggleIconStyles={``}
 					toggleIcon='<i class="bi bi-caret-down"></i>'
 					iconPosition="before"
-					style="hover:bg-hoverBgColor p-1 rounded-md font-mono"
-					activeStyle="">
+					styles="hover:bg-hoverBgColor p-1 rounded-md font-mono"
+					activeStyles="">
 					Getting started
 				</AccordionHeader>
-				<AccordionDetails style=" ">
+				<AccordionDetails styles=" ">
 					<p className="pl-[20px] text-sm py-[2px] rounded-md hover:bg-hoverBgColor ">
 						Overview
 					</p>
@@ -32,19 +32,19 @@ const LeftSideBar = () => {
 					</p>
 				</AccordionDetails>
 			</Accordion>
-			<Accordion active={true} style="mb-2">
+			<Accordion active={true} styles="mb-2">
 				<AccordionHeader
 					iconLibrary="bootstrap-icons"
 					icon='<i class="bi bi-caret-right-fill"></i>'
-					iconStyle=""
-					toggleIconStyle={``}
+					iconStyles=""
+					toggleIconStyles={``}
 					toggleIcon='<i class="bi bi-caret-down"></i>'
 					iconPosition="before"
-					style="hover:bg-hoverBgColor p-1 rounded-md font-mono"
-					activeStyle="">
+					styles="hover:bg-hoverBgColor p-1 rounded-md font-mono"
+					activeStyles="">
 					Components
 				</AccordionHeader>
-				<AccordionDetails style=" ">
+				<AccordionDetails styles=" ">
 					<p className="pl-[20px] text-sm py-[2px] pb-0 rounded-md hover:bg-hoverBgColor ">
 						<span className="border-b pb-[4px] w-full inline-block border-slate-400/20 ">
 							All Components
@@ -93,19 +93,19 @@ const LeftSideBar = () => {
 				<Accordion
 					key={category}
 					active={category == "Variations" ? false : true}
-					style="mb-2">
+					styles="mb-2">
 					<AccordionHeader
 						iconLibrary="bootstrap-icons"
 						icon="bi-caret-right-fill"
-						iconStyle=""
-						toggleIconStyle={``}
+						iconStyles=""
+						toggleIconStyles={``}
 						toggleIcon="bi-caret-down"
 						iconPosition="before"
-						style="hover:bg-hoverBgColor p-1 rounded-md font-mono"
-						activeStyle="">
+						styles="hover:bg-hoverBgColor p-1 rounded-md font-mono"
+						activeStyles="">
 						{category}
 					</AccordionHeader>
-					<AccordionDetails style="">
+					<AccordionDetails styles="">
 						{links.map((link) => (
 							<a
 								key={link.path}
