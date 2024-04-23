@@ -1,6 +1,6 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	Icon,
 	// Input,
 	// Label,
@@ -17,6 +17,8 @@ import {
 } from "landing-page-ui";
 import React, { useState } from "react";
 import RightSideBar from "../Layout/RightSideBar";
+
+import CodeSnippet from "../components/CodeSnippet";
 
 import { Input, Label } from "../test/Test";
 
