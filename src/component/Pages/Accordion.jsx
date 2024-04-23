@@ -927,7 +927,7 @@ export default App;
 						tagName="p"
 						styles="pl-6 py-2 inline-block my-3  underline underline-offset-4 cursor-pointer group relative after:content-['*'] after:absolute after:px-1 after:left-1 after:text-amber-500 "
 						isLink={true}
-						linkTo="#">
+						linkTo="/variations/accordion">
 						Here are the variation list for all components.
 						<Icon
 							icon="fa-arrow-up-right-from-square"

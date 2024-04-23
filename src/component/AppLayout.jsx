@@ -36,7 +36,7 @@ const AppLayout = ({ children, RightSideBarContent }) => {
 					} `}>
 					<LeftSideBar />
 				</div>
-				<div className="hidden lg:w-[20%]  lg:block border-r lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 pr-5  ">
+				<div className="hidden lg:w-[20%]  lg:block border-r lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 lg:pl-10 pr-5 lg:pr-10  ">
 					<LeftSideBar />
 				</div>
 				<div className={`w-full lg:w-[80%] flex-1 ${isVariationPage? "md:px-0":"md:px-5"}  `}>

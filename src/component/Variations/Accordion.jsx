@@ -4,7 +4,7 @@ import {
 	Accordion,
 	AccordionHeader,
 	AccordionDetails,
-} from "../test/Test";
+} from "landing-page-ui";
 import React from "react";
 
 const AccordionVariations = () => {
@@ -13,6 +13,7 @@ const AccordionVariations = () => {
 			"#d1e4dd",
 			"#1b1f24",
 			"#ffffffd9",
+			"#1b1f24",
 			"#1c2c6c",
 			"#fafafa",
 			"#abd6f573",
@@ -25,6 +26,7 @@ const AccordionVariations = () => {
 			"#5d5d5d",
 			"#ffffff",
 			"#000000",
+			"#2667ff",
 			"#abd6f573",
 			"#2667ff",
 			"#f3f3f3",
@@ -59,7 +61,7 @@ const AccordionVariations = () => {
 	const loopContent = Array.from({ length: variationsX }, (_, index) => {
 		
 		return (
-			<Block styles="md:w-[65%] lg:w-[73%]" key={index}>
+			<Block styles="md:w-[65%] lg:w-[73%] " key={index}>
 				<Accordion
 					active={index == "0" ? true : false}
 					deactivate={index == "3" ? true : false}
@@ -77,15 +79,15 @@ const AccordionVariations = () => {
 		);
 	});
 
-  const loopContentX = Array.from({ length: variationsX }, (_, index) => {
+  const loopContentX = Array.from({ length: 6 }, (_, index) => {
   return (
     <Block
-      styles="py-16 grid place-items-center"
+      styles="py-20 px-4 md:px-0 pb-24 grid place-items-center"
       style={{ backgroundColor: data.background[index] }}
       key={index}>
       <Text
         tagName="h4"
-        styles="text-center text-lg font-semibold mb-6"
+        styles="text-center text-lg font-semibold mb-12"
         style={{ color: data.color[index] }}>
         Variation - {index + 1}
       </Text>
@@ -111,12 +113,12 @@ const AccordionVariations = () => {
   );
 });
 	return (
-		<Block tagName={"div"} styles="scroll-smooth flex w-full">
+		<Block tagName={"div"} styles="scroll-smooth flex w-full  ">
 			<Block>
-				<Text tagName={"h2"} styles="text-center px-5 text-3xl mb-2 font-medium ">
+				<Text tagName={"h2"} styles="text-center px-5 text-3xl mb-2 mt-20 font-medium ">
 					Accordion
 				</Text>
-        <Text tagName="p" styles="text-center mb-10">Variations for Accordion Component</Text>
+        <Text tagName="p" styles="text-center mb-20">Variations for Accordion Component</Text>
 				<Block styles="">{loopContentX}</Block>
 			</Block>
 		</Block>
