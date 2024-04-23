@@ -3,9 +3,6 @@ import {
 	Icon,
 	List,
 	Text,
-	Code,
-	CodeBody,
-	CodeHeader,
 	IconButton,
 	Accordion,
 	AccordionHeader,
@@ -14,7 +11,7 @@ import {
 	TabsNav,
 	Tab,
 	TabsPanel,
-	CodeSnippet,
+	// CodeSnippet,
 	Table,
 	TableCaption,
 	TableHead,
@@ -25,7 +22,7 @@ import {
 // } from "landing-page-ui";
 } from "../test/Test";
 import React, { useState } from "react";
-// import CodeSnippet from "../components/CodeSnippet";
+import CodeSnippet from "../components/CodeSnippet";
 import RightSideBar from "../Layout/RightSideBar";
 // import {
 // 	Table,

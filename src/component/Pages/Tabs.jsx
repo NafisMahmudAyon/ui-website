@@ -8,7 +8,7 @@ import {
 	// Tab,
 	// TabsPanel,
 	Icon,
-	CodeSnippet,
+	// CodeSnippet,
 	Table,
 	TableHead,
 	TableRow,
@@ -19,6 +19,7 @@ import {
 import { Tabs, TabsNav, Tab, TabsPanel } from "../test/Test";
 // import CodeSnippet from "../components/CodeSnippet";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const TabsPage = () => {
 	const tabsContent = `

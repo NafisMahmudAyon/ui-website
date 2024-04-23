@@ -1,6 +1,6 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	Icon,
 	Tab,
 	Table,
@@ -17,6 +17,7 @@ import {
 import React from "react";
 // import { List } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const ListPage = () => {
 	const lists = [

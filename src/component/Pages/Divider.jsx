@@ -1,6 +1,6 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	// Divider,
 	Icon,
 	Tab,
@@ -17,6 +17,7 @@ import {
 import React from "react";
 import { Divider } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const DividerPage = () => {
 	const defaultDividerContent = `

@@ -1,6 +1,6 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	Icon,
 	Image,
 	ImageGallery,
@@ -17,6 +17,7 @@ import {
 } from "landing-page-ui";
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const ImageGalleryPage = () => {
 	const gallery = Array.from({ length: 9 }, (_, index) => ({

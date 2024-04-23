@@ -1,6 +1,6 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	Icon,
 	Tab,
 	Table,
@@ -16,6 +16,7 @@ import {
 import React from "react";
 import { Badge } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const BadgePage = () => {
 	const defaultBadgeContent = `

@@ -1,6 +1,9 @@
-import { Block, Divider, Text, CodeSnippet, Icon } from "landing-page-ui";
+import { Block, Divider, Text,
+	//  CodeSnippet, 
+	 Icon } from "landing-page-ui";
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const Installation = () => {
 	return (

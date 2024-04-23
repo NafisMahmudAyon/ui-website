@@ -96,14 +96,14 @@ const Links = {
 			title: "Circular Progress Bar",
 			path: "/components/circular-progress-bar",
 		},
-		{
-			title: "Carousel",
-			path: "/components/carousel",
-		},
-		{
-			title: "Code Snippet",
-			path: "/components/code-snippet",
-		},
+		// {
+		// 	title: "Carousel",
+		// 	path: "/components/carousel",
+		// },
+		// {
+		// 	title: "Code Snippet",
+		// 	path: "/components/code-snippet",
+		// },
 		{
 			title: "Divider",
 			path: "/components/divider",
@@ -210,14 +210,14 @@ const Links = {
 			title: "Circular Progress Bar",
 			path: "/variations/circular-progress-bar",
 		},
-		{
-			title: "Carousel",
-			path: "/variations/carousel",
-		},
-		{
-			title: "Code Snippet",
-			path: "/variations/code-snippet",
-		},
+		// {
+		// 	title: "Carousel",
+		// 	path: "/variations/carousel",
+		// },
+		// {
+		// 	title: "Code Snippet",
+		// 	path: "/variations/code-snippet",
+		// },
 		{
 			title: "Divider",
 			path: "/variations/divider",

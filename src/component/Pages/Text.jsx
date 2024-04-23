@@ -1,6 +1,6 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	Icon,
 	Tab,
 	Table,
@@ -15,6 +15,7 @@ import {
 } from "landing-page-ui";
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const TextPage = () => {
 	const defaultTextContent = `

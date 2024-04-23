@@ -6,8 +6,8 @@ import React, { useEffect, useState, useRef, Children } from "react";
 // import imagesLoaded from "imagesloaded";
 
 // * package for code snippets
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 ///////
 // import Text from "./Text";
@@ -5445,12 +5445,12 @@ const ImageGallery = ({
 	lightBoxCaptionEnabled,
 	children,
 	styles = "",
-	imageStyles="",
-	captionStyles="",
-	lightBoxStyles="",
-	lightBoxImageStyles="",
-	lightBoxCaptionStyles="",
-	closeButtonStyles="",
+	imageStyles = "",
+	captionStyles = "",
+	lightBoxStyles = "",
+	lightBoxImageStyles = "",
+	lightBoxCaptionStyles = "",
+	closeButtonStyles = "",
 	lightBoxCaption,
 	lightBoxImageSrc,
 	tagName,
@@ -5559,9 +5559,7 @@ const Image = ({
 			})}>
 			<figure className=" flex flex-col items-center">
 				<img
-					className={` ${
-						imageStyles
-					} max-w-full h-auto shadow-lg `}
+					className={` ${imageStyles} max-w-full h-auto shadow-lg `}
 					src={
 						src ||
 						"https://images.pexels.com/photos/127428/pexels-photo-127428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -5572,22 +5570,17 @@ const Image = ({
 				/>
 				{captionEnabled && (
 					<figcaption
-						className={` ${captionStyles
-						} text-gray-600 text-sm mt-2 `}>
+						className={` ${captionStyles} text-gray-600 text-sm mt-2 `}>
 						{imageCaption || altText || "This is the caption for the image."}
 					</figcaption>
 				)}
 			</figure>
 			{isOpen && (
 				<div
-					className={` ${
-						lightBoxStyles
-					} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-[9999] overflow-auto  `}>
+					className={` ${lightBoxStyles} fixed top-0 left-0 w-full h-full bg-black bg-opacity-85 flex justify-center items-center z-[9999] overflow-auto  `}>
 					<div className="relative p-3 flex flex-col items-center">
 						<button
-							className={` ${
-								closeButtonStyles
-							} absolute top-0 right-5 h-8 w-8 flex items-center justify-center bg-red-500 rounded-full text-black hover:bg-gray-200  text-base `}
+							className={` ${closeButtonStyles} absolute top-0 right-5 h-8 w-8 flex items-center justify-center bg-red-500 rounded-full text-black hover:bg-gray-200  text-base `}
 							onClick={closeLightbox}>
 							&times;
 						</button>
@@ -5598,14 +5591,11 @@ const Image = ({
 								"https://images.pexels.com/photos/127428/pexels-photo-127428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 							}
 							alt={altText || "lightbox"}
-							className={` ${
-								lightBoxImageStyles
-							} max-w-[95%] w-full rounded-md`}
+							className={` ${lightBoxImageStyles} max-w-[95%] w-full rounded-md`}
 						/>
 						{lightBoxCaptionEnabled && (
 							<figcaption
-								className={` ${ lightBoxCaptionStyles
-								} text-gray-400 text-sm mt-2 text-center `}>
+								className={` ${lightBoxCaptionStyles} text-gray-400 text-sm mt-2 text-center `}>
 								{lightBoxCaption ||
 									imageCaption ||
 									altText ||
@@ -5846,7 +5836,7 @@ const IconButton = ({
 const Icon = ({
 	// icon = '<span class="material-icons ">search</span>',
 	icon,
-	iconStyles="",
+	iconStyles = "",
 	iconLibrary = "material-icons",
 	isLink,
 	linkTo = "",
@@ -5916,7 +5906,7 @@ const Icon = ({
 };
 
 // * Grid
-const Grid = ({ tagName, styles="", children }) => {
+const Grid = ({ tagName, styles = "", children }) => {
 	const [customTag, setCustomTag] = useState(tagName || "div");
 	const CustomTag = customTag.toLowerCase();
 
@@ -6009,7 +5999,7 @@ const ComboList = ({
 	iconPosition,
 	icon,
 	iconLibrary,
-	iconStyles="",
+	iconStyles = "",
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "ol");
 	const CustomTag = customTag.toLowerCase();
@@ -6042,7 +6032,7 @@ const ComboListItem = ({
 	iconPosition,
 	icon,
 	iconLibrary,
-	iconStyles="",
+	iconStyles = "",
 }) => {
 	const [customTag, setCustomTag] = useState(tagName || "li");
 	const CustomTag = customTag.toLowerCase();
@@ -6113,8 +6103,7 @@ const Accordion = ({
 				styles: "my-1",
 				headerStyles:
 					"flex gap-2 items-center bg-[#28303d] px-4 py-5 rounded-lg text-white text-xl !font-medium cursor-pointer",
-				activeHeaderStyles:
-					"!rounded-t-lg rounded-b-none",
+				activeHeaderStyles: "!rounded-t-lg rounded-b-none",
 				deactivateHeaderStyles:
 					"!bg-neutral-700 !opacity-50 !cursor-not-allowed !text-gray-400 ",
 				detailsStyles: "bg-white rounded-b-lg ",
@@ -6303,7 +6292,9 @@ const AccordionHeader = ({
 		}
 		if (variant == true) {
 			setIconStyleX(iconStyles + " " + variantValue.iconStyles);
-			setToggleIconStyleX(toggleIconStyles + " " + variantValue.toggleIconStyles);
+			setToggleIconStyleX(
+				toggleIconStyles + " " + variantValue.toggleIconStyles
+			);
 		}
 	}, [variant]);
 	// const [isActive, setIsActive] = useState(false);
@@ -6443,9 +6434,47 @@ const AccordionDetails = ({
 	);
 };
 
-const AvatarGroup = ({ styles = "", children }) => {
+const AvatarGroup = ({ styles = "", children, variant }) => {
+	const [variantValue, setVariantValue] = useState({
+		styles: "",
+	});
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				styles: " -space-x-2",
+				
+			});
+		}
+		if (variant == "2") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "3") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "4") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "5") {
+			setVariantValue({
+				styles: "-space-x-2 ",
+			});
+		}
+		if (variant == "6") {
+			setVariantValue({
+				styles: "-space-x-2",
+			});
+		}
+	}, [variant]);
 	return (
-		<div className={` ${styles} flex items-center -space-x-2 `}>
+		<div
+			className={` ${styles} ${variantValue.styles} flex items-center `}>
 			{!children ? (
 				<>
 					<Avatar />
@@ -6476,9 +6505,57 @@ const Avatar = ({
 			var nameX = `${name[0]}`;
 		}
 	}
+	const [variantValue, setVariantValue] = useState({
+		styles: "",
+	});
+
+	useEffect(() => {
+		if (variant == "1") {
+			setVariantValue({
+				styles: "bg-gray-500 w-16 h-16 text-[1.25rem] leading-none",
+				imageStyles: "object-cover text-transparent text-center rounded-full",
+			});
+		}
+		if (variant == "2") {
+			setVariantValue({
+				styles: "bg-yellow-600 w-16 h-16 text-[1.25rem] leading-none border border-white",
+				imageStyles: "object-cover text-transparent text-center rounded-full",
+			});
+		}
+		if (variant == "3") {
+			setVariantValue({
+				styles:
+					"bg-green-600 w-16 h-16 text-[1.25rem] rounded-md leading-none border border-white",
+				imageStyles: "object-cover text-transparent text-center ",
+			});
+		}
+		if (variant == "4") {
+			setVariantValue({
+				styles:
+					"bg-gray-500 w-16 h-16 text-[1.25rem] rounded-md leading-none border border-white",
+				imageStyles: "object-cover text-transparent text-center rounded-full",
+			});
+		}
+		if (variant == "5") {
+			setVariantValue({
+				styles:
+					"bg-gray-500 w-20 h-20 text-[1.25rem] leading-none outline-2 outline-offset-2 outline-yellow-600 outline overflow-visible ",
+				imageStyles:
+					"object-cover text-transparent text-center rounded-full w-full border-2 border-yellow-600  ",
+			});
+		}
+		if (variant == "6") {
+			setVariantValue({
+				styles:
+					"bg-gray-500 w-20 h-20 text-[1.25rem] leading-none outline-4 outline-offset-[3px] outline-green-600 outline overflow-visible ",
+				imageStyles:
+					"object-cover text-transparent text-center rounded-full w-full   ",
+			});
+		}
+	}, [variant]);
 	return (
 		<div
-			className={` ${styles} flex justify-center items-center w-12 h-12 bg-gray-500  rounded-full text-[1.25rem] leading-none overflow-hidden `}
+			className={` ${styles} ${variantValue.styles} flex justify-center items-center w-12 h-12 rounded-full overflow-hidden`}
 			{...(name && { title: name })}
 			onClick={onClick}>
 			{/* {!children && (
@@ -6487,7 +6564,7 @@ const Avatar = ({
 				<img
 					src={src}
 					alt={altText || "alt text"}
-					className={` ${imageStyles} max-w-full h-auto object-cover text-transparent text-center rounded-full `}
+					className={` ${imageStyles} ${variantValue.imageStyles} max-w-full h-auto `}
 				/>
 			)}
 
@@ -6567,100 +6644,6 @@ const Badge = ({
 				{displayContent}
 			</span>
 		</CustomTag>
-	);
-};
-
-// * CodeSnippet
-const CodeSnippet = ({
-	content,
-	lang = "html",
-	styles = "",
-	headerStyles = "",
-	bodyStyles = "",
-}) => {
-	const [copySuccess, setCopySuccess] = useState(null);
-
-	const handleCopyClick = () => {
-		navigator.clipboard
-			.writeText(content.trim())
-			.then(() => setCopySuccess(true))
-			.catch(() => setCopySuccess(false));
-
-		// Reset copy success message after 2 seconds
-		setTimeout(() => {
-			setCopySuccess(null);
-		}, 2000);
-	};
-	return (
-		<Code styles={` ${styles}  rounded-t-lg rounded-b-lg relative`}>
-			<CodeHeader
-				styles={` ${headerStyles} flex items-center justify-between   p-2 w-full bg-[#b4b4b4] text-white rounded-t-lg pl-4 `}>
-				<Text styles="">{lang}</Text>
-				<IconButton
-					tagName="button"
-					textOnClick={handleCopyClick}
-					icon="fa-copy"
-					iconLibrary="font-awesome"
-					iconStyles="mr-2"
-					text={
-						copySuccess === null
-							? "Copy code"
-							: copySuccess === true
-							? "Code copied"
-							: "Failed to copy"
-					}
-					styles="absolute top-0 right-0 p-2 text-inherit z-10 pr-4 cursor-pointer "
-				/>
-			</CodeHeader>
-			<CodeBody
-				content={content}
-				language={lang}
-				styles={` ${bodyStyles} pt-1 px-4 pb-1 text-sm overflow-y-scroll block  `}
-			/>
-		</Code>
-	);
-};
-
-// * Code
-const Code = ({
-	// style,
-	content,
-	tagName = "pre",
-	languages = "css",
-	styles="",
-	children,
-}) => {
-	const [customTag, setCustomTag] = useState(tagName || "pre");
-	const CustomTag = customTag.toLowerCase();
-
-	return (
-		<CustomTag className={` ${styles} `}>
-			{/* <SyntaxHighlighter language={languages} styles={styles || "vscDarkPlus"}>
-				{content}
-			</SyntaxHighlighter> */}
-			{children}
-		</CustomTag>
-	);
-};
-
-// * CodeHeader
-const CodeHeader = ({ tagName, styles = "", children }) => {
-	const [customTag, setCustomTag] = useState(tagName || "div");
-	const CustomTag = customTag.toLowerCase();
-	return <CustomTag className={` ${styles} `}>{children}</CustomTag>;
-};
-
-// * CodeBody
-const CodeBody = ({ tagName, styles = "", language, content }) => {
-	const [customTag, setCustomTag] = useState(tagName || "code");
-	const CustomTag = customTag.toLowerCase();
-	return (
-		<SyntaxHighlighter
-			className={` ${styles} `}
-			language={language}
-			style={vscDarkPlus}>
-			{content}
-		</SyntaxHighlighter>
 	);
 };
 
@@ -7938,10 +7921,6 @@ export {
 	AvatarGroup,
 	Avatar,
 	Badge,
-	CodeSnippet,
-	Code,
-	CodeHeader,
-	CodeBody,
 	Divider,
 	Card,
 	CardContent,

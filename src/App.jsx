@@ -38,6 +38,7 @@ import CircularProgressBarPage from "./component/Pages/CircularProgressBar";
 import TablePage from "./component/Pages/Table";
 import ListPage from "./component/Pages/List";
 import AccordionVariations from "./component/Variations/Accordion";
+import AvatarVariations from "./component/Variations/Avatar";
 
 function App() {
 	return (
@@ -300,6 +301,14 @@ function App() {
 						element={
 							<AppLayout>
 								<AccordionVariations />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/variations/avatar"
+						element={
+							<AppLayout>
+								<AvatarVariations />
 							</AppLayout>
 						}
 					/>

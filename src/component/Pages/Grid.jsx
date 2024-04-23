@@ -1,6 +1,6 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	// Grid,
 	// GridItem,
 	Icon,
@@ -18,6 +18,7 @@ import {
 import React from "react";
 import { Grid, GridItem } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const GridPage = () => {
 	// const getRandomColor = () => {

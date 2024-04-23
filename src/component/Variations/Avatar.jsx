@@ -1,13 +1,7 @@
-import {
-	Block,
-	Text,
-	Accordion,
-	AccordionHeader,
-	AccordionDetails,
-} from "landing-page-ui";
+import { Block, Text, Avatar, AvatarGroup } from "../test/Test";
 import React from "react";
 
-const AccordionVariations = () => {
+const AvatarVariations = () => {
 	const data = {
 		background: [
 			"#d1e4dd",
@@ -57,76 +51,58 @@ const AccordionVariations = () => {
 	};
 	const variationsX = parseInt(data.variations); // Convert variations to an integer
 
-	
-	const loopContent = Array.from({ length: variationsX }, (_, index) => {
-		
+	const loopContentX = Array.from({ length: 6 }, (_, index) => {
 		return (
-			<Block styles="md:w-[65%] lg:w-[73%] " key={index}>
-				<Accordion
-					active={index == "0" ? true : false}
-					deactivate={index == "3" ? true : false}
-					variant="1">
-					<AccordionHeader>
-						<Text tagName="h3" styles=" text-xl font-medium !text-gray-200 ">
-							{data.accordions[index]?.title}
-						</Text>
-					</AccordionHeader>
-					<AccordionDetails>
-						<Text styles=" ">{data.accordions[index]?.content}</Text>
-					</AccordionDetails>
-				</Accordion>
+			<Block
+				styles="py-20 px-4 md:px-0 pb-24 grid place-items-center"
+				style={{ backgroundColor: data.background[index] }}
+				key={index}>
+				<Text
+					tagName="h4"
+					styles="text-center text-lg font-semibold mb-12"
+					style={{ color: data.color[index] }}>
+					Variation - {index + 1}
+				</Text>
+				{/* Include loopContent directly inside loopContentX */}
+				<Block styles="md:w-[65%] lg:w-[73%] grid place-items-center">
+					<AvatarGroup variant={index + 1}>
+						
+						{Array.from({ length: variationsX }, (_, loopIndex) =>
+							loopIndex === 2 ? (
+								<Avatar
+									name="John Smith"
+									variant={index + 1}
+									key={loopIndex}
+								/>
+							) : (
+								<Avatar
+									src={`https://source.unsplash.com/random/600x600?face=${loopIndex}`}
+									variant={index + 1}
+									key={index+1}
+								/>
+							)
+						)}
+					</AvatarGroup>
+				</Block>
 			</Block>
 		);
 	});
-
-  const loopContentX = Array.from({ length: 6 }, (_, index) => {
-  return (
-    <Block
-      styles="py-20 px-4 md:px-0 pb-24 grid place-items-center"
-      style={{ backgroundColor: data.background[index] }}
-      key={index}>
-      <Text
-        tagName="h4"
-        styles="text-center text-lg font-semibold mb-12"
-        style={{ color: data.color[index] }}>
-        Variation - {index + 1}
-      </Text>
-      {/* Include loopContent directly inside loopContentX */}
-      {Array.from({ length: variationsX }, (_, loopIndex) => (
-        <Block styles="md:w-[65%] lg:w-[73%]" key={loopIndex}>
-          <Accordion
-            active={loopIndex === 0} 
-            deactivate={loopIndex === 3}
-            variant={index+1}>
-            <AccordionHeader>
-              
-                {data.accordions[loopIndex]?.title}
-              
-            </AccordionHeader>
-            <AccordionDetails>
-              <Text styles="">{data.accordions[loopIndex]?.content}</Text>
-            </AccordionDetails>
-          </Accordion>
-        </Block>
-      ))}
-    </Block>
-  );
-});
 	return (
 		<Block tagName={"div"} styles="scroll-smooth flex w-full  ">
 			<Block styles="w-full">
 				<Text
 					tagName={"h2"}
 					styles="text-center px-5 text-3xl mb-2 mt-20 font-medium ">
-					Accordion
+					Avatar
 				</Text>
 				<Text tagName="p" styles="text-center mb-20">
-					Variations for Accordion Component
+					Variations for Avatar Component
 				</Text>
 				<Block styles="w-full">{loopContentX}</Block>
 			</Block>
+      
 		</Block>
 	);
 };
 
-export default AccordionVariations;
+export default AvatarVariations;

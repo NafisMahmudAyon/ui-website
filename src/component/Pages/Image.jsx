@@ -1,8 +1,8 @@
 import {
 	Block,
-	CodeSnippet,
+	// CodeSnippet,
 	Icon,
-	// Image,
+	Image,
 	Tab,
 	Table,
 	TableBody,
@@ -15,8 +15,9 @@ import {
 	Text,
 } from "landing-page-ui";
 import React from "react";
-import { Image } from "../test/Test";
+// import { Image } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
+import CodeSnippet from "../components/CodeSnippet";
 
 const ImagePage = () => {
 	const defaultImageContent = `

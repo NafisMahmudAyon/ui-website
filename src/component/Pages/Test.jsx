@@ -24,9 +24,6 @@ import {
 	AvatarGroup,
 	Avatar,
 	Badge,
-	Code,
-	CodeHeader,
-	CodeBody,
 	Divider,
 	UseThemeSwitcher,
 	Card,
@@ -38,7 +35,7 @@ import {
 	ProgressBar,
 	CircularProgressBar,
 	TextArea,
-	CodeSnippet,
+	// CodeSnippet,
 	Carousel,
 	Table,
 	TableCaption,
@@ -50,6 +47,7 @@ import {
 	// XXX,
 	// Slide
 } from "../test/Test";
+import CodeSnippet from "../components/CodeSnippet";
 
 const TestPage = () => {
 	const [inputValue, setInputValue] = useState("");
