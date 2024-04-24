@@ -3,9 +3,9 @@ import {
 	Icon,
 	List,
 	Text,
-	Code,
-	CodeBody,
-	CodeHeader,
+	// Code,
+	// CodeBody,
+	// CodeHeader,
 	IconButton,
 } from "landing-page-ui";
 import React, { useState } from "react";

@@ -16,9 +16,9 @@ import {
 	ComboList,
 	AccordionHeader,
 	AccordionDetails,
-	Code,
-	CodeHeader,
-	CodeBody,
+	// Code,
+	// CodeHeader,
+	// CodeBody,
 } from "landing-page-ui"; // Import your components here
 import CodeSnippet from "../components/CodeSnippet";
 
