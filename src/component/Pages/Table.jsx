@@ -28,6 +28,7 @@ import {
 	TableHead,
 	TableRow,
 } from "../test/Test";
+import ScrollToTop from "../components/ScrollToTop";
 
 const TablePage = () => {
 	const defaultTableContent = `
@@ -310,6 +311,7 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
+			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Table

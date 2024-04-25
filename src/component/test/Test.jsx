@@ -5106,6 +5106,7 @@ const Tabs = ({
 			<div className={` ${panelWrapStyles} `}>
 				{React.Children.map(children, (child) => {
 					if (child.type === TabsPanel && child.props.value === activeTab) {
+						console.log(child.props)
 						return child;
 					}
 					return null;
@@ -6443,7 +6444,6 @@ const AvatarGroup = ({ styles = "", children, variant }) => {
 		if (variant == "1") {
 			setVariantValue({
 				styles: " -space-x-2",
-				
 			});
 		}
 		if (variant == "2") {
@@ -6473,8 +6473,7 @@ const AvatarGroup = ({ styles = "", children, variant }) => {
 		}
 	}, [variant]);
 	return (
-		<div
-			className={` ${styles} ${variantValue.styles} flex items-center `}>
+		<div className={` ${styles} ${variantValue.styles} flex items-center `}>
 			{!children ? (
 				<>
 					<Avatar />
@@ -6518,7 +6517,8 @@ const Avatar = ({
 		}
 		if (variant == "2") {
 			setVariantValue({
-				styles: "bg-yellow-600 w-16 h-16 text-[1.25rem] leading-none border border-white",
+				styles:
+					"bg-yellow-600 w-16 h-16 text-[1.25rem] leading-none border border-white",
 				imageStyles: "object-cover text-transparent text-center rounded-full",
 			});
 		}
@@ -6813,8 +6813,6 @@ const Input = ({
 }) => {
 	const [value, setValue] = useState(propValue || "");
 	const [showPassword, setShowPassword] = useState(false);
-	// const [error, setError] = useState(helperText); // State to store email validation error message
-	// const [errorShow, setErrorShow] = useState(false); // State to store email validation error message
 
 	const handleChange = (e) => {
 		const newValue = e.target.value;
@@ -6974,9 +6972,6 @@ const TextArea = ({
 	...rest
 }) => {
 	const [value, setValue] = useState(propValue || "");
-	const [showPassword, setShowPassword] = useState(false);
-	// const [error, setError] = useState(helperText); // State to store email validation error message
-	// const [errorShow, setErrorShow] = useState(false); // State to store email validation error message
 
 	const handleChange = (e) => {
 		const newValue = e.target.value;
@@ -7105,7 +7100,7 @@ const ProgressBar = ({
 					aria-valuenow={clampedValue}
 					aria-valuemin={min}
 					aria-valuemax={max}
-					styles={{ width: `${percentage}%` }} // Initial width for animation
+					style={{ width: `${percentage}%` }} // Initial width for animation
 					ref={progressBarRef}></div>
 			</div>
 			{contentPosition === "right" && (
@@ -7241,7 +7236,14 @@ const CircularProgressBar = ({
 	);
 };
 
-const ScrollTop = () => {
+const ScrollTop = ({
+	children,
+	styles = "",
+	iconEnable,
+	icon,
+	iconLibrary,
+	iconStyles,
+}) => {
 	const [isVisible, setIsVisible] = useState(false);
 	console.log(isVisible);
 
@@ -7287,13 +7289,19 @@ const ScrollTop = () => {
 		};
 	}, []);
 
+	console.log(isVisible);
+
 	return (
 		<div
-			className={`fixed flex items-center justify-center p-4 bg-red-500 bottom-5 right-5 cursor-pointer transition-all duration-300 ease-in-out ${
-				isVisible ? "opacity-100 visible" : "opacity-1 visible"
-			}`}
+			className={`${styles} fixed flex items-center justify-center p-4 bg-gray-500 rounded-full bottom-5 right-5 cursor-pointer transition-all duration-1000 ease-in-out ${
+				isVisible ? "!opacity-100 !visible" : ""
+			} opacity-0 invisible`}
 			onClick={scrollToTop}>
-			^
+			{iconEnable ? (
+				<Icon icon={icon} iconLibrary={iconLibrary} iconStyles={iconStyles} />
+			) : (
+				children
+			)}
 		</div>
 	);
 };
@@ -7898,39 +7906,23 @@ export {
 	// XXX,
 	Carousel,
 	// Slide,
-	Text,
-	Block,
+	ComboList,
+	ComboListItem,
 	Tabs,
 	TabsNav,
 	Tab,
 	TabsPanel,
+	Label,
+	Input,
+	TextArea,
+	Divider,
+	ProgressBar,
+	CircularProgressBar,
 	List,
-	ImageGallery,
-	Image,
-	IconButton,
-	Icon,
 	Grid,
 	GridItem,
 	Flex,
 	FlexItem,
-	ComboList,
-	ComboListItem,
-	Accordion,
-	AccordionDetails,
-	AccordionHeader,
-	AvatarGroup,
-	Avatar,
-	Badge,
-	Divider,
-	Card,
-	CardContent,
-	CardMedia,
-	CardAction,
-	Label,
-	Input,
-	TextArea,
-	ProgressBar,
-	CircularProgressBar,
 	Table,
 	TableCaption,
 	TableHead,
@@ -7938,6 +7930,22 @@ export {
 	TableFooter,
 	TableRow,
 	TableCell,
-	// ScrollTop,
+	Text,
+	Block,
+	ImageGallery,
+	Image,
+	IconButton,
+	Icon,
+	Accordion,
+	AccordionDetails,
+	AccordionHeader,
+	AvatarGroup,
+	Avatar,
+	Badge,
+	Card,
+	CardContent,
+	CardMedia,
+	CardAction,
+	ScrollTop,
 	UseThemeSwitcher,
 };

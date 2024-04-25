@@ -18,6 +18,7 @@ import {
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 import CodeSnippet from "../components/CodeSnippet";
+import ScrollToTop from "../components/ScrollToTop";
 
 const AvatarPage = () => {
 	const imageAvatarContent = `
@@ -126,6 +127,7 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
+			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Avatar
@@ -245,9 +247,9 @@ export default App;
 							value="1"
 							styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block styles="flex gap-4 my-4">
-								<Avatar name="Michael Brown" />
-								<Avatar name="Emily Johnson" />
-								<Avatar name="John" />
+								<Avatar styles="bg-gray-500" name="Michael Brown" />
+								<Avatar styles="bg-gray-500" name="Emily Johnson" />
+								<Avatar styles="bg-gray-500" name="John" />
 							</Block>
 						</TabsPanel>
 						<TabsPanel value="2" styles="rounded-lg !overflow-hidden ">

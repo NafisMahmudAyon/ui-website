@@ -1,3 +1,4 @@
+import ScrollToTop from "../components/ScrollToTop";
 import { Block, Text, Avatar, AvatarGroup } from "../test/Test";
 import React from "react";
 
@@ -89,6 +90,7 @@ const AvatarVariations = () => {
 	});
 	return (
 		<Block tagName={"div"} styles="scroll-smooth flex w-full  ">
+			<ScrollToTop />
 			<Block styles="w-full">
 				<Text
 					tagName={"h2"}
@@ -100,7 +102,6 @@ const AvatarVariations = () => {
 				</Text>
 				<Block styles="w-full">{loopContentX}</Block>
 			</Block>
-      
 		</Block>
 	);
 };

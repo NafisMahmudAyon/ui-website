@@ -6,6 +6,7 @@ import {
 	AccordionDetails,
 } from "landing-page-ui";
 import React from "react";
+import ScrollToTop from "../components/ScrollToTop";
 
 const AccordionVariations = () => {
 	const data = {
@@ -114,6 +115,7 @@ const AccordionVariations = () => {
 });
 	return (
 		<Block tagName={"div"} styles="scroll-smooth flex w-full  ">
+			<ScrollToTop />
 			<Block styles="w-full">
 				<Text
 					tagName={"h2"}

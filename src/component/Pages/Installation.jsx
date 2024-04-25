@@ -4,10 +4,12 @@ import { Block, Divider, Text,
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 import CodeSnippet from "../components/CodeSnippet";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Installation = () => {
 	return (
 		<Block styles="scroll-smooth md:w-[65%] lg:w-[73%]">
+			<ScrollToTop />
 			<Block styles="relative">
 				<Block styles="my-2">
 					<Text tagName="h1" styles="text-2xl !font-medium">

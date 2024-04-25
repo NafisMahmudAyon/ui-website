@@ -19,6 +19,7 @@ import React from "react";
 // import { IconButton } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
 import CodeSnippet from "../components/CodeSnippet";
+import ScrollToTop from "../components/ScrollToTop";
 
 const IconButtonPage = () => {
 	const basicButtonContent = `
@@ -181,6 +182,7 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
+			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Icon Button
