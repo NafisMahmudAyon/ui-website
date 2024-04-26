@@ -32,7 +32,7 @@ const App = () => {
 export default App;
 	`;
 	const badgeWithMaxContent = `
-import { Badge, Block } from "landing-page-ui"
+import { Badge, Block, Icon } from "landing-page-ui"
 
 const App = () => {
   return (
@@ -49,7 +49,7 @@ const App = () => {
 export default App;
 	`;
 	const badgeInDifferentPosition = `
-import { Badge, Block } from "landing-page-ui"
+import { Badge, Block, Icon } from "landing-page-ui"
 
 const App = () => {
   return (
@@ -129,7 +129,6 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
-			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Badge
@@ -162,7 +161,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -215,7 +214,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -274,7 +273,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">

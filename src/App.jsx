@@ -1,12 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import "./output.css";
+// import "./output.css";
 
 import AppLayout from "./component/AppLayout";
-import Home from "./component/Home";
 import About from "./component/About";
-import Links from "./links";
-import React from "react";
 import Overview from "./component/Pages/Overview";
 import Installation from "./component/Pages/Installation";
 import Usage from "./component/Pages/Usage";
@@ -61,7 +58,7 @@ function App() {
 							</AppLayout>
 						}
 					/>
-					// // routing
+					{/* // // routing */}
 					<Route
 						path="/overview"
 						element={
@@ -86,7 +83,7 @@ function App() {
 							</AppLayout>
 						}
 					/>
-					// // routing component
+					{/* // // routing component */}
 					<Route
 						path="/components"
 						element={

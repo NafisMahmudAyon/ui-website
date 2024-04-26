@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+	content: ["./src/**/*.{js,ts,jsx,tsx}"],
 	darkMode: "class",
 	theme: {
 		fontFamily: {
@@ -24,28 +24,28 @@ export default {
 				primaryDark: "#58E6D9", // 80,230,217
 			},
 			transitionProperty: {
-        'color': 'color',
-        'spacing': 'margin, padding',
-      },
+				color: "color",
+				spacing: "margin, padding",
+			},
 			animation: {
 				spinslow: "spin 8s linear infinite",
 			},
 		},
 		screens: {
-			xs: { 'min': "479px" },
+			xs: { min: "479px" },
 			// => @media (max-width: 1535px) { ... }
-			
-			sm: { 'min': "639px" },
+
+			sm: { min: "639px" },
 			// => @media (max-width: 1279px) { ... }
-			
-			md: { 'min': "767px" },
-			lg: { 'min': "1023px" },
+
+			md: { min: "767px" },
+			lg: { min: "1023px" },
 			// => @media (max-width: 1023px) { ... }
-			
-			xl: { 'min': "1279px" },
+
+			xl: { min: "1279px" },
 			// => @media (max-width: 767px) { ... }
-			
-			"2xl": { 'min': "1535px" },
+
+			"2xl": { min: "1535px" },
 			// => @media (max-width: 639px) { ... }
 
 			// => @media (max-width: 479px) { ... }
@@ -53,18 +53,6 @@ export default {
 	},
 	plugins: [],
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

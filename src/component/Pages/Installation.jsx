@@ -1,6 +1,10 @@
-import { Block, Divider, Text,
-	//  CodeSnippet, 
-	 Icon } from "landing-page-ui";
+import {
+	Block,
+	Divider,
+	Text,
+	//  CodeSnippet,
+	Icon,
+} from "landing-page-ui";
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 import CodeSnippet from "../components/CodeSnippet";
@@ -9,7 +13,6 @@ import ScrollToTop from "../components/ScrollToTop";
 const Installation = () => {
 	return (
 		<Block styles="scroll-smooth md:w-[65%] lg:w-[73%]">
-			<ScrollToTop />
 			<Block styles="relative">
 				<Block styles="my-2">
 					<Text tagName="h1" styles="text-2xl !font-medium">
@@ -53,6 +56,17 @@ cd my-project`}
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 2:
 						</code>{" "}
+						Install Landing Page UI
+					</Text>
+					<CodeSnippet
+						lang="bash"
+						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
+						content={`npm i landing-page-ui `}
+					/>
+					<Text tagName="p" styles="text-base my-2 mt-6">
+						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
+							Step 3:
+						</code>{" "}
 						Install Tailwind CSS
 					</Text>
 					<CodeSnippet
@@ -60,17 +74,6 @@ cd my-project`}
 						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
 						content={`npm i autoprefixer postcss tailwindcss
 npx tailwindcss init -p`}
-					/>
-					<Text tagName="p" styles="text-base my-2 mt-6">
-						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
-							Step 3:
-						</code>{" "}
-						Install Landing Page UI
-					</Text>
-					<CodeSnippet
-						lang="bash"
-						bodyStyles="shadow-lg border-b border-x border-gray-200/10 rounded-b-lg pb-2 pt-2 "
-						content={`npm i landing-page-ui `}
 					/>
 					<Text tagName="p" styles="text-base my-2 mt-6">
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">

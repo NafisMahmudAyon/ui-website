@@ -23,6 +23,8 @@ import CodeSnippet from "../components/CodeSnippet";
 import ScrollToTop from "../components/ScrollToTop";
 
 const TabsPage = () => {
+	const [orientations, setOrientations] = useState("vertical");
+	console.log(orientations);
 	const tabsContent = `
 import { Tabs, TabsNav, Tab, TabsPanel, Text } from "landing-page-ui"
 
@@ -52,12 +54,12 @@ const App = () => {
 		</TabsNav>
 		<TabsPanel value="1">
 			<Text styles="text-xs text-gray-500 line-clamp-3">
-				This is the text for Tab3. Lorem ipsum dolor sit amet,	consectetur adipiscing elit, sed do eiusmod tempor	incididunt ut labore et dolore magna aliqua. Ut enim ad	minim veniam, quis nostrud exercitation ullamco laboris	nisi ut aliquip ex ea commodo consequat. Duis aute irure	dolor in reprehenderit in voluptate velit esse cillum	dolore eu fugiat nulla pariatur. Excepteur sint occaecat	cupidatat non proident, sunt in culpa qui officia deserunt	mollit anim id est laborum.
+				This is the text for Tab1. Lorem ipsum dolor sit amet,	consectetur adipiscing elit, sed do eiusmod tempor	incididunt ut labore et dolore magna aliqua. Ut enim ad	minim veniam, quis nostrud exercitation ullamco laboris	nisi ut aliquip ex ea commodo consequat. Duis aute irure	dolor in reprehenderit in voluptate velit esse cillum	dolore eu fugiat nulla pariatur. Excepteur sint occaecat	cupidatat non proident, sunt in culpa qui officia deserunt	mollit anim id est laborum.
 			</Text>
 		</TabsPanel>
 		<TabsPanel value="2">
 			<Text styles="text-xs text-gray-500 line-clamp-3">
-				This is the text for Tab3. Lorem ipsum dolor sit amet,	consectetur adipiscing elit, sed do eiusmod tempor	incididunt ut labore et dolore magna aliqua. Ut enim ad	minim veniam, quis nostrud exercitation ullamco laboris	nisi ut aliquip ex ea commodo consequat. Duis aute irure	dolor in reprehenderit in voluptate velit esse cillum	dolore eu fugiat nulla pariatur. Excepteur sint occaecat	cupidatat non proident, sunt in culpa qui officia deserunt	mollit anim id est laborum.
+				This is the text for Tab2. Lorem ipsum dolor sit amet,	consectetur adipiscing elit, sed do eiusmod tempor	incididunt ut labore et dolore magna aliqua. Ut enim ad	minim veniam, quis nostrud exercitation ullamco laboris	nisi ut aliquip ex ea commodo consequat. Duis aute irure	dolor in reprehenderit in voluptate velit esse cillum	dolore eu fugiat nulla pariatur. Excepteur sint occaecat	cupidatat non proident, sunt in culpa qui officia deserunt	mollit anim id est laborum.
 			</Text>
 		</TabsPanel>
 		<TabsPanel value="3">
@@ -79,7 +81,7 @@ const App = () => {
   return (
 	<Tabs
 		active="1"
-		orientation={orientations}
+		orientation="vertical"
 		navWrapStyles="text-sm w-1/4"
 		panelWrapStyles="px-4 py-2 bg-gray-100 text-gray-800 shadow-md rounded-r-md w-3/4"
 		styles="w-full rounded-l-md overflow-hidden">
@@ -431,10 +433,9 @@ export default App;
 	const [tabsOrientationContent, setTabsOrientationContent] = useState(
 		tabsOrientationVerticleContent
 	);
-	const [orientations, setOrientations] = useState("vertical");
+
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
-			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Tabs
@@ -468,7 +469,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -582,7 +583,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -690,7 +691,7 @@ export default App;
 								{orientations === "horizontal" && (
 									<Tabs
 										active="1"
-										orientation="horizontal"
+										orientation={orientations}
 										navWrapStyles="text-sm"
 										panelWrapStyles="px-4 py-2 bg-gray-100 text-gray-800 mt-2 shadow-md rounded-md  "
 										styles="w-full">
@@ -774,7 +775,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">

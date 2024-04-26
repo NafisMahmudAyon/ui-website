@@ -35,6 +35,32 @@ const TablePage = () => {
 import { Table, TableBody, TableCell, TableHead, TableRow } from "landing-page-ui"
 
 const App = () => {
+	const tableData = [
+		{
+			name: "Alice",
+			age: "30",
+			Gender: "Female",
+			Occupation: "Programmer",
+		},
+		{
+			name: "Bob",
+			age: "35",
+			Gender: "Male",
+			Occupation: "Engineer",
+		},
+		{
+			name: "Charlie",
+			age: "25",
+			Gender: "Male",
+			Occupation: "Designer",
+		},
+		{
+			name: "Diana",
+			age: "28",
+			Gender: "Female",
+			Occupation: "Doctor",
+		},
+	];
   return (
     <Table variant="2">
 		<TableHead >
@@ -77,6 +103,32 @@ export default App;
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableRow } from "landing-page-ui"
 
 const App = () => {
+	const tableData = [
+		{
+			name: "Alice",
+			age: "30",
+			Gender: "Female",
+			Occupation: "Programmer",
+		},
+		{
+			name: "Bob",
+			age: "35",
+			Gender: "Male",
+			Occupation: "Engineer",
+		},
+		{
+			name: "Charlie",
+			age: "25",
+			Gender: "Male",
+			Occupation: "Designer",
+		},
+		{
+			name: "Diana",
+			age: "28",
+			Gender: "Female",
+			Occupation: "Doctor",
+		},
+	];
   return (
     <Table variant="2">
 		<TableCaption>Table with caption</TableCaption>
@@ -311,7 +363,6 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
-			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Table
@@ -344,7 +395,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -416,7 +467,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">

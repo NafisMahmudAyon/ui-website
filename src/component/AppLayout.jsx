@@ -3,15 +3,13 @@ import { useLocation } from "react-router-dom";
 
 import Navbar from "./Layout/Navbar";
 import LeftSideBar from "./Layout/LeftSideBar";
-import RightSideBar from "./Layout/RightSideBar";
 import MiddleContent from "./Layout/MiddleContent";
-import { ScrollTop } from "./test/Test";
 
-const AppLayout = ({ children, RightSideBarContent }) => {
+
+
+const AppLayout = ({ children }) => {
 	const location = useLocation();
-	const isPlaygroundPage = location.pathname === "/playground";
 	const isVariationPage = location.pathname.includes("/variations");
-	const isTestPage = location.pathname === "/test";
 
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -31,7 +29,7 @@ const AppLayout = ({ children, RightSideBarContent }) => {
 						? "absolute top-[73px] left-0 w-full  min-h-[calc(100%_-_73px)] -z-0 bg-black/50"
 						: ""
 				} `}></div>
-			<div className="flex pt-[73px] flex-nowrap flex-col md:flex-row lg:flex-row relative  overflow-y-scroll">
+			<div className="flex pt-[73px] flex-nowrap flex-col md:flex-row lg:flex-row relative h-screen overflow-y-scroll">
 				{/* //*mobile left sidebar  */}
 				<div
 					className={`fixed top-[73px] -left-[300px] w-[300px] transition-all duration-300 ease-in-out  pl-3 pr-5  border-r bg-darkBgColor text-darkTextColor z-50 overflow-y-scroll h-[calc(100vh_-_73px)] ${
@@ -39,12 +37,12 @@ const AppLayout = ({ children, RightSideBarContent }) => {
 					} `}>
 					<LeftSideBar />
 				</div>
-				<div className="hidden lg:w-[20%] fixed top-[73px] pb-[100px] left-0 h-[100%] lg:block border-r lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 lg:pl-10 pr-5 lg:pr-10  ">
+				<div className=" lg:block hidden lg:w-[20%] fixed top-[73px] pb-[100px] left-0 h-[100%]  border-r lg:overflow-y-scroll border-slate-950 dark:border-slate-300/60 pl-3 lg:pl-10 pr-5 lg:pr-10  ">
 					<LeftSideBar />
 				</div>
-				<div className="hidden lg:w-[20%] lg:block"></div>
+				<div className="w-0 lg:w-[20%] "></div>
 				<div
-					className={`w-full lg:w-[80%] flex-1 ${
+					className={`xs:w-full sm:w-full md:w-full lg:w-[80%] flex-1 ${
 						isVariationPage ? "md:px-0" : "md:px-5"
 					}  `}>
 					<MiddleContent>{children}</MiddleContent>
@@ -58,4 +56,7 @@ const AppLayout = ({ children, RightSideBarContent }) => {
 	);
 };
 
+AppLayout.propTypes = {
+	children: React.ReactNode,
+};
 export default AppLayout;

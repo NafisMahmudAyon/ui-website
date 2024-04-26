@@ -1,12 +1,7 @@
-import {
-	Block,
-	Text,
-	Accordion,
-	AccordionHeader,
-	AccordionDetails,
-} from "landing-page-ui";
+
 import React from "react";
 import ScrollToTop from "../components/ScrollToTop";
+import { Accordion, AccordionDetails, AccordionHeader, Block, Text } from "landing-page-ui";
 
 const AccordionVariations = () => {
 	const data = {
@@ -58,9 +53,7 @@ const AccordionVariations = () => {
 	};
 	const variationsX = parseInt(data.variations); // Convert variations to an integer
 
-	
 	const loopContent = Array.from({ length: variationsX }, (_, index) => {
-		
 		return (
 			<Block styles="md:w-[65%] lg:w-[73%] " key={index}>
 				<Accordion
@@ -80,42 +73,39 @@ const AccordionVariations = () => {
 		);
 	});
 
-  const loopContentX = Array.from({ length: 6 }, (_, index) => {
-  return (
-    <Block
-      styles="py-20 px-4 md:px-0 pb-24 grid place-items-center"
-      style={{ backgroundColor: data.background[index] }}
-      key={index}>
-      <Text
-        tagName="h4"
-        styles="text-center text-lg font-semibold mb-12"
-        style={{ color: data.color[index] }}>
-        Variation - {index + 1}
-      </Text>
-      {/* Include loopContent directly inside loopContentX */}
-      {Array.from({ length: variationsX }, (_, loopIndex) => (
-        <Block styles="md:w-[65%] lg:w-[73%]" key={loopIndex}>
-          <Accordion
-            active={loopIndex === 0} 
-            deactivate={loopIndex === 3}
-            variant={index+1}>
-            <AccordionHeader>
-              
-                {data.accordions[loopIndex]?.title}
-              
-            </AccordionHeader>
-            <AccordionDetails>
-              <Text styles="">{data.accordions[loopIndex]?.content}</Text>
-            </AccordionDetails>
-          </Accordion>
-        </Block>
-      ))}
-    </Block>
-  );
-});
+	const loopContentX = Array.from({ length: 6 }, (_, index) => {
+		return (
+			<Block
+				styles="py-20 px-4 md:px-0 pb-24 grid place-items-center"
+				style={{ backgroundColor: data.background[index] }}
+				key={index}>
+				<Text
+					tagName="h4"
+					styles="text-center text-lg font-semibold mb-12"
+					style={{ color: data.color[index] }}>
+					Variation - {index + 1}
+				</Text>
+				{/* Include loopContent directly inside loopContentX */}
+				{Array.from({ length: variationsX }, (_, loopIndex) => (
+					<Block styles="md:w-[65%] lg:w-[73%]" key={loopIndex}>
+						<Accordion
+							active={loopIndex === 0}
+							deactivate={loopIndex === 3}
+							variant={index + 1}>
+							<AccordionHeader>
+								{data.accordions[loopIndex]?.title}
+							</AccordionHeader>
+							<AccordionDetails>
+								<Text styles="">{data.accordions[loopIndex]?.content}</Text>
+							</AccordionDetails>
+						</Accordion>
+					</Block>
+				))}
+			</Block>
+		);
+	});
 	return (
 		<Block tagName={"div"} styles="scroll-smooth flex w-full  ">
-			<ScrollToTop />
 			<Block styles="w-full">
 				<Text
 					tagName={"h2"}

@@ -20,21 +20,21 @@ import {
 	TableRow,
 	TableCell,
 	// ScrollTop,
-// } from "landing-page-ui";
-} from "../test/Test";
+} from "landing-page-ui";
+// } from "../test/Test";
 import React, { useState } from "react";
 import CodeSnippet from "../components/CodeSnippet";
 import RightSideBar from "../Layout/RightSideBar";
 import ScrollToTop from "../components/ScrollToTop";
 // import {
-	// Tabs,
-	// 	Table,
-	// 	TableCaption,
-	// 	TableHead,
-	// 	TableBody,
-	// 	TableFooter,
-	// 	TableRow,
-	// 	TableCell,
+// Tabs,
+// 	Table,
+// 	TableCaption,
+// 	TableHead,
+// 	TableBody,
+// 	TableFooter,
+// 	TableRow,
+// 	TableCell,
 // } from "../test/Test";
 
 const AccordionPage = () => {
@@ -448,7 +448,6 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
-			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Accordion
@@ -492,7 +491,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -614,7 +613,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -724,7 +723,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -837,7 +836,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">

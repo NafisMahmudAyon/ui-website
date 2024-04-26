@@ -74,24 +74,26 @@ import { IconButton } from "landing-page-ui"
 
 const App = () => {
   return (
-    <IconButton
-		styles="cursor-pointer group relative flex gap-3 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md"
-		icon="fa-download"
-		iconLibrary="font-awesome"
-		iconPosition="before">
-		isLink={true}
-		linkTo="#">
-		Download
-	</IconButton>
-    <IconButton
-		styles="cursor-pointer group relative flex gap-3 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md"
-		icon="fa-download"
-		iconLibrary="font-awesome"
-		iconPosition="after">
-		isLink={true}
-		linkTo="#">
-		Download
-	</IconButton>
+		<>
+			<IconButton
+			styles="cursor-pointer group relative flex gap-3 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md"
+			icon="fa-download"
+			iconLibrary="font-awesome"
+			iconPosition="before"
+			isLink={true}
+			linkTo="#">
+			Download
+		</IconButton>
+			<IconButton
+			styles="cursor-pointer group relative flex gap-3 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md"
+			icon="fa-download"
+			iconLibrary="font-awesome"
+			iconPosition="after"
+			isLink={true}
+			linkTo="#">
+			Download
+		</IconButton>
+	</>
   );
 }
 
@@ -182,7 +184,6 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
-			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Icon Button
@@ -215,7 +216,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -270,7 +271,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -328,7 +329,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -388,7 +389,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">

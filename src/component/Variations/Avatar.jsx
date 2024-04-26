@@ -67,19 +67,14 @@ const AvatarVariations = () => {
 				{/* Include loopContent directly inside loopContentX */}
 				<Block styles="md:w-[65%] lg:w-[73%] grid place-items-center">
 					<AvatarGroup variant={index + 1}>
-						
 						{Array.from({ length: variationsX }, (_, loopIndex) =>
 							loopIndex === 2 ? (
-								<Avatar
-									name="John Smith"
-									variant={index + 1}
-									key={loopIndex}
-								/>
+								<Avatar name="John Smith" variant={index + 1} key={loopIndex} />
 							) : (
 								<Avatar
 									src={`https://source.unsplash.com/random/600x600?face=${loopIndex}`}
 									variant={index + 1}
-									key={index+1}
+									key={index + 1}
 								/>
 							)
 						)}
@@ -90,7 +85,6 @@ const AvatarVariations = () => {
 	});
 	return (
 		<Block tagName={"div"} styles="scroll-smooth flex w-full  ">
-			<ScrollToTop />
 			<Block styles="w-full">
 				<Text
 					tagName={"h2"}

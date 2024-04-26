@@ -24,27 +24,29 @@ import { Text } from "landing-page-ui"
 
 const App = () => {
   return (
-    <Text tagName="h1" styles="font-bold text-3xl ">
-      Heading Text "H1".
-    </Text>
-    <Text tagName="h2" styles="font-bold text-2xl ">
-      Heading Text "H2".
-    </Text>
-    <Text tagName="h3" styles="font-bold text-xl ">
-      Heading Text "H3".
-    </Text>
-    <Text tagName="h4" styles="font-bold text-lg ">
-      Heading Text "H4".
-    </Text>
-    <Text tagName="h5" styles="font-bold text-md ">
-      Heading Text "H5".
-    </Text>
-    <Text tagName="h6" styles="font-bold text-sm ">
-      Heading Text "H6".
-    </Text>
-    <Text tagName="p">
-      This is Paragraph.
-    </Text>
+	<>
+		<Text tagName="h1" styles="font-bold text-3xl ">
+			Heading Text "H1".
+		</Text>
+		<Text tagName="h2" styles="font-bold text-2xl ">
+			Heading Text "H2".
+		</Text>
+		<Text tagName="h3" styles="font-bold text-xl ">
+			Heading Text "H3".
+		</Text>
+		<Text tagName="h4" styles="font-bold text-lg ">
+			Heading Text "H4".
+		</Text>
+		<Text tagName="h5" styles="font-bold text-md ">
+			Heading Text "H5".
+		</Text>
+		<Text tagName="h6" styles="font-bold text-sm ">
+			Heading Text "H6".
+		</Text>
+		<Text tagName="p">
+			This is Paragraph.
+		</Text>
+	</>
   );
 }
 
@@ -104,7 +106,6 @@ export default App;
 	];
 	return (
 		<Block tagName={"div"} styles="scroll-smooth md:w-[65%] lg:w-[73%]">
-			<ScrollToTop />
 			<Block>
 				<Text tagName={"h2"} styles=" text-3xl mb-2 font-medium ">
 					Text
@@ -137,7 +138,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
@@ -208,7 +209,7 @@ export default App;
 						panelWrapStyles=" mt-2 shadow-md rounded-md  "
 						styles="w-full">
 						<TabsNav
-							showButton="false"
+							showButton={false}
 							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
 							tabAreaStyles="flex gap-3"
 							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
