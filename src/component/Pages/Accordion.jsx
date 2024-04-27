@@ -1,9 +1,7 @@
 import {
 	Block,
 	Icon,
-	List,
 	Text,
-	IconButton,
 	Accordion,
 	AccordionHeader,
 	AccordionDetails,
@@ -11,31 +9,15 @@ import {
 	TabsNav,
 	Tab,
 	TabsPanel,
-	// CodeSnippet,
 	Table,
-	TableCaption,
 	TableHead,
 	TableBody,
-	TableFooter,
 	TableRow,
 	TableCell,
-	// ScrollTop,
 } from "landing-page-ui";
-// } from "../test/Test";
-import React, { useState } from "react";
+import React from "react";
 import CodeSnippet from "../components/CodeSnippet";
 import RightSideBar from "../Layout/RightSideBar";
-import ScrollToTop from "../components/ScrollToTop";
-// import {
-// Tabs,
-// 	Table,
-// 	TableCaption,
-// 	TableHead,
-// 	TableBody,
-// 	TableFooter,
-// 	TableRow,
-// 	TableCell,
-// } from "../test/Test";
 
 const AccordionPage = () => {
 	const defaultAccordionContent = `
@@ -463,14 +445,125 @@ export default App;
 				<Block styles="my-10">
 					<Text
 						tagName={"h3"}
-						id="introduction"
+						id="default-accordion"
 						styles="text-2xl mt-6 !font-medium group flex items-center ">
-						Introduction
+						Default Accordion
 						<Icon
 							icon="fa-link"
 							iconLibrary="font-awesome"
 							isLink={true}
-							linkTo="#introduction"
+							linkTo="#default-accordion"
+							iconStyles="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
+						/>
+					</Text>
+					{/* <List
+						tagName={"ul"}
+						styles="mb-4"
+						listStyles="text-justify my-1 "
+						list={[
+							`<span class="font-bold">Accordion:</span> Seamlessly group related content with the Accordion component.`,
+							`<span class="font-bold">AccordionHeader:</span> Customize header styles and interactions for intuitive user experience."`,
+							`<span class="font-bold">AccordionDetails:</span> Effortlessly reveal or hide detailed content within the Accordion."`,
+						]}
+					/> */}
+					<Tabs
+						active="1"
+						orientation="horizontal"
+						navWrapStyles="text-sm"
+						panelWrapStyles=" mt-2 shadow-md rounded-md  "
+						styles="w-full">
+						<TabsNav
+							showButton={false}
+							styles=" flex justify-between font-semibold text-gray-800/50 dark:text-gray-200/50  py-1 px-1"
+							tabAreaStyles="flex gap-3"
+							activeTabStyles="bg-gray-800 !text-gray-200 dark:bg-gray-200 dark:!text-gray-200 shadow-md">
+							<Tab
+								value="1"
+								styles=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800 ">
+								Preview
+							</Tab>
+							<Tab
+								value="2"
+								styles=" px-4 py-1 bg-gray-200 rounded-sm dark:bg-gray-800">
+								Code
+							</Tab>
+						</TabsNav>
+						<TabsPanel
+							value="1"
+							styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
+							<Accordion active={true} variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										styles=" text-xl font-medium !text-gray-200 ">
+										Accordion 1
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text styles=" ">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										styles=" text-xl font-medium !text-gray-200 ">
+										Accordion 2
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text styles="">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+							<Accordion variant="1">
+								<AccordionHeader>
+									<Text
+										tagName="h3"
+										styles=" text-xl font-medium !text-gray-200 ">
+										Accordion 3
+									</Text>
+								</AccordionHeader>
+								<AccordionDetails>
+									<Text styles="">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Minima deserunt sapiente nostrum iure excepturi vel debitis,
+										quae quibusdam officiis. Atque nesciunt pariatur praesentium
+										optio, at vel harum aliquam illo labore?
+									</Text>
+								</AccordionDetails>
+							</Accordion>
+						</TabsPanel>
+						<TabsPanel value="2" styles="rounded-lg !overflow-hidden ">
+							<CodeSnippet
+								lang="jsx"
+								headerStyles="bg-gray-800 dark:bg-gray-200 text-gray-200 dark:text-gray-800"
+								bodyStyles=" !font-code max-h-[300px] !my-0 "
+								content={defaultAccordionContent}
+							/>
+						</TabsPanel>
+					</Tabs>
+				</Block>
+				{/* <Block styles="my-10">
+					<Text
+						tagName={"h3"}
+						id="default-accordion"
+						styles="text-2xl mt-6 !font-medium group flex items-center ">
+						default-accordion
+						<Icon
+							icon="fa-link"
+							iconLibrary="font-awesome"
+							isLink={true}
+							linkTo="#default-accordion"
 							iconStyles="mx-3 hidden dark:bg-gray-800 group-hover:inline-block p-1 rounded-md shadow-md text-sm bg-gray-200"
 						/>
 					</Text>
@@ -570,7 +663,7 @@ export default App;
 							/>
 						</TabsPanel>
 					</Tabs>
-				</Block>
+				</Block> */}
 				<Block styles="my-10">
 					<Text
 						tagName={"h3"}
@@ -928,12 +1021,12 @@ export default App;
 						styles="pl-6 py-2 inline-block my-3  underline underline-offset-4 cursor-pointer group relative after:content-['*'] after:absolute after:px-1 after:left-1 after:text-amber-500 "
 						isLink={true}
 						linkTo="/variations/accordion">
-						Here are the variation list for all components.
+						Here are the variation list for Accordion components.
 						<Icon
 							icon="fa-arrow-up-right-from-square"
 							iconLibrary="font-awesome"
-							isLink={true}
-							linkTo="#with-toggle-icon"
+							// isLink={true}
+							// linkTo="/variations/accordion"
 							iconStyles="mx-3 hidden group-hover:inline-block text-sm "
 						/>
 					</Text>
@@ -1173,8 +1266,8 @@ export default App;
 					<Text
 						styles="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "
 						isLink={true}
-						linkTo="#introduction">
-						Introduction
+						linkTo="#default-accordion">
+						Default Accordion
 					</Text>
 					<Text
 						styles="text-sm my-2 block px-2 pl-4 border-l py-1 border-gray-300 dark:border-gray-500 dark:hover:border-gray-100 hover:border-gray-800 transition-all duration-300 "

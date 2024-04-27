@@ -1,6 +1,5 @@
 import {
 	Block,
-	// CodeSnippet,
 	Icon,
 	Tab,
 	Table,
@@ -17,16 +16,15 @@ import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 
 import CodeSnippet from "../components/CodeSnippet";
-import ScrollToTop from "../components/ScrollToTop";
 
 const BlockPage = () => {
 	const defaultBlockContent = `
-import { Block } from "landing-page-ui"
+import { Block, Text } from "landing-page-ui"
 
 const App = () => {
   return (
-    <Block styles="p-4 border border-dashed ">
-      <Text styles="">Child Component</Text>
+    <Block styles="p-4 border border-dashed border-gray-500">
+      <Text>Child Component</Text>
     </Block>
   );
 }

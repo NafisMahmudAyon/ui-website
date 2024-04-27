@@ -20,10 +20,6 @@ const Links = {
 		// },
 	],
 	Components: [
-		// {
-		// 	title: "All Components",
-		// 	path: "/components",
-		// },
 		{
 			title: "Accordion",
 			path: "/components/accordion",
@@ -36,41 +32,33 @@ const Links = {
 			title: "Badge",
 			path: "/components/badge",
 		},
-		// {
-		//   title: "Breadcrumb",
-		//   path: "/components/breadcrumb",
-		// },
-		{
-			title: "Icon Button",
-			path: "/components/icon-button",
-		},
-		{
-			title: "List",
-			path: "/components/list",
-		},
-		// {
-		//   title: "Modal",
-		//   path: "/components/modal",
-		// },
-		{
-			title: "Tabs",
-			path: "/components/tabs",
-		},
-		// {
-		//   title: "Toast",
-		//   path: "/components/toast",
-		// },
-		// {
-		//   title: "Tooltip",
-		//   path: "/components/tooltip",
-		// },
-		{
-			title: "Text",
-			path: "/components/text",
-		},
 		{
 			title: "Block",
 			path: "/components/block",
+		},
+		{
+			title: "Card",
+			path: "/components/card",
+		},
+		{
+			title: "Circular Progress Bar",
+			path: "/components/circular-progress-bar",
+		},
+		{
+			title: "Divider",
+			path: "/components/divider",
+		},
+		{
+			title: "Flex",
+			path: "/components/flex",
+		},
+		{
+			title: "Grid",
+			path: "/components/grid",
+		},
+		{
+			title: "Icon Button",
+			path: "/components/icon-button",
 		},
 		{
 			title: "Image",
@@ -81,21 +69,57 @@ const Links = {
 			path: "/components/image-gallery",
 		},
 		{
-			title: "Grid",
-			path: "/components/grid",
+			title: "Input",
+			path: "/components/input",
 		},
 		{
-			title: "Card",
-			path: "/components/card",
+			title: "Label",
+			path: "/components/label",
+		},
+		{
+			title: "List",
+			path: "/components/list",
 		},
 		{
 			title: "Progress Bar",
 			path: "/components/progress-bar",
 		},
 		{
-			title: "Circular Progress Bar",
-			path: "/components/circular-progress-bar",
+			title: "Tabs",
+			path: "/components/tabs",
 		},
+		{
+			title: "Table",
+			path: "/components/table",
+		},
+		{
+			title: "TextArea",
+			path: "/components/textarea",
+		},
+		{
+			title: "Text",
+			path: "/components/text",
+		},
+		// {
+		// 	title: "All Components",
+		// 	path: "/components",
+		// },
+		// {
+		//   title: "Breadcrumb",
+		//   path: "/components/breadcrumb",
+		// },
+		// {
+		//   title: "Modal",
+		//   path: "/components/modal",
+		// },
+		// {
+		//   title: "Toast",
+		//   path: "/components/toast",
+		// },
+		// {
+		//   title: "Tooltip",
+		//   path: "/components/tooltip",
+		// },
 		// {
 		// 	title: "Carousel",
 		// 	path: "/components/carousel",
@@ -104,40 +128,12 @@ const Links = {
 		// 	title: "Code Snippet",
 		// 	path: "/components/code-snippet",
 		// },
-		{
-			title: "Divider",
-			path: "/components/divider",
-		},
-		{
-			title: "Label",
-			path: "/components/label",
-		},
-		{
-			title: "Input",
-			path: "/components/input",
-		},
-		{
-			title: "TextArea",
-			path: "/components/textarea",
-		},
-		{
-			title: "Table",
-			path: "/components/table",
-		},
-		{
-			title: "Flex",
-			path: "/components/flex",
-		},
 		// {
 		// 	title: "Combo List",
 		// 	path: "/components/combo-list",
 		// },
 	],
 	Variations: [
-		// {
-		// 	title: "All Components",
-		// 	path: "/components",
-		// },
 		{
 			title: "Accordion",
 			path: "/variations/accordion",
@@ -150,41 +146,33 @@ const Links = {
 			title: "Badge",
 			path: "/variations/badge",
 		},
-		// {
-		//   title: "Breadcrumb",
-		//   path: "/variations/breadcrumb",
-		// },
-		{
-			title: "Icon Button",
-			path: "/variations/icon-button",
-		},
-		{
-			title: "List",
-			path: "/variations/list",
-		},
-		// {
-		//   title: "Modal",
-		//   path: "/variations/modal",
-		// },
-		{
-			title: "Tabs",
-			path: "/variations/tabs",
-		},
-		// {
-		//   title: "Toast",
-		//   path: "/variations/toast",
-		// },
-		// {
-		//   title: "Tooltip",
-		//   path: "/variations/tooltip",
-		// },
-		{
-			title: "Text",
-			path: "/variations/text",
-		},
 		{
 			title: "Block",
 			path: "/variations/block",
+		},
+		{
+			title: "Card",
+			path: "/variations/card",
+		},
+		{
+			title: "Circular Progress Bar",
+			path: "/variations/circular-progress-bar",
+		},
+		{
+			title: "Divider",
+			path: "/variations/divider",
+		},
+		{
+			title: "Flex",
+			path: "/variations/flex",
+		},
+		{
+			title: "Grid",
+			path: "/variations/grid",
+		},
+		{
+			title: "Icon Button",
+			path: "/variations/icon-button",
 		},
 		{
 			title: "Image",
@@ -195,21 +183,61 @@ const Links = {
 			path: "/variations/image-gallery",
 		},
 		{
-			title: "Grid",
-			path: "/variations/grid",
+			title: "Input",
+			path: "/variations/input",
 		},
 		{
-			title: "Card",
-			path: "/variations/card",
+			title: "Label",
+			path: "/variations/label",
+		},
+		{
+			title: "List",
+			path: "/variations/list",
 		},
 		{
 			title: "Progress Bar",
 			path: "/variations/progress-bar",
 		},
 		{
-			title: "Circular Progress Bar",
-			path: "/variations/circular-progress-bar",
+			title: "Tabs",
+			path: "/variations/tabs",
 		},
+		{
+			title: "Table",
+			path: "/variations/table",
+		},
+		{
+			title: "TextArea",
+			path: "/variations/textarea",
+		},
+		{
+			title: "Text",
+			path: "/variations/text",
+		},
+		// {
+		// 	title: "All Components",
+		// 	path: "/components",
+		// },
+
+		// {
+		//   title: "Breadcrumb",
+		//   path: "/variations/breadcrumb",
+		// },
+
+		// {
+		//   title: "Modal",
+		//   path: "/variations/modal",
+		// },
+
+		// {
+		//   title: "Toast",
+		//   path: "/variations/toast",
+		// },
+		// {
+		//   title: "Tooltip",
+		//   path: "/variations/tooltip",
+		// },
+
 		// {
 		// 	title: "Carousel",
 		// 	path: "/variations/carousel",
@@ -218,30 +246,6 @@ const Links = {
 		// 	title: "Code Snippet",
 		// 	path: "/variations/code-snippet",
 		// },
-		{
-			title: "Divider",
-			path: "/variations/divider",
-		},
-		{
-			title: "Label",
-			path: "/variations/label",
-		},
-		{
-			title: "Input",
-			path: "/variations/input",
-		},
-		{
-			title: "TextArea",
-			path: "/variations/textarea",
-		},
-		{
-			title: "Table",
-			path: "/variations/table",
-		},
-		{
-			title: "Flex",
-			path: "/variations/flex",
-		},
 		// {
 		// 	title: "Combo List",
 		// 	path: "/components/combo-list",

@@ -100,7 +100,7 @@ export default {
 						<code className="px-2 bg-gray-200 dark:bg-gray-800 py-1 rounded-md ">
 							Step 5:
 						</code>{" "}
-						Add Tailwind CSS
+						Add Tailwind CSS in <p className="code">./src/index.css</p>
 					</Text>
 					<CodeSnippet
 						lang="css"

@@ -1,7 +1,6 @@
 import {
 	Block,
 	CircularProgressBar,
-	// CodeSnippet,
 	Icon,
 	Tab,
 	Table,
@@ -18,7 +17,6 @@ import React from "react";
 // import { CircularProgressBar } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
 import CodeSnippet from "../components/CodeSnippet";
-import ScrollToTop from "../components/ScrollToTop";
 
 const CircularProgressBarPage = () => {
 	const defaultProgressBarContent = `

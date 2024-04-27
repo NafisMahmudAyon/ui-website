@@ -52,7 +52,7 @@ const App = () => {
 export default App;
 	`;
 	const cardWithActionContent = `
-import { Card, CardMedia, CardContent, CardAction Text } from "landing-page-ui"
+import { Card, CardMedia, CardContent, CardAction, Text } from "landing-page-ui"
 
 const App = () => {
   return (
@@ -65,10 +65,10 @@ const App = () => {
 				badgePosition="bottom left"
 			/>
 			<CardContent>
-				<Text tagName="h3" styles="text-2xl  ">
+				<Text tagName="h3" styles="text-2xl">
 					Nature
 				</Text>
-				<Text tagName="p" styles="text-sm text-pretty  ">
+				<Text tagName="p" styles="text-sm text-pretty">
 					Nature is the embodiment of the Earth's beauty,
 					encompassing everything from lush forests and towering
 					mountains to serene lakes and vibrant ecosystems.

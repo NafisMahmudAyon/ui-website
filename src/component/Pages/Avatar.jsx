@@ -2,7 +2,6 @@ import {
 	Avatar,
 	AvatarGroup,
 	Block,
-	// CodeSnippet,
 	Icon,
 	Tab,
 	Table,
@@ -18,7 +17,6 @@ import {
 import React from "react";
 import RightSideBar from "../Layout/RightSideBar";
 import CodeSnippet from "../components/CodeSnippet";
-import ScrollToTop from "../components/ScrollToTop";
 
 const AvatarPage = () => {
 	const imageAvatarContent = `
@@ -27,9 +25,9 @@ import { Avatar, Block } from "landing-page-ui"
 const App = () => {
   return (
     <Block styles="flex gap-4">
-      <Avatar src="/avatar-1.jpg" altText="Avatar 1"  styles="border" />
-      <Avatar src="/avatar-2.jpg" altText="Avatar 2"  styles="border" />
-      <Avatar src="/avatar-3.jpg" altText="Avatar 3"  styles="border" />
+      <Avatar src="https://source.unsplash.com/random/600x600?face=1" altText="Avatar 1"  styles="border" />
+      <Avatar src="https://source.unsplash.com/random/600x600?face=2" altText="Avatar 2"  styles="border" />
+      <Avatar src="https://source.unsplash.com/random/600x600?face=3" altText="Avatar 3"  styles="border" />
     </Block>
   );
 }
@@ -57,9 +55,9 @@ import { Avatar, AvatarGroup } from "landing-page-ui"
 const App = () => {
   return (
     <AvatarGroup>
-		<Avatar src="/avatar-1.jpg" altText="Avatar 1"  styles="border" />
-		<Avatar src="/avatar-2.jpg" altText="Avatar 2" styles="border"  />
-		<Avatar src="/avatar-3.jpg" altText="Avatar 3" styles="border"  />
+		<Avatar src="https://source.unsplash.com/random/600x600?face=1" altText="Avatar 1"  styles="border" />
+		<Avatar src="https://source.unsplash.com/random/600x600?face=2" altText="Avatar 2" styles="border"  />
+		<Avatar src="https://source.unsplash.com/random/600x600?face=3" altText="Avatar 3" styles="border"  />
 	</AvatarGroup>
   );
 }
@@ -180,17 +178,17 @@ export default App;
 							styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<Block styles="flex gap-4 my-4">
 								<Avatar
-									src="/avatar-1.jpg"
+									src="https://source.unsplash.com/random/600x600?face=1"
 									altText="Avatar 1"
 									styles="border"
 								/>
 								<Avatar
-									src="/avatar-2.jpg"
+									src="https://source.unsplash.com/random/600x600?face=2"
 									altText="Avatar 2"
 									styles="border"
 								/>
 								<Avatar
-									src="/avatar-3.jpg"
+									src="https://source.unsplash.com/random/600x600?face=3"
 									altText="Avatar 3"
 									styles="border"
 								/>
@@ -302,17 +300,17 @@ export default App;
 							styles="px-4 py-2 bg-gray-200 dark:bg-gray-800 border-[1px] border-white/50 rounded-lg">
 							<AvatarGroup>
 								<Avatar
-									src="/avatar-1.jpg"
+									src="https://source.unsplash.com/random/600x600?face=1"
 									altText="Avatar 1"
 									styles="border"
 								/>
 								<Avatar
-									src="/avatar-2.jpg"
+									src="https://source.unsplash.com/random/600x600?face=2"
 									altText="Avatar 2"
 									styles="border"
 								/>
 								<Avatar
-									src="/avatar-3.jpg"
+									src="https://source.unsplash.com/random/600x600?face=3"
 									altText="Avatar 3"
 									styles="border"
 								/>

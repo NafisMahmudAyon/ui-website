@@ -1,6 +1,5 @@
 import {
 	Block,
-	// CodeSnippet,
 	Icon,
 	Tab,
 	Table,
@@ -17,11 +16,10 @@ import React from "react";
 import { Badge } from "../test/Test";
 import RightSideBar from "../Layout/RightSideBar";
 import CodeSnippet from "../components/CodeSnippet";
-import ScrollToTop from "../components/ScrollToTop";
 
 const BadgePage = () => {
 	const defaultBadgeContent = `
-import { Badge, Block } from "landing-page-ui"
+import { Badge } from "landing-page-ui"
 
 const App = () => {
   return (
@@ -32,11 +30,11 @@ const App = () => {
 export default App;
 	`;
 	const badgeWithMaxContent = `
-import { Badge, Block, Icon } from "landing-page-ui"
+import { Badge, Icon } from "landing-page-ui"
 
 const App = () => {
   return (
-    <Badge content="30" maxCount="20" >
+    <Badge content={30} maxCount={20} >
 		<Icon
 			icon="fa-cart-shopping"
 			iconLibrary="font-awesome"
@@ -54,28 +52,28 @@ import { Badge, Block, Icon } from "landing-page-ui"
 const App = () => {
   return (
     <Block styles="flex gap-8">
-		<Badge content="5" position="top right">
+		<Badge content={5} position="top right">
 			<Icon
 				icon="fa-cart-shopping"
 				iconLibrary="font-awesome"
 				iconStyles="text-2xl"
 			/>
 		</Badge>
-		<Badge content="5" position="top left">
+		<Badge content={5} position="top left">
 			<Icon
 				icon="fa-cart-shopping"
 				iconLibrary="font-awesome"
 				iconStyles="text-2xl"
 			/>
 		</Badge>
-		<Badge content="5" position="bottom right">
+		<Badge content={5} position="bottom right">
 			<Icon
 				icon="fa-cart-shopping"
 				iconLibrary="font-awesome"
 				iconStyles="text-2xl"
 			/>
 		</Badge>
-		<Badge content="5" position="bottom left">
+		<Badge content={5} position="bottom left">
 			<Icon
 				icon="fa-cart-shopping"
 				iconLibrary="font-awesome"

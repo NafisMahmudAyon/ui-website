@@ -1,58 +1,135 @@
-import { Accordion, AccordionDetails, AccordionHeader, Block, Text } from 'landing-page-ui';
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import {
+	fontawesomeClasses,
+	bootstrapIcons,
+	iconfontClasses,
+} from "../test/Test";
+import { Icon } from "../test/Test";
+// import Spinner from "./Spinner"; // Assuming you have a Spinner component
 
-const Test = () => {
-  const accordions= [
-			{
-				title: "What is web hosting, and why do I need it?",
-				content:
-					"Web hosting is a service that provides the infrastructure to make your website accessible on the internet. It stores your website’s files on a server, allowing users to access your site at any time.",
-			},
-			{
-				title: "How do I know which hosting plan is right for me?",
-				content:
-					"Choosing the ideal hosting plan depends on factors like your website’s size, anticipated traffic, and specific needs. Our team can assist in assessing your requirements.",
-			},
-			{
-				title: "What security measures are in place to protect my website?",
-				content:
-					"We prioritize your website’s security. Our hosting services include robust security protocols, such as firewalls, malware detection, regular backups, and SSL certificates.",
-			},
-			{
-				title: "Can I transfer an existing domain to your hosting service?",
-				content:
-					"Absolutely! You can transfer your existing domain to our hosting platform seamlessly. Our team can guide you through the process, ensuring a smooth transition while consolidating your domain and hosting management in one place.",
-			},]
-  return (
-		<Block
-			styles="py-20 px-4 md:px-0 pb-24 grid place-items-center"
-			// style={{ backgroundColor: data.background[index] }}
-			>
-			<Text
-				tagName="h4"
-				styles="text-center text-lg font-semibold mb-12"
-				// style={{ color: data.color[index] }}
-				>
-				Variation - 
-			</Text>
-			{/* Include loopContent directly inside loopContentX */}
-			{Array.from({ length: 4 }, (_, loopIndex) => (
-				<Block styles="md:w-[65%] lg:w-[73%]" key={loopIndex}>
-					<Accordion
-						active={loopIndex === 0}
-						deactivate={loopIndex === 3}
-						variant={1}>
-						<AccordionHeader>
-							{accordions[loopIndex]?.title}
-						</AccordionHeader>
-						<AccordionDetails>
-							<Text styles="">{accordions[loopIndex]?.content}</Text>
-						</AccordionDetails>
-					</Accordion>
-				</Block>
-			))}
-		</Block>
+const Spinner = () => {
+	return (
+		<svg
+			className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24">
+			<circle
+				class="opacity-25"
+				cx="12"
+				cy="12"
+				r="10"
+				stroke="currentColor"
+				stroke-width="4"></circle>
+			<path
+				class="opacity-75"
+				fill="currentColor"
+				d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+		</svg>
 	);
 }
 
-export default Test
+const Test = () => {
+	const [iconLibrary, setIconLibrary] = useState("font-awesome");
+	const [searchQuery, setSearchQuery] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
+	const [showHelp, setShowHelp] = useState(false);
+	const [mappedArray, setMappedArray] = useState([]);
+
+	useEffect(() => {
+		setIsLoading(true);
+		const timeoutId = setTimeout(() => {
+			const filteredIcons = getFilteredIcons();
+			const mappedIcons = filteredIcons.map((icon, index) => (
+				<div
+					key={index}
+					className="aspect-square border border-gray-500 rounded-md shadow-md dark:shadow-slate-700 hover:shadow-none transition-shadow duration-300 grid place-items-center cursor-pointer"
+					onClick={() => {
+						const iconData = `icon = "${icon}" iconLibrary = "${iconLibrary}"`;
+						handleCopyClick(iconData);}}>
+						{isLoading ? <Spinner /> : 
+					<Icon icon={icon} iconLibrary="font-awesome" iconStyles="text-3xl" />}
+				</div>
+			));
+			setMappedArray(mappedIcons);
+			setIsLoading(false);
+		}, 300);
+
+		return () => clearTimeout(timeoutId);
+	}, [searchQuery, iconLibrary]);
+
+	const handleCopyClick = (content) => {
+		navigator.clipboard.writeText(content);
+	};
+
+	const getIconArray = () => {
+		switch (iconLibrary) {
+			case "font-awesome":
+				return fontawesomeClasses;
+			case "bootstrap-icons":
+				return bootstrapIcons;
+			case "icon-font":
+				return iconfontClasses;
+			default:
+				return [];
+		}
+	};
+
+	const getFilteredIcons = () => {
+		const iconArray = getIconArray();
+		return iconArray.filter((icon) =>
+			icon.toLowerCase().includes(searchQuery.toLowerCase())
+		);
+	};
+
+	return (
+		<div className="relative">
+			<div className="flex justify-center gap-10 my-6 relative">
+				<div className="flex gap-3">
+					<input
+						type="radio"
+						id="font-awesome"
+						name="iconLibrary"
+						value="font-awesome"
+						checked={iconLibrary === "font-awesome"}
+						onChange={() => setIconLibrary("font-awesome")}
+					/>
+					<label htmlFor="font-awesome">Font Awesome</label>
+				</div>
+
+				<div className="flex gap-3">
+					<input
+						type="radio"
+						id="bootstrap-icons"
+						name="iconLibrary"
+						value="bootstrap-icons"
+						checked={iconLibrary === "bootstrap-icons"}
+						onChange={() => setIconLibrary("bootstrap-icons")}
+					/>
+					<label htmlFor="bootstrap-icons">Bootstrap Icons</label>
+				</div>
+				<span
+					className="absolute top-0 right-0 border w-10 h-10 flex items-center justify-center rounded-full"
+					onClick={() => setShowHelp(!showHelp)}>
+					?
+				</span>
+			</div>
+
+			<input
+				type="text"
+				value={searchQuery}
+				onChange={(e) => setSearchQuery(e.target.value)}
+				placeholder="Search icons..."
+				className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+			/>
+			{showHelp && (
+				<div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 inline-block px-6 py-4 bg-red-500 ">
+					use this
+				</div>
+			)}
+			<div className="grid grid-cols-10 gap-3">{mappedArray}</div>
+		</div>
+	);
+};
+
+export default Test;
