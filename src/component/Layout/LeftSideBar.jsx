@@ -89,7 +89,12 @@ const LeftSideBar = () => {
 				</AccordionDetails>
 			</Accordion> */}
 
-			{Object.entries(Links).map(([category, links]) => (
+			{Object.entries(Links).map(([category, links]) => {
+				if (category === "Home") {
+					return null; // Skip rendering for category "Name"
+				}
+				console.log(category)
+				return(
 				<Accordion
 					key={category}
 					active={category == "Variations" ? false : true}
@@ -128,7 +133,7 @@ const LeftSideBar = () => {
 						))}
 					</AccordionDetails>
 				</Accordion>
-			))}
+			)})}
 		</div>
 	);
 };

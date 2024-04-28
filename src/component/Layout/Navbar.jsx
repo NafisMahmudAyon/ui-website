@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import UseThemeSwitcher from "../Hooks/UseThemeSwitcher";
-import { Logo, MoonIcon, SunIcon } from "../Icons";
+import { Logo, Logo1, MoonIcon, SunIcon } from "../Icons";
 import { useNavigate } from "react-router-dom";
 import { UseThemeSwitcher } from "landing-page-ui";
 
@@ -40,7 +40,7 @@ const Navbar = ({ toggleSidebar, className }) => {
 						isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
 					} `}></span>
 			</button>
-			<Logo
+			<Logo1
 				className="fill-darkBgColor dark:fill-bgColor cursor-pointer "
 				width={130}
 				onClick={handleLogoClick}

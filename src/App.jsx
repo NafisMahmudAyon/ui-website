@@ -287,7 +287,7 @@ function App() {
 					<Route
 						path="/test"
 						element={
-							<AppLayout RightSideBarContent={<About />}>
+							<AppLayout>
 								<TestPage />
 							</AppLayout>
 						}
