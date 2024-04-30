@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import AppLayout from "./component/AppLayout";
 import About from "./component/About";
+import Home from "./component/Home";
 import Overview from "./component/Pages/Overview";
 import Installation from "./component/Pages/Installation";
 import Usage from "./component/Pages/Usage";
@@ -19,7 +20,7 @@ import GridPage from "./component/Pages/Grid";
 import FlexPage from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
 import PlayGround from "./component/PlayGround/PlayGround";
-import TestPage from "./component/Pages/Test";
+import TestPage from "./component/Pages/Tests";
 import AvatarPage from "./component/Pages/Avatar";
 import { Block } from "landing-page-ui";
 import BlockPage from "./component/Pages/Block";
@@ -39,11 +40,11 @@ import AvatarVariations from "./component/Variations/Avatar";
 
 function App() {
 	return (
-		<Block styles="bg-slate-100 dark:bg-darkBgColor">
+		<Block styles="">
 			<BrowserRouter>
 				<Routes>
 					<Route
-						path="/"
+						path="/install"
 						element={
 							<AppLayout>
 								<Installation />
@@ -55,6 +56,14 @@ function App() {
 						element={
 							<AppLayout>
 								<About />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/"
+						element={
+							<AppLayout>
+								<Home />
 							</AppLayout>
 						}
 					/>

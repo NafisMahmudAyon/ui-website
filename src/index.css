@@ -23,6 +23,23 @@ body{
 
 
 
+.bg-grid{
+  background-image: url('/bg-grid.svg');
+}
+.bg-hero{
+  background-image: url('/ccc.svg');
+}
+:is(.dark .bg-grid){
+  background-image: url('/bg-grid-dark.svg');
+}
+
+.bg-home {
+  background-image: linear-gradient(to right bottom, #080b0e, #07101a, #051423, #03172e, #001a38, #001a38, #001a38, #001a38, #03172d, #051423, #061019, #080a0c);
+}
+
+:is(.dark .bg-home) {
+  background-image: linear-gradient(to right bottom, #a4c4dd, #b4cce4, #c3d4ea, #d2dcef, #dfe5f5, #e1e7f7, #e3eaf8, #e5ecfa, #dde8f8, #d4e5f6, #cbe2f4, #c1dff1);
+}
 
 
 

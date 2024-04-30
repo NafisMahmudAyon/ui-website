@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // import UseThemeSwitcher from "../Hooks/UseThemeSwitcher";
-import { Logo, Logo1, MoonIcon, SunIcon } from "../Icons";
+import { Logo, Logo1, MoonIcon, SunIcon, UI } from "../Icons";
 import { useNavigate } from "react-router-dom";
-import { UseThemeSwitcher } from "landing-page-ui";
+import { Block, UseThemeSwitcher } from "landing-page-ui";
 
 const Navbar = ({ toggleSidebar, className }) => {
 	const [mode, setMode] = UseThemeSwitcher();
@@ -40,11 +40,19 @@ const Navbar = ({ toggleSidebar, className }) => {
 						isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
 					} `}></span>
 			</button>
-			<Logo1
+			{/* <Logo
 				className="fill-darkBgColor dark:fill-bgColor cursor-pointer "
 				width={130}
 				onClick={handleLogoClick}
-			/>
+			/> */}
+			<Block styles="flex gap-2 items-center">
+				<UI width={60} />
+				<Logo
+					className="fill-darkBgColor dark:fill-bgColor cursor-pointer "
+					width={115}
+					onClick={handleLogoClick}
+				/>
+			</Block>
 			<button
 				onClick={() => setMode(mode === "light" ? "dark" : "light")}
 				className={`ml-3 flex items-center justify-center rounded-full p-1 ${

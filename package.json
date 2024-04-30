@@ -11,10 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "landing-page-ui": "^2.1.10",
+    "landing-page-ui": "^2.1.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-lottie": "^1.2.4",
     "react-router-dom": "^6.22.2",
     "react-syntax-highlighter": "^15.5.0"
   },
