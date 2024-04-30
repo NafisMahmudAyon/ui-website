@@ -35,13 +35,19 @@ const Home = () => {
 				<div className=" w-full mx-auto  ">
 					<div className="relative grid grid-cols-1 lg:grid-cols-2 gap-28 lg:gap-8 h-[calc(100vh-85px)] w-full max-w-[1400px] place-items-center mx-auto ">
 						<div className="flex flex-col items-center pt-7 px-4">
-							<h1 className="text-3xl lg:text-5xl flex items-center gap-2 justify-center">
+							<h1 className="text-3xl lg:text-5xl xl:text-7xl flex items-center gap-2 justify-center">
 								Landing Page{" "}
-								<span className="text-4xl inline-block">
+								<span className="text-4xl inline-block lg:hidden">
 									<UI width={40} height={40} />
 								</span>
+								<span className="text-7xl hidden lg:inline-block xl:hidden">
+									<UI width={48} height={48} />
+								</span>
+								<span className="text-7xl hidden xl:inline-block">
+									<UI width={72} height={72} />
+								</span>
 							</h1>
-							<p className="text-lg lg:text-5xl flex items-center gap-2 justify-center">
+							<p className="text-lg lg:text-2xl flex items-center gap-2 justify-center lg:pt-3">
 								React Component library
 							</p>
 							<p className=" text-balance text-center text-base mt-6 ">
@@ -50,8 +56,8 @@ const Home = () => {
 								create captivating pages with our seamless blend of React
 								components. <br></br>Elevate your designs today!
 							</p>
-							<div className="mt-7 flex items-center gap-5">
-								<div className="flex items-center gap-2 border border-gray-500 px-3 py-2 rounded-md">
+							<div className="mt-7 flex flex-col lg:flex-row items-center gap-5">
+								<div className="flex items-center gap-3 border border-gray-500 px-3 py-2 rounded-md">
 									<p className="font-code">npm i landing-page-ui</p>
 									<Icon
 										icon=" fa-copy"
@@ -63,7 +69,7 @@ const Home = () => {
 								<Block tagName='button' styles='px-6 py-2 dark:bg-bgColor dark:text-textColor bg-darkBgColor text-darkTextColor transition-all duration-300 ease-in-out rounded-lg text-lg font-semibold hover:bg-darkHoverBgColor hover:text-textHoverColor ' onClick={handleGetStarted} >Get Started</Block>
 							</div>
 						</div>
-						<div className="relative before:absolute before:top-1/2  before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:w-[400px] before:h-[600px] before:bg-[url('/zzz.svg')] before:bg-[length:80%_100%] before:lg:bg-contain before:bg-no-repeat before:bg-center before:content-[''] before:pb-7">
+						<div className="relative before:absolute before:top-1/2  before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:w-[100%] before:h-[100%] before:bg-[url('/ttt.svg')] before:bg-[length:80%_100%] before:lg:bg-contain before:bg-no-repeat before:bg-center before:content-[''] before:pb-7">
 							<Image
 								src="/rrr.png"
 								alt="Hero Image"

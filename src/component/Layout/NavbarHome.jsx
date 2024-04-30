@@ -41,12 +41,12 @@ const NavbarHome = ({ toggleSidebar, className }) => {
 							isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
 						} `}></span>
 				</button>
-				<Block styles="flex gap-2 items-center">
+				<Block styles="flex gap-2 items-center" onClick={handleLogoClick}>
 <UI width={60} />
 				<Logo
 					className="fill-darkBgColor dark:fill-bgColor cursor-pointer "
 					width={115}
-					onClick={handleLogoClick}
+					
 					/>
 					</Block>
 				<button
