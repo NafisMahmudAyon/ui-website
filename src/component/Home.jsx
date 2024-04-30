@@ -52,7 +52,7 @@ const Home = () => {
 							</p>
 							<p className=" text-balance text-center text-base mt-6 ">
 								Introducing Landing Page UI – your go-to library for creating
-								stunning landing pages with React and Tailwind CSS. Effortlessly
+								stunning landing pages with React <Icon icon='fa-react' /> and Tailwind CSS. Effortlessly
 								create captivating pages with our seamless blend of React
 								components. <br></br>Elevate your designs today!
 							</p>

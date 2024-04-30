@@ -20,7 +20,7 @@ import GridPage from "./component/Pages/Grid";
 import FlexPage from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
 import PlayGround from "./component/PlayGround/PlayGround";
-import TestPage from "./component/Pages/Tests";
+import TestPage from "./component/Pages/Test";
 import AvatarPage from "./component/Pages/Avatar";
 import { Block } from "landing-page-ui";
 import BlockPage from "./component/Pages/Block";

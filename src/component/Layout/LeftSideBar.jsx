@@ -98,7 +98,9 @@ const LeftSideBar = () => {
 				<Accordion
 					key={category}
 					active={category == "Variations" ? false : true}
-					styles="mb-2">
+					styles=" "
+					headerStyles="!bg-transparent !border-0 "
+					detailsStyles="!border-0">
 					<AccordionHeader
 						iconLibrary="bootstrap-icons"
 						icon="bi-caret-right-fill"
@@ -106,11 +108,11 @@ const LeftSideBar = () => {
 						toggleIconStyles={``}
 						toggleIcon="bi-caret-down"
 						iconPosition="before"
-						styles="hover:bg-hoverBgColor p-1 rounded-md font-mono"
+						styles="!bg-transparent"
 						activeStyles="">
 						{category}
 					</AccordionHeader>
-					<AccordionDetails styles="">
+					<AccordionDetails styles="!border-0 !py-2 !pt-0">
 						{links.map((link) => (
 							<a
 								key={link.path}
