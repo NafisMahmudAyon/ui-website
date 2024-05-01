@@ -94,48 +94,50 @@ const LeftSideBar = () => {
 					return null; // Skip rendering for category "Name"
 				}
 				console.log(category)
-				return(
-				<Accordion
-					key={category}
-					active={category == "Variations" ? false : true}
-					styles=" "
-					headerStyles="!bg-transparent !border-0 "
-					detailsStyles="!border-0">
-					<AccordionHeader
-						iconLibrary="bootstrap-icons"
-						icon="bi-caret-right-fill"
-						iconStyles=""
-						toggleIconStyles={``}
-						toggleIcon="bi-caret-down"
-						iconPosition="before"
-						styles="!bg-transparent"
-						activeStyles="">
-						{category}
-					</AccordionHeader>
-					<AccordionDetails styles="!border-0 !py-2 !pt-0">
-						{links.map((link) => (
-							<a
-								key={link.path}
-								href={link.path}
-								className={`pl-[20px] block text-sm py-[2px] rounded-md hover:bg-hoverBgColor ${
-									pathName == link.path
-										? "bg-hoverBgColor dark:bg-darkHoverBgColor"
-										: ""
-								}`}>
-								{/* <LinkArrow /> */}
-								<span
-									className={`${
-										link.title == "All Components"
-											? "border-b pb-[4px] mb-1 w-full inline-block border-slate-400/20 "
+				return (
+					<Accordion
+						key={category}
+						active={category == "Variations" ? false : true}
+						styles=" "
+						variant="none"
+						headerStyles="!bg-transparent !border-0 flex gap-2 items-center "
+						detailsStyles="">
+						<AccordionHeader
+							iconLibrary="bootstrap-icons"
+							icon="bi-caret-right-fill"
+							iconStyles="text-[#6fb8e6]"
+							toggleIconStyles=""
+							toggleIcon="bi-caret-down"
+							iconPosition="before"
+							styles="!bg-transparent"
+							activeStyles=""
+							variant="none">
+							{category}
+						</AccordionHeader>
+						<AccordionDetails styles="!border-0 !py-2 !pt-0 px-2">
+							{links.map((link) => (
+								<a
+									key={link.path}
+									href={link.path}
+									className={`pl-[20px] block text-sm py-[2px] rounded-md hover:bg-hoverBgColor ${
+										pathName == link.path
+											? "bg-hoverBgColor dark:bg-darkHoverBgColor"
 											: ""
-									} `}>
-									{link.title}
-								</span>
-							</a>
-						))}
-					</AccordionDetails>
-				</Accordion>
-			)})}
+									}`}>
+									{/* <LinkArrow /> */}
+									<span
+										className={`${
+											link.title == "All Components"
+												? "border-b pb-[4px] mb-1 w-full inline-block border-slate-400/20 "
+												: ""
+										} `}>
+										{link.title}
+									</span>
+								</a>
+							))}
+						</AccordionDetails>
+					</Accordion>
+				);})}
 		</div>
 	);
 };

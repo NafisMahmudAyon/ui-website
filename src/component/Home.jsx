@@ -53,7 +53,7 @@ const Home = () => {
 	return (
 		<>
 			<div className="relative w-full text-textColor dark:text-darkTextColor transition-all duration-300 ease-in-out ">
-				<div className="absolute -z-[1] inset-0 bg-color bg-top bg-no-repeat dark:bg-home h-[960px] lg:h-[100dvh]">
+				<div className="absolute -z-[1] inset-0 bg-color bg-top bg-no-repeat bg-home h-[960px] lg:h-[100dvh]">
 					<div
 						className="absolute inset-0 bg-[bottom_1px_center] bg-grid dark:bg-bottom dark:border-b dark:border-slate-100/5"
 						style={{ maskImage: "linear-gradient(transparent, black)" }}></div>
@@ -90,12 +90,16 @@ const Home = () => {
 								</Text>
 							</p>
 							<div className="mt-7 flex flex-col lg:flex-row items-center gap-5">
-								<div className="flex items-center gap-3 border border-gray-500 hover:border-[#6fb8e6] group px-3 py-2 rounded-md">
+								<div className="flex items-center gap-3 border border-gray-500 hover:border-gray-950 hover:dark:border-[#6fb8e6] group px-3 py-2 rounded-md">
 									<p className="font-code flex gap-2">
-										<Text tagName="span" styles="text-[#c699e3]">
+										<Text
+											tagName="span"
+											styles="dark:text-[#c699e3] text-[#7e4bdd] ">
 											npm
 										</Text>{" "}
-										<Text tagName="span" styles="group-hover:text-[#6fb8e6]">
+										<Text
+											tagName="span"
+											styles="group-hover:text-gray-950 group-hover:dark:text-[#6fb8e6]">
 											i landing-page-ui
 										</Text>
 									</p>
@@ -103,7 +107,7 @@ const Home = () => {
 										icon=" fa-copy"
 										iconLibrary="font-awesome"
 										title="Click to copy"
-										iconStyles="group-hover:text-[#6fb8e6]"
+										iconStyles="group-hover:text-gray-950 group-hover:dark:text-[#6fb8e6]"
 										onClick={handleCopy}
 									/>{" "}
 								</div>
@@ -126,7 +130,12 @@ const Home = () => {
 							<Lottie options={defaultOptions} width={60} />{" "}
 						</Block>
 					</div>
-					<Block tagName="div" styles="hidden pt-8 w-full max-w-[1400px] mx-auto px-4">
+					<Block
+            tagName="div"
+            styles="hidden w-full bg-home pb-10">
+					<Block
+						tagName="div"
+						styles=" pt-8 w-full max-w-[1400px] mx-auto px-4 ">
 						<Text tagName="h2" styles="text-center text-4xl font-medium ">
 							Components
 						</Text>
@@ -158,21 +167,21 @@ const Home = () => {
 						</Block>
 						<Block
 							tagName="div"
-							styles="flex items-center justify-center mb-10 min-h-[600px]">
-							{currentImageData && (
+							styles="flex items-center justify-center min-h-[600px]">
+							{/* {currentImageData && ( */}
 								<Image
 									src={
 										currentImageData !== undefined
-											? currentImageData.src
+											? currentImageData?.src
 											: "/rrr.png"
 									}
 									imageStyles="w-3/4 object-contain max-h-[600px]"
 								/>
-							)}
+							{/* )} */}
 
 							{/* {componentData.title} */}
 						</Block>
-					</Block>
+					</Block></Block>
 					{/* <div className="h-[100vh]"></div> */}
 				</div>
 			</div>
