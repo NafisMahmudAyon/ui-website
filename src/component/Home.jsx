@@ -5,6 +5,7 @@ import { Block, Icon, Image, Text } from "landing-page-ui";
 import Lottie from "react-lottie";
 import animationData from "../../public/scroll-down.json";
 import Links from "../links";
+import LeftSideBar from "./Layout/LeftSideBar";
 
 const Home = () => {
 	const [componentData, setComponentData] = useState({
@@ -14,6 +15,11 @@ const Home = () => {
 		headDescription: "Explore the Accordion component of the Landing Page UI.",
 	});
 	console.log(componentData);
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+	const toggleSidebar = () => {
+		setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar state
+	};
 	const handleGetStarted = () => {
 		// Navigate to "/install"
 		window.location.href = "/install";
@@ -58,7 +64,23 @@ const Home = () => {
 						className="absolute inset-0 bg-[bottom_1px_center] bg-grid dark:bg-bottom dark:border-b dark:border-slate-100/5"
 						style={{ maskImage: "linear-gradient(transparent, black)" }}></div>
 				</div>
-				<NavbarHome />
+				<NavbarHome
+					toggleSidebar={toggleSidebar}
+					// className="fixed z-30 top-0 left-0 w-full"
+				/>
+				{/* <div
+					className={` ${
+						isSidebarOpen
+							? "absolute top-[85px] left-0 w-full  min-h-[calc(100%_-_85px)] -z-0 bg-black/50"
+							: ""
+					} `}></div>
+					<div className="flex pt-[85px] flex-nowrap flex-col md:flex-row lg:flex-row relative h-screen overflow-y-scroll">
+						<div
+							className={`fixed top-[85px] -left-[300px] w-[300px] transition-all duration-300 ease-in-out  pl-3 pr-5  border-r bg-darkBgColor text-darkTextColor z-50 overflow-y-scroll h-[calc(100vh_-_85px)] ${
+								isSidebarOpen ? "left-0" : ""
+							} `}>
+							<LeftSideBar />
+						</div></div> */}
 				{/* container  */}
 				<div className=" w-full mx-auto  ">
 					<div className="relative pb-8 grid grid-cols-1 lg:grid-cols-2 gap-28 lg:gap-8  lg:h-[calc(100vh-85px)] w-full max-w-[1400px] place-items-center mx-auto ">
@@ -130,45 +152,43 @@ const Home = () => {
 							<Lottie options={defaultOptions} width={60} />{" "}
 						</Block>
 					</div>
-					<Block
-            tagName="div"
-            styles="hidden w-full bg-home pb-10">
-					<Block
-						tagName="div"
-						styles=" pt-8 w-full max-w-[1400px] mx-auto px-4 ">
-						<Text tagName="h2" styles="text-center text-4xl font-medium ">
-							Components
-						</Text>
-						<Text
-							tagName="p"
-							styles="text-center text-lg font-medium pt-2 pb-6 ">
-							Explore all Components.
-						</Text>
+					<Block tagName="div" styles="hidden w-full bg-home pb-10">
 						<Block
 							tagName="div"
-							styles="pt-8 pb-6 flex gap-3 flex-wrap items-center justify-center ">
-							{Object.entries(Links).map(([category, links]) => {
-								if (category == "Components") {
-									return (
-										<>
-											{links.map((link, index) => (
-												<Block
-													tagName="div"
-													key={index}
-													styles="px-6 py-2 dark:bg-bgColor dark:text-textColor bg-darkBgColor text-darkTextColor transition-all duration-300 ease-in-out rounded-lg text-lg font-semibold hover:bg-darkHoverBgColor hover:text-textHoverColor dark:hover:bg-darkHoverBgColor dark:hover:text-[#6fb8e6]"
-													onMouseEnter={() => handleHover(link)}>
-													{link.title}
-												</Block>
-											))}
-										</>
-									);
-								}
-							})}
-						</Block>
-						<Block
-							tagName="div"
-							styles="flex items-center justify-center min-h-[600px]">
-							{/* {currentImageData && ( */}
+							styles=" pt-8 w-full max-w-[1400px] mx-auto px-4 ">
+							<Text tagName="h2" styles="text-center text-4xl font-medium ">
+								Components
+							</Text>
+							<Text
+								tagName="p"
+								styles="text-center text-lg font-medium pt-2 pb-6 ">
+								Explore all Components.
+							</Text>
+							<Block
+								tagName="div"
+								styles="pt-8 pb-6 flex gap-3 flex-wrap items-center justify-center ">
+								{Object.entries(Links).map(([category, links]) => {
+									if (category == "Components") {
+										return (
+											<>
+												{links.map((link, index) => (
+													<Block
+														tagName="div"
+														key={index}
+														styles="px-6 py-2 dark:bg-bgColor dark:text-textColor bg-darkBgColor text-darkTextColor transition-all duration-300 ease-in-out rounded-lg text-lg font-semibold hover:bg-darkHoverBgColor hover:text-textHoverColor dark:hover:bg-darkHoverBgColor dark:hover:text-[#6fb8e6]"
+														onMouseEnter={() => handleHover(link)}>
+														{link.title}
+													</Block>
+												))}
+											</>
+										);
+									}
+								})}
+							</Block>
+							<Block
+								tagName="div"
+								styles="flex items-center justify-center min-h-[600px]">
+								{/* {currentImageData && ( */}
 								<Image
 									src={
 										currentImageData !== undefined
@@ -177,11 +197,12 @@ const Home = () => {
 									}
 									imageStyles="w-3/4 object-contain max-h-[600px]"
 								/>
-							{/* )} */}
+								{/* )} */}
 
-							{/* {componentData.title} */}
+								{/* {componentData.title} */}
+							</Block>
 						</Block>
-					</Block></Block>
+					</Block>
 					{/* <div className="h-[100vh]"></div> */}
 				</div>
 			</div>
