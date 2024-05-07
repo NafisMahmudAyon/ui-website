@@ -21,6 +21,7 @@ import FlexPage from "./component/Pages/Flex";
 import ComboList from "./component/Pages/ComboList";
 import PlayGround from "./component/PlayGround/PlayGround";
 import TestPage from "./component/Pages/Test";
+import Apps from "./component/Testing/App";
 import AvatarPage from "./component/Pages/Avatar";
 import { Block } from "landing-page-ui";
 import BlockPage from "./component/Pages/Block";
@@ -37,6 +38,8 @@ import TablePage from "./component/Pages/Table";
 import ListPage from "./component/Pages/List";
 import AccordionVariations from "./component/Variations/Accordion";
 import AvatarVariations from "./component/Variations/Avatar";
+import BadgeVariations from "./component/Variations/Badge";
+import CardVariations from "./component/Variations/Card";
 
 function App() {
 	return (
@@ -301,6 +304,14 @@ function App() {
 							</AppLayout>
 						}
 					/>
+					<Route
+						path="/testing"
+						element={
+							<AppLayout>
+								<Apps />
+							</AppLayout>
+						}
+					/>
 					{/* //*variations routing */}
 					<Route
 						path="/variations/accordion"
@@ -315,6 +326,22 @@ function App() {
 						element={
 							<AppLayout>
 								<AvatarVariations />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/variations/badge"
+						element={
+							<AppLayout>
+								<BadgeVariations />
+							</AppLayout>
+						}
+					/>
+					<Route
+						path="/variations/card"
+						element={
+							<AppLayout>
+								<CardVariations />
 							</AppLayout>
 						}
 					/>
