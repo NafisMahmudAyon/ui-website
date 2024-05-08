@@ -152,7 +152,7 @@ const Home = () => {
 							<Lottie options={defaultOptions} width={60} />{" "}
 						</Block>
 					</div>
-					<Block tagName="div" styles=" w-full bg-home pb-10">
+					<Block tagName="div" styles="hidden w-full bg-home pb-10">
 						<Block
 							tagName="div"
 							styles=" pt-8 w-full max-w-[1400px] mx-auto px-4 ">
