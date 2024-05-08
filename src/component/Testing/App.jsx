@@ -4,13 +4,20 @@ import {
 	AccordionDetails,
 	Text,
 	Block,
-	// Checkbox,
+	Checkbox,
 } from "landing-page-ui";
 
 const App = () => {
 	return (
 		<Block tagName="div">
-			{/* <Checkbox icon="fa-bell" iconLibrary="font-awesome" checkedIcon="fa-box" /> */}
+			<Checkbox
+				icon="fa-times"
+				iconLibrary="font-awesome"
+				checkedIcon="fa-check"
+			/>
+			<Checkbox
+				
+			/>
 		</Block>
 	);
 };
