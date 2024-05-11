@@ -4,14 +4,14 @@ import {
 	AccordionDetails,
 	Text,
 	Block,
-	Checkbox,
+	// Checkbox,
 	Input,
 } from "landing-page-ui";
 
 const App = () => {
 	return (
 		<Block tagName="div">
-			<Checkbox
+			{/* <Checkbox
 				icon="fa-times"
 				iconLibrary="font-awesome"
 				checkedIcon="fa-check"
@@ -20,7 +20,7 @@ const App = () => {
 			/>
 			<Checkbox
 				
-			/>
+			/> */}
 			<Input type="password" label="fff" labelStyless="ui_input_label" labelStyles="inline  " inputStyles=" peer placeholder:text-transparent ui_input_field " required requiredStyles="text-red-500" icon="fa-bell" iconEnable styles="w-28" />
 			<div className="relative mt-10">
 				<label for="">
