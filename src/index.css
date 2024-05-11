@@ -43,9 +43,6 @@ body{
   background-image: linear-gradient(to right bottom, #080b0e, #07101a, #051423, #03172e, #001a38, #001a38, #001a38, #001a38, #03172d, #051423, #061019, #080a0c);
 }
 
-
-
-
 .height{
   min-height: 100%;
 }
@@ -210,3 +207,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+
+.ui_input_field:placeholder-shown ~ .ui_input_label {
+  font-size: 10px;
+}

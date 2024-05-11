@@ -83,7 +83,7 @@ const Home = () => {
 						</div></div> */}
 				{/* container  */}
 				<div className=" w-full mx-auto  ">
-					<div className="relative pb-8 grid grid-cols-1 lg:grid-cols-2 gap-28 lg:gap-8  lg:h-[calc(100vh-85px)] w-full max-w-[1400px] place-items-center mx-auto ">
+					<div className="relative pb-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-28 lg:gap-8  lg:h-[calc(100vh-85px)] w-full max-w-[1400px] place-items-center mx-auto ">
 						<div className="flex flex-col items-center pt-7 px-4">
 							<h1 className="text-3xl lg:text-5xl xl:text-7xl flex items-center gap-2 justify-center">
 								Landing Page{" "}
@@ -140,6 +140,17 @@ const Home = () => {
 									Get Started
 								</Block>
 							</div>
+							<a
+								href="https://www.producthunt.com/posts/landing-page-ui?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-landing-page-ui"
+								target="_blank" className="w-[200px] mt-4 ">
+								<img
+									src={`https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=456159&theme=light`}
+									alt="Landing Page UI - Easily Create Beautiful Landing Pages with us. | Product Hunt"
+									style={{ width: "250px", height: "54px" }}
+									width="250"
+									height="54"
+								/>
+							</a>
 						</div>
 						<div className="relative before:absolute before:top-1/2  before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:w-[100%] before:h-[100%] before:bg-[url('/rrr.svg')] before:dark:bg-[url('/ttt.svg')] before:bg-[length:80%_100%] before:lg:bg-contain before:bg-no-repeat before:bg-center before:content-[''] before:pb-7">
 							<Image
