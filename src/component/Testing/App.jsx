@@ -6,11 +6,18 @@ import {
 	Block,
 	Checkbox,
 	Input,
+	RadioGroup,
+	Radio,
 } from "landing-page-ui";
 
 const App = () => {
 	return (
 		<Block tagName="div">
+			<RadioGroup name="Helggldo">
+				<Radio id="option1"  value="option1" />
+				{/* <Checkbox /> */}
+				<Radio id="option2"  value="option2" />
+			</RadioGroup>
 			<Checkbox
 				icon="fa-times"
 				iconLibrary="font-awesome"
@@ -18,7 +25,7 @@ const App = () => {
 				label="hello"
 				labelPosition="before"
 			/>
-			<Checkbox label="hhh" id="aae" labelPosition="after"  />
+			<Checkbox label="hhh" id="aae" labelPosition="after" />
 			<Input
 				type="password"
 				label="fff"
@@ -42,7 +49,6 @@ const App = () => {
 					</span>
 				</label>
 			</div>
-			
 		</Block>
 	);
 };
